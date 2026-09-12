@@ -1,0 +1,1318 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background: #f9fafb;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+h1 { color: #0d9488; margin-bottom: 16px; }
+
+.card {
+  background: #f0fdfa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #99f6e4;
+  margin-top: 20px;
+}
+
+#demoBtn {
+  padding: 10px 22px;
+  background: #0d9488;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#demoBtn:hover { background: #0f766e; }</style></head><body><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SevaCheck Kerala — Know What You Need Before You Apply</title>
+  <meta name="description" content="Independent information and document checklist platform for Kerala Government services.">
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --primary-dark: #1e40af;
+      --primary-light: #eff6ff;
+      --accent: #2563eb;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --warning-bg: #fffbeb;
+      --warning-border: #fcd34d;
+      --warning-text: #92400e;
+      --success-bg: #ecfdf5;
+      --success-text: #065f46;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.03);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .brand span.badge {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.15s ease;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--primary);
+    }
+
+    /* Disclaimer Top Banner */
+    .top-disclaimer {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 0.4rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 2.5rem 1rem 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.75rem;
+    }
+
+    /* Search Box */
+    .search-wrapper {
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 1rem 1.25rem 1rem 3rem;
+      font-size: 1.05rem;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      background: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1.1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* Smart Helper Section */
+    .smart-helper {
+      margin: 2.5rem auto 1.5rem;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .smart-helper h3 {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-bottom: 0.75rem;
+    }
+
+    .smart-helper-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .helper-chip {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid #bfdbfe;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .helper-chip:hover, .helper-chip.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Service Cards Grid */
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin: 2rem 0 1rem;
+      color: var(--text-main);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title .count {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: #cbd5e1;
+    }
+
+    .card-top {
+      margin-bottom: 1rem;
+    }
+
+    .service-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
+    .service-card h2 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .service-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.75rem;
+      border-top: 1px solid #f1f5f9;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .card-link {
+      font-weight: 600;
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    /* Warning/Trust Banner */
+    .trust-banner {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin: 2.5rem 0;
+      color: var(--warning-text);
+      font-size: 0.9rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .trust-banner strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-weight: 700;
+    }
+
+    /* View: Service Detail */
+    .detail-view {
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 1.25rem;
+      padding: 0.4rem 0;
+    }
+
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+
+    .detail-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-header h1 {
+      font-size: 1.8rem;
+      color: var(--text-main);
+      margin-bottom: 0.4rem;
+    }
+
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .tag-badge {
+      background: #f1f5f9;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .detail-section {
+      margin-bottom: 1.75rem;
+    }
+
+    .detail-section h2 {
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .checklist {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: var(--radius-sm);
+      background: #f8fafc;
+      margin-bottom: 0.35rem;
+      border: 1px solid #f1f5f9;
+    }
+
+    .checklist-item input[type="checkbox"] {
+      margin-top: 0.25rem;
+      cursor: pointer;
+      width: 17px;
+      height: 17px;
+      accent-color: var(--primary);
+    }
+
+    .checklist-item label {
+      font-size: 0.92rem;
+      color: var(--text-main);
+      cursor: pointer;
+      flex: 1;
+    }
+
+    .checklist-item.checked {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+    }
+
+    .checklist-item.checked label {
+      text-decoration: line-through;
+      color: var(--text-muted);
+    }
+
+    .step-list {
+      padding-left: 1.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .step-list li {
+      margin-bottom: 0.5rem;
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .action-box {
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-top: 1.5rem;
+    }
+
+    .btn-official {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .btn-official:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+
+    .btn-disabled:hover {
+      background: #94a3b8;
+    }
+
+    .verification-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Views for Static Pages */
+    .static-page {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .static-page h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .static-page h2 {
+      font-size: 1.25rem;
+      margin: 1.25rem 0 0.5rem;
+      color: var(--text-main);
+    }
+
+    .static-page p, .static-page li {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-color);
+      padding: 2rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    /* Mobile adaptations */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero p {
+        font-size: 0.95rem;
+      }
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+      .detail-card {
+        padding: 1.25rem;
+      }
+      nav ul {
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Safety Banner -->
+  <div class="top-disclaimer">
+    ℹ️ SevaCheck Kerala is an independent guidance platform. Always verify through official government sources.
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand" onclick="navigateTo('home')">
+        📄 SevaCheck Kerala
+      </a>
+      <nav>
+        <ul>
+          <li><a href="javascript:void(0)" id="nav-home" class="active" onclick="navigateTo('home')">Home</a></li>
+          <li><a href="javascript:void(0)" id="nav-services" onclick="navigateTo('services')">Services</a></li>
+          <li><a href="javascript:void(0)" id="nav-how" onclick="navigateTo('how')">How It Works</a></li>
+          <li><a href="javascript:void(0)" id="nav-about" onclick="navigateTo('about')">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- VIEW: HOME / SERVICES -->
+    <div id="view-home">
+      <section class="hero">
+        <h1>Know what you need before you apply.</h1>
+        <p>Simple document checklists, eligibility guidelines, and application steps for Kerala residents.</p>
+
+        <!-- Search Box -->
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search a Government service... (e.g., Income, Driving Licence)"
+            onkeyup="handleSearch()"
+            autocomplete="off"
+          >
+        </div>
+      </section>
+
+      <!-- Smart User Filter -->
+      <section class="smart-helper">
+        <h3>Not sure what service you need?</h3>
+        <div class="smart-helper-buttons">
+          <button class="helper-chip active" onclick="filterCategory('all', this)">All Services</button>
+          <button class="helper-chip" onclick="filterCategory('certificate', this)">I need a certificate</button>
+          <button class="helper-chip" onclick="filterCategory('id', this)">I need a government ID</button>
+          <button class="helper-chip" onclick="filterCategory('licence', this)">I need a licence</button>
+          <button class="helper-chip" onclick="filterCategory('register', this)">I need to register something</button>
+        </div>
+      </section>
+
+      <!-- Popular Services Grid -->
+      <div class="section-title">
+        <span id="sectionHeading">Popular Services</span>
+        <span class="count" id="servicesCount">Showing 10 services</span>
+      </div>
+
+      <div class="service-grid" id="serviceGrid">
+        <!-- Cards injected via JavaScript -->
+      </div>
+
+      <div class="empty-state" id="emptyState">
+        <h3>No matching service found.</h3>
+        <p>Try searching for words like "Income", "Passport", "Birth", or "Licence".</p>
+      </div>
+
+      <!-- Trust Notice Section -->
+      <div class="trust-banner">
+        <div>⚠️</div>
+        <div>
+          <strong>Important Notice & Safety Disclaimer:</strong>
+          Government requirements, fees, eligibility rules, and procedures can change. Always verify the latest information from the official Kerala Government portal or authorised Akshaya / e-Seva Kendram before applying. We do not provide guarantees or government application processing.
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW: SERVICE DETAIL -->
+    <div id="view-detail" class="detail-view">
+      <button class="back-btn" onclick="backToHome()">← Back to all services</button>
+
+      <div class="detail-card">
+        <div class="detail-header">
+          <h1 id="detailTitle">Service Name</h1>
+          <p id="detailDesc" style="color: var(--text-muted); font-size: 1rem;"></p>
+          <div class="badge-bar" id="detailBadges"></div>
+        </div>
+
+        <div class="detail-section">
+          <h2>👥 Who May Need It</h2>
+          <p id="detailWho"></p>
+        </div>
+
+        <div class="detail-section">
+          <h2>✅ Basic Eligibility</h2>
+          <p id="detailEligibility"></p>
+        </div>
+
+        <div class="detail-section">
+          <h2>📄 Documents to Prepare (Interactive Checklist)</h2>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+            Check the boxes as you assemble your paperwork:
+          </p>
+          <div id="detailDocs" class="checklist"></div>
+        </div>
+
+        <div class="detail-section" id="additionalDocsSection" style="display: none;">
+          <h2>📎 Additional / Supporting Documents (If Applicable)</h2>
+          <ul id="detailAdditionalDocs" style="padding-left: 1.25rem; font-size: 0.92rem; color: var(--text-muted);"></ul>
+        </div>
+
+        <div class="detail-section">
+          <h2>📍 Where to Apply</h2>
+          <p id="detailWhere"></p>
+        </div>
+
+        <div class="detail-section">
+          <h2>📋 Basic Step-by-Step Instructions</h2>
+          <ol class="step-list" id="detailSteps"></ol>
+        </div>
+
+        <div class="detail-section">
+          <h2>ℹ️ Important Notes</h2>
+          <p id="detailNotes" style="font-size: 0.9rem; color: var(--text-muted); background: #f8fafc; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent);"></p>
+        </div>
+
+        <div class="action-box">
+          <div id="officialBtnWrapper"></div>
+          <div class="verification-note" id="detailLastVerified"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW: HOW IT WORKS -->
+    <div id="view-how" class="static-page">
+      <h1>How SevaCheck Kerala Works</h1>
+      <p>Applying for government services does not need to involve multiple trips to offices just to find out which document is missing.</p>
+      
+      <h2>1. Search your service</h2>
+      <p>Look up the certificate, licence, or document you need through our quick search index.</p>
+
+      <h2>2. Check basic eligibility</h2>
+      <p>Review the standard criteria required under Kerala state guidelines or central requirements.</p>
+
+      <h2>3. Prepare your documents</h2>
+      <p>Use our interactive checklists to tick off documents before you visit an Akshaya centre or submit online.</p>
+
+      <h2>4. Visit the official portal or service centre</h2>
+      <p>Access genuine, official government portals (such as e-District Kerala, Parivahan, or Passport Seva) without falling for phishing or third-party agent portals.</p>
+
+      <h2>5. Apply and track your application</h2>
+      <p>Submit through official channels and save your application receipt or acknowledgement number.</p>
+
+      <div style="margin-top: 2rem;">
+        <button class="btn-official" onclick="navigateTo('home')">Get Started</button>
+      </div>
+    </div>
+
+    <!-- VIEW: ABOUT -->
+    <div id="view-about" class="static-page">
+      <h1>About SevaCheck Kerala</h1>
+      <p><strong>SevaCheck Kerala</strong> is an independent information and guidance platform created to reduce confusion regarding public administrative procedures in Kerala.</p>
+
+      <h2>Our Core Rules</h2>
+      <ul>
+        <li><strong>No Personal Identifiers Collected:</strong> We do not ask for, process, or store your Aadhaar digits, passwords, or personal credentials.</li>
+        <li><strong>No Government Affiliation:</strong> We are not a government agency, not an Akshaya centre, and not affiliated with the Government of Kerala.</li>
+        <li><strong>Official Redirects Only:</strong> Whenever we link out, we only link to verified government domains (`.gov.in`, `.nic.in`).</li>
+        <li><strong>No Guaranteed Claims:</strong> We never promise fast approvals or document issuance, as only authorized government officers hold that statutory power.</li>
+      </ul>
+
+      <h2>Feedback & Updates</h2>
+      <p>Rules and required proofs change periodically through official gazette notifications. If you notice outdated information, verify with the official department website.</p>
+
+      <div style="margin-top: 2rem;">
+        <button class="btn-official" onclick="navigateTo('home')">Back to Home</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 SevaCheck Kerala — Independent Informational Prototype.</p>
+    <p style="margin-top: 0.3rem;">Designed for Kerala citizens. All brand names, department names, and portals belong to their respective authorities.</p>
+  </footer>
+
+  <script>
+    // ==========================================
+    // 1. DATA STRUCTURE (Extensible V1 Data)
+    // ==========================================
+    const servicesData = [
+      {
+        id: "income-certificate",
+        name: "Income Certificate",
+        malayalamName: "വരുമാന സർട്ടിഫിക്കറ്റ്",
+        category: "certificate",
+        icon: "💰",
+        summary: "Proof of annual family income required for scholarships, fee concessions, and state welfare schemes.",
+        whoNeeds: "Students applying for fee reductions or scholarships, and citizens applying for government welfare schemes.",
+        eligibility: "Kerala residents requiring proof of annual family income based on Revenue Department assessments.",
+        documents: [
+          "Aadhaar / Recognized Photo Identity Proof",
+          "Ration Card copy",
+          "Salary Certificate (for salaried applicants) or Form 16",
+          "Land Tax receipt (Thandaper / Karam receipt) if land is owned",
+          "Income declaration or self-declaration affidavit"
+        ],
+        additionalDocs: [
+          "Pension payment order copy (for pensioners)",
+          "Building tax receipt (if residing in municipality/corporation)"
+        ],
+        whereToApply: "Online via Kerala e-District portal or in-person at your local Akshaya Centre / Village Office.",
+        mode: "Online & Offline",
+        steps: [
+          "Gather identity proof, ration card, and income proof (salary slip or land tax receipt).",
+          "Login to Kerala e-District or visit the nearest Akshaya Centre.",
+          "Fill out applicant details and upload scanned copies of documents.",
+          "Submit application to the Village Officer.",
+          "Track status online using the Application Number. Once approved, download the digitally signed certificate."
+        ],
+        officialUrl: "https://edistrict.kerala.gov.in",
+        notes: "Validity is usually 1 year from the date of issue unless specified otherwise by scheme rules.",
+        lastVerified: "March 2026",
+        verified: true
+      },
+      {
+        id: "residence-certificate",
+        name: "Residence Certificate",
+        malayalamName: "താമസ സർട്ടിഫിക്കറ്റ്",
+        category: "certificate",
+        icon: "🏠",
+        summary: "Confirms that an applicant currently resides at a specific address in a Kerala local body.",
+        whoNeeds: "Individuals needing address validation for banking, utility connections, or local welfare schemes.",
+        eligibility: "Any individual actively residing within the jurisdiction of the concerned Local Self Government (Panchayath / Municipality / Corporation) or Village.",
+        documents: [
+          "Aadhaar / Voter ID / Passport (Identity Proof)",
+          "Ration Card or Residential Electricity Bill",
+          "Recent Property Tax or Building Tax Receipt",
+          "Self-declaration of residence duration"
+        ],
+        additionalDocs: [
+          "Rent agreement or landlord certificate if living in a rented house"
+        ],
+        whereToApply: "Online through e-District Kerala / Citizen Portal, or local Village Office / Akshaya Centre.",
+        mode: "Online & Offline",
+        steps: [
+          "Collect proof of address and property/rental records.",
+          "Submit application via e-District portal or at an Akshaya centre.",
+          "Field verification may be conducted by the Village Assistant if necessary.",
+          "Download digitally signed certificate upon approval."
+        ],
+        officialUrl: "https://edistrict.kerala.gov.in",
+        notes: "Often distinct from Nativity Certificate; Residence proves current physical address.",
+        lastVerified: "March 2026",
+        verified: true
+      },
+      {
+        id: "nativity-certificate",
+        name: "Nativity Certificate",
+        malayalamName: "നേറ്റിവിറ്റി സർട്ടിഫിക്കറ്റ്",
+        category: "certificate",
+        icon: "📍",
+        summary: "Certifies that an applicant was born in Kerala or is a permanent native of the state.",
+        whoNeeds: "Candidates applying for KEAM, admission to professional colleges, or state government quotas.",
+        eligibility: "Persons born in Kerala or children of parents who are natives/permanent residents of Kerala.",
+        documents: [
+          "Applicant's Birth Certificate or School Transfer Certificate showing birthplace in Kerala",
+          "Aadhaar / Recognized ID proof",
+          "Ration Card copy",
+          "Parent's School Certificate / SSLC showing native place in Kerala (if applicable)"
+        ],
+        additionalDocs: [
+          "Village Officer inquiry report if birth occurred outside hospital"
+        ],
+        whereToApply: "Kerala e-District Portal or local Village Office / Akshaya Centre.",
+        mode: "Online & Offline",
+        steps: [
+          "Prepare birth records and parent nativity evidence.",
+          "Submit the request via e-District or an Akshaya desk.",
+          "Tahsidlar / Village Officer verifies lineage and birthplace.",
+          "Download digitally signed certificate from the e-District dashboard."
+        ],
+        officialUrl: "https://edistrict.kerala.gov.in",
+        notes: "Essential for state quota admissions like medical and engineering entrance seats.",
+        lastVerified: "February 2026",
+        verified: true
+      },
+      {
+        id: "community-certificate",
+        name: "Community Certificate",
+        malayalamName: "കമ്മ്യൂണിറ്റി സർട്ടിഫിക്കറ്റ്",
+        category: "certificate",
+        icon: "👥",
+        summary: "Certifies the specific religion and community of the applicant for educational or social benefits.",
+        whoNeeds: "Students or job seekers claiming reservation or community quota benefits.",
+        eligibility: "Citizens belonging to designated communities recognized in Kerala state registries.",
+        documents: [
+          "Aadhaar / Photo Identity Proof",
+          "SSLC Book / 10th Certificate showing religion and community of applicant",
+          "Parents' SSLC / School certificates showing community",
+          "Ration Card"
+        ],
+        additionalDocs: [
+          "Affidavit from community organization head (if requested by Village Officer)"
+        ],
+        whereToApply: "Kerala e-District Portal or Revenue Village Office.",
+        mode: "Online & Offline",
+        steps: [
+          "Verify that school certificates clearly state the community.",
+          "Apply on e-District with scanned copies of SSLC and ID.",
+          "Village Officer cross-verifies with parents' records.",
+          "Download approved certificate online."
+        ],
+        officialUrl: "https://edistrict.kerala.gov.in",
+        notes: "Distinct from Non-Creamy Layer Certificate; please confirm the exact requirement of the recruiting body.",
+        lastVerified: "January 2026",
+        verified: true
+      },
+      {
+        id: "birth-certificate",
+        name: "Birth Certificate",
+        malayalamName: "ജനന സർട്ടിഫിക്കറ്റ്",
+        category: "register",
+        icon: "👶",
+        summary: "Official record of a person's birth registered with the local Registrar of Births and Deaths.",
+        whoNeeds: "Newborns, passport applicants, school admissions, and identity proof creation.",
+        eligibility: "Any individual whose birth occurred within the geographical limits of a Kerala local body.",
+        documents: [
+          "Hospital Discharge Summary or Form 1 (Report of Birth)",
+          "Parents' Identity Proofs (Aadhaar / Voter ID / Passport)",
+          "Marriage Certificate of parents (for child registration)",
+          "Consent letter / Application form"
+        ],
+        additionalDocs: [
+          "Late registration order from Revenue Divisional Officer (RDO) if reporting after 1 year"
+        ],
+        whereToApply: "Sevana Civil Registrations portal (Kerala Local Self Government) or the concerned Grama Panchayath / Municipality / Municipal Corporation.",
+        mode: "Online & Offline",
+        steps: [
+          "Hospitals usually report the birth directly to the Sevana portal.",
+          "Visit the Sevana portal or local body to register child's name.",
+          "Pay the prescribed nominal fee.",
+          "Download or collect the stamped certificate from the local body."
+        ],
+        officialUrl: "https://cr.lsgkerala.gov.in",
+        notes: "Timely registration within 21 days avoids delayed-registration penalty processes.",
+        lastVerified: "February 2026",
+        verified: true
+      },
+      {
+        id: "marriage-certificate",
+        name: "Marriage Certificate",
+        malayalamName: "വിവാഹ സർട്ടിഫിക്കറ്റ്",
+        category: "register",
+        icon: "💍",
+        summary: "Formal registration of marriage under the Kerala Common Marriage Rules or Special Marriage Act.",
+        whoNeeds: "Couples requiring proof for spouse visa, joint banking, insurance nominee, or name change.",
+        eligibility: "Spouses who solemnized marriage in Kerala, or where at least one party resides within the local body jurisdiction.",
+        documents: [
+          "Memorandum of Marriage (Form 1 under Common Rules)",
+          "Age Proof of Bride and Groom (SSLC / Birth Certificate / Passport)",
+          "Proof of solemnization (Certificate from religious institution / auditor / priest, or invitation card + photo)",
+          "Address proof of both parties in the local jurisdiction",
+          "Passport size photographs of bride and groom"
+        ],
+        additionalDocs: [
+          "NOC from embassy if one party is a foreign national",
+          "Divorce decree / Death certificate if previously married"
+        ],
+        whereToApply: "Local Self Government Sevana portal or the local body office where marriage took place.",
+        mode: "Online submission followed by physical signing before the Registrar",
+        steps: [
+          "Submit Form 1 online via Sevana portal with photos and solemnization proofs.",
+          "Take the printout of the generated application.",
+          "Both spouses appear before the Local Registrar with two witnesses and original IDs.",
+          "Sign the official register; certificate is issued post-verification."
+        ],
+        officialUrl: "https://cr.lsgkerala.gov.in",
+        notes: "Physical presence of both bride and groom is mandatory before the registrar.",
+        lastVerified: "February 2026",
+        verified: true
+      },
+      {
+        id: "caste-certificate",
+        name: "Caste Certificate (SC/ST)",
+        malayalamName: "ജാതി സർട്ടിഫിക്കറ്റ്",
+        category: "certificate",
+        icon: "📜",
+        summary: "Official certificate confirming Scheduled Caste (SC) or Scheduled Tribe (ST) status.",
+        whoNeeds: "Applicants claiming statutory reservation benefits under constitutional provisions in jobs and education.",
+        eligibility: "Members of communities specified in the presidential order for the State of Kerala.",
+        documents: [
+          "Aadhaar / Photo Identity Proof",
+          "SSLC Certificate of applicant displaying caste/religion",
+          "SSLC / Caste certificate of parents or close paternal relatives",
+          "Ration Card copy"
+        ],
+        additionalDocs: [
+          "Kirtads verification report in doubtful or inter-caste cases"
+        ],
+        whereToApply: "Kerala e-District portal or local Tahsildar / Taluk Office / Akshaya Centre.",
+        mode: "Online & Offline",
+        steps: [
+          "Submit application with lineage evidence via e-District.",
+          "Verification is initiated by the Village Officer and forwarded to the Tahsildar.",
+          "Once sanctioned by the Taluk administration, the digital certificate is issued."
+        ],
+        officialUrl: "https://edistrict.kerala.gov.in",
+        notes: "Strict scrutiny applies. Providing false caste information is an offense under state law.",
+        lastVerified: "March 2026",
+        verified: true
+      },
+      {
+        id: "driving-licence",
+        name: "Driving Licence (Learner's & Regular)",
+        malayalamName: "ഡ്രൈവിംഗ് ലൈസൻസ്",
+        category: "licence",
+        icon: "🚗",
+        summary: "Official authorization to operate motor vehicles in India, issued by Kerala Motor Vehicles Department.",
+        whoNeeds: "Citizens age 18+ (or 16+ for gearless 50cc two-wheelers) wishing to drive on public roads.",
+        eligibility: "Age requirement met, medically fit, and passing the learner's test and driving practical test.",
+        documents: [
+          "Age Proof (SSLC, Birth Certificate, or Passport)",
+          "Address Proof (Aadhaar, Voter ID, or Rental Agreement)",
+          "Medical Fitness Certificate (Form 1A signed by a registered doctor)",
+          "Passport size photographs",
+          "Existing Learner's Licence (for regular DL test)"
+        ],
+        additionalDocs: [
+          "Form 5 from authorized driving school (for commercial transport categories)"
+        ],
+        whereToApply: "Parivahan Sarathi Portal (Central MVD system used by Kerala) or Sub-RTO office.",
+        mode: "Online application + In-person test at RTO ground",
+        steps: [
+          "Apply for Learner's Licence (LL) on Parivahan portal and pass online theory test.",
+          "Hold LL for mandatory minimum period (usually 30 days).",
+          "Book practical driving slot on Parivahan.",
+          "Attend ground test (H/8 track and road test) at the designated RTO ground.",
+          "Licence is dispatched by post or made available in Digilocker upon passing."
+        ],
+        officialUrl: "https://sarathi.parivahan.gov.in",
+        notes: "Slot availability varies by Sub-RTO. Book tests in advance.",
+        lastVerified: "February 2026",
+        verified: true
+      },
+      {
+        id: "passport",
+        name: "Passport (Fresh / Re-issue)",
+        malayalamName: "പാസ്‌പോർട്ട്",
+        category: "id",
+        icon: "✈️",
+        summary: "Official travel document issued by the Ministry of External Affairs, Government of India.",
+        whoNeeds: "Indian citizens travelling abroad for education, employment, pilgrimage, or tourism.",
+        eligibility: "Indian citizens with no prohibitive criminal record or travel ban proceedings.",
+        documents: [
+          "Proof of Date of Birth (Birth Certificate, Transfer Certificate, or SSLC)",
+          "Photo ID and Address Proof (Aadhaar / Voter ID / Bank Passbook with photo)",
+          "Educational Proof for Non-ECR status (10th standard SSLC or higher degree certificate)"
+        ],
+        additionalDocs: [
+          "Old passport booklet in case of re-issue or renewal",
+          "Marriage certificate or divorce decree (if applicable)"
+        ],
+        whereToApply: "Passport Seva Portal online, followed by in-person appointment at Passport Seva Kendra (PSK) or Post Office PSK (POPSK) in Kerala.",
+        mode: "Online appointment booking + Mandatory physical verification at PSK",
+        steps: [
+          "Register and fill application on the official Passport Seva portal.",
+          "Pay the official fee online and schedule appointment at nearest PSK (e.g., Kochi, Kozhikode, Thiruvananthapuram, Malappuram).",
+          "Visit PSK with original documents for biometric capture and document verification.",
+          "Local police verification takes place at your registered address.",
+          "Passport is delivered via India Post Speed Post."
+        ],
+        officialUrl: "https://www.passportindia.gov.in",
+        notes: "Beware of unofficial middleman websites charging fees for simple appointments. Only use passportindia.gov.in.",
+        lastVerified: "March 2026",
+        verified: true
+      },
+      {
+        id: "pan-card",
+        name: "PAN Card (Permanent Account Number)",
+        malayalamName: "പാൻ കാർഡ്",
+        category: "id",
+        icon: "💳",
+        summary: "10-character alphanumeric identity for tax tracking, banking, and financial transactions.",
+        whoNeeds: "Taxpayers, individuals opening regular bank accounts, investors, and business operators.",
+        eligibility: "All Indian citizens (including minors through guardian representation).",
+        documents: [
+          "Proof of Identity (Aadhaar, Voter ID, or Passport)",
+          "Proof of Address (Aadhaar, utility bill, or bank statement)",
+          "Proof of Date of Birth (Birth certificate, SSLC, or Aadhaar)"
+        ],
+        additionalDocs: [
+          "Representative assessee documents in case of minor applicants"
+        ],
+        whereToApply: "Protean (formerly NSDL) / UTIITSL portals or via Aadhaar e-KYC instant PAN on Income Tax portal.",
+        mode: "100% Online or via authorized TIN-FC centers",
+        steps: [
+          "Apply online via Protean or UTIITSL, or choose 'Instant e-PAN' on the Income Tax e-filing portal.",
+          "Submit identity details via OTP e-sign or physical document dispatch.",
+          "Pay nominal government processing fee (free for instant e-PAN).",
+          "Digital e-PAN is delivered to email, physical card delivered to postal address."
+        ],
+        officialUrl: "https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html",
+        notes: "Aadhaar linking is mandatory under current tax guidelines.",
+        lastVerified: "March 2026",
+        verified: true
+      }
+    ];
+
+    // ==========================================
+    // 2. STATE & VIEW MANAGEMENT
+    // ==========================================
+    let currentCategory = "all";
+
+    function renderCards(list) {
+      const grid = document.getElementById("serviceGrid");
+      const empty = document.getElementById("emptyState");
+      const countLabel = document.getElementById("servicesCount");
+      
+      grid.innerHTML = "";
+
+      if (list.length === 0) {
+        grid.style.display = "none";
+        empty.style.display = "block";
+        countLabel.textContent = "Showing 0 services";
+        return;
+      }
+
+      grid.style.display = "grid";
+      empty.style.display = "none";
+      countLabel.textContent = `Showing ${list.length} service${list.length === 1 ? '' : 's'}`;
+
+      list.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "service-card";
+        card.onclick = () => openService(item.id);
+
+        card.innerHTML = `
+          <div class="card-top">
+            <span class="service-icon">${item.icon}</span>
+            <h2>${item.name}</h2>
+            <div style="font-size: 0.8rem; color: var(--primary); margin-bottom: 0.5rem; font-weight: 500;">${item.malayalamName}</div>
+            <p>${item.summary}</p>
+          </div>
+          <div class="card-meta">
+            <span>${item.mode}</span>
+            <span class="card-link">View checklist →</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function handleSearch() {
+      const q = document.getElementById("searchInput").value.toLowerCase().trim();
+      let filtered = servicesData;
+
+      if (currentCategory !== "all") {
+        filtered = filtered.filter(s => s.category === currentCategory);
+      }
+
+      if (q) {
+        filtered = filtered.filter(s => 
+          s.name.toLowerCase().includes(q) || 
+          s.malayalamName.toLowerCase().includes(q) || 
+          s.summary.toLowerCase().includes(q)
+        );
+      }
+
+      renderCards(filtered);
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategory = cat;
+      const chips = document.querySelectorAll(".helper-chip");
+      chips.forEach(c => c.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+
+      document.getElementById("searchInput").value = "";
+      
+      if (cat === "all") {
+        renderCards(servicesData);
+      } else {
+        renderCards(servicesData.filter(s => s.category === cat));
+      }
+    }
+
+    function openService(id) {
+      const s = servicesData.find(item => item.id === id);
+      if (!s) return;
+
+      document.getElementById("view-home").style.display = "none";
+      document.getElementById("view-how").style.display = "none";
+      document.getElementById("view-about").style.display = "none";
+      document.getElementById("view-detail").style.display = "block";
+
+      document.getElementById("detailTitle").textContent = `${s.name} (${s.malayalamName})`;
+      document.getElementById("detailDesc").textContent = s.summary;
+      
+      // Badges
+      const badgesContainer = document.getElementById("detailBadges");
+      badgesContainer.innerHTML = `
+        <span class="tag-badge">📍 ${s.mode}</span>
+        <span class="tag-badge">🏷️ Category: ${s.category.toUpperCase()}</span>
+      `;
+
+      document.getElementById("detailWho").textContent = s.whoNeeds;
+      document.getElementById("detailEligibility").textContent = s.eligibility;
+      document.getElementById("detailWhere").textContent = s.whereToApply;
+      document.getElementById("detailNotes").textContent = s.notes;
+      document.getElementById("detailLastVerified").textContent = `Information last verified against official state guidelines: ${s.lastVerified}`;
+
+      // Document checklist
+      const docsContainer = document.getElementById("detailDocs");
+      docsContainer.innerHTML = "";
+      s.documents.forEach((doc, idx) => {
+        const item = document.createElement("div");
+        item.className = "checklist-item";
+        const checkId = `doc-${idx}`;
+        item.innerHTML = `
+          <input type="checkbox" id="${checkId}" onchange="toggleCheck(this)">
+          <label for="${checkId}">${doc}</label>
+        `;
+        docsContainer.appendChild(item);
+      });
+
+      // Additional docs
+      const addSection = document.getElementById("additionalDocsSection");
+      const addList = document.getElementById("detailAdditionalDocs");
+      if (s.additionalDocs && s.additionalDocs.length > 0) {
+        addList.innerHTML = "";
+        s.additionalDocs.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          addList.appendChild(li);
+        });
+        addSection.style.display = "block";
+      } else {
+        addSection.style.display = "none";
+      }
+
+      // Steps
+      const stepsContainer = document.getElementById("detailSteps");
+      stepsContainer.innerHTML = "";
+      s.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.textContent = step;
+        stepsContainer.appendChild(li);
+      });
+
+      // Official Source Button
+      const btnWrapper = document.getElementById("officialBtnWrapper");
+      if (s.verified && s.officialUrl) {
+        btnWrapper.innerHTML = `
+          <a href="${s.officialUrl}" target="_blank" rel="noopener noreferrer" class="btn-official">
+            Open Official Source ↗
+          </a>
+        `;
+      } else {
+        btnWrapper.innerHTML = `
+          <button class="btn-official btn-disabled" disabled>
+            Official source link will be added after verification
+          </button>
+        `;
+      }
+
+      window.scrollTo(0, 0);
+    }
+
+    function toggleCheck(checkbox) {
+      const parent = checkbox.closest(".checklist-item");
+      if (checkbox.checked) {
+        parent.classList.add("checked");
+      } else {
+        parent.classList.remove("checked");
+      }
+    }
+
+    function backToHome() {
+      document.getElementById("view-detail").style.display = "none";
+      document.getElementById("view-how").style.display = "none";
+      document.getElementById("view-about").style.display = "none";
+      document.getElementById("view-home").style.display = "block";
+      updateNav("home");
+      window.scrollTo(0, 0);
+    }
+
+    function navigateTo(page) {
+      const vHome = document.getElementById("view-home");
+      const vDetail = document.getElementById("view-detail");
+      const vHow = document.getElementById("view-how");
+      const vAbout = document.getElementById("view-about");
+
+      vHome.style.display = "none";
+      vDetail.style.display = "none";
+      vHow.style.display = "none";
+      vAbout.style.display = "none";
+
+      if (page === 'home' || page === 'services') {
+        vHome.style.display = "block";
+        if (page === 'services') {
+          document.getElementById('serviceGrid').scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (page === 'how') {
+        vHow.style.display = "block";
+      } else if (page === 'about') {
+        vAbout.style.display = "block";
+      }
+
+      updateNav(page);
+      window.scrollTo(0, 0);
+    }
+
+    function updateNav(page) {
+      document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+      const activeTab = document.getElementById(`nav-${page}`);
+      if (activeTab) activeTab.classList.add("active");
+    }
+
+    // Initialize list on load
+    window.addEventListener("DOMContentLoaded", () => {
+      renderCards(servicesData);
+    });
+  </script>
+</body>
+</html>
+<script>document.getElementById('demoBtn').addEventListener('click', () => {
+  const card = document.querySelector('.card p');
+  card.textContent = 'JavaScript is working! Edit this code to experiment.';
+  document.querySelector('.card').style.background = '#ccfbf1';
+});</script></body></html>
