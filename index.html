@@ -29,11 +29,18 @@
             <li><a href="javascript:void(0)" id="nav-about" onclick="navigateTo('about')" data-i18n="navAbout">About</a></li>
           </ul>
         </nav>
-        <!-- Language Switcher Hook -->
-        <div class="lang-switch-container" id="langSwitch">
-          <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
-          <span style="color: var(--border-color);">|</span>
-          <button type="button" class="lang-btn" id="btn-lang-ml" onclick="setLanguage('ml')">മലയാളം</button>
+        <!-- Header Controls (Language & Theme Toggles) -->
+        <div class="header-controls">
+          <!-- Language Switcher Hook -->
+          <div class="lang-switch-container" id="langSwitch">
+            <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
+            <span class="lang-divider">|</span>
+            <button type="button" class="lang-btn" id="btn-lang-ml" onclick="setLanguage('ml')">മലയാളം</button>
+          </div>
+          <!-- Theme Toggle Button -->
+          <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+            <span id="themeToggleIcon">🌙</span>
+          </button>
         </div>
       </div>
     </div>
@@ -77,7 +84,7 @@
       <!-- Popular Services Grid -->
       <div class="section-title">
         <span id="sectionHeading" data-i18n="popularServicesHeading">Popular Services</span>
-        <span class="count" id="servicesCount">Showing 30 services</span>
+        <span class="count" id="servicesCount">Showing 50 services</span>
       </div>
 
       <div class="service-grid" id="serviceGrid">
@@ -106,8 +113,8 @@
       <div class="detail-card">
         <div class="detail-header">
           <h1 id="detailTitle">Service Name</h1>
-          <div id="detailSubtitle" style="font-size: 0.95rem; color: var(--primary); margin-top: 0.2rem; font-weight: 600;"></div>
-          <p id="detailDesc" style="color: var(--text-muted); font-size: 1rem; margin-top: 0.4rem;"></p>
+          <div id="detailSubtitle" class="detail-subtitle"></div>
+          <p id="detailDesc" class="detail-desc"></p>
           <div class="badge-bar" id="detailBadges"></div>
         </div>
 
@@ -123,7 +130,7 @@
 
         <div class="detail-section">
           <h2 id="headingDocs" data-i18n="headingDocs">📄 Documents to Prepare</h2>
-          <p id="checklistHint" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;" data-i18n="checklistHint">
+          <p id="checklistHint" class="checklist-hint" data-i18n="checklistHint">
             Check the boxes as you assemble your paperwork:
           </p>
           <div id="detailDocs" class="checklist"></div>
@@ -131,7 +138,7 @@
 
         <div class="detail-section" id="additionalDocsSection" style="display: none;">
           <h2 id="headingAdditionalDocs" data-i18n="headingAdditionalDocs">📎 Additional / Supporting Documents (If Applicable)</h2>
-          <ul id="detailAdditionalDocs" style="padding-left: 1.25rem; font-size: 0.92rem; color: var(--text-muted);"></ul>
+          <ul id="detailAdditionalDocs" class="additional-docs-list"></ul>
         </div>
 
         <div class="detail-section">
@@ -146,7 +153,7 @@
 
         <div class="detail-section">
           <h2 id="headingNotes" data-i18n="headingNotes">ℹ️ Important Notes</h2>
-          <p id="detailNotes" style="font-size: 0.9rem; color: var(--text-muted); background: #f8fafc; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent);"></p>
+          <p id="detailNotes" class="detail-notes-box"></p>
         </div>
 
         <div class="action-box">
