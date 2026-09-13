@@ -55,7 +55,6 @@ const i18n = {
     howStep5Title: "5. Apply and track your application",
     howStep5Desc: "Submit through official channels and save your application receipt or acknowledgement number.",
     howCtaBtn: "Get Started",
-    // Card & Detail UI strings
     viewChecklist: "View checklist →",
     badgeCategory: "Category",
     badgeMode: "Mode",
@@ -105,7 +104,6 @@ const i18n = {
     howStep5Title: "5. അപേക്ഷ സമർപ്പിച്ച് ട്രാക്ക് ചെയ്യുക",
     howStep5Desc: "ഔദ്യോഗിക സംവിധാനങ്ങളിലൂടെ അപേക്ഷ സമർപ്പിച്ച് അക്നോളഡ്ജ്മെന്റ് രസീത് സൂക്ഷിക്കുക.",
     howCtaBtn: "ആരംഭിക്കാം",
-    // Card & Detail UI strings
     viewChecklist: "വിവരങ്ങൾ കാണുക →",
     badgeCategory: "വിഭാഗം",
     badgeMode: "രീതി",
@@ -134,13 +132,37 @@ const categoryMap = {
 };
 
 // ==========================================
-// 3. LANGUAGE SWITCHING
+// 3. ROBUST FIELD ACCESSORS
+// ==========================================
+function getLocalizedField(fieldObj, lang, fallbackValue = "") {
+  if (!fieldObj) return fallbackValue;
+  if (typeof fieldObj === "string") return fieldObj;
+  if (typeof fieldObj === "object") {
+    if (fieldObj[lang]) return fieldObj[lang];
+    const altLang = lang === "en" ? "ml" : "en";
+    if (fieldObj[altLang]) return fieldObj[altLang];
+  }
+  return fallbackValue;
+}
+
+function getLocalizedArray(arrObj, lang) {
+  if (!arrObj) return [];
+  if (Array.isArray(arrObj)) return arrObj;
+  if (typeof arrObj === "object") {
+    if (Array.isArray(arrObj[lang])) return arrObj[lang];
+    const altLang = lang === "en" ? "ml" : "en";
+    if (Array.isArray(arrObj[altLang])) return arrObj[altLang];
+  }
+  return [];
+}
+
+// ==========================================
+// 4. LANGUAGE SWITCHING
 // ==========================================
 function setLanguage(lang) {
   if (lang !== "en" && lang !== "ml") return;
   currentLang = lang;
 
-  // Toggle active class on language buttons
   const btnEn = document.getElementById("btn-lang-en");
   const btnMl = document.getElementById("btn-lang-ml");
 
@@ -162,7 +184,6 @@ function setLanguage(lang) {
     }
   }
 
-  // Update static UI elements
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     if (i18n[currentLang] && i18n[currentLang][key]) {
@@ -170,7 +191,6 @@ function setLanguage(lang) {
     }
   });
 
-  // Update placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     if (i18n[currentLang] && i18n[currentLang][key]) {
@@ -178,10 +198,8 @@ function setLanguage(lang) {
     }
   });
 
-  // Re-run search/filter to update service grid
   handleSearch();
 
-  // If service detail view is active, update its contents
   const detailView = document.getElementById("view-detail");
   if (activeServiceId && detailView && detailView.style.display === "block") {
     openService(activeServiceId);
@@ -189,7 +207,7 @@ function setLanguage(lang) {
 }
 
 // ==========================================
-// 4. SERVICE CARDS RENDERING
+// 5. SERVICE CARDS RENDERING
 // ==========================================
 function renderCards(list) {
   const grid = document.getElementById("serviceGrid");
@@ -216,23 +234,16 @@ function renderCards(list) {
     card.className = "service-card";
     card.onclick = () => openService(item.id);
 
-    // In Malayalam mode: Malayalam name is primary, English name sits underneath.
-    // In English mode: English name is primary, Malayalam name sits underneath.
-    const primaryTitle = currentLang === "ml"
-      ? (item.name.ml || item.name.en)
-      : (item.name.en || item.name.ml);
+    const nameEn = getLocalizedField(item.name, "en", item.id);
+    const nameMl = getLocalizedField(item.name, "ml", nameEn);
 
-    const secondaryTitle = currentLang === "ml"
-      ? item.name.en
-      : item.name.ml;
+    // In Malayalam mode: Malayalam name primary, English name subtitle underneath
+    // In English mode: English name primary, Malayalam name subtitle underneath
+    const primaryTitle = currentLang === "ml" ? nameMl : nameEn;
+    const secondaryTitle = currentLang === "ml" ? nameEn : nameMl;
 
-    const summaryText = (item.summary && item.summary[currentLang])
-      ? item.summary[currentLang]
-      : (item.summary ? item.summary.en : "");
-
-    const modeText = (item.mode && item.mode[currentLang])
-      ? item.mode[currentLang]
-      : (item.mode ? item.mode.en : "");
+    const summaryText = getLocalizedField(item.summary, currentLang);
+    const modeText = getLocalizedField(item.mode, currentLang);
 
     card.innerHTML = `
       <div class="card-top">
@@ -252,28 +263,26 @@ function renderCards(list) {
 }
 
 // ==========================================
-// 5. SEARCH & CATEGORY FILTERING
+// 6. SEARCH & CATEGORY FILTERING
 // ==========================================
 function handleSearch() {
   const searchInput = document.getElementById("searchInput");
   const q = searchInput ? searchInput.value.toLowerCase().trim() : "";
 
-  let filtered = (typeof servicesData !== "undefined") ? servicesData : [];
+  let filtered = (typeof servicesData !== "undefined" && Array.isArray(servicesData)) ? servicesData : [];
 
-  // Filter by category
   if (currentCategory !== "all") {
     filtered = filtered.filter((s) => s.category === currentCategory);
   }
 
-  // Bilingual Search across English and Malayalam
   if (q) {
     filtered = filtered.filter((s) => {
-      const nameEn = (s.name && s.name.en) ? s.name.en.toLowerCase() : "";
-      const nameMl = (s.name && s.name.ml) ? s.name.ml.toLowerCase() : "";
-      const summaryEn = (s.summary && s.summary.en) ? s.summary.en.toLowerCase() : "";
-      const summaryMl = (s.summary && s.summary.ml) ? s.summary.ml.toLowerCase() : "";
-      const whoEn = (s.whoNeeds && s.whoNeeds.en) ? s.whoNeeds.en.toLowerCase() : "";
-      const whoMl = (s.whoNeeds && s.whoNeeds.ml) ? s.whoNeeds.ml.toLowerCase() : "";
+      const nameEn = getLocalizedField(s.name, "en").toLowerCase();
+      const nameMl = getLocalizedField(s.name, "ml").toLowerCase();
+      const summaryEn = getLocalizedField(s.summary, "en").toLowerCase();
+      const summaryMl = getLocalizedField(s.summary, "ml").toLowerCase();
+      const whoEn = getLocalizedField(s.whoNeeds, "en").toLowerCase();
+      const whoMl = getLocalizedField(s.whoNeeds, "ml").toLowerCase();
 
       return nameEn.includes(q) ||
              nameMl.includes(q) ||
@@ -290,17 +299,21 @@ function handleSearch() {
 function filterCategory(cat, btn) {
   currentCategory = cat;
 
-  // Update active state on category chips
   const chips = document.querySelectorAll(".helper-chip");
   chips.forEach((c) => c.classList.remove("active"));
+
   if (btn) {
     btn.classList.add("active");
   } else {
     const matchingBtn = document.getElementById(`cat-${cat}`);
-    if (matchingBtn) matchingBtn.classList.add("active");
+    if (matchingBtn) {
+      matchingBtn.classList.add("active");
+    } else {
+      const dataBtn = document.querySelector(`.helper-chip[data-category="${cat}"]`);
+      if (dataBtn) dataBtn.classList.add("active");
+    }
   }
 
-  // Clear search input on category click
   const searchInput = document.getElementById("searchInput");
   if (searchInput) searchInput.value = "";
 
@@ -308,31 +321,33 @@ function filterCategory(cat, btn) {
 }
 
 // ==========================================
-// 6. SERVICE DETAIL VIEW
+// 7. SERVICE DETAIL VIEW
 // ==========================================
 function openService(id) {
-  if (typeof servicesData === "undefined") return;
+  if (typeof servicesData === "undefined" || !Array.isArray(servicesData)) return;
   const s = servicesData.find((item) => item.id === id);
   if (!s) return;
 
   activeServiceId = id;
 
-  // View toggles
-  document.getElementById("view-home").style.display = "none";
-  document.getElementById("view-how").style.display = "none";
-  document.getElementById("view-about").style.display = "none";
-  document.getElementById("view-detail").style.display = "block";
+  const vHome = document.getElementById("view-home");
+  const vHow = document.getElementById("view-how");
+  const vAbout = document.getElementById("view-about");
+  const vDetail = document.getElementById("view-detail");
 
-  // Localized Titles
-  const primaryTitle = currentLang === "ml"
-    ? (s.name.ml || s.name.en)
-    : (s.name.en || s.name.ml);
+  if (vHome) vHome.style.display = "none";
+  if (vHow) vHow.style.display = "none";
+  if (vAbout) vAbout.style.display = "none";
+  if (vDetail) vDetail.style.display = "block";
 
-  const secondaryTitle = currentLang === "ml"
-    ? s.name.en
-    : s.name.ml;
+  const nameEn = getLocalizedField(s.name, "en", s.id);
+  const nameMl = getLocalizedField(s.name, "ml", nameEn);
 
-  document.getElementById("detailTitle").textContent = primaryTitle;
+  const primaryTitle = currentLang === "ml" ? nameMl : nameEn;
+  const secondaryTitle = currentLang === "ml" ? nameEn : nameMl;
+
+  const titleEl = document.getElementById("detailTitle");
+  if (titleEl) titleEl.textContent = primaryTitle;
 
   const subtitleEl = document.getElementById("detailSubtitle");
   if (subtitleEl) {
@@ -340,21 +355,16 @@ function openService(id) {
     subtitleEl.style.display = secondaryTitle ? "block" : "none";
   }
 
-  // Description
-  document.getElementById("detailDesc").textContent = (s.summary && s.summary[currentLang])
-    ? s.summary[currentLang]
-    : (s.summary ? s.summary.en : "");
+  const descEl = document.getElementById("detailDesc");
+  if (descEl) descEl.textContent = getLocalizedField(s.summary, currentLang);
 
-  // Badges
   const badgesContainer = document.getElementById("detailBadges");
   if (badgesContainer) {
     const categoryLabel = (categoryMap[currentLang] && categoryMap[currentLang][s.category])
       ? categoryMap[currentLang][s.category]
-      : s.category.toUpperCase();
+      : (s.category || "").toUpperCase();
 
-    const modeLabel = (s.mode && s.mode[currentLang])
-      ? s.mode[currentLang]
-      : (s.mode ? s.mode.en : "");
+    const modeLabel = getLocalizedField(s.mode, currentLang);
 
     badgesContainer.innerHTML = `
       <span class="tag-badge">📍 ${i18n[currentLang].badgeMode}: ${modeLabel}</span>
@@ -362,22 +372,17 @@ function openService(id) {
     `;
   }
 
-  // Sections
-  document.getElementById("detailWho").textContent = (s.whoNeeds && s.whoNeeds[currentLang])
-    ? s.whoNeeds[currentLang]
-    : (s.whoNeeds ? s.whoNeeds.en : "");
+  const whoEl = document.getElementById("detailWho");
+  if (whoEl) whoEl.textContent = getLocalizedField(s.whoNeeds, currentLang);
 
-  document.getElementById("detailEligibility").textContent = (s.eligibility && s.eligibility[currentLang])
-    ? s.eligibility[currentLang]
-    : (s.eligibility ? s.eligibility.en : "");
+  const eligEl = document.getElementById("detailEligibility");
+  if (eligEl) eligEl.textContent = getLocalizedField(s.eligibility, currentLang);
 
-  document.getElementById("detailWhere").textContent = (s.whereToApply && s.whereToApply[currentLang])
-    ? s.whereToApply[currentLang]
-    : (s.whereToApply ? s.whereToApply.en : "");
+  const whereEl = document.getElementById("detailWhere");
+  if (whereEl) whereEl.textContent = getLocalizedField(s.whereToApply, currentLang);
 
-  document.getElementById("detailNotes").textContent = (s.notes && s.notes[currentLang])
-    ? s.notes[currentLang]
-    : (s.notes ? s.notes.en : "");
+  const notesEl = document.getElementById("detailNotes");
+  if (notesEl) notesEl.textContent = getLocalizedField(s.notes, currentLang);
 
   const lastVerifiedEl = document.getElementById("detailLastVerified");
   if (lastVerifiedEl) {
@@ -386,55 +391,53 @@ function openService(id) {
 
   // Interactive Checklist (Primary Documents)
   const docsContainer = document.getElementById("detailDocs");
-  docsContainer.innerHTML = "";
+  if (docsContainer) {
+    docsContainer.innerHTML = "";
+    const docList = getLocalizedArray(s.documents, currentLang);
 
-  const docList = (s.documents && s.documents[currentLang])
-    ? s.documents[currentLang]
-    : (s.documents ? s.documents.en : []);
-
-  docList.forEach((doc, idx) => {
-    const item = document.createElement("div");
-    item.className = "checklist-item";
-    const checkId = `doc-${idx}`;
-    item.innerHTML = `
-      <input type="checkbox" id="${checkId}" onchange="toggleCheck(this)">
-      <label for="${checkId}">${doc}</label>
-    `;
-    docsContainer.appendChild(item);
-  });
+    docList.forEach((doc, idx) => {
+      const item = document.createElement("div");
+      item.className = "checklist-item";
+      const checkId = `doc-${idx}`;
+      item.innerHTML = `
+        <input type="checkbox" id="${checkId}" onchange="toggleCheck(this)">
+        <label for="${checkId}">${doc}</label>
+      `;
+      docsContainer.appendChild(item);
+    });
+  }
 
   // Additional Supporting Documents
   const addSection = document.getElementById("additionalDocsSection");
   const addList = document.getElementById("detailAdditionalDocs");
-  const addDocsList = (s.additionalDocs && s.additionalDocs[currentLang])
-    ? s.additionalDocs[currentLang]
-    : (s.additionalDocs ? s.additionalDocs.en : []);
+  const addDocsList = getLocalizedArray(s.additionalDocs, currentLang);
 
-  if (addDocsList && addDocsList.length > 0) {
-    addList.innerHTML = "";
-    addDocsList.forEach((doc) => {
-      const li = document.createElement("li");
-      li.textContent = doc;
-      addList.appendChild(li);
-    });
-    addSection.style.display = "block";
-  } else {
-    addSection.style.display = "none";
+  if (addSection && addList) {
+    if (addDocsList && addDocsList.length > 0) {
+      addList.innerHTML = "";
+      addDocsList.forEach((doc) => {
+        const li = document.createElement("li");
+        li.textContent = doc;
+        addList.appendChild(li);
+      });
+      addSection.style.display = "block";
+    } else {
+      addSection.style.display = "none";
+    }
   }
 
   // Step-by-Step Instructions
   const stepsContainer = document.getElementById("detailSteps");
-  stepsContainer.innerHTML = "";
+  if (stepsContainer) {
+    stepsContainer.innerHTML = "";
+    const stepsList = getLocalizedArray(s.steps, currentLang);
 
-  const stepsList = (s.steps && s.steps[currentLang])
-    ? s.steps[currentLang]
-    : (s.steps ? s.steps.en : []);
-
-  stepsList.forEach((step) => {
-    const li = document.createElement("li");
-    li.textContent = step;
-    stepsContainer.appendChild(li);
-  });
+    stepsList.forEach((step) => {
+      const li = document.createElement("li");
+      li.textContent = step;
+      stepsContainer.appendChild(li);
+    });
+  }
 
   // Official Source Link Button
   const btnWrapper = document.getElementById("officialBtnWrapper");
@@ -471,16 +474,22 @@ function toggleCheck(checkbox) {
 // Back to Home from Detail View
 function backToHome() {
   activeServiceId = null;
-  document.getElementById("view-detail").style.display = "none";
-  document.getElementById("view-how").style.display = "none";
-  document.getElementById("view-about").style.display = "none";
-  document.getElementById("view-home").style.display = "block";
+  const vDetail = document.getElementById("view-detail");
+  const vHow = document.getElementById("view-how");
+  const vAbout = document.getElementById("view-about");
+  const vHome = document.getElementById("view-home");
+
+  if (vDetail) vDetail.style.display = "none";
+  if (vHow) vHow.style.display = "none";
+  if (vAbout) vAbout.style.display = "none";
+  if (vHome) vHome.style.display = "block";
+
   updateNav("home");
   window.scrollTo(0, 0);
 }
 
 // ==========================================
-// 7. SITE NAVIGATION
+// 8. SITE NAVIGATION
 // ==========================================
 function navigateTo(page) {
   activeServiceId = null;
@@ -489,21 +498,21 @@ function navigateTo(page) {
   const vHow = document.getElementById("view-how");
   const vAbout = document.getElementById("view-about");
 
-  vHome.style.display = "none";
-  vDetail.style.display = "none";
-  vHow.style.display = "none";
-  vAbout.style.display = "none";
+  if (vHome) vHome.style.display = "none";
+  if (vDetail) vDetail.style.display = "none";
+  if (vHow) vHow.style.display = "none";
+  if (vAbout) vAbout.style.display = "none";
 
   if (page === "home" || page === "services") {
-    vHome.style.display = "block";
+    if (vHome) vHome.style.display = "block";
     if (page === "services") {
       const grid = document.getElementById("serviceGrid");
       if (grid) grid.scrollIntoView({ behavior: "smooth" });
     }
   } else if (page === "how") {
-    vHow.style.display = "block";
+    if (vHow) vHow.style.display = "block";
   } else if (page === "about") {
-    vAbout.style.display = "block";
+    if (vAbout) vAbout.style.display = "block";
   }
 
   updateNav(page);
@@ -517,7 +526,7 @@ function updateNav(page) {
 }
 
 // ==========================================
-// 8. INITIALIZATION
+// 9. INITIALIZATION
 // ==========================================
 window.addEventListener("DOMContentLoaded", () => {
   setLanguage("en");
