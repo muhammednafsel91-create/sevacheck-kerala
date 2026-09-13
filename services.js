@@ -1,11 +1,11 @@
 // ==========================================
-// SEVACHECK KERALA — SERVICE DATABASE (30 SERVICES)
+// SEVACHECK KERALA — SERVICE DATABASE (50 SERVICES)
 // File: services.js
 // ==========================================
 
 const servicesData = [
   // =========================================================================
-  // CATEGORY A: Documents & Certificates (documents) - 10 Services
+  // CATEGORY A: Documents & Certificates (documents)
   // =========================================================================
   {
     id: "income-certificate",
@@ -728,9 +728,583 @@ const servicesData = [
     lastVerified: "March 2026",
     verified: true
   },
+  {
+    id: "legal-heir-certificate",
+    category: "documents",
+    icon: "📜",
+    name: {
+      en: "Legal Heir Certificate",
+      ml: "അനന്തരാവകാശ സർട്ടിഫിക്കറ്റ്"
+    },
+    summary: {
+      en: "Official certificate issued by the Revenue Department establishing legal heirs of a deceased person.",
+      ml: "മരണപ്പെട്ട വ്യക്തിയുടെ നിയമപരമായ അനന്തരാവകാശികൾ ആരാണെന്ന് റവന്യൂ വകുപ്പ് സാക്ഷ്യപ്പെടുത്തുന്ന സർട്ടിഫിക്കറ്റ്."
+    },
+    whoNeeds: {
+      en: "Family members claiming deceased pensions, PF settlement, bank balances, or property title mutation.",
+      ml: "മരണപ്പെട്ടയാളുടെ പെൻഷൻ, പി.എഫ്, ബാങ്ക് നിക്ഷേപം, ഭൂമിയുടെ ഉടമസ്ഥാവകാശ മാറ്റം എന്നിവയ്ക്ക് അർഹരായ അവകാശികൾ."
+    },
+    eligibility: {
+      en: "Surviving legal heirs (spouse, children, parents) of a deceased person who resided in Kerala.",
+      ml: "കേരളത്തിൽ അന്തരിച്ച വ്യക്തിയുടെ ജീവിച്ചിരിക്കുന്ന നിയമപരമായ അനന്തരാവകാശികൾ."
+    },
+    documents: {
+      en: [
+        "Death Certificate of the deceased person",
+        "Aadhaar / Photo ID proof of the applicant and all legal heirs",
+        "Ration card showing relationship with the deceased",
+        "Self-declaration / Affidavit by all surviving heirs"
+      ],
+      ml: [
+        "മരണപ്പെട്ട വ്യക്തിയുടെ ഔദ്യോഗിക മരണ സർട്ടിഫിക്കറ്റ്",
+        "അപേക്ഷകന്റെയും മറ്റ് എല്ലാ അവകാശികളുടെയും ആധാർ / തിരിച്ചറിയൽ രേഖകൾ",
+        "ബന്ധം വ്യക്തമാക്കുന്ന റേഷൻ കാർഡ് പകർപ്പ്",
+        "എല്ലാ അവകാശികളും ഒപ്പിട്ട സത്യവാങ്മൂലം"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "No-objection consent letter from other co-heirs if one person is claiming assets",
+        "Gazette notification publication proof in specific succession cases"
+      ],
+      ml: [
+        "ഒരാൾ മാത്രമാണ് ആനുകൂല്യം വാങ്ങുന്നതെങ്കിൽ മറ്റ് അവകാശികളുടെ സമ്മതപത്രം",
+        "ഗസറ്റ് വിജ്ഞാപന പകർപ്പ് (ആവശ്യപ്പെടുന്ന സന്ദർഭങ്ങളിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala e-District Portal or Taluk Office / Akshaya Centre.",
+      ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ താലൂക്ക് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Taluk Office Inquiry",
+      ml: "ഓൺലൈൻ & താലൂക്ക് തല അന്വേഷണം"
+    },
+    steps: {
+      en: [
+        "Upload death certificate, family relations proof, and affidavits on e-District.",
+        "Village Officer and Revenue Inspector conduct field inquiry.",
+        "Notice is published in the Gazette / Taluk board as per statutory rules.",
+        "Tahsildar approves and issues digitally signed certificate."
+      ],
+      ml: [
+        "മരണ സർട്ടിഫിക്കറ്റും അവകാശികളുടെ വിവരങ്ങളും ഇ-ഡിസ്ട്രിക്റ്റിൽ നൽകുക.",
+        "വില്ലേജ് ഓഫീസറും റവന്യൂ ഇൻസ്പെക്ടറും അന്വേഷണം നടത്തുന്നു.",
+        "താലൂക്ക് ബോർഡിലോ ഗസറ്റിലോ പരസ്യം പ്രസിദ്ധീകരിക്കുന്നു.",
+        "തഹസിൽദാർ പരിശോധിച്ച് സർട്ടിഫിക്കറ്റ് നൽകുന്നു."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Involves mandatory public notice inquiry period. For large banking or disputed estates, a court Succession Certificate may be required.",
+      ml: "തർക്കങ്ങളുള്ള സ്വത്തുക്കൾക്കോ വലിയ തുകകൾക്കോ കോടതിയുടെ സക്സഷൻ സർട്ടിഫിക്കറ്റ് ആവശ്യമായി വന്നേക്കാം."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "relationship-certificate",
+    category: "documents",
+    icon: "👥",
+    name: {
+      en: "Relationship Certificate",
+      ml: "ബന്ധുത്വ സർട്ടിഫിക്കറ്റ്"
+    },
+    summary: {
+      en: "Certifies the specific blood or legal kinship relationship between two individuals.",
+      ml: "രണ്ട് വ്യക്തികൾ തമ്മിലുള്ള കുടുംബബന്ധം ഔദ്യോഗികമായി സാക്ഷ്യപ്പെടുത്തുന്ന സർട്ടിഫിക്കറ്റ്."
+    },
+    whoNeeds: {
+      en: "Citizens proving kinship for passport processing, foreign visa sponsorship, or insurance nominees.",
+      ml: "വിദേശ വിസ സ്പോൺസർഷിപ്പ്, പാസ്‌പോർട്ട്, ഇൻഷുറൻസ് നോമിനേഷൻ എന്നിവയ്ക്കായി ബന്ധം തെളിയിക്കേണ്ടവർ."
+    },
+    eligibility: {
+      en: "Residents of Kerala requiring proof of formal relationship to another family member.",
+      ml: "കുടുംബാംഗവുമായുള്ള ബന്ധം തെളിയിക്കേണ്ട കേരളത്തിലെ താമസക്കാർ."
+    },
+    documents: {
+      en: [
+        "Aadhaar / Recognized ID proofs of both individuals",
+        "Ration card copy listing both persons",
+        "School Certificate / SSLC Book showing parents' names",
+        "Self-declaration affidavit"
+      ],
+      ml: [
+        "രണ്ട് വ്യക്തികളുടെയും ആധാർ / തിരിച്ചറിയൽ രേഖകൾ",
+        "ഇരുവരുടെയും പേരുള്ള റേഷൻ കാർഡ് പകർപ്പ്",
+        "മാതാപിതാക്കളുടെ പേര് രേഖപ്പെടുത്തിയ സ്കൂൾ സർട്ടിഫിക്കറ്റ് / SSLC",
+        "സത്യവാങ്മൂലം"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Birth certificate or marriage certificate establishing biological or marital relationship"
+      ],
+      ml: [
+        "നേരിട്ടുള്ള ബന്ധം തെളിയിക്കുന്ന ജനന അല്ലെങ്കിൽ വിവാഹ സർട്ടിഫിക്കറ്റ്"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala e-District Portal or local Village Office / Akshaya Centre.",
+      ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Offline",
+      ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+    },
+    steps: {
+      en: [
+        "Submit identity and parentage documents on e-District.",
+        "Village Officer verifies genealogical links from field records.",
+        "Tahsildar / Village Officer sanctions the certificate.",
+        "Download digitally signed certificate from dashboard."
+      ],
+      ml: [
+        "തിരിച്ചറിയൽ രേഖകളും ബന്ധം വ്യക്തമാക്കുന്ന രേഖകളും പോർട്ടലിൽ അപ്‌ലോഡ് ചെയ്യുക.",
+        "വില്ലേജ് ഓഫീസർ വിവരങ്ങൾ പരിശോധിക്കുന്നു.",
+        "അനുമതി ലഭിച്ച ശേഷം ഓൺലൈനായി സർട്ടിഫിക്കറ്റ് ഡൗൺലോഡ് ചെയ്യുക."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Usually distinct from Family Membership; specific to proving relationship between two persons.",
+      ml: "രണ്ട് വ്യക്തികൾ തമ്മിലുള്ള കൃത്യമായ ബന്ധം സാക്ഷ്യപ്പെടുത്താനാണ് ഇത് ഉപയോഗിക്കുന്നത്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "identification-certificate",
+    category: "documents",
+    icon: "🪪",
+    name: {
+      en: "Identification Certificate",
+      ml: "തിരിച്ചറിയൽ സർട്ടിഫിക്കറ്റ്"
+    },
+    summary: {
+      en: "Revenue Department certificate verifying an individual's identity and personal physical marks.",
+      ml: "ഒരു വ്യക്തിയുടെ വ്യക്തിഗത വിവരങ്ങളും ശരീരത്തിലെ അടയാളങ്ങളും പരിശോധിച്ച് നൽകുന്ന സാക്ഷ്യപത്രം."
+    },
+    whoNeeds: {
+      en: "Individuals lacking standard national ID proofs for specific institutional or legal submissions.",
+      ml: "മറ്റ് തിരിച്ചറിയൽ രേഖകൾ ഇല്ലാത്തവർക്കോ കോടതി/സ്ഥാപന ആവശ്യങ്ങൾക്കായി പ്രത്യേക തിരിച്ചറിയൽ ആവശ്യമുള്ളവർക്കോ."
+    },
+    eligibility: {
+      en: "Resident individuals residing within the village jurisdiction.",
+      ml: "വില്ലേജ് പരിധിയിൽ താമസിക്കുന്ന വ്യക്തികൾ."
+    },
+    documents: {
+      en: [
+        "Recent passport-sized photograph",
+        "Address proof (Ration Card or Residential Electricity bill)",
+        "Document confirming date of birth (Birth Certificate / School Transfer Certificate)",
+        "Self-declaration statement"
+      ],
+      ml: [
+        "പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോ",
+        "മേൽവിലാസ രേഖ (റേഷൻ കാർഡ് അല്ലെങ്കിൽ വൈദ്യുതി ബിൽ)",
+        "ജനനത്തീയതി രേഖ (ജനന സർട്ടിഫിക്കറ്റ് / സ്കൂൾ ടി.സി)",
+        "സ്വയം സാക്ഷ്യപ്പെടുത്തിയ അപേക്ഷ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Physical verification report of identification marks by Village Officer"
+      ],
+      ml: [
+        "ശരീരത്തിലെ തിരിച്ചറിയൽ അടയാളങ്ങൾ പരിശോധിച്ചുകൊണ്ടുള്ള വില്ലേജ് റിപ്പോർട്ട്"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala e-District Portal or local Village Office / Akshaya Centre.",
+      ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Village Office",
+      ml: "ഓൺലൈൻ & വില്ലേജ് ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Apply online via e-District attaching address and birth evidence.",
+        "Attend local Village Office if personal physical verification of marks is required.",
+        "Village Officer certifies applicant identity.",
+        "Download signed certificate from e-District."
+      ],
+      ml: [
+        "ഇ-ഡിസ്ട്രിക്റ്റ് വഴി രേഖകൾ സഹിതം അപേക്ഷിക്കുക.",
+        "ആവശ്യമെങ്കിൽ വില്ലേജ് ഓഫീസിൽ നേരിട്ടെത്തി ശരീരത്തിലെ അടയാളങ്ങൾ പരിശോധിക്കുക.",
+        "പരിശോധനയ്ക്ക് ശേഷം സർട്ടിഫിക്കറ്റ് ഓൺലൈനായി ലഭിക്കും."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Requirements may vary; verify the latest details on the official portal.",
+      ml: "നിബന്ധനകളിൽ മാറ്റങ്ങൾ വരാം; ഔദ്യോഗിക പോർട്ടൽ വഴി വിവരങ്ങൾ ഉറപ്പാക്കുക."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "solvency-certificate",
+    category: "documents",
+    icon: "🏦",
+    name: {
+      en: "Solvency Certificate",
+      ml: "സോൾവൻസി സർട്ടിഫിക്കറ്റ്"
+    },
+    summary: {
+      en: "Revenue certification proving the financial standing and unencumbered asset value of an individual.",
+      ml: "ഒരു വ്യക്തിയുടെ സാമ്പത്തിക ഭദ്രതയും ബാധ്യതകളില്ലാത്ത സ്വത്ത് മൂല്യവും സാക്ഷ്യപ്പെടുത്തുന്ന റവന്യൂ രേഖ."
+    },
+    whoNeeds: {
+      en: "Contractors bidding for government tenders, individuals standing court bail/surety, or applying for liquor/excise licenses.",
+      ml: "സർക്കാർ ടെൻഡറുകളിൽ പങ്കെടുക്കുന്നവർ, കോടതി ജാമ്യം നിൽക്കുന്നവർ, മറ്റ് നിയമപരമായ ആവശ്യങ്ങൾക്ക് സാമ്പത്തിക ശേഷി തെളിയിക്കേണ്ടവർ."
+    },
+    eligibility: {
+      en: "Property owners in Kerala possessing clear unencumbered title to immovable properties.",
+      ml: "കേരളത്തിൽ സ്വന്തം പേരിൽ ബാധ്യതകളില്ലാത്ത വസ്തുവകകൾ ഉള്ള വ്യക്തികൾ."
+    },
+    documents: {
+      en: [
+        "Title deed (Aadhaaram) of the property",
+        "Latest Land Tax receipt (Thandaper / Karam receipt)",
+        "Encumbrance Certificate (EC) for minimum 13-30 years from Sub-Registrar Office",
+        "Location sketch and possession certificate",
+        "Aadhaar / Photo ID proof"
+      ],
+      ml: [
+        "വസ്തുവിന്റെ പ്രമാണ പകർപ്പ് (ആധാരം)",
+        "നടപ്പു വർഷത്തെ ഭൂനികുതി രസീത്",
+        "സബ് രജിസ്ട്രാർ ഓഫീസിൽ നിന്നുള്ള ബാധ്യതാ സർട്ടിഫിക്കറ്റ് (EC)",
+        "ലൊക്കേഷൻ സ്കെച്ചും കൈവശാവകാശ സർട്ടിഫിക്കറ്റും",
+        "ആധാർ / തിരിച്ചറിയൽ രേഖ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Valuation certificate from approved valuer or Tahsildar valuation report"
+      ],
+      ml: [
+        "വസ്തുവിന്റെ വിപണി മൂല്യം സംബന്ധിച്ച റവന്യൂ വാല്യുവേഷൻ റിപ്പോർട്ട്"
+      ]
+    },
+    whereToApply: {
+      en: "Revenue Department via e-District Portal or Taluk Office.",
+      ml: "റവന്യൂ വകുപ്പ് ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ താലൂക്ക് ഓഫീസ്."
+    },
+    mode: {
+      en: "Online & Taluk Office Inspection",
+      ml: "ഓൺലൈൻ & താലൂക്ക് തല പരിശോധന"
+    },
+    steps: {
+      en: [
+        "Submit application online along with property deeds and Encumbrance Certificate.",
+        "Village Officer inspects property to verify possession and absence of attachment.",
+        "Tahsildar determines net solvency value based on fair value.",
+        "Digitally signed Solvency Certificate is issued."
+      ],
+      ml: [
+        "പ്രമാണങ്ങളും ബാധ്യതാ സർട്ടിഫിക്കറ്റും ഉൾപ്പെടുത്തി അപേക്ഷിക്കുക.",
+        "വില്ലേജ് ഓഫീസർ വസ്തു സന്ദർശിച്ച് ബാധ്യതകളില്ലെന്ന് ഉറപ്പുവരുത്തുന്നു.",
+        "തഹസിൽദാർ മൂല്യം നിർണ്ണയിച്ച് സർട്ടിഫിക്കറ്റ് അനുവദിക്കുന്നു."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Certificate is issued only up to the verified value of unencumbered immovable property.",
+      ml: "വസ്തുവിന്റെ ബാധ്യതയില്ലാത്ത യഥാർത്ഥ മൂല്യത്തിന് അനുസൃതമായി മാത്രമേ സർട്ടിഫിക്കറ്റ് അനുവദിക്കൂ."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "possession-certificate",
+    category: "documents",
+    icon: "🏡",
+    name: {
+      en: "Possession Certificate",
+      ml: "കൈവശാവകാശ സർട്ടിഫിക്കറ്റ്"
+    },
+    summary: {
+      en: "Certifies that an individual holds lawful physical possession of a specific parcel of land.",
+      ml: "ഒരു നിശ്ചിത ഭൂമി അപേക്ഷകന്റെ കൈവശത്തിലും അനുഭവത്തിലുമാണെന്ന് സാക്ഷ്യപ്പെടുത്തുന്ന റവന്യൂ രേഖ."
+    },
+    whoNeeds: {
+      en: "Landowners applying for building permits, bank agricultural or housing loans, and electricity connections.",
+      ml: "ബാങ്ക് വായ്പകൾ, കെട്ടിട നിർമ്മാണ പെർമിറ്റ്, വൈദ്യുതി കണക്ഷൻ എന്നിവയ്ക്കായി ഭൂമിയുടെ കൈവശാവകാശം തെളിയിക്കേണ്ടവർ."
+    },
+    eligibility: {
+      en: "Titleholders actively possessing land in Kerala with tax remitted up to date.",
+      ml: "ഭൂനികുതി കൃത്യമായി അടച്ച് വസ്തു കൈവശം വെച്ച് അനുഭവിക്കുന്ന ഭൂവുടമകൾ."
+    },
+    documents: {
+      en: [
+        "Registered Title Deed (Aadhaaram)",
+        "Latest Land Tax Receipt (Karam receipt)",
+        "Aadhaar / Photo ID proof",
+        "Previous possession certificate copy (if renewing)"
+      ],
+      ml: [
+        "രജിസ്റ്റർ ചെയ്ത ആധാരത്തിന്റെ പകർപ്പ്",
+        "നടപ്പു വർഷത്തെ ഭൂനികുതി രസീത്",
+        "ആധാർ / തിരിച്ചറിയൽ രേഖ",
+        "മുമ്പ് ലഭിച്ച സർട്ടിഫിക്കറ്റിന്റെ പകർപ്പ് (ഉണ്ടെങ്കിൽ)"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Thandaper account extract or pattayam copy (if applicable)"
+      ],
+      ml: [
+        "താണ്ഡപ്പേര് പകർപ്പ് അല്ലെങ്കിൽ പട്ടയ രേഖകൾ (ബാധകമെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala e-District Portal or local Village Office / Akshaya Centre.",
+      ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Village Office",
+      ml: "ഓൺലൈൻ & വില്ലേജ് ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Apply on e-District uploading title deed and tax payment receipt.",
+        "Village Officer checks village land records and conducts field verification if needed.",
+        "Village Officer approves and issues digitally signed certificate.",
+        "Download certificate directly from e-District."
+      ],
+      ml: [
+        "ആധാരവും നികുതി രസീതും സഹിതം ഇ-ഡിസ്ട്രിക്റ്റിൽ അപേക്ഷിക്കുക.",
+        "വില്ലേജ് രേഖകൾ പരിശോധിച്ച് ഉദ്യോഗസ്ഥർ അനുമതി നൽകുന്നു.",
+        "സർട്ടിഫിക്കറ്റ് ഓൺലൈനായി ഡൗൺലോഡ് ചെയ്ത് ഉപയോഗിക്കാം."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Ensure land tax is paid for the current financial year before applying.",
+      ml: "അപേക്ഷിക്കുന്നതിന് മുൻപ് നടപ്പു സാമ്പത്തിക വർഷത്തെ ഭൂനികുതി അടച്ചിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "location-certificate",
+    category: "documents",
+    icon: "🗺️",
+    name: {
+      en: "Location Certificate & Sketch",
+      ml: "ലൊക്കേഷൻ സർട്ടിഫിക്കറ്റും സ്കെച്ചും"
+    },
+    summary: {
+      en: "Certifies the exact geographical location, survey boundaries, and sketch of a land parcel.",
+      ml: "ഭൂമിയുടെ കൃത്യമായ സർവ്വേ അതിരുകളും സ്ഥാനവും വ്യക്തമാക്കുന്ന റവന്യൂ സ്കെച്ചും സർട്ടിഫിക്കറ്റും."
+    },
+    whoNeeds: {
+      en: "Property owners applying for building permits, boundary demarcations, bank mortgages, or legal title verification.",
+      ml: "കെട്ടിട നിർമ്മാണ അനുമതി, ബാങ്ക് വായ്പകൾ, അതിർത്തി തിരിക്കൽ എന്നിവയ്ക്കായി സ്ഥലം വ്യക്തമാക്കേണ്ടവർ."
+    },
+    eligibility: {
+      en: "Lawful owners of titled land registered within a Kerala revenue village.",
+      ml: "വില്ലേജ് പരിധിയിൽ ഭൂമിയുള്ള ഉടമസ്ഥർ."
+    },
+    documents: {
+      en: [
+        "Title deed copy of the property",
+        "Latest Land Tax Receipt",
+        "Possession Certificate",
+        "Aadhaar / Photo ID proof"
+      ],
+      ml: [
+        "ആധാരത്തിന്റെ പകർപ്പ്",
+        "ഭൂനികുതി രസീത്",
+        "കൈവശാവകാശ സർട്ടിഫിക്കറ്റ്",
+        "ആധാർ / തിരിച്ചറിയൽ രേഖ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Field Measurement Book (FMB) sketch extract from Taluk Survey Section"
+      ],
+      ml: [
+        "താലൂക്ക് സർവ്വേ വിഭാഗത്തിൽ നിന്നുള്ള എഫ്.എം.ബി (FMB) സ്കെച്ച് പകർപ്പ്"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala e-District Portal or local Village Office / Akshaya Centre.",
+      ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Village Field Inspection",
+      ml: "ഓൺലൈൻ & വില്ലേജ് പരിശോധന"
+    },
+    steps: {
+      en: [
+        "Submit application on e-District with title deed and tax proof.",
+        "Village Assistant / Surveyor conducts field visit to inspect plot boundaries.",
+        "Location certificate and official location sketch are prepared and uploaded.",
+        "Download certified location certificate online."
+      ],
+      ml: [
+        "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ വഴി പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക.",
+        "വില്ലേജ് ജീവനക്കാർ സ്ഥലം സന്ദർശിച്ച് അതിരുകൾ തിട്ടപ്പെടുത്തുന്നു.",
+        "ലൊക്കേഷൻ സർട്ടിഫിക്കറ്റും സ്കെച്ചും ഓൺലൈനായി ലഭ്യമാക്കുന്നു."
+      ]
+    },
+    officialUrl: "https://edistrict.kerala.gov.in",
+    notes: {
+      en: "Often required together with Possession Certificate for building permit approval by LSGD.",
+      ml: "തദ്ദേശ സ്ഥാപനങ്ങളിൽ കെട്ടിട നിർമ്മാണ പെർമിറ്റിനായി കൈവശാവകാശത്തിനൊപ്പം ഇതും ആവശ്യപ്പെടാറുണ്ട്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "local-body-certificates",
+    category: "documents",
+    icon: "🏛️",
+    name: {
+      en: "Local Body Certificates (LSGD)",
+      ml: "തദ്ദേശ സ്ഥാപന സർട്ടിഫിക്കറ്റുകൾ (സെവന)"
+    },
+    summary: {
+      en: "Civil registry and civic certificates issued by Grama Panchayats, Municipalities, and Corporations.",
+      ml: "ഗ്രാമപഞ്ചായത്ത്, നഗരസഭ എന്നിവയിൽ നിന്ന് ലഭിക്കുന്ന ജനന, മരണ, വിവാഹ സാക്ഷ്യപത്രങ്ങളും അനുബന്ധ സേവനങ്ങളും."
+    },
+    whoNeeds: {
+      en: "Residents needing certified extracts of civil registers or civic validations from local governing bodies.",
+      ml: "തദ്ദേശ സ്വയംഭരണ സ്ഥാപനങ്ങളിൽ നിന്ന് സിവിൽ രജിസ്ട്രേഷൻ രേഖകൾ ആവശ്യമുള്ള പൊതുജനങ്ങൾ."
+    },
+    eligibility: {
+      en: "Citizens registered or residing within the jurisdiction of the concerned Kerala local authority.",
+      ml: "നിശ്ചിത തദ്ദേശ സ്ഥാപന പരിധിയിൽ ജനിച്ചവരോ താമസിക്കുന്നവരോ ആയ വ്യക്തികൾ."
+    },
+    documents: {
+      en: [
+        "Aadhaar / Photo Identity Proof",
+        "Existing registration reference number or hospital reporting slip",
+        "Address proof within the local body limits"
+      ],
+      ml: [
+        "ആധാർ അല്ലെങ്കിൽ തിരിച്ചറിയൽ രേഖ",
+        "രജിസ്ട്രേഷൻ നമ്പർ അല്ലെങ്കിൽ ആശുപത്രി റിപ്പോർട്ട് വിവരങ്ങൾ",
+        "തദ്ദേശ പരിധിയിലെ മേൽവിലാസ രേഖ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Prescribed application forms for correction or non-availability certificates"
+      ],
+      ml: [
+        "തിരുത്തലുകൾ വരുത്താനോ ലഭ്യതക്കുറവ് സർട്ടിഫിക്കറ്റിനോ ഉള്ള അപേക്ഷാ ഫോറം"
+      ]
+    },
+    whereToApply: {
+      en: "Sevana LSGD Portal (cr.lsgkerala.gov.in) or local Panchayat / Municipality office.",
+      ml: "സെവന എൽ.എസ്.ജി.ഡി പോർട്ടൽ അല്ലെങ്കിൽ തദ്ദേശ സ്ഥാപന ഓഫീസ്."
+    },
+    mode: {
+      en: "Online & Local Body Office",
+      ml: "ഓൺലൈൻ & തദ്ദേശ ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Search civil registration databases online using date and location parameters.",
+        "Apply for copy or correction on the Sevana civil registration platform.",
+        "Pay statutory fee online or at the office cashier.",
+        "Collect certified stamped certificate or download digitally signed copy."
+      ],
+      ml: [
+        "സെവന പോർട്ടലിൽ തീയതിയും സ്ഥലവും നൽകി രജിസ്ട്രേഷൻ വിവരങ്ങൾ കണ്ടെത്തുക.",
+        "സർട്ടിഫിക്കറ്റിനായി ഓൺലൈനായോ നേരിട്ടോ അപേക്ഷിക്കുക.",
+        "ഫീസ് അടച്ച് സർട്ടിഫിക്കറ്റ് കൈപ്പറ്റുക."
+      ]
+    },
+    officialUrl: "https://cr.lsgkerala.gov.in",
+    notes: {
+      en: "Digitally signed certificates with verifiable QR codes are recognized as legal proof across departments.",
+      ml: "ക്യു.ആർ കോഡുള്ള ഡിജിറ്റൽ സർട്ടിഫിക്കറ്റുകൾ എല്ലാ ഔദ്യോഗിക ആവശ്യങ്ങൾക്കും സാധുവാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "marriage-registration-services",
+    category: "documents",
+    icon: "💒",
+    name: {
+      en: "Marriage Registration Services",
+      ml: "വിവാഹ രജിസ്ട്രേഷൻ സേവനങ്ങൾ"
+    },
+    summary: {
+      en: "Procedural booking and legal solemnization under Special Marriage Act or Kerala Common Marriage Rules.",
+      ml: "സ്പെഷ്യൽ മാര്യേജ് ആക്ട് അല്ലെങ്കിൽ കേരള കോമൺ മാര്യേജ് ചട്ടങ്ങൾ പ്രകാരമുള്ള രജിസ്ട്രേഷൻ നടപടികൾ."
+    },
+    whoNeeds: {
+      en: "Couples intending to marry legally under the civil act or formalize an already solemnized ceremony.",
+      ml: "നിയമാനുസൃതമായി സിവിൽ വിവാഹം രജിസ്റ്റർ ചെയ്യാൻ ആഗ്രഹിക്കുന്ന ദമ്പതികൾ."
+    },
+    eligibility: {
+      en: "Bride aged 18+ and Groom aged 21+ complying with statutory notice conditions.",
+      ml: "വധുവിന് 18 വയസ്സും വരന് 21 വയസ്സും പൂർത്തിയായിരിക്കണം."
+    },
+    documents: {
+      en: [
+        "Age proof of bride and groom (Birth Certificate, SSLC, or Passport)",
+        "Address proof of both parties",
+        "Passport size photographs",
+        "Solemnization certificate from religious authority or joint declaration"
+      ],
+      ml: [
+        "വധൂവരന്മാരുടെ വയസ്സ് തെളിയിക്കുന്ന രേഖകൾ (SSLC, ജനന സർട്ടിഫിക്കറ്റ്)",
+        "ഇരുവരുടെയും മേൽവിലാസ രേഖകൾ",
+        "പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോകൾ",
+        "വിവാഹ സാക്ഷ്യപത്രം അല്ലെങ്കിൽ സംയുക്ത സത്യവാങ്മൂലം"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Identity proofs of three witnesses (for Special Marriage Act registration)",
+        "Embassy NOC if one partner is a foreign citizen"
+      ],
+      ml: [
+        "മൂന്ന് സാക്ഷികളുടെ തിരിച്ചറിയൽ രേഖകൾ (സ്പെഷ്യൽ മാര്യേജ് ആക്ടിന്)",
+        "വിദേശ പൗരന്മാരാണെങ്കിൽ എംബസി എൻ.ഒ.സി"
+      ]
+    },
+    whereToApply: {
+      en: "Registration Department portal (keralaregistration.gov.in) for Special Marriage or Sevana portal for Local Body registration.",
+      ml: "സബ് രജിസ്ട്രാർ ഓഫീസ് (രജിസ്ട്രേഷൻ വകുപ്പ്) അല്ലെങ്കിൽ തദ്ദേശ സ്ഥാപന സെവന പോർട്ടൽ."
+    },
+    mode: {
+      en: "Online Notice Submission + In-person Signing",
+      ml: "ഓൺലൈൻ അപേക്ഷ & നേരിട്ടുള്ള രജിസ്ട്രേഷൻ"
+    },
+    steps: {
+      en: [
+        "Submit notice of intended marriage online to Sub-Registrar / Local Registrar.",
+        "Under Special Marriage Act, observe statutory 30-day notice period.",
+        "Appear at the registrar office on appointed date with witnesses and original IDs.",
+        "Sign the register in presence of the marriage officer and receive certificate."
+      ],
+      ml: [
+        "രജിസ്ട്രാർക്ക് ഓൺലൈനായി വിവാഹ നോട്ടീസ് സമർപ്പിക്കുക.",
+        "സ്പെഷ്യൽ മാര്യേജ് ആക്ട് പ്രകാരം 30 ദിവസത്തെ നോട്ടീസ് കാലാവധി പൂർത്തിയാക്കുക.",
+        "സാക്ഷികളോടൊപ്പം സബ് രജിസ്ട്രാർ ഓഫീസിൽ നേരിട്ടെത്തി ഒപ്പിടുക.",
+        "വിവാഹ സർട്ടിഫിക്കറ്റ് കൈപ്പറ്റുക."
+      ]
+    },
+    officialUrl: "https://keralaregistration.gov.in",
+    notes: {
+      en: "Special Marriage Act requires mandatory 30-day public notice display at the Sub-Registrar Office before solemnization.",
+      ml: "സ്പെഷ്യൽ മാര്യേജ് രജിസ്ട്രേഷന് സബ് രജിസ്ട്രാർ ഓഫീസിൽ 30 ദിവസത്തെ നോട്ടീസ് പ്രദർശനം നിർബന്ധമാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
 
   // =========================================================================
-  // CATEGORY B: ID & Personal (id) - 6 Services
+  // CATEGORY B: ID & Personal (id)
   // =========================================================================
   {
     id: "aadhaar-services",
@@ -1161,9 +1735,82 @@ const servicesData = [
     lastVerified: "March 2026",
     verified: true
   },
+  {
+    id: "police-clearance-certificate",
+    category: "id",
+    icon: "🛡️",
+    name: {
+      en: "Police Clearance Certificate (PCC)",
+      ml: "പോലീസ് ക്ലിയറൻസ് സർട്ടിഫിക്കറ്റ് (PCC)"
+    },
+    summary: {
+      en: "Certification confirming clean criminal antecedents issued by Police / Regional Passport Office.",
+      ml: "ക്രിമിനൽ കേസുകളോ മറ്റ് നിയമപരമായ തടസ്സങ്ങളോ ഇല്ലെന്ന് പോലീസ് സാക്ഷ്യപ്പെടുത്തുന്ന സർട്ടിഫിക്കറ്റ്."
+    },
+    whoNeeds: {
+      en: "Citizens applying for long-term employment visas, permanent residency abroad, or sensitive public jobs.",
+      ml: "വിദേശത്ത് തൊഴിൽ വിസ, സ്ഥിരതാമസ അനുമതി (PR), മറ്റ് ഔദ്യോഗിക നിയമനങ്ങൾ എന്നിവയ്ക്ക് അപേക്ഷിക്കുന്നവർ."
+    },
+    eligibility: {
+      en: "Indian citizens with no adverse criminal cases registered against them in jurisdictional police stations.",
+      ml: "പോലീസ് സ്റ്റേഷനുകളിൽ ക്രിമിനൽ കേസുകളോ മറ്റ് ബാധ്യതകളോ ഇല്ലാത്ത ഇന്ത്യൻ പൗരന്മാർ."
+    },
+    documents: {
+      en: [
+        "Valid Indian Passport with address proof",
+        "Aadhaar / Recognized Photo Identity Card",
+        "Proof of present residential address in Kerala",
+        "Recent passport-sized photographs"
+      ],
+      ml: [
+        "സാധുവായ ഒറിജിനൽ പാസ്‌പോർട്ട്",
+        "ആധാർ / ഫോട്ടോ തിരിച്ചറിയൽ രേഖ",
+        "നിലവിലെ താമസസ്ഥലം തെളിയിക്കുന്ന രേഖ",
+        "പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോകൾ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Job offer letter / Visa application copy requiring mandatory clearance",
+        "Court disposal judgment copy if cleared of past charges"
+      ],
+      ml: [
+        "വിസ അല്ലെങ്കിൽ വിദേശ ജോലിയുടെ ഓഫർ ലെറ്റർ പകർപ്പ്",
+        "പഴയ കേസുകൾ തീർപ്പായതാണെങ്കിൽ കോടതി വിധി പകർപ്പ്"
+      ]
+    },
+    whereToApply: {
+      en: "Passport Seva Portal (for international visa PCC) or Kerala Police Thuna Portal (for domestic job PCC).",
+      ml: "പാസ്‌പോർട്ട് സേവാ കേന്ദ്രം (വിദേശ വിസയ്ക്ക്) അല്ലെങ്കിൽ കേരള പോലീസ് തുണ പോർട്ടൽ (ആഭ്യന്തര ആവശ്യങ്ങൾക്ക്)."
+    },
+    mode: {
+      en: "Online Application & Police Station Verification",
+      ml: "ഓൺലൈൻ അപേക്ഷ & പോലീസ് സ്റ്റേഷൻ വെരിഫിക്കേഷൻ"
+    },
+    steps: {
+      en: [
+        "Submit online form on Passport Seva or Kerala Police Thuna Portal.",
+        "Pay prescribed application fee online and book verification slot.",
+        "Local police station officer visits or summons applicant to inspect original documents.",
+        "Police report is submitted and certificate is issued by RPO / District Police Chief."
+      ],
+      ml: [
+        "പാസ്‌പോർട്ട് സേവാ അല്ലെങ്കിൽ തുണ പോർട്ടലിൽ അപേക്ഷ സമർപ്പിച്ച് ഫീസ് അടയ്ക്കുക.",
+        "ലോക്കൽ പോലീസ് സ്റ്റേഷനിൽ നിന്ന് രേഖകൾ പരിശോധിക്കുന്നു.",
+        "അന്വേഷണ റിപ്പോർട്ട് സമർപ്പിച്ച ശേഷം സർട്ടിഫിക്കറ്റ് ലഭ്യമാകുന്നു."
+      ]
+    },
+    officialUrl: "https://www.passportindia.gov.in",
+    notes: {
+      en: "For foreign visa requirements, only PCC issued via Passport Seva Kendra is accepted by foreign embassies.",
+      ml: "വിദേശ വിസ ആവശ്യങ്ങൾക്ക് പാസ്‌പോർട്ട് സേവാ കേന്ദ്രം വഴി നൽകുന്ന പി.സി.സി മാത്രമേ എംബസികൾ സ്വീകരിക്കൂ."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
 
   // =========================================================================
-  // CATEGORY C: Government & Local (government) - 6 Services
+  // CATEGORY C: Government & Local (government)
   // =========================================================================
   {
     id: "ration-card-services",
@@ -1602,9 +2249,716 @@ const servicesData = [
     lastVerified: "March 2026",
     verified: true
   },
+  {
+    id: "land-tax-services",
+    category: "government",
+    icon: "🌾",
+    name: {
+      en: "Land Tax Services",
+      ml: "ഭൂനികുതി സേവനങ്ങൾ (റവന്യൂ)"
+    },
+    summary: {
+      en: "Online remittance of basic land tax (Karam) and digital tax receipt generation via Revenue Portal.",
+      ml: "റവന്യൂ പോർട്ടൽ വഴി ഓൺലൈനായി അടിസ്ഥാന ഭൂനികുതി (കരം) ഒടുക്കുന്നതിനും രസീത് ലഭ്യമാക്കുന്നതിനുമുള്ള സേവനം."
+    },
+    whoNeeds: {
+      en: "All registered landowners in Kerala paying annual land tax for legal verification or banking loans.",
+      ml: "കേരളത്തിൽ ഭൂമിയുള്ള എല്ലാ ഉടമസ്ഥരും (വാർഷിക കരം അടയ്ക്കുന്നതിനും രസീത് ലഭിക്കുന്നതിനും)."
+    },
+    eligibility: {
+      en: "Titled landowners having registered Thandaper and land records in Kerala Revenue Village registers.",
+      ml: "വില്ലേജ് രേഖകളിൽ താണ്ഡപ്പേരുള്ള ഭൂവുടമകൾ."
+    },
+    documents: {
+      en: [
+        "Previous land tax receipt or Thandaper account number",
+        "District, Taluk, Village, and Survey/Subdivision numbers",
+        "Aadhaar / Registered mobile number for OTP login"
+      ],
+      ml: [
+        "മുൻ വർഷത്തെ നികുതി രസീത് അല്ലെങ്കിൽ താണ്ഡപ്പേര് നമ്പർ",
+        "ജില്ല, താലൂക്ക്, വില്ലേജ്, സർവ്വേ നമ്പർ",
+        "ലോഗിൻ ചെയ്യുന്നതിനുള്ള മൊബൈൽ നമ്പർ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Title Deed (Aadhaaram) and mutation (Pokkuvaravu) order if paying for newly transferred property"
+      ],
+      ml: [
+        "പുതിയ ഭൂമിയാണെങ്കിൽ പോക്കുവരവ് ഉത്തരവും ആധാര പകർപ്പും"
+      ]
+    },
+    whereToApply: {
+      en: "Revenue Department Citizen Portal (revenue.kerala.gov.in) or local Village Office.",
+      ml: "റവന്യൂ വകുപ്പ് പോർട്ടൽ (revenue.kerala.gov.in) അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ്."
+    },
+    mode: {
+      en: "100% Online & Village Office",
+      ml: "ഓൺലൈൻ & വില്ലേജ് ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Register or log in to the Kerala Revenue Department portal.",
+        "Enter District, Taluk, Village, and Survey or Thandaper number to fetch dues.",
+        "Verify property extent, owner details, and tax amount.",
+        "Pay through e-Treasury gateway (UPI, Net Banking, Cards) and download instant receipt."
+      ],
+      ml: [
+        "റവന്യൂ പോർട്ടലിൽ ലോഗിൻ ചെയ്യുക.",
+        "വില്ലേജും സർവ്വേ നമ്പറും നൽകി നികുതി തുക പരിശോധിക്കുക.",
+        "യു.പി.ഐ അല്ലെങ്കിൽ കാർഡ് വഴി ഓൺലൈനായി പണം അടയ്ക്കുക.",
+        "ഡിജിറ്റൽ നികുതി രസീത് ഡൗൺലോഡ് ചെയ്യുക."
+      ]
+    },
+    officialUrl: "https://revenue.kerala.gov.in",
+    notes: {
+      en: "Keep the downloaded digital tax receipt safe; it serves as primary proof of ongoing lawful land possession.",
+      ml: "ഡൗൺലോഡ് ചെയ്യുന്ന നികുതി രസീത് കൈവശാവകാശം തെളിയിക്കുന്ന പ്രധാന രേഖയാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "thandaper-services",
+    category: "government",
+    icon: "📂",
+    name: {
+      en: "Thandaper Services & Mutation (Pokkuvaravu)",
+      ml: "താണ്ഡപ്പേര് സേവനങ്ങളും പോക്കുവരവും"
+    },
+    summary: {
+      en: "Revenue registry services for land transfer mutation (Pokkuvaravu) and Unique Thandaper assignment.",
+      ml: "ഭൂമി രജിസ്ട്രേഷന് ശേഷമുള്ള പോക്കുവരവ് നടപടികളും താണ്ഡപ്പേര് അക്കൗണ്ട് തിരുത്തലുകളും."
+    },
+    whoNeeds: {
+      en: "Citizens who recently bought, inherited, or received land by gift requiring record-of-rights transfer.",
+      ml: "പുതിയതായി സ്ഥലം വാങ്ങിയവർ, ഭാഗപത്രത്തിലൂടെയോ ധനനിശ്ചയത്തിലൂടെയോ ഭൂമി ലഭിച്ചവർ."
+    },
+    eligibility: {
+      en: "Registered title deed holders whose transactions have been registered at the Sub-Registrar Office.",
+      ml: "സബ് രജിസ്ട്രാർ ഓഫീസിൽ പ്രമാണം രജിസ്റ്റർ ചെയ്ത വസ്തു ഉടമകൾ."
+    },
+    documents: {
+      en: [
+        "Registered Title Deed (Aadhaaram) copy",
+        "Encumbrance Certificate (EC)",
+        "Prior title deed (Munaadhaaram) copy",
+        "Latest Land Tax receipt of previous owner"
+      ],
+      ml: [
+        "രജിസ്റ്റർ ചെയ്ത പുതിയ പ്രമാണത്തിന്റെ പകർപ്പ്",
+        "ബാധ്യതാ സർട്ടിഫിക്കറ്റ് (EC)",
+        "മുന്നാധാര പകർപ്പ്",
+        "മുൻ ഉടമയുടെ നികുതി രസീത്"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Legal heirship certificate / Will probate (if claiming ownership through inheritance)"
+      ],
+      ml: [
+        "അനന്തരാവകാശ സർട്ടിഫിക്കറ്റ് (പാരമ്പര്യമായി ലഭിച്ച സ്വത്താണെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "Online via Revenue Portal (revenue.kerala.gov.in) integrated with PEARL SRO registration or Village Office.",
+      ml: "റവന്യൂ പോർട്ടൽ അല്ലെങ്കിൽ വില്ലേജ് ഓഫീസ് / അക്ഷയ കേന്ദ്രം."
+    },
+    mode: {
+      en: "Online & Village Office",
+      ml: "ഓൺലൈൻ & വില്ലേജ് ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Following SRO deed registration, apply for online mutation (Pokkuvaravu) on Revenue Portal.",
+        "Village Officer scrutinizes deed, field sketch, and title flow.",
+        "Revenue assessment is sanctioned and new Thandaper account number is generated.",
+        "Pay land tax under the newly assigned Thandaper."
+      ],
+      ml: [
+        "ആധാരം രജിസ്റ്റർ ചെയ്ത ശേഷം റവന്യൂ പോർട്ടൽ വഴി പോക്കുവരവിന് അപേക്ഷിക്കുക.",
+        "വില്ലേജ് ഓഫീസർ രേഖകൾ പരിശോധിച്ച് റിപ്പോർട്ട് തയ്യാറാക്കുന്നു.",
+        "പോക്കുവരവ് പൂർത്തിയായി പുതിയ താണ്ഡപ്പേര് നമ്പർ ലഭിക്കുന്നു.",
+        "തുടർന്ന് പുതിയ നമ്പറിൽ കരം അടയ്ക്കാം."
+      ]
+    },
+    officialUrl: "https://revenue.kerala.gov.in",
+    notes: {
+      en: "Automated mutation initiation is enabled in most SROs under the integrated e-District/PEARL system.",
+      ml: "രജിസ്ട്രേഷൻ സമയത്ത് തന്നെ പല ഓഫീസുകളിലും ഓൺലൈൻ പോക്കുവരവ് അപേക്ഷ സ്വമേധയാ കൈമാറ്റം ചെയ്യപ്പെടുന്നുണ്ട്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "land-conversion",
+    category: "government",
+    icon: "🚜",
+    name: {
+      en: "Land Conversion (Data Bank & Form 5/6/7)",
+      ml: "തണ്ണീർത്തട / നെൽവയൽ തരംമാറ്റം (ഡാറ്റാ ബാങ്ക്)"
+    },
+    summary: {
+      en: "Statutory regularization of unnotified land and paddy land conversion under Kerala Conservation of Paddy Land and Wetland Act.",
+      ml: "നെൽവയൽ തണ്ണീർത്തട സംരക്ഷണ നിയമപ്രകാരം ഡാറ്റാ ബാങ്കിൽ നിന്നുള്ള ഒഴിവാക്കലും ഭൂമി തരംമാറ്റ അപേക്ഷകളും."
+    },
+    whoNeeds: {
+      en: "Landowners whose dry land is wrongly categorized as Nilam/Paddy land in revenue Data Bank registers.",
+      ml: "പുരയിടമായി ഉപയോഗിക്കുന്ന സ്ഥലം ഡാറ്റാ ബാങ്കിലോ ബി.ടി.ആറിലോ 'നിലം' എന്ന് തെറ്റായി രേഖപ്പെടുത്തിയിട്ടുള്ളവർ."
+    },
+    eligibility: {
+      en: "Owners of land reclaimed prior to 2008 or seeking statutory exemption under Forms 5, 6, or 7.",
+      ml: "2008-ന് മുൻപ് നികത്തപ്പെട്ട പുരയിട ഭൂമിയുടെ ഉടമസ്ഥർ (നിയമപരമായ വ്യവസ്ഥകൾക്ക് വിധേയമായി)."
+    },
+    documents: {
+      en: [
+        "Title Deed (Aadhaaram) and prior title deeds",
+        "Latest Land Tax Receipt",
+        "Possession Certificate and Location Sketch",
+        "Certified extract of the local Data Bank from Agricultural Office (Krishi Bhavan)"
+      ],
+      ml: [
+        "ആധാരത്തിന്റെ പകർപ്പ്",
+        "നടപ്പു വർഷത്തെ ഭൂനികുതി രസീത്",
+        "കൈവശാവകാശ സർട്ടിഫിക്കറ്റും ലൊക്കേഷൻ സ്കെച്ചും",
+        "കൃഷിഭവനിൽ നിന്നുള്ള ഡാറ്റാ ബാങ്ക് പകർപ്പ്"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Satellite imagery analysis report from KSREC (Kerala State Remote Sensing and Environment Centre)"
+      ],
+      ml: [
+        "കെ.എസ്.ആർ.ഇ.സി (KSREC) ഉപഗ്രഹ ചിത്ര പരിശോധനാ റിപ്പോർട്ട്"
+      ]
+    },
+    whereToApply: {
+      en: "Revenue Department Portal (revenue.kerala.gov.in) to concerned Revenue Divisional Officer (RDO).",
+      ml: "റവന്യൂ പോർട്ടൽ വഴി ബന്ധപ്പെട്ട ആർ.ഡി.ഒ (RDO) ക്ക്."
+    },
+    mode: {
+      en: "Online Portal & RDO Statutory Scrutiny",
+      ml: "ഓൺലൈൻ & ആർ.ഡി.ഒ തല പരിശോധന"
+    },
+    steps: {
+      en: [
+        "Submit Form 5 online for removal from Data Bank or Form 6 for change of nature of unnotified land.",
+        "Agricultural Officer and Village Officer submit field enquiry reports.",
+        "RDO conducts hearing or reviews satellite imagery.",
+        "Pay statutory government conversion fee (if plot extent exceeds statutory free threshold).",
+        "RDO issues order authorizing amendment of BTR (Basic Tax Register)."
+      ],
+      ml: [
+        "ഫോം 5 (ഡാറ്റാ ബാങ്കിൽ നിന്ന് ഒഴിവാക്കാൻ) അല്ലെങ്കിൽ ഫോം 6 റവന്യൂ പോർട്ടലിൽ സമർപ്പിക്കുക.",
+        "കൃഷി ഓഫീസറും വില്ലേജ് ഓഫീസറും സ്ഥലം പരിശോധിക്കുന്നു.",
+        "ആർ.ഡി.ഒ യുടെ പരിശോധനയ്ക്ക് ശേഷം ആവശ്യമെങ്കിൽ സർക്കാർ ഫീസ് അടയ്ക്കുക.",
+        "ഭൂമി തരംമാറ്റിക്കൊണ്ടുള്ള ഉത്തരവ് ലഭ്യമാകുന്നു."
+      ]
+    },
+    officialUrl: "https://revenue.kerala.gov.in",
+    notes: {
+      en: "Plots up to 25 cents (10.11 ares) of residential land are exempt from conversion fees under prevailing government orders.",
+      ml: "25 സെന്റ് വരെയുള്ള ഭൂമിക്ക് പ്രത്യേക സർക്കാർ ഉത്തരവുകൾ പ്രകാരം ഫീസ് ഇളവുകൾ ലഭ്യമാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "building-permit",
+    category: "government",
+    icon: "📐",
+    name: {
+      en: "Building Permit (K-SMART / IBPMS)",
+      ml: "കെട്ടിട നിർമ്മാണ പെർമിറ്റ്"
+    },
+    summary: {
+      en: "Local Self Government permit required prior to constructing, modifying, or extending any residential or commercial building.",
+      ml: "വീടോ മറ്റ് കെട്ടിടങ്ങളോ നിർമ്മിക്കുന്നതിനോ പുനർനിർമ്മിക്കുന്നതിനോ തദ്ദേശ സ്ഥാപനത്തിൽ നിന്ന് ലഭിക്കേണ്ട മുൻകൂർ അനുമതി."
+    },
+    whoNeeds: {
+      en: "Property owners constructing new houses, commercial buildings, or making structural additions.",
+      ml: "പുതിയ വീട്, കെട്ടിടം എന്നിവ നിർമ്മിക്കുന്നവർ അല്ലെങ്കിൽ വിപുലീകരിക്കുന്നവർ."
+    },
+    eligibility: {
+      en: "Landowners having valid dry land title compliant with Kerala Panchayat/Municipality Building Rules.",
+      ml: "കെട്ടിട നിർമ്മാണ ചട്ടങ്ങൾ പാലിക്കുന്ന ഭൂമിയുടെ ഉടമസ്ഥർ."
+    },
+    documents: {
+      en: [
+        "Registered Title Deed and latest Land Tax Receipt",
+        "Possession Certificate and Location Certificate with sketch",
+        "Approved Building Plan drawings prepared by empaneled licensee / architect",
+        "Site plan, service plan, and structural stability certificate"
+      ],
+      ml: [
+        "ആധാരത്തിന്റെ പകർപ്പും ഭൂനികുതി രസീതും",
+        "കൈവശാവകാശ സർട്ടിഫിക്കറ്റും ലൊക്കേഷൻ സ്കെച്ചും",
+        "ലൈസൻസുള്ള എൻജിനീയർ തയ്യാറാക്കിയ കെട്ടിട പ്ലാൻ",
+        "സൈറ്റ് പ്ലാനും മറ്റ് അനുബന്ധ എൻജിനീയറിംഗ് രേഖകളും"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Fire NOC, Pollution Clearance, or Coastal Regulation Zone (CRZ) clearance for specific locations"
+      ],
+      ml: [
+        "തീരദേശ പരിപാലന അനുമതി (CRZ), ഫയർ എൻ.ഒ.സി (ബാധകമെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "K-SMART portal (for Municipalities/Corporations) or IBPMS portal for Grama Panchayats.",
+      ml: "കെ-സ്മാർട്ട് (K-SMART) അല്ലെങ്കിൽ ഐ.ബി.പി.എം.എസ് പോർട്ടൽ വഴി."
+    },
+    mode: {
+      en: "100% Online via Empaneled Licensee",
+      ml: "ഓൺലൈൻ (അംഗീകൃത എൻജിനീയർ വഴി)"
+    },
+    steps: {
+      en: [
+        "Empaneled architect/engineer uploads drawing files on K-SMART / IBPMS.",
+        "System automated scrutiny checks compliance with KMBR / KPBR rules.",
+        "Pay scrutiny and permit fee online.",
+        "Assistant Engineer conducts site inspection; Secretary sanctions digitally signed Building Permit."
+      ],
+      ml: [
+        "എൻജിനീയർ പ്ലാൻ പോർട്ടൽ വഴി അപ്‌ലോഡ് ചെയ്യുന്നു.",
+        "കെട്ടിട നിർമ്മാണ ചട്ടങ്ങൾ പാലിക്കുന്നുണ്ടെന്ന് ഓൺലൈനായി പരിശോധിക്കുന്നു.",
+        "ഫീസ് അടച്ച ശേഷം ഉദ്യോഗസ്ഥർ സ്ഥലം സന്ദർശിക്കുന്നു.",
+        "ഡിജിറ്റൽ പെർമിറ്റ് അനുവദിക്കുന്നു."
+      ]
+    },
+    officialUrl: "https://ksmart.lsgkerala.gov.in",
+    notes: {
+      en: "Low-risk residential houses under 300 sq. meters enjoy fast-track self-certification permits under K-SMART regulations.",
+      ml: "ചെറിയ വീടുകൾക്ക് വേഗത്തിൽ അനുമതി ലഭിക്കുന്ന സെൽഫ് സർട്ടിഫിക്കേഷൻ സൗകര്യം ലഭ്യമാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "property-tax",
+    category: "government",
+    icon: "🏠",
+    name: {
+      en: "Property & Building Tax (Sanchaya)",
+      ml: "വസ്തു / കെട്ടിട നികുതി (സഞ്ചയ)"
+    },
+    summary: {
+      en: "Annual municipal tax payment for residential and commercial buildings across Panchayats, Municipalities, and Corporations.",
+      ml: "തദ്ദേശ സ്വയംഭരണ സ്ഥാപനങ്ങളിലേക്ക് വർഷം തോറും അടയ്ക്കേണ്ട കെട്ടിട നികുതി സേവനങ്ങൾ."
+    },
+    whoNeeds: {
+      en: "Building owners in Kerala paying compulsory annual local body property tax.",
+      ml: "കേരളത്തിൽ വീടോ മറ്റ് കെട്ടിടങ്ങളോ സ്വന്തമായുള്ള എല്ലാ വ്യക്തികളും."
+    },
+    eligibility: {
+      en: "Owners of assessed buildings with valid annual door numbering assigned by the local body.",
+      ml: "തദ്ദേശ സ്ഥാപനങ്ങളിൽ നിന്ന് കെട്ടിട നമ്പർ അനുവദിച്ചിട്ടുള്ള ഉടമകൾ."
+    },
+    documents: {
+      en: [
+        "Building Door Number and Ward Number",
+        "Previous property tax receipt or assessment notice",
+        "Owner identity details"
+      ],
+      ml: [
+        "കെട്ടിട നമ്പർ, വാർഡ് നമ്പർ",
+        "മുൻ വർഷത്തെ നികുതി രസീത്",
+        "ഉടമയുടെ വിവരങ്ങൾ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Building ownership transfer certificate / deed copy if updating taxpayer name"
+      ],
+      ml: [
+        "പേര് മാറ്റുന്നതിനായുള്ള ഉടമസ്ഥാവകാശ രേഖകൾ (ബാധകമെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "Sanchaya LSGD Online Tax Portal (tax.lsgkerala.gov.in) or local Panchayat/Municipality fee counter.",
+      ml: "സഞ്ചയ പോർട്ടൽ (tax.lsgkerala.gov.in) അല്ലെങ്കിൽ തദ്ദേശ സ്ഥാപന കൗണ്ടർ."
+    },
+    mode: {
+      en: "100% Online & Civic Counter",
+      ml: "ഓൺലൈൻ & തദ്ദേശ ഓഫീസ്"
+    },
+    steps: {
+      en: [
+        "Access Sanchaya tax portal and select local body type, district, and municipality/panchayat.",
+        "Search property by Ward Number and Door Number.",
+        "Review demand schedule and outstanding balance.",
+        "Pay online via e-Payment gateway and download printed receipt."
+      ],
+      ml: [
+        "സഞ്ചയ പോർട്ടലിൽ തദ്ദേശ സ്ഥാപനവും വാർഡ്, കെട്ടിട നമ്പറും നൽകുക.",
+        "നികുതി കുടിശ്ശിക പരിശോധിച്ച് ഓൺലൈനായി പണം അടയ്ക്കുക.",
+        "ഔദ്യോഗിക രസീത് പ്രിന്റ് എടുക്കുക."
+      ]
+    },
+    officialUrl: "https://tax.lsgkerala.gov.in",
+    notes: {
+      en: "Ensure timely payment in early quarters of the financial year to avoid statutory penalty interest.",
+      ml: "പിഴപ്പലിശ ഒഴിവാക്കാൻ സാമ്പത്തിക വർഷത്തിന്റെ തുടക്കത്തിൽ തന്നെ നികുതി അടയ്ക്കുക."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "trade-licence-services",
+    category: "government",
+    icon: "🛍️",
+    name: {
+      en: "Trade Licence Services (Local Bodies)",
+      ml: "വ്യാപാര ലൈസൻസ് സേവനങ്ങൾ (തദ്ദേശ സ്ഥാപനങ്ങൾ)"
+    },
+    summary: {
+      en: "Annual renewal, cancellation, and new issuance of dangerous & offensive (D&O) trade licenses by local councils.",
+      ml: "തദ്ദേശ സ്ഥാപനങ്ങളിൽ നിന്നുള്ള വ്യാപാര ലൈസൻസ് എടുക്കലും വാർഷിക പുതുക്കലും."
+    },
+    whoNeeds: {
+      en: "Commercial shop owners, clinics, workshops, godowns, and hospitality business operators.",
+      ml: "വ്യാപാര സ്ഥാപനങ്ങൾ, ഹോട്ടലുകൾ, വർക്ക്‌ഷോപ്പുകൾ എന്നിവ നടത്തുന്ന വ്യാപാരികൾ."
+    },
+    eligibility: {
+      en: "Business enterprises operating in designated zones adhering to environmental and fire norms.",
+      ml: "നിയമാനുസൃത കെട്ടിടങ്ങളിൽ വ്യാപാരം നടത്തുന്ന സംരംഭകർ."
+    },
+    documents: {
+      en: [
+        "Rent agreement or building ownership tax receipt",
+        "Applicant Aadhaar / PAN card",
+        "Property owner consent letter",
+        "Site plan / business details"
+      ],
+      ml: [
+        "വാടകക്കരാർ അല്ലെങ്കിൽ സ്വന്തം കെട്ടിട നികുതി രസീത്",
+        "ആധാർ / പാൻ കാർഡ്",
+        "കെട്ടിട ഉടമയുടെ സമ്മതപത്രം",
+        "സ്ഥാപനത്തിന്റെ വിവരങ്ങൾ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "FSSAI license (for food establishments) or PCB consent (for manufacturing/service units)"
+      ],
+      ml: [
+        "ഭക്ഷ്യ സുരക്ഷാ ലൈസൻസ് (FSSAI) അല്ലെങ്കിൽ മലിനീകരണ നിയന്ത്രണ ബോർഡ് അനുമതി"
+      ]
+    },
+    whereToApply: {
+      en: "K-SMART Portal (for Municipalities/Corporations) or Citizen Portal for Panchayats.",
+      ml: "കെ-സ്മാർട്ട് പോർട്ടൽ അല്ലെങ്കിൽ തദ്ദേശ സ്ഥാപന ഓഫീസ്."
+    },
+    mode: {
+      en: "Online & Local Body Health Section",
+      ml: "ഓൺലൈൻ & തദ്ദേശ ആരോഗ്യ വിഭാഗം"
+    },
+    steps: {
+      en: [
+        "Apply online via K-SMART with premises and trade category documents.",
+        "Local Health Inspector conducts field premises inspection if needed.",
+        "Pay prescribed statutory license fee online.",
+        "Download digital Trade License."
+      ],
+      ml: [
+        "പോർട്ടൽ വഴി വാടകക്കരാറും രേഖകളും നൽകി അപേക്ഷിക്കുക.",
+        "ആരോഗ്യ വിഭാഗം ഉദ്യോഗസ്ഥരുടെ പരിശോധന നടക്കുന്നു.",
+        "ഫീസ് അടച്ച് ലൈസൻസ് ഡൗൺലോഡ് ചെയ്യുക."
+      ]
+    },
+    officialUrl: "https://ksmart.lsgkerala.gov.in",
+    notes: {
+      en: "Trade licenses must be renewed before the end of every financial year to avoid cancellation.",
+      ml: "ഓരോ സാമ്പത്തിക വർഷവും അവസാനിക്കുന്നതിന് മുൻപ് ലൈസൻസ് പുതുക്കേണ്ടതാണ്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "kseb-new-connection",
+    category: "government",
+    icon: "⚡",
+    name: {
+      en: "KSEB New Electricity Connection",
+      ml: "കെ.എസ്.ഇ.ബി പുതിയ വൈദ്യുതി കണക്ഷൻ"
+    },
+    summary: {
+      en: "Application for fresh single-phase or three-phase domestic, commercial, or agricultural power connections.",
+      ml: "ഗാർഹിക, വാണിജ്യ ആവശ്യങ്ങൾക്കായി പുതിയ വൈദ്യുതി കണക്ഷൻ ലഭ്യമാക്കാനുള്ള കെ.എസ്.ഇ.ബി സേവനം."
+    },
+    whoNeeds: {
+      en: "House owners, commercial establishments, and tenants requiring independent power supply.",
+      ml: "പുതിയ വീട് വെച്ചവർ, സ്ഥാപനങ്ങൾ ആരംഭിക്കുന്നവർ, അധിക കണക്ഷൻ ആവശ്യമുള്ളവർ."
+    },
+    eligibility: {
+      en: "Legal occupants or owners of premises possessing completed interior wiring certified by licensed wireman.",
+      ml: "ലൈസൻസുള്ള വയർമാൻ വഴി വയറിംഗ് പൂർത്തിയാക്കിയ കെട്ടിട ഉടമകൾ അല്ലെങ്കിൽ താമസക്കാർ."
+    },
+    documents: {
+      en: [
+        "Proof of ownership (Building Tax receipt or Title deed) OR Rent/lease agreement with owner consent",
+        "Aadhaar / Recognized Photo Identity Proof",
+        "Wiring completion test report submitted by licensed electrical wireman",
+        "Passport size photograph"
+      ],
+      ml: [
+        "ഉടമസ്ഥാവകാശ രേഖ (കെട്ടിട നികുതി രസീത് / ആധാരം) അല്ലെങ്കിൽ വാടകക്കരാർ",
+        "ആധാർ / തിരിച്ചറിയൽ രേഖ",
+        "വയറിംഗ് പൂർത്തിയായ ടെസ്റ്റ് സർട്ടിഫിക്കറ്റ്",
+        "പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Wayleave permission from adjacent landowners if electric poles/lines cross private lands"
+      ],
+      ml: [
+        "മറ്റ് സ്വകാര്യ സ്ഥലങ്ങളിലൂടെ ലൈൻ വലിക്കേണ്ടി വന്നാൽ വഴിസമ്മതപത്രം"
+      ]
+    },
+    whereToApply: {
+      en: "Online via KSEB Web Self Service (wss.kseb.in) or concerned local KSEB Electrical Section Office.",
+      ml: "കെ.എസ്.ഇ.ബി വെബ് സെൽഫ് സർവീസ് പോർട്ടൽ (wss.kseb.in) അല്ലെങ്കിൽ സെക്ഷൻ ഓഫീസ്."
+    },
+    mode: {
+      en: "Online Application & Field Service",
+      ml: "ഓൺലൈൻ അപേക്ഷ & ഫീൽഡ് പരിശോധന"
+    },
+    steps: {
+      en: [
+        "Apply on KSEB Web Self Service selecting Section Office and connected load details.",
+        "Upload ownership proof, identity proof, and wireman test report.",
+        "Assistant Engineer inspects site and prepares feasibility estimate.",
+        "Pay registration fee and security deposit online; KSEB technicians install meter and energize connection."
+      ],
+      ml: [
+        "കെ.എസ്.ഇ.ബി പോർട്ടലിൽ അപേക്ഷ സമർപ്പിക്കുക.",
+        "ഉദ്യോഗസ്ഥർ സ്ഥലം സന്ദർശിച്ച് എസ്റ്റിമേറ്റ് തയ്യാറാക്കുന്നു.",
+        "നിശ്ചിത ഫീസ് ഓൺലൈനായി അടയ്ക്കുക.",
+        "മീറ്റർ സ്ഥാപിച്ച് വൈദ്യുതി കണക്ഷൻ നൽകുന്നു."
+      ]
+    },
+    officialUrl: "https://wss.kseb.in",
+    notes: {
+      en: "Domestic single-phase connections up to 5 kW do not require prior building completion certificates if ownership proof exists.",
+      ml: "ചെറിയ ഗാർഹിക കണക്ഷനുകൾക്ക് വേഗത്തിൽ കണക്ഷൻ ലഭ്യമാക്കാൻ പ്രത്യേക ഇളവുകളുണ്ട്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "kseb-bill-payment",
+    category: "government",
+    icon: "💡",
+    name: {
+      en: "KSEB Bill Payment & Consumer Services",
+      ml: "കെ.എസ്.ഇ.ബി ബിൽ അടയ്ക്കലും സേവനങ്ങളും"
+    },
+    summary: {
+      en: "Online electricity bill inquiry, instant payment, tariff change, and connected load regularisation.",
+      ml: "വൈദ്യുതി ബിൽ പരിശോധിക്കൽ, ഓൺലൈൻ പേയ്മെന്റ്, താരിഫ് മാറ്റം തുടങ്ങിയ ഉപഭോക്തൃ സേവനങ്ങൾ."
+    },
+    whoNeeds: {
+      en: "All active KSEB electricity consumers checking bi-monthly bills or paying power dues.",
+      ml: "വൈദ്യുതി ബിൽ തുക പരിശോധിക്കാനും ഓൺലൈനായി അടയ്ക്കാനും ആഗ്രഹിക്കുന്ന ഉപഭോക്താക്കൾ."
+    },
+    eligibility: {
+      en: "Any registered KSEB consumer with an active 13-digit Consumer Number.",
+      ml: "13 അക്ക ഉപഭോക്തൃ നമ്പറുള്ള എല്ലാ കെ.എസ്.ഇ.ബി ഉപഭോക്താക്കൾക്കും."
+    },
+    documents: {
+      en: [
+        "13-digit KSEB Consumer Number",
+        "Registered mobile number",
+        "Online payment method (UPI, Net Banking, Debit/Credit Cards)"
+      ],
+      ml: [
+        "13 അക്ക ഉപഭോക്തൃ നമ്പർ (Consumer Number)",
+        "രജിസ്റ്റർ ചെയ്ത മൊബൈൽ നമ്പർ",
+        "ഓൺലൈൻ പേയ്മെന്റ് സംവിധാനം (UPI, കാർഡ്)"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Ownership documents for transfer of consumer name or tariff re-categorization"
+      ],
+      ml: [
+        "കണക്ഷന്റെ പേര് മാറ്റുന്നതിനായുള്ള രേഖകൾ (ആവശ്യമെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "KSEB Web Self Service (wss.kseb.in) or mobile payment apps.",
+      ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ (wss.kseb.in) അല്ലെങ്കിൽ യു.പി.ഐ ആപ്പുകൾ."
+    },
+    mode: {
+      en: "100% Online",
+      ml: "പൂർണ്ണമായും ഓൺലൈൻ"
+    },
+    steps: {
+      en: [
+        "Open KSEB Quick Pay portal and enter 13-digit Consumer Number.",
+        "Review bill amount, due date, and energy consumption reading.",
+        "Choose payment gateway and complete online transaction.",
+        "Download and save digital payment acknowledgement receipt."
+      ],
+      ml: [
+        "കെ.എസ്.ഇ.ബി ക്വിക്ക് പേ പോർട്ടലിൽ കൺസ്യൂമർ നമ്പർ നൽകുക.",
+        "ബിൽ തുക പരിശോധിച്ച് യു.പി.ഐ വഴിയോ കാർഡ് വഴിയോ അടയ്ക്കുക.",
+        "രസീത് ഡൗൺലോഡ് ചെയ്ത് സൂക്ഷിക്കുക."
+      ]
+    },
+    officialUrl: "https://wss.kseb.in",
+    notes: {
+      en: "Pay on or before the prompt payment due date to avoid disconnection notices and late surcharge fees.",
+      ml: "സർചാർജ്ജ് ഒഴിവാക്കാൻ നിശ്ചിത തീയതിക്ക് മുൻപായി ബിൽ തുക അടയ്ക്കുക."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "kseb-complaint-services",
+    category: "government",
+    icon: "🔌",
+    name: {
+      en: "KSEB Complaints & Outage Services",
+      ml: "കെ.എസ്.ഇ.ബി പരാതികളും സേവനങ്ങളും"
+    },
+    summary: {
+      en: "Lodging power breakdown complaints, voltage fluctuation reports, billing discrepancies, and meter checks.",
+      ml: "വൈദ്യുതി തടസ്സം, വോൾട്ടേജ് പ്രശ്നങ്ങൾ, മീറ്റർ തകരാറുകൾ എന്നിവ അറിയിക്കാനുള്ള സംവിധാനം."
+    },
+    whoNeeds: {
+      en: "Consumers facing power disruptions, broken wires, transformer faults, or high bill queries.",
+      ml: "വൈദ്യുതി മുടങ്ങുകയോ ലൈൻ തകരാറുകൾ നേരിടുകയോ ചെയ്യുന്ന ഉപഭോക്താക്കൾ."
+    },
+    eligibility: {
+      en: "Any citizen or electricity consumer in Kerala.",
+      ml: "കേരളത്തിലെ ഏതൊരു പൗരനും."
+    },
+    documents: {
+      en: [
+        "13-digit Consumer Number (or phone number registered with section)",
+        "Description of outage or electrical safety issue",
+        "Contact phone number"
+      ],
+      ml: [
+        "13 അക്ക കൺസ്യൂമർ നമ്പർ അല്ലെങ്കിൽ രജിസ്റ്റർ ചെയ്ത ഫോൺ നമ്പർ",
+        "പരാതിയുടെ വിവരങ്ങൾ",
+        "ബന്ധപ്പെടാനുള്ള ഫോൺ നമ്പർ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "Photographs of dangerous electrical lines / posts (if reporting public safety hazards)"
+      ],
+      ml: [
+        "അപകടകരമായ ലൈനുകളുടെ ഫോട്ടോകൾ (ബാധകമെങ്കിൽ)"
+      ]
+    },
+    whereToApply: {
+      en: "KSEB Toll Free 1912, WhatsApp helpline 9496001912, or online via KSEB Web Self Service.",
+      ml: "1912 ടോൾ ഫ്രീ നമ്പർ, വാട്സാപ്പ് (9496001912) അല്ലെങ്കിൽ വെബ് സെൽഫ് സർവീസ്."
+    },
+    mode: {
+      en: "Online, Call (1912) & WhatsApp",
+      ml: "ഓൺലൈൻ, ഫോൺ കാൾ (1912) & വാട്സാപ്പ്"
+    },
+    steps: {
+      en: [
+        "Dial 1912 or text KSEB WhatsApp assistant.",
+        "Provide Consumer Number and nature of supply failure.",
+        "Receive automated complaint registration docket number.",
+        "KSEB field breakdown team rectifies issue and confirms resolution."
+      ],
+      ml: [
+        "1912-ൽ വിളിക്കുകയോ വാട്സാപ്പ് വഴിയോ പരാതി അറിയിക്കുക.",
+        "കൺസ്യൂമർ നമ്പറും പ്രശ്നവും വ്യക്തമാക്കുക.",
+        "പരാതി നമ്പർ ലഭിക്കുകയും ജീവനക്കാർ തകരാർ പരിഹരിക്കുകയും ചെയ്യും."
+      ]
+    },
+    officialUrl: "https://wss.kseb.in",
+    notes: {
+      en: "Report fallen electric wires immediately to 1912; never touch or approach snapped live electrical wires.",
+      ml: "പൊട്ടിവീണ ലൈനുകൾ കണ്ടാൽ ഉടൻ 1912-ൽ അറിയിക്കുക; ലൈനുകളിൽ സ്പർശിക്കരുത്."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
+  {
+    id: "kerala-police-services",
+    category: "government",
+    icon: "🚔",
+    name: {
+      en: "Kerala Police Online Services (Thuna / Pol-App)",
+      ml: "കേരള പോലീസ് ഓൺലൈൻ സേവനങ്ങൾ (തുണ / പോൽ-ആപ്പ്)"
+    },
+    summary: {
+      en: "Citizen portal for filing online complaints, reporting lost articles, senior citizen safety, and verification.",
+      ml: "ഓൺലൈൻ പരാതികൾ നൽകൽ, സാധനങ്ങൾ നഷ്ടപ്പെട്ടത് റിപ്പോർട്ട് ചെയ്യൽ തുടങ്ങിയ പോലീസ് സേവനങ്ങൾ."
+    },
+    whoNeeds: {
+      en: "Citizens needing police assistance, complaint acknowledgements, or reporting lost mobile/documents without visiting stations.",
+      ml: "സ്റ്റേഷനിൽ പോകാതെ പരാതി നൽകേണ്ടവർ, രേഖകൾ/ഫോൺ നഷ്ടപ്പെട്ടവർ."
+    },
+    eligibility: {
+      en: "Any resident or victim within the territorial jurisdiction of Kerala State.",
+      ml: "കേരളത്തിൽ താമസിക്കുന്ന ഏതൊരു വ്യക്തിക്കും."
+    },
+    documents: {
+      en: [
+        "Complainant's Aadhaar / Recognized Photo Identity Proof",
+        "Mobile number for OTP verification",
+        "Written statement of grievance or details of lost document/article"
+      ],
+      ml: [
+        "അപേക്ഷകന്റെ ആധാർ / തിരിച്ചറിയൽ രേഖ",
+        "ഒ.ടി.പി ലഭിക്കുന്നതിനുള്ള മൊബൈൽ നമ്പർ",
+        "പരാതിയുടെ വിവരങ്ങൾ അല്ലെങ്കിൽ നഷ്ടപ്പെട്ട വസ്തുവിന്റെ വിശദാംശങ്ങൾ"
+      ]
+    },
+    additionalDocs: {
+      en: [
+        "IMEI number / invoice for lost mobile phone reports, or photographs of dispute"
+      ],
+      ml: [
+        "ഫോൺ നഷ്ടപ്പെട്ടതാണെങ്കിൽ ഐ.എം.ഇ.ഐ (IMEI) നമ്പർ, ബിൽ"
+      ]
+    },
+    whereToApply: {
+      en: "Kerala Police Thuna Portal (thuna.keralapolice.gov.in) or official Pol-App mobile application.",
+      ml: "കേരള പോലീസ് തുണ പോർട്ടൽ (thuna.keralapolice.gov.in) അല്ലെങ്കിൽ പോൽ-ആപ്പ് (Pol-App)."
+    },
+    mode: {
+      en: "100% Online & Police Station Follow-up",
+      ml: "ഓൺലൈൻ & പോലീസ് സ്റ്റേഷൻ"
+    },
+    steps: {
+      en: [
+        "Log in to Thuna portal or Pol-App using mobile number.",
+        "Select required service (Complaint submission, Lost Report, Domestic Help verification).",
+        "Submit incident details, location, and upload supporting documents.",
+        "Download digital acknowledgement receipt with petition reference number to track investigation."
+      ],
+      ml: [
+        "തുണ പോർട്ടലിലോ പോൽ-ആപ്പിലോ മൊബൈൽ നമ്പർ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക.",
+        "ആവശ്യമായ സർവീസ് തിരഞ്ഞെടുത്ത് വിവരങ്ങൾ നൽകുക.",
+        "പരാതി സമർപ്പിച്ച് രസീത് ഡൗൺലോഡ് ചെയ്യുക.",
+        "പെറ്റീഷൻ നമ്പർ ഉപയോഗിച്ച് നടപടികൾ ട്രാക്ക് ചെയ്യുക."
+      ]
+    },
+    officialUrl: "https://thuna.keralapolice.gov.in",
+    notes: {
+      en: "In urgent emergencies involving immediate threat to life or safety, dial emergency response number 112 directly.",
+      ml: "അടിയന്തിര ഘട്ടങ്ങളിൽ 112 എന്ന നമ്പറിലേക്ക് നേരിട്ട് വിളിക്കുക."
+    },
+    lastVerified: "September 2026",
+    verified: true
+  },
 
   // =========================================================================
-  // CATEGORY D: Education (education) - 4 Services
+  // CATEGORY D: Education (education)
   // =========================================================================
   {
     id: "e-grantz",
@@ -1901,7 +3255,7 @@ const servicesData = [
   },
 
   // =========================================================================
-  // CATEGORY E: Travel & Transport (travel) - 4 Services
+  // CATEGORY E: Travel & Transport (travel)
   // =========================================================================
   {
     id: "ksrtc-ticket-booking",
