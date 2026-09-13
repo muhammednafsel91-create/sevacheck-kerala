@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><style></style></head><body><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,24 +10,32 @@
 <body>
 
   <!-- Top Safety Banner -->
-  <div class="top-disclaimer">
+  <div class="top-disclaimer" id="topDisclaimer" data-i18n="topDisclaimer">
     ℹ️ SevaCheck Kerala is an independent guidance platform. Always verify through official government sources.
   </div>
 
   <!-- Header -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand" onclick="navigateTo('home')">
+      <a role="button" tabindex="0" class="brand" onclick="navigateTo('home')" onkeydown="if(event.key==='Enter'||event.key===' ')navigateTo('home')">
         📄 SevaCheck Kerala
       </a>
-      <nav>
-        <ul>
-          <li><a href="javascript:void(0)" id="nav-home" class="active" onclick="navigateTo('home')">Home</a></li>
-          <li><a href="javascript:void(0)" id="nav-services" onclick="navigateTo('services')">Services</a></li>
-          <li><a href="javascript:void(0)" id="nav-how" onclick="navigateTo('how')">How It Works</a></li>
-          <li><a href="javascript:void(0)" id="nav-about" onclick="navigateTo('about')">About</a></li>
-        </ul>
-      </nav>
+      <div class="nav-right">
+        <nav>
+          <ul>
+            <li><a href="javascript:void(0)" id="nav-home" class="active" onclick="navigateTo('home')" data-i18n="navHome">Home</a></li>
+            <li><a href="javascript:void(0)" id="nav-services" onclick="navigateTo('services')" data-i18n="navServices">Services</a></li>
+            <li><a href="javascript:void(0)" id="nav-how" onclick="navigateTo('how')" data-i18n="navHow">How It Works</a></li>
+            <li><a href="javascript:void(0)" id="nav-about" onclick="navigateTo('about')" data-i18n="navAbout">About</a></li>
+          </ul>
+        </nav>
+        <!-- Language Switcher Hook -->
+        <div class="lang-switch-container" id="langSwitch">
+          <button type="button" class="lang-btn active" id="btn-lang-en" onclick="setLanguage('en')">English</button>
+          <span style="color: var(--border-color);">|</span>
+          <button type="button" class="lang-btn" id="btn-lang-ml" onclick="setLanguage('ml')">മലയാളം</button>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -35,8 +43,8 @@
     <!-- VIEW: HOME / SERVICES -->
     <div id="view-home">
       <section class="hero">
-        <h1>Know what you need before you apply.</h1>
-        <p>Simple document checklists, eligibility guidelines, and application steps for Kerala residents.</p>
+        <h1 id="heroHeading" data-i18n="heroHeading">Know what you need before you apply.</h1>
+        <p id="heroSubheading" data-i18n="heroSubheading">Simple document checklists, eligibility guidelines, and application steps for Kerala residents.</p>
 
         <!-- Search Box -->
         <div class="search-wrapper">
@@ -46,28 +54,30 @@
             id="searchInput" 
             class="search-input" 
             placeholder="Search a Government service... (e.g., Income, Driving Licence)"
+            data-i18n-placeholder="searchPlaceholder"
             onkeyup="handleSearch()"
             autocomplete="off"
           >
         </div>
       </section>
 
-      <!-- Smart User Filter -->
+      <!-- Category Filter Section -->
       <section class="smart-helper">
-        <h3>Not sure what service you need?</h3>
-        <div class="smart-helper-buttons">
-          <button class="helper-chip active" onclick="filterCategory('all', this)">All Services</button>
-          <button class="helper-chip" onclick="filterCategory('certificate', this)">I need a certificate</button>
-          <button class="helper-chip" onclick="filterCategory('id', this)">I need a government ID</button>
-          <button class="helper-chip" onclick="filterCategory('licence', this)">I need a licence</button>
-          <button class="helper-chip" onclick="filterCategory('register', this)">I need to register something</button>
+        <h3 id="categorySectionHeading" data-i18n="categorySectionHeading">Not sure what service you need?</h3>
+        <div class="smart-helper-buttons" id="categoryChips">
+          <button class="helper-chip active" id="cat-all" data-category="all" onclick="filterCategory('all', this)" data-i18n="catAll">All</button>
+          <button class="helper-chip" id="cat-documents" data-category="documents" onclick="filterCategory('documents', this)" data-i18n="catDocuments">📄 Documents &amp; Certificates</button>
+          <button class="helper-chip" id="cat-id" data-category="id" onclick="filterCategory('id', this)" data-i18n="catId">🪪 ID &amp; Personal</button>
+          <button class="helper-chip" id="cat-government" data-category="government" onclick="filterCategory('government', this)" data-i18n="catGovernment">🏛️ Government &amp; Local</button>
+          <button class="helper-chip" id="cat-education" data-category="education" onclick="filterCategory('education', this)" data-i18n="catEducation">🎓 Education</button>
+          <button class="helper-chip" id="cat-travel" data-category="travel" onclick="filterCategory('travel', this)" data-i18n="catTravel">🚗 Travel &amp; Transport</button>
         </div>
       </section>
 
       <!-- Popular Services Grid -->
       <div class="section-title">
-        <span id="sectionHeading">Popular Services</span>
-        <span class="count" id="servicesCount">Showing 10 services</span>
+        <span id="sectionHeading" data-i18n="popularServicesHeading">Popular Services</span>
+        <span class="count" id="servicesCount">Showing 30 services</span>
       </div>
 
       <div class="service-grid" id="serviceGrid">
@@ -75,66 +85,67 @@
       </div>
 
       <div class="empty-state" id="emptyState">
-        <h3>No matching service found.</h3>
-        <p>Try searching for words like "Income", "Passport", "Birth", or "Licence".</p>
+        <h3 id="emptyStateHeading" data-i18n="emptyStateHeading">No matching service found.</h3>
+        <p id="emptyStateText" data-i18n="emptyStateText">Try searching for words like "Income", "Passport", "Birth", or "Licence".</p>
       </div>
 
-      <!-- Trust Notice Section -->
+      <!-- Trust Notice Section (Static English Only) -->
       <div class="trust-banner">
         <div>⚠️</div>
         <div>
-          <strong>Important Notice & Safety Disclaimer:</strong>
-          Government requirements, fees, eligibility rules, and procedures can change. Always verify the latest information from the official Kerala Government portal or authorised Akshaya / e-Seva Kendram before applying. We do not provide guarantees or government application processing.
+          <strong>Important Notice &amp; Safety Disclaimer:</strong>
+          Government requirements, fees, eligibility rules, and procedures can change. Always verify the latest information from the official Kerala Government portal or authorised Akshaya / e-Seva Kendram before applying. Whenever possible, SevaCheck links to official government portals or authorised official service-provider portals. We do not provide guarantees or government application processing.
         </div>
       </div>
     </div>
 
     <!-- VIEW: SERVICE DETAIL -->
     <div id="view-detail" class="detail-view">
-      <button class="back-btn" onclick="backToHome()">← Back to all services</button>
+      <button class="back-btn" id="btnBackToHome" onclick="backToHome()" data-i18n="backToHome">← Back to all services</button>
 
       <div class="detail-card">
         <div class="detail-header">
           <h1 id="detailTitle">Service Name</h1>
-          <p id="detailDesc" style="color: var(--text-muted); font-size: 1rem;"></p>
+          <div id="detailSubtitle" style="font-size: 0.95rem; color: var(--primary); margin-top: 0.2rem; font-weight: 600;"></div>
+          <p id="detailDesc" style="color: var(--text-muted); font-size: 1rem; margin-top: 0.4rem;"></p>
           <div class="badge-bar" id="detailBadges"></div>
         </div>
 
         <div class="detail-section">
-          <h2>👥 Who May Need It</h2>
+          <h2 id="headingWho" data-i18n="headingWho">👥 Who May Need It</h2>
           <p id="detailWho"></p>
         </div>
 
         <div class="detail-section">
-          <h2>✅ Basic Eligibility</h2>
+          <h2 id="headingEligibility" data-i18n="headingEligibility">✅ Basic Eligibility</h2>
           <p id="detailEligibility"></p>
         </div>
 
         <div class="detail-section">
-          <h2>📄 Documents to Prepare (Interactive Checklist)</h2>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;">
+          <h2 id="headingDocs" data-i18n="headingDocs">📄 Documents to Prepare</h2>
+          <p id="checklistHint" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.6rem;" data-i18n="checklistHint">
             Check the boxes as you assemble your paperwork:
           </p>
           <div id="detailDocs" class="checklist"></div>
         </div>
 
         <div class="detail-section" id="additionalDocsSection" style="display: none;">
-          <h2>📎 Additional / Supporting Documents (If Applicable)</h2>
+          <h2 id="headingAdditionalDocs" data-i18n="headingAdditionalDocs">📎 Additional / Supporting Documents (If Applicable)</h2>
           <ul id="detailAdditionalDocs" style="padding-left: 1.25rem; font-size: 0.92rem; color: var(--text-muted);"></ul>
         </div>
 
         <div class="detail-section">
-          <h2>📍 Where to Apply</h2>
+          <h2 id="headingWhere" data-i18n="headingWhere">📍 Where to Apply</h2>
           <p id="detailWhere"></p>
         </div>
 
         <div class="detail-section">
-          <h2>📋 Basic Step-by-Step Instructions</h2>
+          <h2 id="headingSteps" data-i18n="headingSteps">📋 Basic Step-by-Step Instructions</h2>
           <ol class="step-list" id="detailSteps"></ol>
         </div>
 
         <div class="detail-section">
-          <h2>ℹ️ Important Notes</h2>
+          <h2 id="headingNotes" data-i18n="headingNotes">ℹ️ Important Notes</h2>
           <p id="detailNotes" style="font-size: 0.9rem; color: var(--text-muted); background: #f8fafc; padding: 0.85rem; border-radius: var(--radius-sm); border-left: 4px solid var(--accent);"></p>
         </div>
 
@@ -147,44 +158,44 @@
 
     <!-- VIEW: HOW IT WORKS -->
     <div id="view-how" class="static-page">
-      <h1>How SevaCheck Kerala Works</h1>
-      <p>Applying for government services does not need to involve multiple trips to offices just to find out which document is missing.</p>
+      <h1 id="howHeading" data-i18n="howHeading">How SevaCheck Kerala Works</h1>
+      <p id="howIntro" data-i18n="howIntro">Applying for government services does not need to involve multiple trips to offices just to find out which document is missing.</p>
       
-      <h2>1. Search your service</h2>
-      <p>Look up the certificate, licence, or document you need through our quick search index.</p>
+      <h2 id="howStep1Title" data-i18n="howStep1Title">1. Search your service</h2>
+      <p id="howStep1Desc" data-i18n="howStep1Desc">Look up the certificate, licence, or document you need through our quick search index.</p>
 
-      <h2>2. Check basic eligibility</h2>
-      <p>Review the standard criteria required under Kerala state guidelines or central requirements.</p>
+      <h2 id="howStep2Title" data-i18n="howStep2Title">2. Check basic eligibility</h2>
+      <p id="howStep2Desc" data-i18n="howStep2Desc">Review the standard criteria required under Kerala state guidelines or central requirements.</p>
 
-      <h2>3. Prepare your documents</h2>
-      <p>Use our interactive checklists to tick off documents before you visit an Akshaya centre or submit online.</p>
+      <h2 id="howStep3Title" data-i18n="howStep3Title">3. Prepare your documents</h2>
+      <p id="howStep3Desc" data-i18n="howStep3Desc">Use our interactive checklists to tick off documents before you visit an Akshaya centre or submit online.</p>
 
-      <h2>4. Visit the official portal or service centre</h2>
-      <p>Access genuine, official government portals (such as e-District Kerala, Parivahan, or Passport Seva) without falling for phishing or third-party agent portals.</p>
+      <h2 id="howStep4Title" data-i18n="howStep4Title">4. Visit official or authorised portals</h2>
+      <p id="howStep4Desc" data-i18n="howStep4Desc">Whenever possible, SevaCheck links to official government portals or authorised official service-provider portals without third-party confusion.</p>
 
-      <h2>5. Apply and track your application</h2>
-      <p>Submit through official channels and save your application receipt or acknowledgement number.</p>
+      <h2 id="howStep5Title" data-i18n="howStep5Title">5. Apply and track your application</h2>
+      <p id="howStep5Desc" data-i18n="howStep5Desc">Submit through official channels and save your application receipt or acknowledgement number.</p>
 
       <div style="margin-top: 2rem;">
-        <button class="btn-official" onclick="navigateTo('home')">Get Started</button>
+        <button class="btn-official" id="howCtaBtn" onclick="navigateTo('home')" data-i18n="howCtaBtn">Get Started</button>
       </div>
     </div>
 
-    <!-- VIEW: ABOUT -->
+    <!-- VIEW: ABOUT (Static English Only) -->
     <div id="view-about" class="static-page">
       <h1>About SevaCheck Kerala</h1>
       <p><strong>SevaCheck Kerala</strong> is an independent information and guidance platform created to reduce confusion regarding public administrative procedures in Kerala.</p>
 
       <h2>Our Core Rules</h2>
       <ul>
-        <li><strong>No Personal Identifiers Collected:</strong> We do not ask for, process, or store your Aadhaar digits, passwords, or personal credentials.</li>
+        <li><strong>No Personal Identifiers Collected:</strong> We do not ask for, process, or store your identification numbers, passwords, or personal credentials.</li>
         <li><strong>No Government Affiliation:</strong> We are not a government agency, not an Akshaya centre, and not affiliated with the Government of Kerala.</li>
-        <li><strong>Official Redirects Only:</strong> Whenever we link out, we only link to verified government domains (`.gov.in`, `.nic.in`).</li>
+        <li><strong>Official Link Policy:</strong> Whenever possible, SevaCheck links to official government portals or authorised official service-provider portals.</li>
         <li><strong>No Guaranteed Claims:</strong> We never promise fast approvals or document issuance, as only authorized government officers hold that statutory power.</li>
       </ul>
 
-      <h2>Feedback & Updates</h2>
-      <p>Rules and required proofs change periodically through official gazette notifications. If you notice outdated information, verify with the official department website.</p>
+      <h2>Feedback &amp; Updates</h2>
+      <p>Rules and required proofs change periodically through official gazette notifications. If you notice outdated information, verify with the official department website or authorised service centre before applying.</p>
 
       <div style="margin-top: 2rem;">
         <button class="btn-official" onclick="navigateTo('home')">Back to Home</button>
@@ -194,12 +205,12 @@
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 SevaCheck Kerala — Independent Informational Prototype.</p>
-    <p style="margin-top: 0.3rem;">Designed for Kerala citizens. All brand names, department names, and portals belong to their respective authorities.</p>
+    <p id="footerCopy">© 2026 SevaCheck Kerala — Independent Informational Prototype.</p>
+    <p id="footerSub" style="margin-top: 0.3rem;">Designed for Kerala citizens. All brand names, department names, and portals belong to their respective authorities.</p>
   </footer>
 
+  <!-- Scripts: services.js must load before script.js -->
   <script src="services.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-<script></script></body></html>
