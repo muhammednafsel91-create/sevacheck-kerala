@@ -237,8 +237,6 @@ function renderCards(list) {
     const nameEn = getLocalizedField(item.name, "en", item.id);
     const nameMl = getLocalizedField(item.name, "ml", nameEn);
 
-    // In Malayalam mode: Malayalam name primary, English name subtitle underneath
-    // In English mode: English name primary, Malayalam name subtitle underneath
     const primaryTitle = currentLang === "ml" ? nameMl : nameEn;
     const secondaryTitle = currentLang === "ml" ? nameEn : nameMl;
 
@@ -526,8 +524,47 @@ function updateNav(page) {
 }
 
 // ==========================================
-// 9. INITIALIZATION
+// 9. THEME MANAGEMENT (DARK / LIGHT MODE)
+// ==========================================
+function applyTheme(theme) {
+  const selectedTheme = theme === "dark" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", selectedTheme);
+  
+  if (document.body) {
+    document.body.setAttribute("data-theme", selectedTheme);
+  }
+
+  const icon = document.getElementById("themeToggleIcon");
+  if (icon) {
+    icon.textContent = selectedTheme === "dark" ? "☀️" : "🌙";
+  }
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  applyTheme(newTheme);
+  try {
+    localStorage.setItem("sevaCheckTheme", newTheme);
+  } catch (e) {
+    // Graceful fallback if localStorage is disabled or in private browsing
+  }
+}
+
+function initTheme() {
+  let savedTheme = "light";
+  try {
+    savedTheme = localStorage.getItem("sevaCheckTheme") || "light";
+  } catch (e) {
+    savedTheme = "light";
+  }
+  applyTheme(savedTheme);
+}
+
+// ==========================================
+// 10. INITIALIZATION
 // ==========================================
 window.addEventListener("DOMContentLoaded", () => {
+  initTheme();
   setLanguage("en");
 });
