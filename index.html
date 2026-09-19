@@ -216,8 +216,13 @@
     <p id="footerSub" style="margin-top: 0.3rem;">Designed for Kerala citizens. All brand names, department names, and portals belong to their respective authorities.</p>
   </footer>
 
-  <!-- Scripts: services.js must load before script.js -->
-  <script src="services.js"></script>
+  <!-- Scripts: Modular service data files must load in order before script.js -->
+  <script src="data/registry.js"></script>
+  <script src="data/cat-documents.js"></script>
+  <script src="data/cat-id.js"></script>
+  <script src="data/cat-government.js"></script>
+  <script src="data/cat-education.js"></script>
+  <script src="data/cat-travel.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
