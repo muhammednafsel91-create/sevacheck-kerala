@@ -1,4 +1,4 @@
-falseegistryegistryegistry = {
+window.SevaRegistry = {
   services: [],
   register: function (items) {
     if (!Array.isArray(items)) {
