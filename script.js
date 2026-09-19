@@ -1,18 +1,13 @@
 // ==========================================
 // SEVACHECK KERALA — APPLICATION LOGIC
-// File: script.js
 // ==========================================
 
-// ==========================================
-// 1. GLOBAL STATE
-// ==========================================
+// Global state
 let currentLang = "en";
 let currentCategory = "all";
 let activeServiceId = null;
 
-// ==========================================
-// 2. CENTRALIZED i18n DICTIONARY
-// ==========================================
+// i18n Dictionary
 const i18n = {
   en: {
     topDisclaimer: "ℹ️ SevaCheck Kerala is an independent guidance platform. Always verify through official government sources.",
@@ -31,8 +26,9 @@ const i18n = {
     catEducation: "🎓 Education",
     catTravel: "🚗 Travel & Transport",
     popularServicesHeading: "Popular Services",
+    servicesCount: (count) => `Showing ${count} services`,
     emptyStateHeading: "No matching service found.",
-    emptyStateText: "Try searching for words like \"Income\", \"Passport\", \"Birth\", or \"Licence\".",
+    emptyStateText: 'Try searching for words like "Income", "Passport", "Birth", or "Licence".',
     backToHome: "← Back to all services",
     headingWho: "👥 Who May Need It",
     headingEligibility: "✅ Basic Eligibility",
@@ -42,6 +38,12 @@ const i18n = {
     headingWhere: "📍 Where to Apply",
     headingSteps: "📋 Basic Step-by-Step Instructions",
     headingNotes: "ℹ️ Important Notes",
+    lastVerifiedPrefix: "Last verified: ",
+    verifiedBadge: "Verified Official Source",
+    officialBtn: "Open Official Portal ↗",
+    officialBtnDisclaimer: "Opens official / authorized government portal. SevaCheck is not affiliated with this service.",
+    categoryLabel: "Category",
+    modeLabel: "Mode",
     howHeading: "How SevaCheck Kerala Works",
     howIntro: "Applying for government services does not need to involve multiple trips to offices just to find out which document is missing.",
     howStep1Title: "1. Search your service",
@@ -54,161 +56,180 @@ const i18n = {
     howStep4Desc: "Whenever possible, SevaCheck links to official government portals or authorised official service-provider portals without third-party confusion.",
     howStep5Title: "5. Apply and track your application",
     howStep5Desc: "Submit through official channels and save your application receipt or acknowledgement number.",
-    howCtaBtn: "Get Started",
-    viewChecklist: "View checklist →",
-    badgeCategory: "Category",
-    badgeMode: "Mode",
-    verifiedOn: "Information last verified against official state guidelines:",
-    btnOfficialSource: "Open Official Source ↗",
-    btnPendingVerification: "Official source link will be added after verification",
-    servicesCount: (count) => `Showing ${count} service${count === 1 ? "" : "s"}`
+    howCtaBtn: "Get Started"
   },
   ml: {
-    topDisclaimer: "ℹ️ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര മാർഗ്ഗനിർദ്ദേശ പ്ലാറ്റ്‌ഫോമാണ്. വിവരങ്ങൾ ഔദ്യോഗിക സ്രോതസ്സുകൾ വഴി സ്ഥിരീകരിക്കുക.",
+    topDisclaimer: "ℹ️ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര വിവര സഹായിയാണ്. അന്തിമ വിവരങ്ങൾക്ക് ഔദ്യോഗിക സർക്കാർ സ്രോതസ്സുകൾ പരിശോധിക്കുക.",
     navHome: "ഹോം",
     navServices: "സേവനങ്ങൾ",
     navHow: "പ്രവർത്തനം",
     navAbout: "ഞങ്ങളെക്കുറിച്ച്",
     heroHeading: "അപേക്ഷിക്കുന്നതിന് മുൻപ് എന്തൊക്കെ വേണമെന്ന് അറിയൂ.",
-    heroSubheading: "കേരളത്തിലെ വിവിധ സർക്കാർ സേവനങ്ങൾക്കുള്ള രേഖകൾ, യോഗ്യതകൾ, അപേക്ഷാ രീതികൾ എന്നിവ ലളിതമായി മനസ്സിലാക്കാം.",
-    searchPlaceholder: "ആവശ്യമുള്ള സേവനം തിരയുക... (ഉദാ: വരുമാനം, ലൈസൻസ്, റേഷൻ)",
+    heroSubheading: "കേരളത്തിലെ സർക്കാർ സേവനങ്ങൾക്ക് ആവശ്യമായ രേഖകളുടെ ചെക്ക് ലിസ്റ്റും അപേക്ഷാ വിവരങ്ങളും ലളിതമായി.",
+    searchPlaceholder: "സേവനങ്ങൾ തിരയുക... (ഉദാ: വരുമാന സർട്ടിഫിക്കറ്റ്, ലൈസൻസ്)",
     categorySectionHeading: "ഏത് സേവനമാണ് വേണ്ടതെന്ന് ഉറപ്പില്ലേ?",
     catAll: "എല്ലാം",
-    catDocuments: "📄 രേഖകളും സർട്ടിഫിക്കറ്റുകളും",
+    catDocuments: "📄 സർട്ടിഫിക്കറ്റുകൾ & രേഖകൾ",
     catId: "🪪 തിരിച്ചറിയൽ രേഖകൾ",
-    catGovernment: "🏛️ സർക്കാർ & പ്രാദേശികം",
+    catGovernment: "🏛️ സർക്കാർ & തദ്ദേശ സേവനങ്ങൾ",
     catEducation: "🎓 വിദ്യാഭ്യാസം",
-    catTravel: "🚗 യാത്രയും വാഹനങ്ങളും",
+    catTravel: "🚗 യാത്ര & ഗതാഗതം",
     popularServicesHeading: "പ്രധാന സേവനങ്ങൾ",
+    servicesCount: (count) => `${count} സേവനങ്ങൾ ലഭ്യമാണ്`,
     emptyStateHeading: "സേവനങ്ങളൊന്നും കണ്ടെത്താനായില്ല.",
-    emptyStateText: "ഇംഗ്ലീഷിലോ മലയാളത്തിലോ മറ്റൊരു വാക്ക് ഉപയോഗിച്ച് തിരയുക (ഉദാ: വരുമാനം, Passport, ജനനം).",
+    emptyStateText: '"വരുമാനം", "പാസ്‌പോർട്ട്", "ജനനം", "ലൈസൻസ്" തുടങ്ങിയ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക.',
     backToHome: "← എല്ലാ സേവനങ്ങളിലേക്കും മടങ്ങുക",
-    headingWho: "👥 ആർക്കൊക്കെ ആവശ്യമായി വരാം?",
-    headingEligibility: "✅ അടിസ്ഥാന യോഗ്യത",
+    headingWho: "👥 ഇത് ആർക്കൊക്കെ ആവശ്യമാണ്?",
+    headingEligibility: "✅ അടിസ്ഥാന യോഗ്യതകൾ",
     headingDocs: "📄 കരുതേണ്ട പ്രധാന രേഖകൾ",
-    checklistHint: "രേഖകൾ തയ്യാറാക്കുമ്പോൾ ഒപ്പം ടിക്ക് ചെയ്യുക:",
-    headingAdditionalDocs: "📎 അധിക / അനുബന്ധ രേഖകൾ (ബാധകമെങ്കിൽ)",
-    headingWhere: "📍 എവിടെയാണ് അപേക്ഷിക്കേണ്ടത്?",
-    headingSteps: "📋 അപേക്ഷ സമർപ്പിക്കേണ്ട പ്രധാന ഘട്ടങ്ങൾ",
-    headingNotes: "ℹ️ പ്രധാന നിർദ്ദേശങ്ങൾ",
+    checklistHint: "രേഖകൾ തയ്യാറാക്കുമ്പോൾ ബോക്സുകളിൽ ടിക്ക് ചെയ്യാം:",
+    headingAdditionalDocs: "📎 മറ്റ് അനുബന്ധ രേഖകൾ (ബാധകമെങ്കിൽ മാത്രം)",
+    headingWhere: "📍 എവിടെ അപേക്ഷിക്കണം?",
+    headingSteps: "📋 അപേക്ഷിക്കേണ്ട ഘട്ടങ്ങൾ",
+    headingNotes: "ℹ️ പ്രധാന ശ്രദ്ധിക്കേണ്ട കാര്യങ്ങൾ",
+    lastVerifiedPrefix: "വിവരങ്ങൾ പരിശോധിച്ചത്: ",
+    verifiedBadge: "പരിശോധിച്ചുറപ്പിച്ച ഔദ്യോഗിക വിവരം",
+    officialBtn: "ഔദ്യോഗിക പോർട്ടൽ തുറക്കുക ↗",
+    officialBtnDisclaimer: "ഔദ്യോഗിക സർക്കാർ പോർട്ടലിലേക്ക് പോകുന്നു. സേവാചെക്കിന് സർക്കാരുമായി നേരിട്ട് ബന്ധമില്ല.",
+    categoryLabel: "വിഭാഗം",
+    modeLabel: "രീതി",
     howHeading: "സേവാചെക്ക് കേരള എങ്ങനെ പ്രവർത്തിക്കുന്നു?",
-    howIntro: "സർക്കാർ സേവനങ്ങൾക്കായി ഓഫീസുകൾ കയറിയിറങ്ങാതെ ആവശ്യമായ വിവരങ്ങൾ മുൻകൂട്ടി അറിയാൻ ഈ പ്ലാറ്റ്ഫോം സഹായിക്കുന്നു.",
-    howStep1Title: "1. ആവശ്യമുള്ള സേവനം തിരയുക",
-    howStep1Desc: "ഞങ്ങളുടെ ലളിതമായ തിരച്ചിൽ സംവിധാനം വഴി നിങ്ങൾക്ക് ആവശ്യമായ സർട്ടിഫിക്കറ്റോ രേഖയോ കണ്ടെത്തുക.",
-    howStep2Title: "2. യോഗ്യത പരിശോധിക്കുക",
-    howStep2Desc: "സർക്കാർ നിശ്ചയിച്ചിട്ടുള്ള പ്രാഥമിക യോഗ്യതാ മാനദണ്ഡങ്ങൾ ഉണ്ടെന്ന് ഉറപ്പുവരുത്തുക.",
+    howIntro: "രേഖകൾ ഇല്ലാത്തതിന്റെ പേരിൽ സർക്കാർ ഓഫീസുകൾ കയറിയിറങ്ങുന്നത് ഒഴിവാക്കാൻ സേവാചെക്ക് നിങ്ങളെ സഹായിക്കുന്നു.",
+    howStep1Title: "1. ആവശ്യമുള്ള സേവനം കണ്ടെത്തുക",
+    howStep1Desc: "നിങ്ങൾക്ക് ആവശ്യമായ സർട്ടിഫിക്കറ്റോ രേഖയോ സേർച്ച് ബാർ വഴി എളുപ്പത്തിൽ കണ്ടെത്താം.",
+    howStep2Title: "2. യോഗ്യതകൾ പരിശോധിക്കുക",
+    howStep2Desc: "അപേക്ഷിക്കാൻ ആവശ്യമായ അടിസ്ഥാന മാനദണ്ഡങ്ങൾ മനസ്സിലാക്കുക.",
     howStep3Title: "3. രേഖകൾ തയ്യാറാക്കുക",
-    howStep3Desc: "ഇന്ററാക്ടീവ് ചെക്ക്‌ലിസ്റ്റ് ഉപയോഗിച്ച് അക്ഷയ കേന്ദ്രത്തിൽ പോകുന്നതിന് മുൻപ് രേഖകൾ ശേഖരിക്കുക.",
+    howStep3Desc: "അക്ഷയ കേന്ദ്രത്തിലോ ഓൺലൈനായോ പോകുന്നതിന് മുൻപ് ഞങ്ങളുടെ ഇന്ററാക്ടീവ് ചെക്ക് ലിസ്റ്റ് ഉപയോഗിച്ച് രേഖകൾ ഉറപ്പാക്കുക.",
     howStep4Title: "4. ഔദ്യോഗിക പോർട്ടലുകൾ സന്ദർശിക്കുക",
-    howStep4Desc: "സാധ്യമാകുന്നിടത്തെല്ലാം ഔദ്യോഗിക സർക്കാർ പോർട്ടലുകളോ അംഗീകൃത സേവന പോർട്ടലുകളോ നേരിട്ട് സന്ദർശിക്കുക.",
-    howStep5Title: "5. അപേക്ഷ സമർപ്പിച്ച് ട്രാക്ക് ചെയ്യുക",
-    howStep5Desc: "ഔദ്യോഗിക സംവിധാനങ്ങളിലൂടെ അപേക്ഷ സമർപ്പിച്ച് അക്നോളഡ്ജ്മെന്റ് രസീത് സൂക്ഷിക്കുക.",
-    howCtaBtn: "ആരംഭിക്കാം",
-    viewChecklist: "വിവരങ്ങൾ കാണുക →",
-    badgeCategory: "വിഭാഗം",
-    badgeMode: "രീതി",
-    verifiedOn: "ഔദ്യോഗിക മാനദണ്ഡങ്ങൾ പ്രകാരം അവസാനം പരിശോധിച്ചത്:",
-    btnOfficialSource: "ഔദ്യോഗിക പോർട്ടൽ സന്ദർശിക്കുക ↗",
-    btnPendingVerification: "സ്ഥിരീകരണത്തിന് ശേഷം ഔദ്യോഗിക ലിങ്ക് ലഭ്യമാക്കും",
-    servicesCount: (count) => `${count} സേവനങ്ങൾ ലഭ്യമാണ്`
+    howStep4Desc: "ഇടനിലക്കാരില്ലാതെ കൃത്യമായ ഔദ്യോഗിക സർക്കാർ വെബ്സൈറ്റുകളിലേക്ക് നേരിട്ട് പ്രവേശിക്കുക.",
+    howStep5Title: "5. അപേക്ഷ സമർപ്പിച്ച് രസീത് സൂക്ഷിക്കുക",
+    howStep5Desc: "അപേക്ഷ നൽകിയ ശേഷം ലഭിക്കുന്ന അക്നോളജ്മെന്റ് നമ്പർ അല്ലെങ്കിൽ രസീത് സൂക്ഷിച്ചുവെക്കുക.",
+    howCtaBtn: "സേവനങ്ങൾ കാണുക"
   }
 };
 
+// Category Mapping
 const categoryMap = {
-  en: {
-    documents: "Documents & Certificates",
-    id: "ID & Personal",
-    government: "Government & Local",
-    education: "Education",
-    travel: "Travel & Transport"
-  },
-  ml: {
-    documents: "രേഖകളും സർട്ടിഫിക്കറ്റുകളും",
-    id: "തിരിച്ചറിയൽ രേഖകൾ",
-    government: "സർക്കാർ & പ്രാദേശികം",
-    education: "വിദ്യാഭ്യാസം",
-    travel: "യാത്രയും വാഹനങ്ങളും"
-  }
+  documents: { en: "Documents & Certificates", ml: "സർട്ടിഫിക്കറ്റുകൾ & രേഖകൾ" },
+  id: { en: "ID & Personal", ml: "തിരിച്ചറിയൽ രേഖകൾ" },
+  government: { en: "Government & Local", ml: "സർക്കാർ & തദ്ദേശ സേവനങ്ങൾ" },
+  education: { en: "Education", ml: "വിദ്യാഭ്യാസം" },
+  travel: { en: "Travel & Transport", ml: "യാത്ര & ഗതാഗതം" }
 };
 
-// ==========================================
-// 3. ROBUST FIELD ACCESSORS
-// ==========================================
-function getLocalizedField(fieldObj, lang, fallbackValue = "") {
-  if (!fieldObj) return fallbackValue;
-  if (typeof fieldObj === "string") return fieldObj;
-  if (typeof fieldObj === "object") {
-    if (fieldObj[lang]) return fieldObj[lang];
-    const altLang = lang === "en" ? "ml" : "en";
-    if (fieldObj[altLang]) return fieldObj[altLang];
-  }
-  return fallbackValue;
+// Theme Management
+function initTheme() {
+  const savedTheme = localStorage.getItem("sevacheck-theme") || "light";
+  document.documentElement.setAttribute("data-theme", savedTheme);
+  updateThemeIcon(savedTheme);
 }
 
-function getLocalizedArray(arrObj, lang) {
-  if (!arrObj) return [];
-  if (Array.isArray(arrObj)) return arrObj;
-  if (typeof arrObj === "object") {
-    if (Array.isArray(arrObj[lang])) return arrObj[lang];
-    const altLang = lang === "en" ? "ml" : "en";
-    if (Array.isArray(arrObj[altLang])) return arrObj[altLang];
-  }
-  return [];
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", newTheme);
+  localStorage.setItem("sevacheck-theme", newTheme);
+  updateThemeIcon(newTheme);
 }
 
-// ==========================================
-// 4. LANGUAGE SWITCHING
-// ==========================================
+function updateThemeIcon(theme) {
+  const icon = document.getElementById("themeToggleIcon");
+  if (icon) {
+    icon.textContent = theme === "dark" ? "☀️" : "🌙";
+  }
+}
+
+// Language Switcher
 function setLanguage(lang) {
-  if (lang !== "en" && lang !== "ml") return;
   currentLang = lang;
+  document.documentElement.lang = lang;
 
   const btnEn = document.getElementById("btn-lang-en");
   const btnMl = document.getElementById("btn-lang-ml");
-
   if (btnEn && btnMl) {
     if (lang === "en") {
       btnEn.classList.add("active");
-      btnEn.style.color = "var(--primary)";
-      btnEn.style.fontWeight = "700";
       btnMl.classList.remove("active");
-      btnMl.style.color = "var(--text-muted)";
-      btnMl.style.fontWeight = "500";
     } else {
       btnMl.classList.add("active");
-      btnMl.style.color = "var(--primary)";
-      btnMl.style.fontWeight = "700";
       btnEn.classList.remove("active");
-      btnEn.style.color = "var(--text-muted)";
-      btnEn.style.fontWeight = "500";
     }
   }
 
+  // Update static texts
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (i18n[currentLang] && i18n[currentLang][key]) {
-      el.textContent = i18n[currentLang][key];
+    if (i18n[lang] && i18n[lang][key]) {
+      el.textContent = i18n[lang][key];
     }
   });
 
+  // Update placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
-    if (i18n[currentLang] && i18n[currentLang][key]) {
-      el.placeholder = i18n[currentLang][key];
+    if (i18n[lang] && i18n[lang][key]) {
+      el.placeholder = i18n[lang][key];
     }
   });
 
+  // Re-filter/re-render services view
   handleSearch();
 
-  const detailView = document.getElementById("view-detail");
-  if (activeServiceId && detailView && detailView.style.display === "block") {
+  // If in detail view, refresh detail content
+  if (activeServiceId) {
     openService(activeServiceId);
   }
 }
 
-// ==========================================
-// 5. SERVICE CARDS RENDERING
-// ==========================================
+// Navigation / View Switching
+function navigateTo(viewId) {
+  const views = ["view-home", "view-detail", "view-how", "view-about"];
+  views.forEach((v) => {
+    const el = document.getElementById(v);
+    if (el) el.style.display = "none";
+  });
+
+  // Nav highlights
+  const navLinks = ["nav-home", "nav-services", "nav-how", "nav-about"];
+  navLinks.forEach((n) => {
+    const el = document.getElementById(n);
+    if (el) el.classList.remove("active");
+  });
+
+  if (viewId === "home" || viewId === "services") {
+    const vHome = document.getElementById("view-home");
+    if (vHome) vHome.style.display = "block";
+    const activeNav = document.getElementById(viewId === "services" ? "nav-services" : "nav-home");
+    if (activeNav) activeNav.classList.add("active");
+    activeServiceId = null;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (viewId === "how") {
+    const vHow = document.getElementById("view-how");
+    if (vHow) vHow.style.display = "block";
+    const activeNav = document.getElementById("nav-how");
+    if (activeNav) activeNav.classList.add("active");
+    activeServiceId = null;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (viewId === "about") {
+    const vAbout = document.getElementById("view-about");
+    if (vAbout) vAbout.style.display = "block";
+    const activeNav = document.getElementById("nav-about");
+    if (activeNav) activeNav.classList.add("active");
+    activeServiceId = null;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else if (viewId === "detail") {
+    const vDetail = document.getElementById("view-detail");
+    if (vDetail) vDetail.style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+function backToHome() {
+  navigateTo("home");
+}
+
+// Card Grid Rendering
 function renderCards(list) {
   const grid = document.getElementById("serviceGrid");
   const empty = document.getElementById("emptyState");
@@ -234,25 +255,17 @@ function renderCards(list) {
     card.className = "service-card";
     card.onclick = () => openService(item.id);
 
-    const nameEn = getLocalizedField(item.name, "en", item.id);
-    const nameMl = getLocalizedField(item.name, "ml", nameEn);
-
-    const primaryTitle = currentLang === "ml" ? nameMl : nameEn;
-    const secondaryTitle = currentLang === "ml" ? nameEn : nameMl;
-
-    const summaryText = getLocalizedField(item.summary, currentLang);
-    const modeText = getLocalizedField(item.mode, currentLang);
+    const catName = categoryMap[item.category]
+      ? categoryMap[item.category][currentLang]
+      : item.category;
 
     card.innerHTML = `
-      <div class="card-top">
-        <span class="service-icon">${item.icon || "📄"}</span>
-        <h2>${primaryTitle}</h2>
-        <div class="card-subtitle">${secondaryTitle}</div>
-        <p>${summaryText}</p>
-      </div>
-      <div class="card-meta">
-        <span>${modeText}</span>
-        <span class="card-link">${i18n[currentLang].viewChecklist}</span>
+      <div class="card-icon">${item.icon || "📄"}</div>
+      <div class="card-category-badge">${catName}</div>
+      <h3 class="card-title">${item.name[currentLang]}</h3>
+      <p class="card-summary">${item.summary[currentLang]}</p>
+      <div class="card-footer">
+        <span class="card-link">${currentLang === "ml" ? "വിശദാംശങ്ങൾ കാണുക →" : "View Checklist & Details →"}</span>
       </div>
     `;
 
@@ -260,9 +273,18 @@ function renderCards(list) {
   });
 }
 
-// ==========================================
-// 6. SEARCH & CATEGORY FILTERING
-// ==========================================
+// Category Filter Handling
+function filterCategory(cat, buttonEl) {
+  currentCategory = cat;
+
+  const chips = document.querySelectorAll(".helper-chip");
+  chips.forEach((c) => c.classList.remove("active"));
+  if (buttonEl) buttonEl.classList.add("active");
+
+  handleSearch();
+}
+
+// Search and Filter Coordinator
 function handleSearch() {
   const searchInput = document.getElementById("searchInput");
   const q = searchInput ? searchInput.value.toLowerCase().trim() : "";
@@ -275,52 +297,24 @@ function handleSearch() {
 
   if (q) {
     filtered = filtered.filter((s) => {
-      const nameEn = getLocalizedField(s.name, "en").toLowerCase();
-      const nameMl = getLocalizedField(s.name, "ml").toLowerCase();
-      const summaryEn = getLocalizedField(s.summary, "en").toLowerCase();
-      const summaryMl = getLocalizedField(s.summary, "ml").toLowerCase();
-      const whoEn = getLocalizedField(s.whoNeeds, "en").toLowerCase();
-      const whoMl = getLocalizedField(s.whoNeeds, "ml").toLowerCase();
+      const nameEn = s.name.en.toLowerCase();
+      const nameMl = s.name.ml.toLowerCase();
+      const summaryEn = s.summary.en.toLowerCase();
+      const summaryMl = s.summary.ml.toLowerCase();
 
-      return nameEn.includes(q) ||
-             nameMl.includes(q) ||
-             summaryEn.includes(q) ||
-             summaryMl.includes(q) ||
-             whoEn.includes(q) ||
-             whoMl.includes(q);
+      return (
+        nameEn.includes(q) ||
+        nameMl.includes(q) ||
+        summaryEn.includes(q) ||
+        summaryMl.includes(q)
+      );
     });
   }
 
   renderCards(filtered);
 }
 
-function filterCategory(cat, btn) {
-  currentCategory = cat;
-
-  const chips = document.querySelectorAll(".helper-chip");
-  chips.forEach((c) => c.classList.remove("active"));
-
-  if (btn) {
-    btn.classList.add("active");
-  } else {
-    const matchingBtn = document.getElementById(`cat-${cat}`);
-    if (matchingBtn) {
-      matchingBtn.classList.add("active");
-    } else {
-      const dataBtn = document.querySelector(`.helper-chip[data-category="${cat}"]`);
-      if (dataBtn) dataBtn.classList.add("active");
-    }
-  }
-
-  const searchInput = document.getElementById("searchInput");
-  if (searchInput) searchInput.value = "";
-
-  handleSearch();
-}
-
-// ==========================================
-// 7. SERVICE DETAIL VIEW
-// ==========================================
+// Open Service Detail View
 function openService(id) {
   if (typeof servicesData === "undefined" || !Array.isArray(servicesData)) return;
   const s = servicesData.find((item) => item.id === id);
@@ -328,243 +322,129 @@ function openService(id) {
 
   activeServiceId = id;
 
-  const vHome = document.getElementById("view-home");
-  const vHow = document.getElementById("view-how");
-  const vAbout = document.getElementById("view-about");
-  const vDetail = document.getElementById("view-detail");
-
-  if (vHome) vHome.style.display = "none";
-  if (vHow) vHow.style.display = "none";
-  if (vAbout) vAbout.style.display = "none";
-  if (vDetail) vDetail.style.display = "block";
-
-  const nameEn = getLocalizedField(s.name, "en", s.id);
-  const nameMl = getLocalizedField(s.name, "ml", nameEn);
-
-  const primaryTitle = currentLang === "ml" ? nameMl : nameEn;
-  const secondaryTitle = currentLang === "ml" ? nameEn : nameMl;
-
+  // Populate Title & Subtitle
   const titleEl = document.getElementById("detailTitle");
-  if (titleEl) titleEl.textContent = primaryTitle;
-
   const subtitleEl = document.getElementById("detailSubtitle");
-  if (subtitleEl) {
-    subtitleEl.textContent = secondaryTitle;
-    subtitleEl.style.display = secondaryTitle ? "block" : "none";
-  }
-
   const descEl = document.getElementById("detailDesc");
-  if (descEl) descEl.textContent = getLocalizedField(s.summary, currentLang);
 
-  const badgesContainer = document.getElementById("detailBadges");
-  if (badgesContainer) {
-    const categoryLabel = (categoryMap[currentLang] && categoryMap[currentLang][s.category])
-      ? categoryMap[currentLang][s.category]
-      : (s.category || "").toUpperCase();
+  if (titleEl) titleEl.textContent = s.name[currentLang];
+  if (subtitleEl) {
+    subtitleEl.textContent = currentLang === "en" ? s.name.ml : s.name.en;
+  }
+  if (descEl) descEl.textContent = s.summary[currentLang];
 
-    const modeLabel = getLocalizedField(s.mode, currentLang);
+  // Badges
+  const badgesEl = document.getElementById("detailBadges");
+  if (badgesEl) {
+    const catName = categoryMap[s.category]
+      ? categoryMap[s.category][currentLang]
+      : s.category;
 
-    badgesContainer.innerHTML = `
-      <span class="tag-badge">📍 ${i18n[currentLang].badgeMode}: ${modeLabel}</span>
-      <span class="tag-badge">🏷️ ${i18n[currentLang].badgeCategory}: ${categoryLabel}</span>
+    badgesEl.innerHTML = `
+      <span class="badge badge-category">${i18n[currentLang].categoryLabel}: ${catName}</span>
+      <span class="badge badge-mode">${i18n[currentLang].modeLabel}: ${s.mode[currentLang]}</span>
+      ${s.verified ? `<span class="badge badge-verified">✓ ${i18n[currentLang].verifiedBadge}</span>` : ""}
     `;
   }
 
+  // Who Needs It
   const whoEl = document.getElementById("detailWho");
-  if (whoEl) whoEl.textContent = getLocalizedField(s.whoNeeds, currentLang);
+  if (whoEl) whoEl.textContent = s.whoNeeds[currentLang];
 
+  // Eligibility
   const eligEl = document.getElementById("detailEligibility");
-  if (eligEl) eligEl.textContent = getLocalizedField(s.eligibility, currentLang);
+  if (eligEl) eligEl.textContent = s.eligibility[currentLang];
 
-  const whereEl = document.getElementById("detailWhere");
-  if (whereEl) whereEl.textContent = getLocalizedField(s.whereToApply, currentLang);
-
-  const notesEl = document.getElementById("detailNotes");
-  if (notesEl) notesEl.textContent = getLocalizedField(s.notes, currentLang);
-
-  const lastVerifiedEl = document.getElementById("detailLastVerified");
-  if (lastVerifiedEl) {
-    lastVerifiedEl.textContent = `${i18n[currentLang].verifiedOn} ${s.lastVerified || ""}`;
-  }
-
-  // Interactive Checklist (Primary Documents)
-  const docsContainer = document.getElementById("detailDocs");
-  if (docsContainer) {
-    docsContainer.innerHTML = "";
-    const docList = getLocalizedArray(s.documents, currentLang);
-
-    docList.forEach((doc, idx) => {
+  // Documents Checklist
+  const docsEl = document.getElementById("detailDocs");
+  if (docsEl) {
+    docsEl.innerHTML = "";
+    s.documents[currentLang].forEach((doc, idx) => {
       const item = document.createElement("div");
       item.className = "checklist-item";
-      const checkId = `doc-${idx}`;
+
+      const checkId = `doc-check-${idx}`;
       item.innerHTML = `
-        <input type="checkbox" id="${checkId}" onchange="toggleCheck(this)">
+        <input type="checkbox" id="${checkId}" />
         <label for="${checkId}">${doc}</label>
       `;
-      docsContainer.appendChild(item);
+      docsEl.appendChild(item);
     });
   }
 
-  // Additional Supporting Documents
-  const addSection = document.getElementById("additionalDocsSection");
-  const addList = document.getElementById("detailAdditionalDocs");
-  const addDocsList = getLocalizedArray(s.additionalDocs, currentLang);
-
-  if (addSection && addList) {
-    if (addDocsList && addDocsList.length > 0) {
-      addList.innerHTML = "";
-      addDocsList.forEach((doc) => {
+  // Additional Documents (If applicable)
+  const addSec = document.getElementById("additionalDocsSection");
+  const addDocsEl = document.getElementById("detailAdditionalDocs");
+  if (addSec && addDocsEl) {
+    if (s.additionalDocs && s.additionalDocs[currentLang] && s.additionalDocs[currentLang].length > 0) {
+      addDocsEl.innerHTML = "";
+      s.additionalDocs[currentLang].forEach((itemText) => {
         const li = document.createElement("li");
-        li.textContent = doc;
-        addList.appendChild(li);
+        li.textContent = itemText;
+        addDocsEl.appendChild(li);
       });
-      addSection.style.display = "block";
+      addSec.style.display = "block";
     } else {
-      addSection.style.display = "none";
+      addSec.style.display = "none";
     }
   }
 
-  // Step-by-Step Instructions
-  const stepsContainer = document.getElementById("detailSteps");
-  if (stepsContainer) {
-    stepsContainer.innerHTML = "";
-    const stepsList = getLocalizedArray(s.steps, currentLang);
+  // Where to Apply
+  const whereEl = document.getElementById("detailWhere");
+  if (whereEl) whereEl.textContent = s.whereToApply[currentLang];
 
-    stepsList.forEach((step) => {
+  // Steps
+  const stepsEl = document.getElementById("detailSteps");
+  if (stepsEl) {
+    stepsEl.innerHTML = "";
+    s.steps[currentLang].forEach((st) => {
       const li = document.createElement("li");
-      li.textContent = step;
-      stepsContainer.appendChild(li);
+      li.textContent = st;
+      stepsEl.appendChild(li);
     });
   }
 
-  // Official Source Link Button
-  const btnWrapper = document.getElementById("officialBtnWrapper");
-  if (btnWrapper) {
-    if (s.verified && s.officialUrl) {
-      btnWrapper.innerHTML = `
-        <a href="${s.officialUrl}" target="_blank" rel="noopener noreferrer" class="btn-official">
-          ${i18n[currentLang].btnOfficialSource}
-        </a>
-      `;
-    } else {
-      btnWrapper.innerHTML = `
-        <button class="btn-official btn-disabled" disabled>
-          ${i18n[currentLang].btnPendingVerification}
-        </button>
-      `;
-    }
+  // Important Notes
+  const notesEl = document.getElementById("detailNotes");
+  if (notesEl) notesEl.textContent = s.notes[currentLang];
+
+  // Action Button & Verification Note
+  const officialWrapper = document.getElementById("officialBtnWrapper");
+  if (officialWrapper) {
+    officialWrapper.innerHTML = `
+      <a 
+        href="${s.officialUrl}" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="btn-official"
+      >
+        ${i18n[currentLang].officialBtn}
+      </a>
+      <p class="official-disclaimer">${i18n[currentLang].officialBtnDisclaimer}</p>
+    `;
   }
 
-  window.scrollTo(0, 0);
-}
-
-// Checklist Item Interactive Toggle
-function toggleCheck(checkbox) {
-  const parent = checkbox.closest(".checklist-item");
-  if (!parent) return;
-  if (checkbox.checked) {
-    parent.classList.add("checked");
-  } else {
-    parent.classList.remove("checked");
-  }
-}
-
-// Back to Home from Detail View
-function backToHome() {
-  activeServiceId = null;
-  const vDetail = document.getElementById("view-detail");
-  const vHow = document.getElementById("view-how");
-  const vAbout = document.getElementById("view-about");
-  const vHome = document.getElementById("view-home");
-
-  if (vDetail) vDetail.style.display = "none";
-  if (vHow) vHow.style.display = "none";
-  if (vAbout) vAbout.style.display = "none";
-  if (vHome) vHome.style.display = "block";
-
-  updateNav("home");
-  window.scrollTo(0, 0);
-}
-
-// ==========================================
-// 8. SITE NAVIGATION
-// ==========================================
-function navigateTo(page) {
-  activeServiceId = null;
-  const vHome = document.getElementById("view-home");
-  const vDetail = document.getElementById("view-detail");
-  const vHow = document.getElementById("view-how");
-  const vAbout = document.getElementById("view-about");
-
-  if (vHome) vHome.style.display = "none";
-  if (vDetail) vDetail.style.display = "none";
-  if (vHow) vHow.style.display = "none";
-  if (vAbout) vAbout.style.display = "none";
-
-  if (page === "home" || page === "services") {
-    if (vHome) vHome.style.display = "block";
-    if (page === "services") {
-      const grid = document.getElementById("serviceGrid");
-      if (grid) grid.scrollIntoView({ behavior: "smooth" });
-    }
-  } else if (page === "how") {
-    if (vHow) vHow.style.display = "block";
-  } else if (page === "about") {
-    if (vAbout) vAbout.style.display = "block";
+  const verNote = document.getElementById("detailLastVerified");
+  if (verNote) {
+    verNote.textContent = `${i18n[currentLang].lastVerifiedPrefix}${s.lastVerified}`;
   }
 
-  updateNav(page);
-  window.scrollTo(0, 0);
+  // Switch to Detail View
+  navigateTo("detail");
 }
 
-function updateNav(page) {
-  document.querySelectorAll("nav a").forEach((a) => a.classList.remove("active"));
-  const activeTab = document.getElementById(`nav-${page}`);
-  if (activeTab) activeTab.classList.add("active");
-}
-
-// ==========================================
-// 9. THEME MANAGEMENT (DARK / LIGHT MODE)
-// ==========================================
-function applyTheme(theme) {
-  const selectedTheme = theme === "dark" ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", selectedTheme);
-  
-  if (document.body) {
-    document.body.setAttribute("data-theme", selectedTheme);
-  }
-
-  const icon = document.getElementById("themeToggleIcon");
-  if (icon) {
-    icon.textContent = selectedTheme === "dark" ? "☀️" : "🌙";
-  }
-}
-
-function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  const newTheme = currentTheme === "dark" ? "light" : "dark";
-  applyTheme(newTheme);
-  try {
-    localStorage.setItem("sevaCheckTheme", newTheme);
-  } catch (e) {
-    // Graceful fallback if localStorage is disabled or in private browsing
-  }
-}
-
-function initTheme() {
-  let savedTheme = "light";
-  try {
-    savedTheme = localStorage.getItem("sevaCheckTheme") || "light";
-  } catch (e) {
-    savedTheme = "light";
-  }
-  applyTheme(savedTheme);
-}
-
-// ==========================================
-// 10. INITIALIZATION
-// ==========================================
+// Init
 window.addEventListener("DOMContentLoaded", () => {
   initTheme();
   setLanguage("en");
+});
+
+// React to registry updates
+window.addEventListener("seva-registry-updated", () => {
+  if (
+    document.readyState !== "loading" &&
+    typeof handleSearch === "function"
+  ) {
+    handleSearch();
+  }
 });
