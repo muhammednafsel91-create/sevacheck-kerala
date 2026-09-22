@@ -1,6 +1,6 @@
 // ==========================================
 // SEVACHECK KERALA — DATA MODULE
-// Category: ID & Personal (8 Services)
+// Category: ID & Personal (9 Services)
 // File: data/cat-id.js
 // ==========================================
 
@@ -577,6 +577,82 @@
       notes: {
         en: "The UDID card is valid across India across all central and state welfare departments and transport networks.",
         ml: "രാജ്യത്തുടനീളം റെയിൽവേ, ബസ് ഇളവുകൾക്കും എല്ലാ സർക്കാർ ക്ഷേമ പദ്ധതികൾക്കും ഈ കാർഡ് അംഗീകൃതമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "ration-card-surrender-certificate",
+      category: "id",
+      icon: "📜",
+      name: {
+        en: "Ration Card Surrender / Non-Inclusion Certificate",
+        ml: "റേഷൻ കാർഡ് ഒഴിവാക്കൽ / ഉൾപ്പെടാത്ത സർട്ടിഫിക്കറ്റ്"
+      },
+      summary: {
+        en: "Official certificate issued by Civil Supplies Department confirming reduction/removal from a card or non-inclusion in any ration card.",
+        ml: "റേഷൻ കാർഡിൽ നിന്ന് പേര് ഒഴിവാക്കിയെന്നോ നിലവിൽ ഒരു റേഷൻ കാർഡിലും ഉൾപ്പെട്ടിട്ടില്ലെന്നോ വ്യക്തമാക്കുന്ന സിവിൽ സപ്ലൈസ് വകുപ്പിന്റെ സർട്ടിഫിക്കറ്റ്."
+      },
+      whoNeeds: {
+        en: "Citizens needing to join a spouse's ration card after marriage, apply for an independent new card, or move to another state.",
+        ml: "വിവാഹശേഷം പങ്കാളിയുടെ റേഷൻ കാർഡിൽ പേര് ചേർക്കാൻ ആഗ്രഹിക്കുന്നവർ, പുതിയ റേഷൻ കാർഡിനായി അപേക്ഷിക്കുന്നവർ, മറ്റ് സംസ്ഥാനങ്ങളിലേക്ക് മാറുന്നവർ."
+      },
+      eligibility: {
+        en: "Any resident of Kerala seeking removal from existing family card or certifying non-possession of a ration card in the state.",
+        ml: "നിലവിലുള്ള റേഷൻ കാർഡിൽ നിന്ന് പേര് ഒഴിവാക്കാൻ ആഗ്രഹിക്കുന്നവരോ നിലവിൽ കാർഡുകളിൽ പേരില്ലാത്തവരോ ആയ കേരളത്തിലെ താമസക്കാർക്ക്."
+      },
+      documents: {
+        en: [
+          "Existing Ration Card copy (showing applicant's name, if surrendering)",
+          "Aadhaar Card of the applicant",
+          "Marriage Certificate (if surrender is due to marriage)",
+          "Residential / Address proof in Kerala (if applying for Non-Inclusion)"
+        ],
+        ml: [
+          "നിലവിലുള്ള റേഷൻ കാർഡിന്റെ പകർപ്പ് (പേര് ഒഴിവാക്കാനാണെങ്കിൽ)",
+          "അപേക്ഷകന്റെ ആധാർ കാർഡ്",
+          "വിവാഹം മൂലമാണ് ഒഴിവാകുന്നതെങ്കിൽ വിവാഹ സർട്ടിഫിക്കറ്റ്",
+          "താമസസ്ഥലം തെളിയിക്കുന്ന രേഖ (ഉൾപ്പെടാത്ത സർട്ടിഫിക്കറ്റിനായി)"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Consent letter from the Head of the Family of the existing ration card",
+          "Death certificate (in case of surrendering card of deceased member)"
+        ],
+        ml: [
+          "നിലവിലുള്ള റേഷൻ കാർഡിലെ കുടുംബനാഥന്റെ സമ്മതപത്രം",
+          "മരണപ്പെട്ട വ്യക്തിയുടെ കാർഡ് സറണ്ടർ ചെയ്യുകയാണെങ്കിൽ മരണ സർട്ടിഫിക്കറ്റ്"
+        ]
+      },
+      whereToApply: {
+        en: "Civil Supplies e-Citizen portal (ecitizen.civilsupplieskerala.gov.in) or jurisdictional Taluk Supply Office (TSO) / Akshaya Centre.",
+        ml: "സിവിൽ സപ്ലൈസ് ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) അല്ലെങ്കിൽ താലൂക്ക് സപ്ലൈ ഓഫീസ് (TSO) / അക്ഷയ കേന്ദ്രം."
+      },
+      mode: {
+        en: "Online & Taluk Supply Office (TSO)",
+        ml: "ഓൺലൈൻ & താലൂക്ക് സപ്ലൈ ഓഫീസ്"
+      },
+      steps: {
+        en: [
+          "Log in to the Civil Supplies Citizen Portal using Aadhaar OTP / registered credentials.",
+          "Select 'Surrender Certificate' or 'Non-Inclusion Certificate' under Citizen Services.",
+          "Select member name to be removed, reason for surrender, and upload supporting documents.",
+          "Submit application online or verify through the local Akshaya Centre.",
+          "Rationing Inspector verifies records; Taluk Supply Officer (TSO) approves and issues digitally signed certificate."
+        ],
+        ml: [
+          "സിവിൽ സപ്ലൈസ് പോർട്ടലിൽ ആധാർ ഒ.ടി.പി വഴി ലോഗിൻ ചെയ്യുക.",
+          "സിറ്റിസൺ സർവീസസിൽ നിന്ന് 'Surrender Certificate' അല്ലെങ്കിൽ 'Non-Inclusion Certificate' തിരഞ്ഞെടുക്കുക.",
+          "ഒഴിവാക്കേണ്ട അംഗത്തിന്റെ പേരും കാരണവും നൽകി രേഖകൾ അപ്‌ലോഡ് ചെയ്യുക.",
+          "റേഷനിംഗ് ഇൻസ്പെക്ടറുടെ പരിശോധനയ്ക്ക് ശേഷം താലൂക്ക് സപ്ലൈ ഓഫീസർ അപേക്ഷ അംഗീകരിക്കുന്നു.",
+          "ഡിജിറ്റൽ ഒപ്പോടു കൂടിയ സർട്ടിഫിക്കറ്റ് പോർട്ടലിൽ നിന്ന് ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in",
+      notes: {
+        en: "A surrender or non-inclusion certificate is mandatory before a member's name can be legally added to a new or existing spouse's ration card.",
+        ml: "വിവാഹശേഷം പങ്കാളിയുടെ റേഷൻ കാർഡിലോ പുതിയ കാർഡിലോ പേര് ചേർക്കുന്നതിന് മുൻപായി സറണ്ടർ സർട്ടിഫിക്കറ്റ് നിർബന്ധമാണ്."
       },
       lastVerified: "September 2026",
       verified: true
