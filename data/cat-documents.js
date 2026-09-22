@@ -1,6 +1,6 @@
 // ==========================================
 // SEVACHECK KERALA — DATA MODULE
-// Category: Documents & Certificates (29 Services)
+// Category: Documents & Certificates (35 Services)
 // File: data/cat-documents.js
 // ==========================================
 
@@ -1941,7 +1941,7 @@
       verified: true
     },
     {
-      id: "possession-non-attachment-certificate",
+      id: "possession-non-attachment-certificateion-non-attachment-certificateion-non-attachment-certificateion-non-attachment-certificate",
       category: "documents",
       icon: "🛡️",
       name: {
@@ -2076,6 +2076,434 @@
       notes: {
         en: "Provides an authoritative government summary of a citizen's land ownership within a revenue jurisdiction.",
         ml: "ഒരു വില്ലേജിൽ ഒരാൾക്ക് എത്ര ഭൂമിയുണ്ടെന്ന് വ്യക്തമാക്കുന്ന ആധികാരിക രേഖയാണിത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "inter-caste-marriage-certificate",
+      category: "documents",
+      icon: "📜",
+      name: {
+        en: "Inter-Caste Marriage Certificate",
+        ml: "മിശ്രവിവാഹ സർട്ടിഫിക്കറ്റ്"
+      },
+      summary: {
+        en: "Official revenue certificate certifying that a legally married couple belongs to two different castes or communities.",
+        ml: "നിയമാനുസൃതമായി വിവാഹിതരായ ദമ്പതികൾ രണ്ട് വ്യത്യസ്ത ജാതിയിലോ സമുദായത്തിലോ ഉള്ളവരാണെന്ന് സാക്ഷ്യപ്പെടുത്തുന്ന റവന്യൂ രേഖ."
+      },
+      whoNeeds: {
+        en: "Couples applying for government financial assistance, employment preference, or fee concessions under social welfare schemes.",
+        ml: "സാമൂഹ്യനീതി വകുപ്പിന്റെ സാമ്പത്തിക സഹായങ്ങൾ, വിദ്യാഭ്യാസ ആനുകൂല്യങ്ങൾ, ഫീസ് ഇളവുകൾ എന്നിവ ആവശ്യമുള്ള ദമ്പതികൾക്ക്."
+      },
+      eligibility: {
+        en: "Legally married couple who are permanent residents of Kerala, where the husband and wife belong to different castes or communities.",
+        ml: "വ്യത്യസ്ത ജാതികളിലോ സമുദായങ്ങളിലോ ഉൾപ്പെട്ടവരും കേരളത്തിൽ സ്ഥിരതാമസമുള്ളവരുമായ നിയമപരമായി വിവാഹിതരായ ദമ്പതികൾക്ക്."
+      },
+      documents: {
+        en: [
+          "Marriage Certificate issued by Local Body / Sub-Registrar / competent authority",
+          "SSLC Book / School Certificate of both spouses showing caste/religion",
+          "Caste / Community Certificates of both spouses (if school records are ambiguous)",
+          "Aadhaar Cards and Ration Card of husband and wife"
+        ],
+        ml: [
+          "തദ്ദേശ സ്ഥാപനമോ സബ് രജിസ്ട്രാറോ നൽകിയ വിവാഹ സർട്ടിഫിക്കറ്റ്",
+          "ഭാര്യാഭർത്താക്കന്മാരുടെ ജാതി/മതം രേഖപ്പെടുത്തിയ SSLC ബുക്ക് അല്ലെങ്കിൽ സ്കൂൾ സർട്ടിഫിക്കറ്റ്",
+          "ഇരുവർക്കുമുള്ള ജാതി / കമ്മ്യൂണിറ്റി സർട്ടിഫിക്കറ്റുകൾ",
+          "ഭാര്യാഭർത്താക്കന്മാരുടെ ആധാർ കാർഡുകളും റേഷൻ കാർഡും"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Joint declaration affidavit signed by both spouses",
+          "Wedding invitation letter or religious solemnization receipt"
+        ],
+        ml: [
+          "ദമ്പതികൾ ഒപ്പിട്ട സംയുക്ത സത്യവാങ്മൂലം",
+          "വിവാഹ ക്ഷണക്കത്ത് അല്ലെങ്കിൽ വിവാഹം നടന്ന സ്ഥാപനത്തിന്റെ സാക്ഷ്യപത്രം"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Kerala e-District portal or through nearest Akshaya Centre / Village Office.",
+        ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് (e-District) പോർട്ടൽ വഴി ഓൺലൈനായോ അടുത്തുള്ള അക്ഷയ കേന്ദ്രം / വില്ലേജ് ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Village Officer Inquiry",
+        ml: "ഓൺലൈൻ & വില്ലേജ് ഓഫീസർ പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Log in to the e-District Kerala portal and choose 'Inter-Caste Marriage Certificate'.",
+          "Enter applicant details, spouse details, and respective caste/community information.",
+          "Upload Marriage Certificate, school certificates proving caste, and identity proofs.",
+          "Pay the online processing fee and submit application.",
+          "Village Officer conducts inquiry and Tahsildar / Village Officer issues digitally signed certificate.",
+          "Download digitally verified certificate from the dashboard."
+        ],
+        ml: [
+          "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടലിൽ ലോഗിൻ ചെയ്ത് 'മിശ്രവിവാഹ സർട്ടിഫിക്കറ്റ്' തിരഞ്ഞെടുക്കുക.",
+          "ദമ്പതികളുടെ വ്യക്തിഗത വിവരങ്ങളും ജാതി വിവരങ്ങളും രേഖപ്പെടുത്തുക.",
+          "വിവാഹ സർട്ടിഫിക്കറ്റ്, സ്കൂൾ രേഖകൾ, തിരിച്ചറിയൽ രേഖകൾ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "നിശ്ചിത ഫീസ് അടച്ച് അപേക്ഷ സമർപ്പിക്കുക.",
+          "വില്ലേജ് ഓഫീസറുടെ അന്വേഷണത്തിന് ശേഷം ഡിജിറ്റൽ ഒപ്പോടു കൂടിയ സർട്ടിഫിക്കറ്റ് ലഭ്യമാകും."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in",
+      notes: {
+        en: "Crucial prerequisite for applying for the Department of Social Justice financial grant for inter-caste married couples.",
+        ml: "സാമൂഹ്യനീതി വകുപ്പിന്റെ മിശ്രവിവാഹിതർക്കുള്ള ധനസഹായത്തിന് അപേക്ഷിക്കുന്നതിന് ഈ സർട്ടിഫിക്കറ്റ് അനിവാര്യമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "conversion-certificate",
+      category: "documents",
+      icon: "📜",
+      name: {
+        en: "Conversion Certificate",
+        ml: "മതപരിവർത്തന സർട്ടിഫിക്കറ്റ്"
+      },
+      summary: {
+        en: "Official revenue certificate certifying that an individual has lawfully converted from one religion to another.",
+        ml: "ഒരു വ്യക്തി നിയമപരമായി ഒരു മതത്തിൽ നിന്നും മറ്റൊരു മതത്തിലേക്ക് പരിവർത്തനം ചെയ്തതായി സാക്ഷ്യപ്പെടുത്തുന്ന റവന്യൂ രേഖ."
+      },
+      whoNeeds: {
+        en: "Individuals needing official confirmation of religious conversion for updating educational records, service books, or gazette updates.",
+        ml: "സ്കൂൾ രേഖകൾ, സർവീസ് രേഖകൾ, ഔദ്യോഗിക ഗസറ്റ് വിജ്ഞാപനം എന്നിവയിൽ മതം മാറ്റം രേഖപ്പെടുത്താൻ ആവശ്യമുള്ളവർ."
+      },
+      eligibility: {
+        en: "Any resident of Kerala who has converted to another religion and undergone lawful conversion procedures.",
+        ml: "നിയമപരമായ നടപടിക്രമങ്ങൾ പാലിച്ച് മതപരിവർത്തനം നടത്തിയ കേരളത്തിലെ ഏതൊരു സ്ഥിരതാമസക്കാരനും."
+      },
+      documents: {
+        en: [
+          "Kerala Government Gazette publication extract regarding change of religion and name",
+          "Certificate issued by recognized religious institution / authority where conversion was solemnized",
+          "Applicant's School Certificate (SSLC) / Birth Certificate showing previous religion",
+          "Aadhaar Card and Ration Card of applicant"
+        ],
+        ml: [
+          "മതമാറ്റവും പേരുമാറ്റവും വിജ്ഞാപനം ചെയ്ത കേരള സർക്കാർ ഗസറ്റ് പകർപ്പ്",
+          "മതപരിവർത്തനം നടത്തിയ അംഗീകൃത മതസ്ഥാപനം നൽകിയ സാക്ഷ്യപത്രം",
+          "മുൻ മതം വ്യക്തമാക്കുന്ന എസ്.എസ്.എൽ.സി ബുക്ക് അല്ലെങ്കിൽ ജനന സർട്ടിഫിക്കറ്റ്",
+          "അപേക്ഷകന്റെ ആധാർ കാർഡും റേഷൻ കാർഡും"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Notarized affidavit on stamped paper declaring voluntary conversion without coercion"
+        ],
+        ml: [
+          "ആരുടെയും നിർബന്ധത്തിന് വഴങ്ങാതെ സ്വമേധയാ മതപരിവർത്തനം നടത്തിയെന്ന സത്യവാങ്മൂലം"
+        ]
+      },
+      whereToApply: {
+        en: "Online through Kerala e-District portal or nearest Akshaya Centre / Taluk Office.",
+        ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് (e-District) പോർട്ടൽ വഴി അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം / താലൂക്ക് ഓഫീസ് വഴി."
+      },
+      mode: {
+        en: "Online & Revenue Hearing",
+        ml: "ഓൺലൈൻ & റവന്യൂ പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Log in to the e-District Kerala portal and choose 'Conversion Certificate'.",
+          "Fill applicant details, previous religion, new religion, and conversion particulars.",
+          "Upload gazette notification, religious institution certificate, and identity proofs.",
+          "Pay government processing charges and submit.",
+          "Village Officer / Tahsildar conducts inquiry and issues digitally signed certificate."
+        ],
+        ml: [
+          "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ വഴി 'മതപരിവർത്തന സർട്ടിഫിക്കറ്റ്' തിരഞ്ഞെടുത്ത് അപേക്ഷിക്കുക.",
+          "മുൻ മതവും പുതിയ മതവും സംബന്ധിച്ച വിവരങ്ങൾ രേഖപ്പെടുത്തുക.",
+          "ഗസറ്റ് വിജ്ഞാപനം, മതസ്ഥാപനത്തിന്റെ സർട്ടിഫിക്കറ്റ്, ആധാർ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "റവന്യൂ അന്വേഷണത്തിന് ശേഷം തഹസിൽദാർ ഡിജിറ്റൽ സർട്ടിഫിക്കറ്റ് അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in",
+      notes: {
+        en: "Gazette notification of religious conversion is generally required before applying for this certificate.",
+        ml: "ഈ സർട്ടിഫിക്കറ്റിന് അപേക്ഷിക്കുന്നതിന് മുൻപായി ഗസറ്റ് വിജ്ഞാപനം പൂർത്തിയാക്കിയിരിക്കണം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "certificate-verification",
+      category: "documents",
+      icon: "🔍",
+      name: {
+        en: "Certificate Verification",
+        ml: "സർട്ടിഫിക്കറ്റ് പരിശോധന"
+      },
+      summary: {
+        en: "Public online tool to authenticate and verify the validity of any digitally signed certificate issued through e-District Kerala.",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് കേരള വഴി വിതരണം ചെയ്ത ഡിജിറ്റൽ സർട്ടിഫിക്കറ്റുകളുടെ ആധികാരികത ഓൺലൈനായി പരിശോധിക്കാനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Employers, academic institutions, banks, government departments, and citizens verifying certificate authenticity.",
+        ml: "തൊഴിൽദാതാക്കൾ, വിദ്യാഭ്യാസ സ്ഥാപനങ്ങൾ, ബാങ്കുകൾ, സർട്ടിഫിക്കറ്റിന്റെ കൃത്യത ഉറപ്പുവരുത്താൻ ആഗ്രഹിക്കുന്ന പൊതുജനങ്ങൾ."
+      },
+      eligibility: {
+        en: "Open to any citizen or authority possessing an e-District Certificate Number and security code.",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് സർട്ടിഫിക്കറ്റ് നമ്പറും സെക്യൂരിറ്റി കോഡും കൈവശമുള്ള ഏതൊരു വ്യക്തിക്കും സ്ഥാപനത്തിനും."
+      },
+      documents: {
+        en: [
+          "No document upload required",
+          "Certificate Number printed on the issued e-District certificate",
+          "Security Code / CAPTCHA displayed on screen"
+        ],
+        ml: [
+          "പ്രത്യേക രേഖകളൊന്നും അപ്‌ലോഡ് ചെയ്യേണ്ടതില്ല",
+          "ഇഷ്യൂ ചെയ്ത സർട്ടിഫിക്കറ്റിൽ രേഖപ്പെടുത്തിയിട്ടുള്ള സർട്ടിഫിക്കറ്റ് നമ്പർ",
+          "സ്ക്രീനിൽ കാണുന്ന സെക്യൂരിറ്റി കോഡ് (ക്യാപ്‌ച)"
+        ]
+      },
+      additionalDocs: {
+        en: [],
+        ml: []
+      },
+      whereToApply: {
+        en: "e-District Kerala Public Verification Portal (edistrict.kerala.gov.in/qrVerify.do).",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് സർട്ടിഫിക്കറ്റ് വെരിഫിക്കേഷൻ പോർട്ടൽ (edistrict.kerala.gov.in/qrVerify.do)."
+      },
+      mode: {
+        en: "100% Online (No Login Required)",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ (ലോഗിൻ ആവശ്യമില്ല)"
+      },
+      steps: {
+        en: [
+          "Visit the official e-District Kerala Certificate Verification page.",
+          "Select the service name corresponding to the certificate.",
+          "Enter the unique Certificate Number printed on the document.",
+          "Enter the displayed security CAPTCHA code.",
+          "Click 'Submit' to view and cross-verify the issued certificate details and digital signature."
+        ],
+        ml: [
+          "ഇ-ഡിസ്ട്രിക്റ്റ് വെരിഫിക്കേഷൻ വെബ് പേജ് (qrVerify.do) സന്ദർശിക്കുക.",
+          "സർട്ടിഫിക്കറ്റിന്റെ വിഭാഗം തിരഞ്ഞെടുക്കുക.",
+          "സർട്ടിഫിക്കറ്റിൽ നൽകിയിട്ടുള്ള നമ്പർ രേഖപ്പെടുത്തുക.",
+          "സ്ക്രീനിൽ കാണുന്ന ക്യാപ്‌ച കോഡ് നൽകുക.",
+          "വിവരങ്ങൾ പരിശോധിച്ച് സർട്ടിഫിക്കറ്റിന്റെ കൃത്യത ഉറപ്പുവരുത്തുക."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in/qrVerify.do",
+      notes: {
+        en: "Completely free online service. You can also scan the QR code printed directly on the certificate using a smartphone.",
+        ml: "ഈ സേവനം തികച്ചും സൗജന്യമാണ്. സർട്ടിഫിക്കറ്റിലുള്ള ക്യു.ആർ (QR) കോഡ് സ്കാൻ ചെയ്തും ഇത് പരിശോധിക്കാം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "edistrict-application-status",
+      category: "documents",
+      icon: "📊",
+      name: {
+        en: "e-District Application Status Tracking",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് അപേക്ഷാ സ്ഥിതി അറിയൽ"
+      },
+      summary: {
+        en: "Real-time online tracking system to check the current processing stage of certificate and revenue applications on e-District.",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് വഴി സമർപ്പിച്ച സർട്ടിഫിക്കറ്റ് അപേക്ഷകളുടെ നിലവിലെ പുരോഗതിയും അവസ്ഥയും അറിയാനുള്ള ഓൺലൈൻ സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Applicants who have submitted applications for certificates, revenue services, or welfare grants via e-District or Akshaya.",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ വഴിയോ അക്ഷയ വഴിയോ സർട്ടിഫിക്കറ്റുകൾക്ക് അപേക്ഷ സമർപ്പിച്ച ശേഷം അതിന്റെ സ്ഥിതി അറിയാൻ ആഗ്രഹിക്കുന്നവർ."
+      },
+      eligibility: {
+        en: "Any applicant holding a valid e-District Application Number / Token Number.",
+        ml: "സാധുവായ ഇ-ഡിസ്ട്രിക്റ്റ് അപേക്ഷാ നമ്പർ (Application Number) കൈവശമുള്ള ഏതൊരു അപേക്ഷകനും."
+      },
+      documents: {
+        en: [
+          "No document upload required",
+          "e-District Application Number / Reference Number from receipt"
+        ],
+        ml: [
+          "രേഖകളൊന്നും അപ്‌ലോഡ് ചെയ്യേണ്ടതില്ല",
+          "അക്നോളജ്മെന്റ് രസീതിലുള്ള അപേക്ഷാ നമ്പർ (Application Number)"
+        ]
+      },
+      additionalDocs: {
+        en: [],
+        ml: []
+      },
+      whereToApply: {
+        en: "e-District Kerala Open Tracking Portal (edistrict.kerala.gov.in/openSearch.do).",
+        ml: "ഇ-ഡിസ്ട്രിക്റ്റ് ഓപ്പൺ ട്രാക്കിംഗ് പോർട്ടൽ (edistrict.kerala.gov.in/openSearch.do)."
+      },
+      mode: {
+        en: "100% Online (No Login Required)",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ (ലോഗിൻ ആവശ്യമില്ല)"
+      },
+      steps: {
+        en: [
+          "Open the e-District Kerala application status tracking page.",
+          "Select the applied service category from the dropdown menu.",
+          "Enter your Application Number.",
+          "Submit query to view current application processing stage (Village Officer, Revenue Inspector, Tahsildar).",
+          "Download approval status or reason for objection/clarification if any."
+        ],
+        ml: [
+          "ഇ-ഡിസ്ട്രിക്റ്റ് സ്റ്റാറ്റസ് ട്രാക്കിംഗ് പേജ് (openSearch.do) തുറക്കുക.",
+          "അപേക്ഷിച്ച സർവീസ് വിഭാഗം തിരഞ്ഞെടുക്കുക.",
+          "അപേക്ഷാ നമ്പർ രേഖപ്പെടുത്തുക.",
+          "അപേക്ഷ ഏത് ഉദ്യോഗസ്ഥന്റെ പരിഗണനയിലാണ് എന്ന് തത്സമയം അറിയുക."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in/openSearch.do",
+      notes: {
+        en: "Status tracking is completely free of cost. If an objection is raised, check the remarks and upload required documents promptly.",
+        ml: "സ്റ്റാറ്റസ് പരിശോധന സൗജന്യമാണ്. അപേക്ഷയിൽ എന്തെങ്കിലും ന്യൂനതകൾ രേഖപ്പെടുത്തിയിട്ടുണ്ടെങ്കിൽ പോർട്ടൽ വഴി തിരുത്താം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "non-availability-certificate",
+      category: "documents",
+      icon: "📜",
+      name: {
+        en: "Non-Availability Certificate (NAC)",
+        ml: "ലഭ്യമല്ലെന്ന സർട്ടിഫിക്കറ്റ് (NAC)"
+      },
+      summary: {
+        en: "Statutory certificate issued under Section 17 of Registration of Births and Deaths Act certifying that a birth/death record is not found.",
+        ml: "ജനന-മരണ രജിസ്ട്രേഷൻ നിയമം സെക്ഷൻ 17 പ്രകാരം ജനനമോ മരണമോ രജിസ്റ്റർ ചെയ്തിട്ടില്ലെന്ന് തദ്ദേശ സ്ഥാപനം നൽകുന്ന സാക്ഷ്യപത്രം."
+      },
+      whoNeeds: {
+        en: "Individuals whose birth or relative's death was not registered at the time of occurrence, seeking delayed registration or foreign visa clearance.",
+        ml: "ജനനമോ മരണമോ സമയത്ത് രജിസ്റ്റർ ചെയ്യാതിരുന്നവർക്കും, ആർ.ഡി.ഒ അനുമതിയോടെ വൈകി രജിസ്റ്റർ ചെയ്യാൻ ആഗ്രഹിക്കുന്നവർക്കും."
+      },
+      eligibility: {
+        en: "Any citizen whose birth or death of family member occurred within the jurisdiction of the local body but was not registered in the register.",
+        ml: "നിശ്ചിത തദ്ദേശ സ്ഥാപന പരിധിയിൽ ജനനമോ മരണമോ സംഭവിക്കുകയും എന്നാൽ ഔദ്യോഗിക രജിസ്റ്ററിൽ രേഖപ്പെടുത്താതിരിക്കുകയും ചെയ്ത വ്യക്തികൾക്ക്."
+      },
+      documents: {
+        en: [
+          "Hospital Discharge Card / Doctor certificate proving occurrence of birth/death (if available)",
+          "School Certificate (SSLC) / Transfer Certificate showing date and place of birth",
+          "Aadhaar Card and Ration Card of applicant",
+          "Affidavit stating details of the event and declaring non-registration"
+        ],
+        ml: [
+          "ജനനമോ മരണമോ സംഭവിച്ച സ്ഥലം വ്യക്തമാക്കുന്ന ആശുപത്രി രേഖകൾ (ഉണ്ടെങ്കിൽ)",
+          "ജനന തീയതിയും സ്ഥലവും രേഖപ്പെടുത്തിയ SSLC ബുക്ക് അല്ലെങ്കിൽ സ്കൂൾ സർട്ടിഫിക്കറ്റ്",
+          "അപേക്ഷകന്റെ ആധാർ കാർഡും റേഷൻ കാർഡും",
+          "ഇതുവരെ രജിസ്റ്റർ ചെയ്തിട്ടില്ലെന്ന് വ്യക്തമാക്കുന്ന സത്യവാങ്മൂലം"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Search fee receipt paid to the Local Registrar office"
+        ],
+        ml: [
+          "രജിസ്റ്റർ പരിശോധനയ്ക്കായി തദ്ദേശ സ്ഥാപനത്തിൽ അടച്ച ഫീസ് രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "K-SMART portal (for Municipalities and Corporations) or Grama Panchayat Civil Registration counter.",
+        ml: "കെ-സ്മാർട്ട് (K-SMART) പോർട്ടൽ അല്ലെങ്കിൽ ഗ്രാമപഞ്ചായത്ത് സിവിൽ രജിസ്ട്രേഷൻ വിഭാഗം."
+      },
+      mode: {
+        en: "Online (K-SMART) & Local Body Office",
+        ml: "ഓൺലൈൻ & തദ്ദേശ സ്വയംഭരണ ഓഫീസ്"
+      },
+      steps: {
+        en: [
+          "Apply on K-SMART portal or visit the local body where the event occurred.",
+          "Request register search for the specified year and particulars of the individual.",
+          "Local Registrar verifies physical and digitized birth/death registers.",
+          "Registrar confirms absence of entry and issues Non-Availability Certificate (Form 10).",
+          "Use the certificate to petition the Revenue Divisional Officer (RDO) for delayed registration sanction."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് പോർട്ടൽ വഴിയോ തദ്ദേശ സ്ഥാപനത്തിലോ അപേക്ഷ സമർപ്പിക്കുക.",
+          "ജനനമോ മരണമോ നടന്ന വർഷത്തെ രജിസ്റ്ററുകൾ പരിശോധിക്കാൻ അപേക്ഷ നൽകുക.",
+          "രജിസ്റ്ററിൽ രേഖപ്പെടുത്തിയിട്ടില്ലെന്ന് ഉറപ്പുവരുത്തി രജിസ്ട്രാർ ലഭ്യമല്ലെന്ന സാക്ഷ്യപത്രം (Form 10) നൽകുന്നു.",
+          "ഈ സർട്ടിഫിക്കറ്റ് ഉപയോഗിച്ച് വൈകിയുള്ള രജിസ്ട്രേഷനായി ആർ.ഡി.ഒ (RDO) ക്ക് അപേക്ഷിക്കാം."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in",
+      notes: {
+        en: "Mandatory prerequisite for obtaining a Revenue Divisional Officer (RDO) order for delayed birth or death registration beyond one year.",
+        ml: "ഒരു വർഷത്തിലധികം വൈകിയ ജനന-മരണങ്ങൾ ആർ.ഡി.ഒ ഉത്തരവിലൂടെ രജിസ്റ്റർ ചെയ്യുന്നതിന് ഈ സർട്ടിഫിക്കറ്റ് നിർബന്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "encumbrance-certificate",
+      category: "documents",
+      icon: "📜",
+      name: {
+        en: "Encumbrance Certificate (EC)",
+        ml: "ബാധ്യതാ സർട്ടിഫിക്കറ്റ് (EC)"
+      },
+      summary: {
+        en: "Official record issued by the Registration Department detailing all registered transactions, mortgages, and legal claims on a property.",
+        ml: "ഒരു വസ്തുവിന്മേൽ നടന്നിട്ടുള്ള എല്ലാ രജിസ്ട്രേഷൻ ഇടപാടുകളും ബാധ്യതകളും വ്യക്തമാക്കി രജിസ്ട്രേഷൻ വകുപ്പ് നൽകുന്ന രേഖ."
+      },
+      whoNeeds: {
+        en: "Property buyers, landowners applying for bank housing loans, mortgaging land, or verifying chain of title ownership.",
+        ml: "വസ്തു വാങ്ങുന്നവർ, ബാങ്ക് വായ്പകൾക്ക് വസ്തു പണയപ്പെടുത്തുന്നവർ, ഉടമസ്ഥാവകാശത്തിന്റെ വ്യക്തത പരിശോധിക്കുന്നവർ."
+      },
+      eligibility: {
+        en: "Any citizen seeking to inspect the registered transaction history of an immovable property in Kerala.",
+        ml: "കേരളത്തിലുള്ള ഏതൊരു വസ്തുവിന്റെയും ഇടപാട് വിവരങ്ങൾ പരിശോധിക്കാൻ ആഗ്രഹിക്കുന്ന ഏതൊരു വ്യക്തിക്കും."
+      },
+      documents: {
+        en: [
+          "Title Deed / Prior Deed Number, Year, and Sub-Registrar Office (SRO) name",
+          "Property Survey Number, Re-survey Number, and Sub-division Number",
+          "Village, Taluk, and District where property is situated",
+          "Four boundary descriptions of the property and search period (from and to years)"
+        ],
+        ml: [
+          "ആധാര നമ്പർ, രജിസ്റ്റർ ചെയ്ത വർഷം, സബ് രജിസ്ട്രാർ ഓഫീസ് (SRO)",
+          "സർവ്വേ നമ്പർ, റീ-സർവ്വേ നമ്പർ, സബ് ഡിവിഷൻ",
+          "വസ്തു സ്ഥിതി ചെയ്യുന്ന വില്ലേജ്, താലൂക്ക്, ജില്ല",
+          "വസ്തുവിന്റെ നാലതിരുകളും പരിശോധിക്കേണ്ട കാലയളവും"
+        ]
+      },
+      additionalDocs: {
+        en: [],
+        ml: []
+      },
+      whereToApply: {
+        en: "Kerala Registration Department PEARL Portal (keralaregistration.gov.in) or concerned Sub-Registrar Office.",
+        ml: "രജിസ്ട്രേഷൻ വകുപ്പിന്റെ PEARL പോർട്ടൽ (keralaregistration.gov.in) അല്ലെങ്കിൽ സബ് രജിസ്ട്രാർ ഓഫീസ്."
+      },
+      mode: {
+        en: "100% Online & SRO Counter",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ & സബ് രജിസ്ട്രാർ ഓഫീസ്"
+      },
+      steps: {
+        en: [
+          "Log in to the official Kerala Registration Department portal (keralaregistration.gov.in).",
+          "Select 'Submit Application for EC' under citizen online applications.",
+          "Enter district, Sub-Registrar Office, property survey details, and boundary descriptions.",
+          "Select search period (e.g., past 15 to 30 years).",
+          "Pay search fee online using e-payment.",
+          "Download digitally signed Encumbrance Certificate with QR code verification upon approval."
+        ],
+        ml: [
+          "കേരള രജിസ്ട്രേഷൻ വകുപ്പിന്റെ ഔദ്യോഗിക പോർട്ടൽ (keralaregistration.gov.in) സന്ദർശിക്കുക.",
+          "'Submit Application for EC' തിരഞ്ഞെടുക്കുക.",
+          "സബ് രജിസ്ട്രാർ ഓഫീസ്, സർവ്വേ നമ്പർ, വസ്തുവിന്റെ അതിരുകൾ എന്നിവ നൽകുക.",
+          "പരിശോധിക്കേണ്ട വർഷങ്ങൾ രേഖപ്പെടുത്തുക (ഉദാ: കഴിഞ്ഞ 15-30 വർഷം).",
+          "ഓൺലൈനായി ഫീസ് അടയ്ക്കുക.",
+          "പരിശോധന പൂർത്തിയായ ശേഷം ഡിജിറ്റൽ ഒപ്പോടു കൂടിയ സർട്ടിഫിക്കറ്റ് ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://keralaregistration.gov.in",
+      notes: {
+        en: "A 'Nil Encumbrance Certificate' indicates that no registered transactions or registered liabilities exist for the specified search period.",
+        ml: "നിശ്ചിത കാലയളവിൽ വസ്തുവിന്മേൽ ബാധ്യതകളോ രജിസ്റ്റർ ചെയ്ത കൈമാറ്റങ്ങളോ ഇല്ലെങ്കിൽ 'Nil Encumbrance' സർട്ടിഫിക്കറ്റാണ് ലഭിക്കുക."
       },
       lastVerified: "September 2026",
       verified: true
