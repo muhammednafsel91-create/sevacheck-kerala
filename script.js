@@ -1,14 +1,16 @@
 // ==========================================
-// SEVACHECK KERALA — APPLICATION LOGIC
+// SEVACHECK KERALA — MAIN APPLICATION LOGIC
 // ==========================================
 
-// Global state
 let currentLang = "en";
 let currentCategory = "all";
-let activeServiceId = null;
+let currentSearchQuery = "";
+let currentView = "home"; // 'home', 'services', 'how', 'about', 'detail'
+let activeService = null;
+let allServices = [];
 
-// i18n Dictionary
-const i18n = {
+// UI Translation Dictionary
+const translations = {
   en: {
     topDisclaimer: "ℹ️ SevaCheck Kerala is an independent guidance platform. Always verify through official government sources.",
     navHome: "Home",
@@ -25,10 +27,12 @@ const i18n = {
     catGovernment: "🏛️ Government & Local",
     catEducation: "🎓 Education",
     catTravel: "🚗 Travel & Transport",
+    catPolice: "🛡️ Police & Public Safety",
     popularServicesHeading: "Popular Services",
-    servicesCount: (count) => `Showing ${count} services`,
+    showingCount: "Showing {count} services",
     emptyStateHeading: "No matching service found.",
-    emptyStateText: 'Try searching for words like "Income", "Passport", "Birth", or "Licence".',
+    emptyStateText: "Try searching for words like 'Income', 'Passport', 'Birth', or 'Licence'.",
+    viewChecklistBtn: "View Checklist & Details →",
     backToHome: "← Back to all services",
     headingWho: "👥 Who May Need It",
     headingEligibility: "✅ Basic Eligibility",
@@ -38,12 +42,11 @@ const i18n = {
     headingWhere: "📍 Where to Apply",
     headingSteps: "📋 Basic Step-by-Step Instructions",
     headingNotes: "ℹ️ Important Notes",
-    lastVerifiedPrefix: "Last verified: ",
-    verifiedBadge: "Verified Official Source",
-    officialBtn: "Open Official Portal ↗",
-    officialBtnDisclaimer: "Opens official / authorized government portal. SevaCheck is not affiliated with this service.",
-    categoryLabel: "Category",
-    modeLabel: "Mode",
+    openOfficialPortal: "Open Official Portal ↗",
+    officialPortalUnavailable: "Official Online Portal Link Not Directly Available",
+    verifiedBadge: "Verified for Kerala",
+    unverifiedBadge: "Verification Pending",
+    lastVerifiedPrefix: "Last verified:",
     howHeading: "How SevaCheck Kerala Works",
     howIntro: "Applying for government services does not need to involve multiple trips to offices just to find out which document is missing.",
     howStep1Title: "1. Search your service",
@@ -59,392 +62,458 @@ const i18n = {
     howCtaBtn: "Get Started"
   },
   ml: {
-    topDisclaimer: "ℹ️ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര വിവര സഹായിയാണ്. അന്തിമ വിവരങ്ങൾക്ക് ഔദ്യോഗിക സർക്കാർ സ്രോതസ്സുകൾ പരിശോധിക്കുക.",
+    topDisclaimer: "ℹ️ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര വിവര സഹായി മാത്രമാണ്. വിവരങ്ങൾ എപ്പോഴും ഔദ്യോഗിക പോർട്ടലുകൾ വഴി സ്ഥിരീകരിക്കുക.",
     navHome: "ഹോം",
     navServices: "സേവനങ്ങൾ",
     navHow: "പ്രവർത്തനം",
     navAbout: "ഞങ്ങളെക്കുറിച്ച്",
-    heroHeading: "അപേക്ഷിക്കുന്നതിന് മുൻപ് എന്തൊക്കെ വേണമെന്ന് അറിയൂ.",
-    heroSubheading: "കേരളത്തിലെ സർക്കാർ സേവനങ്ങൾക്ക് ആവശ്യമായ രേഖകളുടെ ചെക്ക് ലിസ്റ്റും അപേക്ഷാ വിവരങ്ങളും ലളിതമായി.",
-    searchPlaceholder: "സേവനങ്ങൾ തിരയുക... (ഉദാ: വരുമാന സർട്ടിഫിക്കറ്റ്, ലൈസൻസ്)",
-    categorySectionHeading: "ഏത് സേവനമാണ് വേണ്ടതെന്ന് ഉറപ്പില്ലേ?",
+    heroHeading: "അപേക്ഷിക്കുന്നതിന് മുൻപ് എന്തൊക്കെ വേണമെന്ന് അറിയുക.",
+    heroSubheading: "കേരളത്തിലെ വിവിധ സർക്കാർ സേവനങ്ങൾക്കുള്ള രേഖകൾ, യോഗ്യതകൾ, അപേക്ഷാ ഘട്ടങ്ങൾ എന്നിവ ലളിതമായി അറിയാം.",
+    searchPlaceholder: "ആവശ്യമായ സർവീസ് തിരയുക... (ഉദാ: വരുമാന സർട്ടിഫിക്കറ്റ്, ഡ്രൈവിംഗ് ലൈസൻസ്)",
+    categorySectionHeading: "ഏത് സേവനമാണ് വേണ്ടതെന്ന് വ്യക്തമല്ലേ?",
     catAll: "എല്ലാം",
-    catDocuments: "📄 സർട്ടിഫിക്കറ്റുകൾ & രേഖകൾ",
+    catDocuments: "📄 രേഖകളും സർട്ടിഫിക്കറ്റുകളും",
     catId: "🪪 തിരിച്ചറിയൽ രേഖകൾ",
-    catGovernment: "🏛️ സർക്കാർ & തദ്ദേശ സേവനങ്ങൾ",
+    catGovernment: "🏛️ സർക്കാർ & തദ്ദേശ സ്ഥാപനങ്ങൾ",
     catEducation: "🎓 വിദ്യാഭ്യാസം",
-    catTravel: "🚗 യാത്ര & ഗതാഗതം",
-    popularServicesHeading: "പ്രധാന സേവനങ്ങൾ",
-    servicesCount: (count) => `${count} സേവനങ്ങൾ ലഭ്യമാണ്`,
+    catTravel: "🚗 യാത്രയും വാഹനങ്ങളും",
+    catPolice: "🛡️ പോലീസ് & പബ്ലിക് സേഫ്റ്റി",
+    popularServicesHeading: "ജനപ്രിയ സേവനങ്ങൾ",
+    showingCount: "{count} സേവനങ്ങൾ ലഭ്യമാണ്",
     emptyStateHeading: "സേവനങ്ങളൊന്നും കണ്ടെത്താനായില്ല.",
-    emptyStateText: '"വരുമാനം", "പാസ്‌പോർട്ട്", "ജനനം", "ലൈസൻസ്" തുടങ്ങിയ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക.',
-    backToHome: "← എല്ലാ സേവനങ്ങളിലേക്കും മടങ്ങുക",
+    emptyStateText: "'വരുമാനം', 'പാസ്‌പോർട്ട്', 'ജനന സർട്ടിഫിക്കറ്റ്' തുടങ്ങിയ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക.",
+    viewChecklistBtn: "വിശദാംശങ്ങളും രേഖകളും കാണുക →",
+    backToHome: "← പ്രധാന ലിസ്റ്റിലേക്ക് മടങ്ങുക",
     headingWho: "👥 ഇത് ആർക്കൊക്കെ ആവശ്യമാണ്?",
-    headingEligibility: "✅ അടിസ്ഥാന യോഗ്യതകൾ",
+    headingEligibility: "✅ പ്രാഥമിക യോഗ്യതകൾ",
     headingDocs: "📄 കരുതേണ്ട പ്രധാന രേഖകൾ",
-    checklistHint: "രേഖകൾ തയ്യാറാക്കുമ്പോൾ ബോക്സുകളിൽ ടിക്ക് ചെയ്യാം:",
-    headingAdditionalDocs: "📎 മറ്റ് അനുബന്ധ രേഖകൾ (ബാധകമെങ്കിൽ മാത്രം)",
-    headingWhere: "📍 എവിടെ അപേക്ഷിക്കണം?",
+    checklistHint: "ഓരോ രേഖയും കയ്യിൽ കരുതിയ ശേഷം താഴെയുള്ള ബോക്സിൽ ടിക്ക് ചെയ്യുക:",
+    headingAdditionalDocs: "📎 മറ്റ് അനുബന്ധ രേഖകൾ (ബാധകമെങ്കിൽ)",
+    headingWhere: "📍 എവിടെയാണ് അപേക്ഷിക്കേണ്ടത്?",
     headingSteps: "📋 അപേക്ഷിക്കേണ്ട ഘട്ടങ്ങൾ",
-    headingNotes: "ℹ️ പ്രധാന ശ്രദ്ധിക്കേണ്ട കാര്യങ്ങൾ",
-    lastVerifiedPrefix: "വിവരങ്ങൾ പരിശോധിച്ചത്: ",
-    verifiedBadge: "പരിശോധിച്ചുറപ്പിച്ച ഔദ്യോഗിക വിവരം",
-    officialBtn: "ഔദ്യോഗിക പോർട്ടൽ തുറക്കുക ↗",
-    officialBtnDisclaimer: "ഔദ്യോഗിക സർക്കാർ പോർട്ടലിലേക്ക് പോകുന്നു. സേവാചെക്കിന് സർക്കാരുമായി നേരിട്ട് ബന്ധമില്ല.",
-    categoryLabel: "വിഭാഗം",
-    modeLabel: "രീതി",
-    howHeading: "സേവാചെക്ക് കേരള എങ്ങനെ പ്രവർത്തിക്കുന്നു?",
-    howIntro: "രേഖകൾ ഇല്ലാത്തതിന്റെ പേരിൽ സർക്കാർ ഓഫീസുകൾ കയറിയിറങ്ങുന്നത് ഒഴിവാക്കാൻ സേവാചെക്ക് നിങ്ങളെ സഹായിക്കുന്നു.",
-    howStep1Title: "1. ആവശ്യമുള്ള സേവനം കണ്ടെത്തുക",
-    howStep1Desc: "നിങ്ങൾക്ക് ആവശ്യമായ സർട്ടിഫിക്കറ്റോ രേഖയോ സേർച്ച് ബാർ വഴി എളുപ്പത്തിൽ കണ്ടെത്താം.",
+    headingNotes: "ℹ️ പ്രധാന നിർദ്ദേശങ്ങൾ",
+    openOfficialPortal: "ഔദ്യോഗിക പോർട്ടൽ സന്ദർശിക്കുക ↗",
+    officialPortalUnavailable: "ഔദ്യോഗിക ഓൺലൈൻ പോർട്ടൽ ലിങ്ക് ലഭ്യമല്ല",
+    verifiedBadge: "കേരള സർക്കാർ മാനദണ്ഡപ്രകാരം പരിശോധിച്ചത്",
+    unverifiedBadge: "വിവരങ്ങൾ പരിശോധനയിലാണ്",
+    lastVerifiedPrefix: "അവസാനം പരിശോധിച്ചത്:",
+    howHeading: "സേവാചെക്ക് കേരള എങ്ങനെ സഹായിക്കുന്നു?",
+    howIntro: "സർക്കാർ ഓഫീസുകൾ പലതവണ കയറിയിറങ്ങി രേഖകൾ വിട്ടുപോയി എന്ന് തിരിച്ചറിയുന്ന ബുദ്ധിമുട്ട് ഒഴിവാക്കാം.",
+    howStep1Title: "1. സർവീസ് തിരഞ്ഞെടുക്കുക",
+    howStep1Desc: "നിങ്ങൾക്ക് ആവശ്യമായ സർട്ടിഫിക്കറ്റോ ലൈസൻസോ തിരഞ്ഞു കണ്ടെത്തുക.",
     howStep2Title: "2. യോഗ്യതകൾ പരിശോധിക്കുക",
-    howStep2Desc: "അപേക്ഷിക്കാൻ ആവശ്യമായ അടിസ്ഥാന മാനദണ്ഡങ്ങൾ മനസ്സിലാക്കുക.",
+    howStep2Desc: "അപേക്ഷിക്കാൻ നിങ്ങൾ യോഗ്യരാണോ എന്ന് മുൻകൂട്ടി അറിയുക.",
     howStep3Title: "3. രേഖകൾ തയ്യാറാക്കുക",
-    howStep3Desc: "അക്ഷയ കേന്ദ്രത്തിലോ ഓൺലൈനായോ പോകുന്നതിന് മുൻപ് ഞങ്ങളുടെ ഇന്ററാക്ടീവ് ചെക്ക് ലിസ്റ്റ് ഉപയോഗിച്ച് രേഖകൾ ഉറപ്പാക്കുക.",
-    howStep4Title: "4. ഔദ്യോഗിക പോർട്ടലുകൾ സന്ദർശിക്കുക",
-    howStep4Desc: "ഇടനിലക്കാരില്ലാതെ കൃത്യമായ ഔദ്യോഗിക സർക്കാർ വെബ്സൈറ്റുകളിലേക്ക് നേരിട്ട് പ്രവേശിക്കുക.",
+    howStep3Desc: "അക്ഷയ കേന്ദ്രത്തിലോ ഓൺലൈനായോ പോകുന്നതിന് മുൻപ് രേഖകൾ ചെക്ക്‌ലിസ്റ്റ് പ്രകാരം ടിക്ക് ചെയ്യുക.",
+    howStep4Title: "4. ഔദ്യോഗിക പോർട്ടൽ സന്ദർശിക്കുക",
+    howStep4Desc: "അധികൃത സർക്കാർ വെബ്‌സൈറ്റ് വഴിയോ അക്ഷയ കേന്ദ്രം വഴിയോ നേരിട്ട് അപേക്ഷിക്കുക.",
     howStep5Title: "5. അപേക്ഷ സമർപ്പിച്ച് രസീത് സൂക്ഷിക്കുക",
-    howStep5Desc: "അപേക്ഷ നൽകിയ ശേഷം ലഭിക്കുന്ന അക്നോളജ്മെന്റ് നമ്പർ അല്ലെങ്കിൽ രസീത് സൂക്ഷിച്ചുവെക്കുക.",
+    howStep5Desc: "അപേക്ഷ സമർപ്പിച്ച ശേഷം ലഭിക്കുന്ന അക്നോളജ്മെന്റ് നമ്പർ ഉപയോഗിച്ച് സ്റ്റാറ്റസ് അറിയാം.",
     howCtaBtn: "സേവനങ്ങൾ കാണുക"
   }
 };
 
-// Category Mapping
-const categoryMap = {
-  documents: { en: "Documents & Certificates", ml: "സർട്ടിഫിക്കറ്റുകൾ & രേഖകൾ" },
-  id: { en: "ID & Personal", ml: "തിരിച്ചറിയൽ രേഖകൾ" },
-  government: { en: "Government & Local", ml: "സർക്കാർ & തദ്ദേശ സേവനങ്ങൾ" },
-  education: { en: "Education", ml: "വിദ്യാഭ്യാസം" },
-  travel: { en: "Travel & Transport", ml: "യാത്ര & ഗതാഗതം" }
-};
-
-// Theme Management
-function initTheme() {
-  const savedTheme = localStorage.getItem("sevacheck-theme") || "light";
-  document.documentElement.setAttribute("data-theme", savedTheme);
-  updateThemeIcon(savedTheme);
-}
-
-function toggleTheme() {
-  const currentTheme = document.documentElement.getAttribute("data-theme") || "light";
-  const newTheme = currentTheme === "light" ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", newTheme);
-  localStorage.setItem("sevacheck-theme", newTheme);
-  updateThemeIcon(newTheme);
-}
-
-function updateThemeIcon(theme) {
-  const icon = document.getElementById("themeToggleIcon");
-  if (icon) {
-    icon.textContent = theme === "dark" ? "☀️" : "🌙";
-  }
-}
-
-// Language Switcher
-function setLanguage(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-
-  const btnEn = document.getElementById("btn-lang-en");
-  const btnMl = document.getElementById("btn-lang-ml");
-  if (btnEn && btnMl) {
-    if (lang === "en") {
-      btnEn.classList.add("active");
-      btnMl.classList.remove("active");
-    } else {
-      btnMl.classList.add("active");
-      btnEn.classList.remove("active");
+// Category Name Helper Function
+function getCategoryName(categoryKey, lang = currentLang) {
+  const categoryNames = {
+    en: {
+      documents: "Documents & Certificates",
+      id: "ID & Personal",
+      government: "Government & Local",
+      education: "Education",
+      travel: "Travel & Transport",
+      police: "Police & Public Safety"
+    },
+    ml: {
+      documents: "രേഖകളും സർട്ടിഫിക്കറ്റുകളും",
+      id: "തിരിച്ചറിയൽ രേഖകൾ",
+      government: "സർക്കാർ & തദ്ദേശ സ്ഥാപനങ്ങൾ",
+      education: "വിദ്യാഭ്യാസം",
+      travel: "യാത്രയും വാഹനങ്ങളും",
+      police: "പോലീസ് & പബ്ലിക് സേഫ്റ്റി"
     }
+  };
+
+  return categoryNames[lang]?.[categoryKey] || categoryKey;
+}
+
+// Initialise Application
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.SevaRegistry && typeof window.SevaRegistry.getAll === "function") {
+    allServices = window.SevaRegistry.getAll();
+  } else if (Array.isArray(window.services)) {
+    allServices = window.services;
+  } else if (Array.isArray(window.servicesData)) {
+    allServices = window.servicesData;
+  } else {
+    console.error("SevaCheck: No service data found in registry or globals.");
+    allServices = [];
   }
 
-  // Update static texts
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (i18n[lang] && i18n[lang][key]) {
-      el.textContent = i18n[lang][key];
-    }
-  });
-
-  // Update placeholders
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
-    const key = el.getAttribute("data-i18n-placeholder");
-    if (i18n[lang] && i18n[lang][key]) {
-      el.placeholder = i18n[lang][key];
-    }
-  });
-
-  // Re-filter/re-render services view
-  handleSearch();
-
-  // If in detail view, refresh detail content
-  if (activeServiceId) {
-    openService(activeServiceId);
+  // Initial Theme Check (LocalStorage or Default Light)
+  const savedTheme = localStorage.getItem("sevacheck_theme");
+  if (savedTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    updateThemeIcon(true);
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+    updateThemeIcon(false);
   }
-}
 
-// Navigation / View Switching
-function navigateTo(viewId) {
-  const views = ["view-home", "view-detail", "view-how", "view-about"];
+  // Initial Language Render
+  updateLanguageUI();
+  renderServices();
+  updateServiceCount(allServices.length);
+});
+
+// ==========================================
+// NAVIGATION & VIEWS
+// ==========================================
+
+function navigateTo(viewName) {
+  currentView = viewName;
+  const views = ["home", "detail", "how", "about"];
   views.forEach((v) => {
-    const el = document.getElementById(v);
+    const el = document.getElementById(`view-${v}`);
     if (el) el.style.display = "none";
   });
 
-  // Nav highlights
-  const navLinks = ["nav-home", "nav-services", "nav-how", "nav-about"];
-  navLinks.forEach((n) => {
-    const el = document.getElementById(n);
-    if (el) el.classList.remove("active");
-  });
+  // Nav link active class
+  document.querySelectorAll("nav ul li a").forEach((a) => a.classList.remove("active"));
+  const activeNav = document.getElementById(`nav-${viewName}`);
+  if (activeNav) activeNav.classList.add("active");
 
-  if (viewId === "home" || viewId === "services") {
-    const vHome = document.getElementById("view-home");
-    if (vHome) vHome.style.display = "block";
-    const activeNav = document.getElementById(viewId === "services" ? "nav-services" : "nav-home");
-    if (activeNav) activeNav.classList.add("active");
-    activeServiceId = null;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (viewId === "how") {
-    const vHow = document.getElementById("view-how");
-    if (vHow) vHow.style.display = "block";
-    const activeNav = document.getElementById("nav-how");
-    if (activeNav) activeNav.classList.add("active");
-    activeServiceId = null;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (viewId === "about") {
-    const vAbout = document.getElementById("view-about");
-    if (vAbout) vAbout.style.display = "block";
-    const activeNav = document.getElementById("nav-about");
-    if (activeNav) activeNav.classList.add("active");
-    activeServiceId = null;
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  } else if (viewId === "detail") {
-    const vDetail = document.getElementById("view-detail");
-    if (vDetail) vDetail.style.display = "block";
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  if (viewName === "home" || viewName === "services") {
+    document.getElementById("view-home").style.display = "block";
+    const navServices = document.getElementById("nav-services");
+    const navHome = document.getElementById("nav-home");
+    if (viewName === "services" && navServices) {
+      navServices.classList.add("active");
+      if (navHome) navHome.classList.remove("active");
+    } else if (navHome) {
+      navHome.classList.add("active");
+    }
+  } else {
+    const target = document.getElementById(`view-${viewName}`);
+    if (target) target.style.display = "block";
   }
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function backToHome() {
   navigateTo("home");
 }
 
-// Card Grid Rendering
-function renderCards(list) {
-  const grid = document.getElementById("serviceGrid");
-  const empty = document.getElementById("emptyState");
-  const countLabel = document.getElementById("servicesCount");
+// ==========================================
+// THEME SWITCHER (Dark/Light)
+// ==========================================
 
-  if (!grid || !empty || !countLabel) return;
-
-  grid.innerHTML = "";
-
-  if (!list || list.length === 0) {
-    grid.style.display = "none";
-    empty.style.display = "block";
-    countLabel.textContent = i18n[currentLang].servicesCount(0);
-    return;
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  if (isDark) {
+    document.documentElement.removeAttribute("data-theme");
+    localStorage.setItem("sevacheck_theme", "light");
+    updateThemeIcon(false);
+  } else {
+    document.documentElement.setAttribute("data-theme", "dark");
+    localStorage.setItem("sevacheck_theme", "dark");
+    updateThemeIcon(true);
   }
+}
 
-  grid.style.display = "grid";
-  empty.style.display = "none";
-  countLabel.textContent = i18n[currentLang].servicesCount(list.length);
+function updateThemeIcon(isDark) {
+  const icon = document.getElementById("themeToggleIcon");
+  if (icon) {
+    icon.textContent = isDark ? "☀️" : "🌙";
+  }
+}
 
-  list.forEach((item) => {
-    const card = document.createElement("div");
-    card.className = "service-card";
-    card.onclick = () => openService(item.id);
+// ==========================================
+// LANGUAGE SWITCHER (EN / ML)
+// ==========================================
 
-    const catName = categoryMap[item.category]
-      ? categoryMap[item.category][currentLang]
-      : item.category;
+function setLanguage(lang) {
+  if (lang !== "en" && lang !== "ml") return;
+  currentLang = lang;
 
-    card.innerHTML = `
-      <div class="card-icon">${item.icon || "📄"}</div>
-      <div class="card-category-badge">${catName}</div>
-      <h3 class="card-title">${item.name[currentLang]}</h3>
-      <p class="card-summary">${item.summary[currentLang]}</p>
-      <div class="card-footer">
-        <span class="card-link">${currentLang === "ml" ? "വിശദാംശങ്ങൾ കാണുക →" : "View Checklist & Details →"}</span>
-      </div>
-    `;
+  document.getElementById("btn-lang-en").classList.toggle("active", lang === "en");
+  document.getElementById("btn-lang-ml").classList.toggle("active", lang === "ml");
 
-    grid.appendChild(card);
+  updateLanguageUI();
+
+  if (currentView === "detail" && activeService) {
+    showServiceDetail(activeService.id);
+  } else {
+    renderServices();
+  }
+}
+
+function updateLanguageUI() {
+  const t = translations[currentLang];
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    if (t[key]) {
+      el.textContent = t[key];
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (t[key]) {
+      el.setAttribute("placeholder", t[key]);
+    }
   });
 }
 
-// Category Filter Handling
-function filterCategory(cat, buttonEl) {
-  currentCategory = cat;
+// ==========================================
+// FILTERING & SEARCH
+// ==========================================
 
-  const chips = document.querySelectorAll(".helper-chip");
-  chips.forEach((c) => c.classList.remove("active"));
+function filterCategory(category, buttonEl) {
+  currentCategory = category;
+
+  document.querySelectorAll(".helper-chip").forEach((btn) => btn.classList.remove("active"));
   if (buttonEl) buttonEl.classList.add("active");
 
-  handleSearch();
+  renderServices();
 }
 
-// Search and Filter Coordinator
 function handleSearch() {
-  const searchInput = document.getElementById("searchInput");
-  const q = searchInput ? searchInput.value.toLowerCase().trim() : "";
-
-  let filtered = (typeof servicesData !== "undefined" && Array.isArray(servicesData)) ? servicesData : [];
-
-  if (currentCategory !== "all") {
-    filtered = filtered.filter((s) => s.category === currentCategory);
-  }
-
-  if (q) {
-    filtered = filtered.filter((s) => {
-      const nameEn = s.name.en.toLowerCase();
-      const nameMl = s.name.ml.toLowerCase();
-      const summaryEn = s.summary.en.toLowerCase();
-      const summaryMl = s.summary.ml.toLowerCase();
-
-      return (
-        nameEn.includes(q) ||
-        nameMl.includes(q) ||
-        summaryEn.includes(q) ||
-        summaryMl.includes(q)
-      );
-    });
-  }
-
-  renderCards(filtered);
+  const input = document.getElementById("searchInput");
+  currentSearchQuery = input ? input.value.trim().toLowerCase() : "";
+  renderServices();
 }
 
-// Open Service Detail View
-function openService(id) {
-  if (typeof servicesData === "undefined" || !Array.isArray(servicesData)) return;
-  const s = servicesData.find((item) => item.id === id);
-  if (!s) return;
+function getFilteredServices() {
+  return allServices.filter((s) => {
+    // Category match
+    const matchesCategory = currentCategory === "all" || s.category === currentCategory;
 
-  activeServiceId = id;
+    // Search match
+    if (!matchesCategory) return false;
+    if (!currentSearchQuery) return true;
 
-  // Populate Title & Subtitle
-  const titleEl = document.getElementById("detailTitle");
-  const subtitleEl = document.getElementById("detailSubtitle");
-  const descEl = document.getElementById("detailDesc");
+    const q = currentSearchQuery;
+    const nameEn = s.name?.en?.toLowerCase() || "";
+    const nameMl = s.name?.ml?.toLowerCase() || "";
+    const sumEn = s.summary?.en?.toLowerCase() || "";
+    const sumMl = s.summary?.ml?.toLowerCase() || "";
+    const id = s.id?.toLowerCase() || "";
+    const subCat = s.subCategory?.toLowerCase() || "";
 
-  if (titleEl) titleEl.textContent = s.name[currentLang];
-  if (subtitleEl) {
-    subtitleEl.textContent = currentLang === "en" ? s.name.ml : s.name.en;
+    return (
+      nameEn.includes(q) ||
+      nameMl.includes(q) ||
+      sumEn.includes(q) ||
+      sumMl.includes(q) ||
+      id.includes(q) ||
+      subCat.includes(q)
+    );
+  });
+}
+
+// ==========================================
+// RENDER SERVICE CARDS
+// ==========================================
+
+function renderServices() {
+  const grid = document.getElementById("serviceGrid");
+  const emptyState = document.getElementById("emptyState");
+  if (!grid) return;
+
+  const filtered = getFilteredServices();
+  updateServiceCount(filtered.length);
+
+  if (filtered.length === 0) {
+    grid.innerHTML = "";
+    if (emptyState) emptyState.style.display = "block";
+    return;
   }
-  if (descEl) descEl.textContent = s.summary[currentLang];
 
-  // Badges
+  if (emptyState) emptyState.style.display = "none";
+
+  const t = translations[currentLang];
+  grid.innerHTML = filtered
+    .map((s) => {
+      const name = s.name?.[currentLang] || s.name?.en || "Service";
+      const summary = s.summary?.[currentLang] || s.summary?.en || "";
+      const categoryName = getCategoryName(s.category, currentLang);
+      const icon = s.icon || "📄";
+
+      return `
+      <div class="service-card" onclick="showServiceDetail('${s.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')showServiceDetail('${s.id}')">
+        <div class="card-icon">${icon}</div>
+        <div class="card-category-badge">${categoryName}</div>
+        <h3 class="card-title">${escapeHtml(name)}</h3>
+        <p class="card-desc">${escapeHtml(summary)}</p>
+        <a href="javascript:void(0)" class="card-link" onclick="event.stopPropagation(); showServiceDetail('${s.id}')">
+          ${t.viewChecklistBtn}
+        </a>
+      </div>
+    `;
+    })
+    .join("");
+}
+
+function updateServiceCount(count) {
+  const countEl = document.getElementById("servicesCount");
+  if (!countEl) return;
+  const t = translations[currentLang];
+  countEl.textContent = t.showingCount.replace("{count}", count);
+}
+
+// ==========================================
+// SERVICE DETAIL VIEW
+// ==========================================
+
+function showServiceDetail(serviceId) {
+  const service = allServices.find((s) => s.id === serviceId);
+  if (!service) return;
+
+  activeService = service;
+  currentView = "detail";
+
+  // Hide other views, show detail
+  ["home", "how", "about"].forEach((v) => {
+    const el = document.getElementById(`view-${v}`);
+    if (el) el.style.display = "none";
+  });
+  const detailView = document.getElementById("view-detail");
+  if (detailView) detailView.style.display = "block";
+
+  const t = translations[currentLang];
+
+  // Header Details
+  const titleEl = document.getElementById("detailTitle");
+  const subEl = document.getElementById("detailSubtitle");
+  const descEl = document.getElementById("detailDesc");
   const badgesEl = document.getElementById("detailBadges");
+
+  const name = service.name?.[currentLang] || service.name?.en || "";
+  const subName = currentLang === "en" ? service.name?.ml || "" : service.name?.en || "";
+  const summary = service.summary?.[currentLang] || service.summary?.en || "";
+
+  if (titleEl) titleEl.textContent = `${service.icon || "📄"} ${name}`;
+  if (subEl) subEl.textContent = subName;
+  if (descEl) descEl.textContent = summary;
+
+  // Badges Bar
   if (badgesEl) {
-    const catName = categoryMap[s.category]
-      ? categoryMap[s.category][currentLang]
-      : s.category;
+    const categoryName = getCategoryName(service.category, currentLang);
+    const mode = service.mode?.[currentLang] || service.mode?.en || "Official Channel";
+    const verificationBadge = service.verified ? `✓ ${t.verifiedBadge}` : t.unverifiedBadge;
 
     badgesEl.innerHTML = `
-      <span class="badge badge-category">${i18n[currentLang].categoryLabel}: ${catName}</span>
-      <span class="badge badge-mode">${i18n[currentLang].modeLabel}: ${s.mode[currentLang]}</span>
-      ${s.verified ? `<span class="badge badge-verified">✓ ${i18n[currentLang].verifiedBadge}</span>` : ""}
+      <span class="badge badge-category">${categoryName}</span>
+      <span class="badge badge-mode">${escapeHtml(mode)}</span>
+      <span class="badge badge-status">${verificationBadge}</span>
     `;
   }
 
-  // Who Needs It
+  // Who Needs
   const whoEl = document.getElementById("detailWho");
-  if (whoEl) whoEl.textContent = s.whoNeeds[currentLang];
+  if (whoEl) whoEl.textContent = service.whoNeeds?.[currentLang] || service.whoNeeds?.en || "—";
 
-  // Eligibility
+  // Basic Eligibility
   const eligEl = document.getElementById("detailEligibility");
-  if (eligEl) eligEl.textContent = s.eligibility[currentLang];
+  if (eligEl) eligEl.textContent = service.eligibility?.[currentLang] || service.eligibility?.en || "—";
 
-  // Documents Checklist
-  const docsEl = document.getElementById("detailDocs");
-  if (docsEl) {
-    docsEl.innerHTML = "";
-    s.documents[currentLang].forEach((doc, idx) => {
-      const item = document.createElement("div");
-      item.className = "checklist-item";
-
-      const checkId = `doc-check-${idx}`;
-      item.innerHTML = `
-        <input type="checkbox" id="${checkId}" />
-        <label for="${checkId}">${doc}</label>
-      `;
-      docsEl.appendChild(item);
-    });
+  // Interactive Checklist
+  const docsContainer = document.getElementById("detailDocs");
+  if (docsContainer) {
+    const docList = service.documents?.[currentLang] || service.documents?.en || [];
+    if (docList.length === 0) {
+      docsContainer.innerHTML = `<p style="color: var(--text-muted); font-size: 0.95rem;">${currentLang === "ml" ? "പ്രത്യേക രേഖകളൊന്നും നൽകിയിട്ടില്ല." : "No specific documents required."}</p>`;
+    } else {
+      docsContainer.innerHTML = docList
+        .map(
+          (doc, i) => `
+        <label class="checklist-item" id="chk-label-${i}">
+          <input type="checkbox" id="chk-${i}" onchange="toggleChecklistItem(${i})">
+          <span>${escapeHtml(doc)}</span>
+        </label>
+      `
+        )
+        .join("");
+    }
   }
 
-  // Additional Documents (If applicable)
-  const addSec = document.getElementById("additionalDocsSection");
-  const addDocsEl = document.getElementById("detailAdditionalDocs");
-  if (addSec && addDocsEl) {
-    if (s.additionalDocs && s.additionalDocs[currentLang] && s.additionalDocs[currentLang].length > 0) {
-      addDocsEl.innerHTML = "";
-      s.additionalDocs[currentLang].forEach((itemText) => {
-        const li = document.createElement("li");
-        li.textContent = itemText;
-        addDocsEl.appendChild(li);
-      });
-      addSec.style.display = "block";
-    } else {
-      addSec.style.display = "none";
+  // Additional / Supporting Documents
+  const addDocsSection = document.getElementById("additionalDocsSection");
+  const addDocsList = document.getElementById("detailAdditionalDocs");
+  const addDocs = service.additionalDocs?.[currentLang] || service.additionalDocs?.en || [];
+  if (addDocs && addDocs.length > 0) {
+    if (addDocsSection) addDocsSection.style.display = "block";
+    if (addDocsList) {
+      addDocsList.innerHTML = addDocs.map((doc) => `<li>${escapeHtml(doc)}</li>`).join("");
     }
+  } else {
+    if (addDocsSection) addDocsSection.style.display = "none";
   }
 
   // Where to Apply
   const whereEl = document.getElementById("detailWhere");
-  if (whereEl) whereEl.textContent = s.whereToApply[currentLang];
+  if (whereEl) whereEl.textContent = service.whereToApply?.[currentLang] || service.whereToApply?.en || "—";
 
-  // Steps
-  const stepsEl = document.getElementById("detailSteps");
-  if (stepsEl) {
-    stepsEl.innerHTML = "";
-    s.steps[currentLang].forEach((st) => {
-      const li = document.createElement("li");
-      li.textContent = st;
-      stepsEl.appendChild(li);
-    });
+  // Step-by-Step Instructions
+  const stepsList = document.getElementById("detailSteps");
+  if (stepsList) {
+    const steps = service.steps?.[currentLang] || service.steps?.en || [];
+    if (steps.length === 0) {
+      stepsList.innerHTML = `<li>${currentLang === "ml" ? "ഘട്ടങ്ങൾ നൽകിയിട്ടില്ല." : "Standard procedure applies."}</li>`;
+    } else {
+      stepsList.innerHTML = steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
+    }
   }
 
   // Important Notes
   const notesEl = document.getElementById("detailNotes");
-  if (notesEl) notesEl.textContent = s.notes[currentLang];
+  if (notesEl) notesEl.textContent = service.notes?.[currentLang] || service.notes?.en || "—";
 
-  // Action Button & Verification Note
-  const officialWrapper = document.getElementById("officialBtnWrapper");
-  if (officialWrapper) {
-    officialWrapper.innerHTML = `
-      <a 
-        href="${s.officialUrl}" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        class="btn-official"
-      >
-        ${i18n[currentLang].officialBtn}
-      </a>
-      <p class="official-disclaimer">${i18n[currentLang].officialBtnDisclaimer}</p>
-    `;
+  // Official Action Button
+  const btnWrapper = document.getElementById("officialBtnWrapper");
+  if (btnWrapper) {
+    if (service.officialUrl && service.officialUrl.startsWith("http")) {
+      btnWrapper.innerHTML = `
+        <a href="${service.officialUrl}" target="_blank" rel="noopener noreferrer" class="btn-official">
+          ${t.openOfficialPortal}
+        </a>
+      `;
+    } else {
+      btnWrapper.innerHTML = `
+        <button type="button" class="btn-official btn-disabled" disabled>
+          ${t.officialPortalUnavailable}
+        </button>
+      `;
+    }
   }
 
-  const verNote = document.getElementById("detailLastVerified");
-  if (verNote) {
-    verNote.textContent = `${i18n[currentLang].lastVerifiedPrefix}${s.lastVerified}`;
+  // Last Verified Note
+  const lastVerifiedEl = document.getElementById("detailLastVerified");
+  if (lastVerifiedEl) {
+    const dateStr = service.lastVerified || "September 2026";
+    lastVerifiedEl.textContent = `${t.lastVerifiedPrefix} ${dateStr}`;
   }
 
-  // Switch to Detail View
-  navigateTo("detail");
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// Init
-window.addEventListener("DOMContentLoaded", () => {
-  initTheme();
-  setLanguage("en");
-});
-
-// React to registry updates
-window.addEventListener("seva-registry-updated", () => {
-  if (
-    document.readyState !== "loading" &&
-    typeof handleSearch === "function"
-  ) {
-    handleSearch();
+function toggleChecklistItem(index) {
+  const label = document.getElementById(`chk-label-${index}`);
+  const input = document.getElementById(`chk-${index}`);
+  if (label && input) {
+    label.classList.toggle("checked", input.checked);
   }
-});
+}
+
+// Utility: HTML Escape
+function escapeHtml(str) {
+  if (typeof str !== "string") return str;
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
