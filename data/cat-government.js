@@ -1,13 +1,13 @@
 // ==========================================
 // SEVACHECK KERALA — DATA MODULE
-// Category: Government & Local (25 Services)
+// Category: Government & Local (31 Services)
 // File: data/cat-government.js
 // ==========================================
 
 (function () {
   const data = [
     {
-      id: "ration-card-serviceson-card-serviceson-card-serviceson-card-serviceson-card-services",
+      id: "ration-card-services",
       category: "government",
       icon: "🌾",
       name: {
@@ -1788,6 +1788,451 @@
       notes: {
         en: "Determined primarily by referencing earliest recorded entries in the civic assessment demand registers.",
         ml: "തദ്ദേശ സ്ഥാപനത്തിലെ ഏറ്റവും പഴയ നികുതി അസസ്സ്മെന്റ് രേഖകളുടെ അടിസ്ഥാനത്തിലാണ് പ്രായം കണക്കാക്കുന്നത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "revenue-court-case-tracking",
+      category: "government",
+      icon: "⚖️",
+      name: {
+        en: "Revenue Court Case Tracking",
+        ml: "റെവന്യൂ കോടതി കേസ് വിവരങ്ങൾ (ട്രാക്കിംഗ്)"
+      },
+      summary: {
+        en: "Online tracking of revenue administrative cases, cause lists, hearing dates, and orders pending before District Collector, RDO, and Land Tribunal courts.",
+        ml: "ജില്ലാ കളക്ടർ, ആർ.ഡി.ഒ, ലാൻഡ് ട്രിബ്യൂണൽ കോടതികളിലെ റെവന്യൂ കേസുകളുടെ വിവരങ്ങളും വാദത്തീയതികളും പരിശോധിക്കാനുള്ള ഓൺലൈൻ സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Petitioners, respondents, landowners, and advocates involved in revenue land disputes, boundary appeals, data bank appeals, or mutation objections.",
+        ml: "റവന്യൂ ഭൂമി തർക്കങ്ങൾ, അതിർത്തി അപ്പീലുകൾ, തരംമാറ്റ കേസുകൾ, പോക്കുവരവ് തർക്കങ്ങൾ എന്നിവയിൽ കക്ഷികളായ വ്യക്തികളും അഭിഭാഷകരും."
+      },
+      eligibility: {
+        en: "Open to any citizen or party seeking information regarding cases heard in Kerala's revenue administrative hierarchy.",
+        ml: "കേരളത്തിലെ റവന്യൂ അഡ്മിനിസ്ട്രേറ്റീവ് കോടതികളുടെ പരിഗണനയിലുള്ള കേസുകളുടെ വിവരങ്ങൾ അറിയാൻ ആഗ്രഹിക്കുന്ന ഏതൊരു വ്യക്തിക്കും."
+      },
+      documents: {
+        en: [
+          "No document upload required for status tracking",
+          "Revenue Case Number / Petition Number",
+          "District, Taluk, and specific Revenue Court name (Collectorate / RDO / Land Tribunal)",
+          "Petitioner / Respondent Name and Year of filing (for search without case number)"
+        ],
+        ml: [
+          "പ്രത്യേക രേഖകളൊന്നും അപ്‌ലോഡ് ചെയ്യേണ്ടതില്ല",
+          "റെവന്യൂ കേസ് നമ്പർ / ഹർജി നമ്പർ",
+          "ജില്ലയും ബന്ധപ്പെട്ട റവന്യൂ കോടതിയുടെ പേരും (കളക്ടറേറ്റ് / ആർ.ഡി.ഒ / ലാൻഡ് ട്രിബ്യൂണൽ)",
+          "ഹർജിക്കാരന്റെ അല്ലെങ്കിൽ എതിർകക്ഷിയുടെ പേര് (നമ്പർ ഇല്ലെങ്കിൽ)"
+        ]
+      },
+      additionalDocs: {
+        en: [],
+        ml: []
+      },
+      whereToApply: {
+        en: "Online via Kerala e-District Portal (Revenue Court Cases section) or Land Revenue Department portal.",
+        ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് (e-District) പോർട്ടൽ അല്ലെങ്കിൽ ലാൻഡ് റവന്യൂ വകുപ്പ് വെബ്സൈറ്റ് വഴി."
+      },
+      mode: {
+        en: "100% Online Public Information Service",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ വിവര സേവനം"
+      },
+      steps: {
+        en: [
+          "Visit the Kerala e-District portal or Land Revenue departmental page.",
+          "Select the Revenue Court Case Tracking module.",
+          "Choose the relevant revenue court authority (e.g., District Collector, Sub Collector / RDO, or Land Tribunal).",
+          "Enter the Case Number, or search by petitioner name and year.",
+          "View current case status, next hearing date, daily cause list, or download uploaded proceedings and orders."
+        ],
+        ml: [
+          "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടലിലെ റെവന്യൂ കേസ് ട്രാക്കിംഗ് വിഭാഗം സന്ദർശിക്കുക.",
+          "ബന്ധപ്പെട്ട റവന്യൂ കോടതി തിരഞ്ഞെടുക്കുക (കളക്ടർ / ആർ.ഡി.ഒ / ലാൻഡ് ട്രിബ്യൂണൽ).",
+          "കേസ് നമ്പർ നൽകുക (അല്ലെങ്കിൽ കക്ഷിയുടെ പേര് നൽകി തിരയുക).",
+          "കേസിന്റെ നിലവിലെ അവസ്ഥ, അടുത്ത വാദത്തീയതി, ദിവസേനയുള്ള കോസ് ലിസ്റ്റ് എന്നിവ പരിശോധിക്കുക."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in",
+      notes: {
+        en: "This service tracks executive revenue cases handled by the Land Revenue administrative hierarchy (boundary disputes, paddy land appeals, mutation revisions). It does not track judicial cases in Magistrate, District, or High Courts.",
+        ml: "റവന്യൂ ഉദ്യോഗസ്ഥരുടെ പരിഗണനയിലുള്ള അഡ്മിനിസ്ട്രേറ്റീവ് കേസുകൾക്ക് മാത്രമുള്ളതാണിത്; മജിസ്ട്രേറ്റ്, സിവിൽ അല്ലെങ്കിൽ ഹൈക്കോടതി കേസുകൾ ഇതിൽ ഉൾപ്പെടുന്നില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "cmdrf-financial-assistance",
+      category: "government",
+      icon: "🤝",
+      name: {
+        en: "CMDRF Financial Assistance",
+        ml: "മുഖ്യമന്ത്രിയുടെ ദുരിതാശ്വാസ നിധി (CMDRF)"
+      },
+      summary: {
+        en: "Direct financial grant provided to low-income citizens facing extreme distress due to major medical illnesses, natural disasters, or accidental breadwinner death.",
+        ml: "മാരക രോഗങ്ങൾ, പ്രകൃതിക്ഷോഭങ്ങൾ, അപകട മരണം എന്നിവ മൂലം ദുരിതമനുഭവിക്കുന്ന പാവപ്പെട്ടവർക്ക് മുഖ്യമന്ത്രിയുടെ ദുരിതാശ്വാസ നിധിയിൽ നിന്നുള്ള സാമ്പത്തിക സഹായം."
+      },
+      whoNeeds: {
+        en: "Low-income families requiring financial assistance for critical hospital treatments, emergency medical care, or families of accident victims.",
+        ml: "ഗുരുതര രോഗങ്ങൾക്ക് ചികിത്സ തേടുന്നവർ, ശസ്ത്രക്രിയ ആവശ്യമായി വരുന്ന നിർധനരായ രോഗികൾ, ദുരന്തബാധിത കുടുംബങ്ങൾ."
+      },
+      eligibility: {
+        en: "Permanent residents of Kerala whose annual family income is within prescribed limits (typically up to Rs. 2 Lakhs for medical distress).",
+        ml: "കേരളത്തിൽ സ്ഥിരതാമസമുള്ളവരും നിശ്ചിത വാർഷിക വരുമാന പരിധിയിൽ ഉൾപ്പെടുന്നവരുമായ നിർധന പൗരന്മാർ."
+      },
+      documents: {
+        en: [
+          "Medical Certificate in prescribed government format signed and sealed by treating specialist doctor",
+          "Income Certificate issued by Revenue Village Officer (or Priority Ration card copy)",
+          "Applicant's and Patient's Aadhaar Cards",
+          "Bank Passbook copy of the applicant (showing account number and IFSC, linked to bank account)"
+        ],
+        ml: [
+          "ചികിത്സിക്കുന്ന ഡോക്ടർ സാക്ഷ്യപ്പെടുത്തിയ നിശ്ചിത ഫോർമാറ്റിലുള്ള മെഡിക്കൽ സർട്ടിഫിക്കറ്റ്",
+          "വില്ലേജ് ഓഫീസിൽ നിന്നുള്ള വരുമാന സർട്ടിഫിക്കറ്റ് (അല്ലെങ്കിൽ മുൻഗണനാ റേഷൻ കാർഡ്)",
+          "അപേക്ഷകന്റെയും രോഗിയുടെയും ആധാർ കാർഡുകൾ",
+          "ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങൾ വ്യക്തമാക്കുന്ന പാസ്ബുക്ക് പകർപ്പ്"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Original medical bills and hospital discharge summary",
+          "FIR and post-mortem report (in case of accidental death claims)"
+        ],
+        ml: [
+          "ആശുപത്രി ബില്ലുകളും ഡിസ്ചാർജ്ജ് സമ്മറിയും",
+          "അപകട മരണമാണെങ്കിൽ പോലീസ് എഫ്.ഐ.ആറും പോസ്റ്റ്‌മോർട്ടം റിപ്പോർട്ടും"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Chief Minister's Grievance Redressal / CMDRF Portal (cmo.kerala.gov.in / cmdrf.kerala.gov.in) or Akshaya Centre / Taluk Office.",
+        ml: "മുഖ്യമന്ത്രിയുടെ ദുരിതാശ്വാസ നിധി പോർട്ടൽ (cmo.kerala.gov.in / cmdrf.kerala.gov.in) അല്ലെങ്കിൽ അക്ഷയ കേന്ദ്രം വഴി."
+      },
+      mode: {
+        en: "Online Application & Revenue Verification",
+        ml: "ഓൺലൈൻ അപേക്ഷ & റവന്യൂ പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Access the official CMDRF / CMO portal and register using mobile number OTP.",
+          "Fill applicant details, patient details, and bank account information.",
+          "Upload scanned copies of medical certificate, income certificate, bank passbook, and Aadhaar.",
+          "Submit application and receive reference docket number.",
+          "Village Officer and Tahsildar verify eligibility; application is reviewed and sanctioned amount is directly credited to bank account via DBT."
+        ],
+        ml: [
+          "സി.എം.ഡി.ആർ.എഫ് പോർട്ടലിൽ മൊബൈൽ നമ്പർ ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക.",
+          "രോഗിയുടെ വിവരങ്ങളും ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങളും നൽകുക.",
+          "ഡോക്ടറുടെ സർട്ടിഫിക്കറ്റ്, വരുമാന രേഖകൾ, ആധാർ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "റവന്യൂ അന്വേഷണത്തിന് ശേഷം തുക നേരിട്ട് ബാങ്ക് അക്കൗണ്ടിലേക്ക് എത്തും."
+        ]
+      },
+      officialUrl: "https://cmo.kerala.gov.in",
+      notes: {
+        en: "Assistance is sanctioned subject to verification by revenue authorities. Once sanctioned for a disease, recurring grants are governed by statutory time intervals.",
+        ml: "റവന്യൂ ഉദ്യോഗസ്ഥരുടെ അന്വേഷണത്തിന് ശേഷമാണ് ധനസഹായം അനുവദിക്കുന്നത്; ഒരു തവണ ലഭിച്ചാൽ അടുത്ത അപേക്ഷയ്ക്ക് നിശ്ചിത കാലാവധി ബാധകമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "kswift-msme-in-principle-approval",
+      category: "government",
+      icon: "🏢",
+      name: {
+        en: "K-SWIFT Certificate of In-Principle Approval",
+        ml: "കെ-സ്വിഫ്റ്റ് തത്വത്തിലുള്ള അനുമതി പത്രം (MSME)"
+      },
+      summary: {
+        en: "Instant online approval certificate under Kerala MSME Facilitation Act exempting non-red category enterprises from multiple initial statutory clearances for 3.5 years.",
+        ml: "കേരള എം.എസ്.എം.ഇ ഫെസിലിറ്റേഷൻ നിയമപ്രകാരം ചെറുകിട വ്യവസായ സംരംഭങ്ങൾക്ക് 3.5 വർഷത്തേക്ക് തദ്ദേശ അനുമതികളിൽ ഇളവ് നൽകുന്ന സർട്ടിഫിക്കറ്റ്."
+      },
+      whoNeeds: {
+        en: "Entrepreneurs, startups, and business owners starting new Micro, Small, or Medium Enterprises (MSMEs) in Kerala.",
+        ml: "കേരളത്തിൽ പുതിയ ചെറുകിട-ഇടത്തരം വ്യവസായ സ്ഥാപനങ്ങളോ സ്റ്റാർട്ടപ്പുകളോ ആരംഭിക്കാൻ ആഗ്രഹിക്കുന്ന സംരംഭകർ."
+      },
+      eligibility: {
+        en: "New enterprises categorized under Micro, Small, or Medium categories falling under Green, White, or permitted Orange industrial classifications (excluding Red category polluting units).",
+        ml: "മലിനീകരണ നിയന്ത്രണ ബോർഡിന്റെ ചുവപ്പ് (Red) വിഭാഗത്തിൽപ്പെടാത്ത എല്ലാ സൂക്ഷ്മ, ചെറുകിട, ഇടത്തരം സംരംഭങ്ങൾക്കും."
+      },
+      documents: {
+        en: [
+          "Promoter / Authorized Signatory's Identity Proof (Aadhaar / PAN)",
+          "Udyam Registration Certificate (or draft enterprise details)",
+          "Land ownership title deed or registered lease/rent agreement of the enterprise premises",
+          "Detailed project profile describing manufacturing or service activity"
+        ],
+        ml: [
+          "സംരംഭകന്റെ ആധാർ കാർഡ് / പാൻ കാർഡ്",
+          "ഉദ്യം (Udyam) രജിസ്ട്രേഷൻ വിവരങ്ങൾ",
+          "സ്ഥാപനം പ്രവർത്തിക്കുന്ന സ്ഥലത്തിന്റെ ആധാരം അല്ലെങ്കിൽ വാടകക്കരാർ",
+          "സ്ഥാപനത്തിന്റെ പ്രവർത്തന വിവരങ്ങൾ അടങ്ങിയ പ്രോജക്റ്റ് വിവരണം"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Self-declaration undertaking in prescribed format affirming compliance with safety, environmental, and labor norms"
+        ],
+        ml: [
+          "നിയമാനുസൃത വ്യവസ്ഥകൾ പാലിക്കാമെന്ന് വ്യക്തമാക്കുന്ന സംരംഭകന്റെ സത്യവാങ്മൂലം"
+        ]
+      },
+      whereToApply: {
+        en: "Online through Kerala Single Window Interface for Fast and Transparent Clearances (K-SWIFT: kswift.kerala.gov.in).",
+        ml: "കെ-സ്വിഫ്റ്റ് (K-SWIFT) സിംഗിൾ വിൻഡോ പോർട്ടൽ (kswift.kerala.gov.in) വഴി."
+      },
+      mode: {
+        en: "100% Online Instant Generation",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ (തത്സമയ സർട്ടിഫിക്കറ്റ്)"
+      },
+      steps: {
+        en: [
+          "Register investor/enterprise profile on kswift.kerala.gov.in.",
+          "Complete the Common Application Form (CAF) for MSME facilitation.",
+          "Submit the statutory Self-Declaration confirming non-red category and compliance with safety rules.",
+          "Generate and download the digitally signed Certificate of In-Principle Approval instantly without manual processing delays.",
+          "Commence commercial enterprise operations and obtain regular licenses before the 3.5-year exemption period expires."
+        ],
+        ml: [
+          "കെ-സ്വിഫ്റ്റ് പോർട്ടലിൽ സംരംഭകന്റെ പ്രൊഫൈൽ രജിസ്റ്റർ ചെയ്യുക.",
+          "എം.എസ്.എം.ഇ അപേക്ഷാ ഫോറം പൂരിപ്പിക്കുക.",
+          "ചുവപ്പ് വിഭാഗത്തിൽപ്പെട്ടതല്ലെന്ന് സാക്ഷ്യപ്പെടുത്തുന്ന സ്വയംസാക്ഷ്യപത്രം സമർപ്പിക്കുക.",
+          "ഫീസ് ഇല്ലാതെ തത്സമയം തന്നെ ഡിജിറ്റൽ അനുമതി പത്രം ഡൗൺലോഡ് ചെയ്യാം.",
+          "ഇത് ഉപയോഗിച്ച് സ്ഥാപനം ആരംഭിക്കാം; 3.5 വർഷത്തിനകം സ്ഥിരം ലൈസൻസുകൾ എടുത്താൽ മതിയാകും."
+        ]
+      },
+      officialUrl: "https://kswift.kerala.gov.in",
+      notes: {
+        en: "Valid for 3 years and 6 months from issuance date. During this statutory period, the enterprise is exempt from inspections and clearances from local bodies, factories inspectors, and town planning.",
+        ml: "3 വർഷവും 6 മാസവുമാണ് ഇതിന്റെ കാലാവധി. ഈ സമയത്ത് തദ്ദേശ സ്ഥാപനങ്ങളുടെ മുൻകൂർ പരിശോധനകളോ തടസ്സങ്ങളോ ഇല്ലാതെ സ്ഥാപനം നടത്താം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "labour-welfare-fund-benefits",
+      category: "government",
+      icon: "👷",
+      name: {
+        en: "Kerala Labour Welfare Fund Benefits & Schemes",
+        ml: "കേരള തൊഴിലാളി ക്ഷേമനിധി ആനുകൂല്യങ്ങളും സ്കോളർഷിപ്പുകളും"
+      },
+      summary: {
+        en: "Statutory welfare grants, educational scholarships, marriage aid, medical treatment support, and death relief for contributing workers in commercial establishments and factories.",
+        ml: "കടകളിലും വാണിജ്യ സ്ഥാപനങ്ങളിലും ജോലി ചെയ്യുന്ന തൊഴിലാളികൾക്ക് ചികിത്സാ സഹായം, സ്കോളർഷിപ്പുകൾ, വിവാഹ ധനസഹായം എന്നിവ നൽകുന്ന ക്ഷേമ പദ്ധതി."
+      },
+      whoNeeds: {
+        en: "Employees working in registered shops, commercial firms, motor transport units, and factories in Kerala who contribute to the Labour Welfare Fund.",
+        ml: "കേരളത്തിലെ കടകൾ, വാണിജ്യ സ്ഥാപനങ്ങൾ, ഫാക്ടറികൾ എന്നിവയിൽ ജോലി ചെയ്യുന്ന തൊഴിലാളികളും അവരുടെ മക്കളും."
+      },
+      eligibility: {
+        en: "Workers employed in establishments covered under the Kerala Labour Welfare Fund Act, 1975, whose monthly welfare contributions are up to date.",
+        ml: "കേരള തൊഴിലാളി ക്ഷേമനിധി ബോർഡിൽ അംഗത്വമുള്ള സ്ഥാപനങ്ങളിലെ തൊഴിലാളികൾ (മാസ വിഹിതം അടയ്ക്കുന്നവർ)."
+      },
+      documents: {
+        en: [
+          "Labour Welfare Fund Membership Card / Identity Certificate",
+          "Certificate from Employer confirming continuous employment and regular contribution remittance",
+          "Applicant's and Beneficiary's Aadhaar Cards",
+          "Bank Passbook copy of the worker (showing Account Number and IFSC)"
+        ],
+        ml: [
+          "തൊഴിലാളി ക്ഷേമനിധി അംഗത്വ രേഖ അല്ലെങ്കിൽ ഐഡി",
+          "സ്ഥാപന ഉടമ നൽകുന്ന സാക്ഷ്യപത്രം (തൊഴിൽ ചെയ്യുന്ന വിവരം തെളിയിക്കുന്നത്)",
+          "തൊഴിലാളിയുടെയും ഗുണഭോക്താവിന്റെയും ആധാർ കാർഡുകൾ",
+          "തൊഴിലാളിയുടെ പേരിലുള്ള ബാങ്ക് പാസ്ബുക്ക് പകർപ്പ്"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "School / College Certificate and Mark list (for educational scholarships and merit awards)",
+          "Registered Marriage Certificate and invitation card (for marriage assistance scheme)",
+          "Medical reports and hospital admission bills (for medical aid claims)"
+        ],
+        ml: [
+          "വിദ്യാഭ്യാസ സ്കോളർഷിപ്പിനായി മാർക്ക് ലിസ്റ്റും സ്കൂൾ/കോളേജ് സാക്ഷ്യപത്രവും",
+          "വിവാഹ ധനസഹായത്തിനായി വിവാഹ സർട്ടിഫിക്കറ്റും ക്ഷണക്കത്തും",
+          "ചികിത്സാ സഹായത്തിനായി മെഡിക്കൽ സർട്ടിഫിക്കറ്റും ബില്ലുകളും"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Kerala Labour Welfare Fund Board Portal (labourwelfarefund.in) or Regional Labour Welfare Fund Offices.",
+        ml: "തൊഴിലാളി ക്ഷേമനിധി ബോർഡ് പോർട്ടൽ (labourwelfarefund.in) അല്ലെങ്കിൽ മേഖലാ വെൽഫെയർ ഫണ്ട് ഓഫീസുകൾ വഴി."
+      },
+      mode: {
+        en: "Online Portal & Welfare Fund Board Approval",
+        ml: "ഓൺലൈൻ പോർട്ടൽ & വെൽഫെയർ ബോർഡ് പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Visit the official Kerala Labour Welfare Fund portal (labourwelfarefund.in).",
+          "Log in to worker profile or apply through the designated scheme section.",
+          "Select the required welfare scheme (Education Grant, Medical Aid, Marriage Assistance, etc.).",
+          "Upload employer declaration, identity proof, bank details, and scheme-specific proofs.",
+          "Submit application; Welfare Fund Inspector scrutinizes files and approved grant is disbursed directly to worker's bank account."
+        ],
+        ml: [
+          "തൊഴിലാളി ക്ഷേമനിധി ബോർഡിന്റെ വെബ്സൈറ്റ് സന്ദർശിക്കുക.",
+          "ആവശ്യമായ ക്ഷേമ പദ്ധതി തിരഞ്ഞെടുക്കുക (വിദ്യാഭ്യാസ സഹായം, ചികിത്സാ സഹായം മുതലായവ).",
+          "തൊഴിലുടമയുടെ കത്ത്, ബാങ്ക് പാസ്ബുക്ക്, അനുബന്ധ രേഖകൾ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "ഉദ്യോഗസ്ഥരുടെ പരിശോധനയ്ക്ക് ശേഷം അനുവദിക്കുന്ന തുക ബാങ്ക് അക്കൗണ്ടിലേക്ക് ലഭിക്കും."
+        ]
+      },
+      officialUrl: "https://labourwelfarefund.in",
+      notes: {
+        en: "Ensure that the employer has remitted the mandatory statutory contributions; applications cannot be processed if employer remittances are in default.",
+        ml: "സ്ഥാപനം തൊഴിലാളിയുടെ ക്ഷേമനിധി വിഹിതം അടച്ചിട്ടുണ്ടെന്ന് ഉറപ്പാക്കണം; കുടിശ്ശികയുണ്ടെങ്കിൽ ആനുകൂല്യം ലഭിക്കില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "wildlife-conflict-compensation",
+      category: "government",
+      icon: "🐘",
+      name: {
+        en: "Wildlife Conflict Compensation",
+        ml: "വന്യജീവി ആക്രമണ നഷ്ടപരിഹാരം"
+      },
+      summary: {
+        en: "Statutory government financial relief for loss of life, permanent disability, grievous injury, cattle death, or crop destruction caused by wild animal attacks.",
+        ml: "വന്യജീവി ആക്രമണം മൂലമുണ്ടാകുന്ന മരണം, പരിക്കുകൾ, കന്നുകാലി നാശം, കാർഷിക വിളനാശം എന്നിവയ്ക്ക് വനം വകുപ്പ് നൽകുന്ന നഷ്ടപരിഹാരം."
+      },
+      whoNeeds: {
+        en: "Farmers, tribal residents, and citizens residing in forest fringe or rural areas who have suffered wild animal attack casualties or property/crop damages.",
+        ml: "വനമേഖലയോട് ചേർന്ന് താമസിക്കുന്നവരും വന്യമൃഗ ആക്രമണം മൂലം പരിക്കോ ജീവഹാനിയോ കൃഷിനാശമോ സംഭവിച്ച കർഷകരും പൊതുജനങ്ങളും."
+      },
+      eligibility: {
+        en: "Victims of wild animal attacks or legal heirs of deceased victims residing in Kerala, provided the incident occurred outside forest violation activities.",
+        ml: "വന്യമൃഗങ്ങളുടെ ആക്രമണത്തിന് ഇരയായവരോ മരണപ്പെട്ടവരുടെ ആശ്രിതരോ ആയ കേരളത്തിലെ പൗരന്മാർ."
+      },
+      documents: {
+        en: [
+          "Application in prescribed format detailing date, location, and animal involved",
+          "Aadhaar Card and Bank Passbook copy of the victim or claimant",
+          "Medical treatment certificate / Wound certificate issued by Government Doctor (for injury claims)"
+        ],
+        ml: [
+          "സംഭവം നടന്ന തീയതിയും സ്ഥലവും വ്യക്തമാക്കുന്ന നിശ്ചിത അപേക്ഷ",
+          "അപേക്ഷകന്റെ ആധാർ കാർഡും ബാങ്ക് പാസ്ബുക്ക് പകർപ്പും",
+          "സർക്കാർ ഡോക്ടറുടെ മുറിവ് സർട്ടിഫിക്കറ്റ് / മെഡിക്കൽ രേഖകൾ (പരിക്കേറ്റവർക്ക്)"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Post-mortem report, Death Certificate, and Legal Heirship certificate (in case of human death claims)",
+          "Veterinary Surgeon inspection certificate and post-mortem report (in case of cattle loss)",
+          "Agricultural Officer joint assessment report and land tax receipt (in case of crop damage)"
+        ],
+        ml: [
+          "മരണമാണെങ്കിൽ പോസ്റ്റ്‌മോർട്ടം റിപ്പോർട്ട്, മരണ സർട്ടിഫിക്കറ്റ്, അനന്തരാവകാശ രേഖ",
+          "കന്നുകാലി നാശത്തിന് വെറ്ററിനറി സർജന്റെ പരിശോധനാ റിപ്പോർട്ട്",
+          "വിളനാശത്തിന് കൃഷി ഓഫീസറുടെ മഹസ്സർ റിപ്പോർട്ടും ഭൂനികുതി രസീതും"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Kerala e-District Portal (Forest Department section) or directly at jurisdictional Forest Range Office.",
+        ml: "കേരള ഇ-ഡിസ്ട്രിക്റ്റ് (e-District) പോർട്ടൽ വഴി ഓൺലൈനായോ ബന്ധപ്പെട്ട ഫോറസ്റ്റ് റെയ്ഞ്ച് ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online Portal & Forest Department Field Inspection",
+        ml: "ഓൺലൈൻ & ഫോറസ്റ്റ് ഫീൽഡ് പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Inform the local Forest Range Officer immediately following the wild animal intrusion or attack.",
+          "File application via e-District Kerala under 'Forest Department' services or submit physical form at Range Office.",
+          "Forest Range Officer, Veterinary Doctor, or Agricultural Officer conducts spot inspection and prepares loss mahazar.",
+          "Divisional Forest Officer (DFO) reviews file and sanctions statutory compensation amount.",
+          "Approved relief is transferred directly to the claimant's bank account."
+        ],
+        ml: [
+          "സംഭവം നടന്ന് ഉടൻ തന്നെ അടുത്തുള്ള ഫോറസ്റ്റ് റെയ്ഞ്ച് ഓഫീസിൽ വിവരം അറിയിക്കുക.",
+          "ഇ-ഡിസ്ട്രിക്റ്റ് പോർട്ടൽ വഴിയോ നേരിട്ടോ ആവശ്യമായ രേഖകൾ സഹിതം അപേക്ഷ നൽകുക.",
+          "ഫോറസ്റ്റ് ഉദ്യോഗസ്ഥർ സ്ഥലം സന്ദർശിച്ച് മഹസ്സറും നാശനഷ്ട റിപ്പോർട്ടും തയ്യാറാക്കുന്നു.",
+          "ഡി.എഫ്.ഒ (DFO) അനുമതി നൽകിയ ശേഷം നഷ്ടപരിഹാര തുക ബാങ്ക് അക്കൗണ്ടിലേക്ക് നൽകുന്നു."
+        ]
+      },
+      officialUrl: "https://edistrict.kerala.gov.in",
+      notes: {
+        en: "Incidents must be reported promptly without delay to enable spot inspection by forest and veterinary/agricultural officers before physical evidence is disturbed.",
+        ml: "സംഭവം നടന്ന് ഉടൻ തന്നെ റിപ്പോർട്ട് ചെയ്യണം; കാലതാമസം വന്നാൽ തെളിവുകൾ പരിശോധിക്കാൻ സാധിക്കാതെ അപേക്ഷ നിരസിക്കപ്പെടാൻ സാധ്യതയുണ്ട്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+    {
+      id: "building-ownership-certificate",
+      category: "government",
+      icon: "🏠",
+      name: {
+        en: "Local Body Building Ownership Certificate",
+        ml: "കെട്ടിട ഉടമസ്ഥാവകാശ സർട്ടിഫിക്കറ്റ് (തദ്ദേശ സ്ഥാപനങ്ങൾ)"
+      },
+      summary: {
+        en: "Official certificate issued by Grama Panchayat, Municipality, or Corporation certifying recorded property tax ownership and door number of a building.",
+        ml: "തദ്ദേശ സ്വയംഭരണ സ്ഥാപനത്തിന്റെ നികുതി രജിസ്റ്റർ പ്രകാരം ഒരു കെട്ടിടം അപേക്ഷകന്റെ ഉടമസ്ഥതയിലാണെന്ന് സാക്ഷ്യപ്പെടുത്തുന്ന ഔദ്യോഗിക രേഖ."
+      },
+      whoNeeds: {
+        en: "Building owners needing proof of house ownership for KSEB electricity connection, KWA water connection, bank mortgage loans, or passport verification.",
+        ml: "വൈദ്യുതി കണക്ഷൻ, കുടിവെള്ള കണക്ഷൻ, ബാങ്ക് വായ്പകൾ, പാസ്‌പോർട്ട് വെരിഫിക്കേഷൻ എന്നിവയ്ക്കായി വീടിന്റെ ഉടമസ്ഥാവകാശം തെളിയിക്കേണ്ടവർ."
+      },
+      eligibility: {
+        en: "Recorded owner of an assessed building having a valid annual door number registered with the Grama Panchayat, Municipality, or Corporation.",
+        ml: "തദ്ദേശ സ്ഥാപനത്തിൽ കെട്ടിട നമ്പർ അനുവദിക്കപ്പെടുകയും നികുതി രജിസ്റ്ററിൽ പേരുള്ളതുമായ കെട്ടിട ഉടമകൾക്ക്."
+      },
+      documents: {
+        en: [
+          "Latest Property / Building Tax Receipt issued by the local body",
+          "Building Door Number, Ward Number, and Local Body Name",
+          "Applicant's Aadhaar Card / Identity proof",
+          "Registered Title Deed (Aadhaaram) of the land/building"
+        ],
+        ml: [
+          "തദ്ദേശ സ്ഥാപനത്തിൽ നടപ്പു വർഷം കെട്ടിട നികുതി ഒടുക്കിയ രസീത്",
+          "കെട്ടിട നമ്പർ, വാർഡ് നമ്പർ, തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്",
+          "അപേക്ഷകന്റെ ആധാർ കാർഡ് / തിരിച്ചറിയൽ രേഖ",
+          "സ്ഥലത്തിന്റെ ആധാര പകർപ്പ്"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Building ownership transfer / mutation order (if property ownership was recently transferred from previous owner)"
+        ],
+        ml: [
+          "പുതിയതായി വാങ്ങിയ കെട്ടിടമാണെങ്കിൽ ഉടമസ്ഥാവകാശം മാറ്റിയ രേഖകൾ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Portal (for Municipalities/Corporations) or Citizen Portal / front office counter of Grama Panchayats.",
+        ml: "കെ-സ്മാർട്ട് (K-SMART) പോർട്ടൽ അല്ലെങ്കിൽ ഗ്രാമപഞ്ചായത്ത് ഫ്രണ്ട് ഓഫീസ് / സിറ്റിസൺ പോർട്ടൽ."
+      },
+      mode: {
+        en: "Online (K-SMART) & Local Body Counter",
+        ml: "ഓൺലൈൻ & തദ്ദേശ സ്ഥാപന ഓഫീസ്"
+      },
+      steps: {
+        en: [
+          "Log in to the K-SMART portal or visit the Grama Panchayat / Municipality office.",
+          "Select 'Building Ownership Certificate' service.",
+          "Provide Ward Number, Door Number, and applicant details.",
+          "Upload property tax receipt and identity proof.",
+          "Pay the nominal local body fee online.",
+          "Revenue inspector / municipal clerk verifies assessment records and Secretary issues digitally signed Ownership Certificate."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് പോർട്ടലിൽ ലോഗിൻ ചെയ്യുക അല്ലെങ്കിൽ തദ്ദേശ ഓഫീസിൽ അപേക്ഷ നൽകുക.",
+          "'കെട്ടിട ഉടമസ്ഥാവകാശ സർട്ടിഫിക്കറ്റ്' തിരഞ്ഞെടുക്കുക.",
+          "വാർഡ് നമ്പറും കെട്ടിട നമ്പറും രേഖപ്പെടുത്തുക.",
+          "നികുതി രസീത് അപ്‌ലോഡ് ചെയ്ത് ഫീസ് അടയ്ക്കുക.",
+          "നികുതി രജിസ്റ്റർ പരിശോധിച്ച ശേഷം ഡിജിറ്റൽ സർട്ടിഫിക്കറ്റ് ലഭ്യമാകും."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in",
+      notes: {
+        en: "All property tax dues for the building must be cleared up to the current financial year before applying for the ownership certificate.",
+        ml: "നടപ്പു സാമ്പത്തിക വർഷം വരെയുള്ള കെട്ടിട നികുതി കുടിശ്ശികയില്ലാതെ പൂർണ്ണമായി അടച്ചിട്ടുണ്ടെന്ന് ഉറപ്പുവരുത്തണം."
       },
       lastVerified: "September 2026",
       verified: true
