@@ -1,6 +1,6 @@
 // ==========================================
 // SEVACHECK KERALA — DATA MODULE
-// Category: Education (4 Services)
+// Category: Education (5 Services)
 // File: data/cat-education.js
 // ==========================================
 
@@ -297,6 +297,82 @@
         ml: "ലോഗിൻ വിവരങ്ങൾ സുരക്ഷിതമായി സൂക്ഷിക്കുക. SSLC-യിലെ പേരുമായി വിവരങ്ങൾ കൃത്യമായി ഒത്തുപോകണം."
       },
       lastVerified: "March 2026",
+      verified: true
+    },
+    {
+      id: "dwms-job-seeker-registration",
+      category: "education",
+      icon: "💼",
+      name: {
+        en: "DWMS Job Seeker Registration",
+        ml: "ഡിജിറ്റൽ വർക്ക്ഫോഴ്സ് ജോബ് സീക്കർ രജിസ്ട്രേഷൻ (DWMS)"
+      },
+      summary: {
+        en: "Registration on Kerala Knowledge Economy Mission's Digital Workforce Management System (DWMS) connecting educated job seekers with employment opportunities, skill training, and career counseling.",
+        ml: "കേരള നോളജ് ഇക്കോണമി മിഷന്റെ ഡിജിറ്റൽ വർക്ക്ഫോഴ്സ് മാനേജ്മെന്റ് സിസ്റ്റം (DWMS) വഴി ഉദ്യോഗാർത്ഥികൾക്ക് തൊഴിലവസരങ്ങളും നൈപുണ്യ പരിശീലനങ്ങളും ലഭ്യമാക്കുന്ന പദ്ധതി."
+      },
+      whoNeeds: {
+        en: "Educated job seekers, fresh graduates, diploma holders, ITI pass-outs, and professionals seeking private, remote, or gig employment.",
+        ml: "വിദ്യാഭ്യാസം പൂർത്തിയാക്കിയ ഉദ്യോഗാർത്ഥികൾ, പുതിയ ബിരുദധാരികൾ, പ്രൊഫഷണലുകൾ, നൈപുണ്യ വികസനവും തൊഴിലും ആഗ്രഹിക്കുന്നവർ."
+      },
+      eligibility: {
+        en: "Citizens residing in Kerala having minimum educational qualification of 10th standard, Plus Two, ITI, Diploma, Degree, or Post Graduation.",
+        ml: "എസ്.എസ്.എൽ.സി, പ്ലസ് ടു, ഐ.ടി.ഐ, ഡിപ്ലോമ, ബിരുദം അല്ലെങ്കിൽ ബിരുദാനന്തര ബിരുദ യോഗ്യതയുള്ള കേരളത്തിലെ ഏതൊരു ഉദ്യോഗാർത്ഥിക്കും."
+      },
+      documents: {
+        en: [
+          "Educational Qualification Certificates and consolidated mark sheets",
+          "Curriculum Vitae (Resume / CV) in PDF or Word format",
+          "Aadhaar Card or recognized photo identity proof",
+          "Active mobile number and email ID for profile creation and OTP verification"
+        ],
+        ml: [
+          "വിദ്യാഭ്യാസ യോഗ്യതാ സർട്ടിഫിക്കറ്റുകളും മാർക്ക് ലിസ്റ്റുകളും",
+          "തയ്യാറാക്കിയ റെസ്യുമെ (ബയോഡാറ്റ / CV)",
+          "ആധാർ കാർഡ് അല്ലെങ്കിൽ തിരിച്ചറിയൽ രേഖ",
+          "ഒ.ടി.പിയും തൊഴിൽ വിവരങ്ങളും ലഭിക്കാനുള്ള മൊബൈൽ നമ്പറും ഇമെയിൽ വിലാസവും"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "Experience certificates from previous employers (for experienced candidates)",
+          "Technical skill certifications or portfolio links"
+        ],
+        ml: [
+          "മുൻ തൊഴിൽ പരിചയ സർട്ടിഫിക്കറ്റുകൾ (പരിചയസമ്പന്നർക്ക്)",
+          "പ്രത്യേക നൈപുണ്യ കോഴ്സ് സർട്ടിഫിക്കറ്റുകൾ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Kerala Knowledge Economy Mission Portal (knowledgemission.kerala.gov.in) or DWMS Connect mobile application.",
+        ml: "കേരള നോളജ് ഇക്കോണമി മിഷൻ പോർട്ടൽ (knowledgemission.kerala.gov.in) അല്ലെങ്കിൽ DWMS Connect മൊബൈൽ ആപ്പ് വഴി."
+      },
+      mode: {
+        en: "100% Online (Web & DWMS Mobile App)",
+        ml: "പൂർണ്ണമായും ഓൺലൈൻ (വെബ്സൈറ്റ് & മൊബൈൽ ആപ്പ്)"
+      },
+      steps: {
+        en: [
+          "Visit knowledgemission.kerala.gov.in or download the DWMS Connect mobile app.",
+          "Register using your mobile number and authenticate via OTP.",
+          "Build your digital career profile by filling in educational background, career preferences, and work experience.",
+          "Upload your updated resume (CV) and passport-size photo.",
+          "Complete skill assessments, access robotic interview coaching, and apply directly to matching private and international vacancies."
+        ],
+        ml: [
+          "knowledgemission.kerala.gov.in പോർട്ടൽ സന്ദർശിക്കുക അല്ലെങ്കിൽ DWMS Connect ആപ്പ് ഡൗൺലോഡ് ചെയ്യുക.",
+          "മൊബൈൽ നമ്പർ നൽകി ഒ.ടി.പി വഴി അക്കൗണ്ട് രജിസ്റ്റർ ചെയ്യുക.",
+          "വിദ്യാഭ്യാസ യോഗ്യതകളും താൽപ്പര്യമുള്ള തൊഴിൽ മേഖലകളും രേഖപ്പെടുത്തി പ്രൊഫൈൽ പൂർത്തിയാക്കുക.",
+          "റെസ്യുമെ (ബയോഡാറ്റ), ഫോട്ടോ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "സ്കിൽ അസസ്സ്മെന്റുകൾ പൂർത്തിയാക്കി അനുയോജ്യമായ തൊഴിലുകളിലേക്ക് നേരിട്ട് അപേക്ഷിക്കുക."
+        ]
+      },
+      officialUrl: "https://knowledgemission.kerala.gov.in",
+      notes: {
+        en: "Registration and career counseling on DWMS are completely free of charge. The mission does not collect fees for job placements.",
+        ml: "ഡിജിറ്റൽ വർക്ക്ഫോഴ്സ് മാനേജ്മെന്റ് സിസ്റ്റത്തിലെ രജിസ്ട്രേഷനും സേവനങ്ങളും തികച്ചും സൗജന്യമാണ്."
+      },
+      lastVerified: "September 2026",
       verified: true
     }
   ];
