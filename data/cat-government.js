@@ -2236,7 +2236,542 @@
       },
       lastVerified: "September 2026",
       verified: true
+    },
+      // ==========================================
+  // SERVICE #113: Senior Citizen Identity Card
+  // ==========================================
+  {
+    id: "senior-citizen-identity-card",
+    category: "government",
+    icon: "🧓",
+    name: {
+      en: "Senior Citizen Identity Card",
+      ml: "മുതിർന്ന പൗരന്മാർക്കുള്ള തിരിച്ചറിയൽ കാർഡ്"
+    },
+    summary: {
+      en: "Information and in-person assistance for obtaining a Senior Citizen Identity Card / Certificate through local self-government institutions or the Social Justice Department.",
+      ml: "60 വയസ്സ് കഴിഞ്ഞ മുതിർന്ന പൗരന്മാർക്ക് തദ്ദേശ സ്വയംഭരണ സ്ഥാപനങ്ങൾ വഴിയോ സാമൂഹികനീതി വകുപ്പ് വഴിയോ തിരിച്ചറിയൽ കാർഡോ സർട്ടിഫിക്കറ്റോ ലഭ്യമാക്കുന്ന സേവനം."
+    },
+    description: {
+      en: "The Senior Citizen Identity Card / Certificate verifies that a citizen has attained 60 years of age, facilitating access to elderly welfare concessions, hospital priority counters, and legal maintenance tribunal protections under the Maintenance and Welfare of Parents and Senior Citizens Act. This is an offline/in-person service handled via local bodies and Social Justice offices, not a standalone online e-District card application.",
+      ml: "മാതാപിതാക്കളുടെയും മുതിർന്ന പൗരന്മാരുടെയും സംരക്ഷണവും ക്ഷേമവും ഉറപ്പാക്കുന്ന നിയമപ്രകാരമുള്ള ആനുകൂല്യങ്ങൾ, ആശുപത്രി മുൻഗണനകൾ, ഇളവുകൾ എന്നിവ ലഭിക്കുന്നതിനായി 60 വയസ്സ് തികഞ്ഞവർക്ക് നൽകുന്ന സേവനമാണിത്. ഇത് ഇ-ഡിസ്ട്രിക്റ്റ് വഴിയുള്ള ഓൺലൈൻ കാർഡ് അപേക്ഷയല്ല; തദ്ദേശസ്ഥാപനങ്ങളിലോ സാമൂഹികനീതി വകുപ്പ് ഓഫീസുകളിലോ നേരിട്ട് അപേക്ഷിച്ചു നേടേണ്ടതാണ്."
+    },
+    eligibility: {
+      en: [
+        "Permanent resident of Kerala",
+        "Completed 60 years of age and above",
+        "Must satisfy the documentation requirements of the concerned Local Self Government institution or Social Justice office"
+      ],
+      ml: [
+        "കേരളത്തിലെ സ്ഥിരതാമസക്കാരനായിരിക്കണം",
+        "60 വയസ്സോ അതിൽ കൂടുതലോ പ്രായം പൂർത്തിയായിരിക്കണം",
+        "ബന്ധപ്പെട്ട തദ്ദേശ സ്വയംഭരണ സ്ഥാപനമോ സാമൂഹികനീതി വകുപ്പോ ആവശ്യപ്പെടുന്ന രേഖകൾ ഹാജരാക്കണം"
+      ]
+    },
+    documents: {
+      en: [
+        "Proof of Date of Birth / Age (SSLC Book / Passport / Birth Certificate / Electoral ID / accepted government proof)",
+        "Aadhaar Card or accepted official identity proof",
+        "Proof of Residence (Ration Card / Voter ID / Residential Certificate)",
+        "Recent passport-size photographs",
+        "Prescribed local application form (obtained from Grama Panchayat / Municipality front office)"
+      ],
+      ml: [
+        "ജനനത്തീയതി / പ്രായം തെളിയിക്കുന്ന രേഖ (എസ്.എസ്.എൽ.സി ബുക്ക് / പാസ്‌പോർട്ട് / ജനന സർട്ടിഫിക്കറ്റ് / ഇലക്ഷൻ ഐഡി / അംഗീകൃത സർക്കാർ രേഖ)",
+        "ആധാർ കാർഡ് അല്ലെങ്കിൽ മറ്റ് ഔദ്യോഗിക തിരിച്ചറിയൽ രേഖ",
+        "താമസരേഖ (റേഷൻ കാർഡ് / വോട്ടർ ഐഡി)",
+        "സമീപകാലത്ത് എടുത്ത പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോകൾ",
+        "പഞ്ചായത്ത് / മുനിസിപ്പാലിറ്റി ഫ്രണ്ട് ഓഫീസിൽ നിന്നുള്ള നിശ്ചിത അപേക്ഷാഫോറം"
+      ]
+    },
+    howToApply: {
+      en: "Submit the physical application along with age proof, residence proof, and photographs to the front office of your local Grama Panchayat, Municipality, Corporation, or the local Social Justice / ICDS office.",
+      ml: "പൂരിപ്പിച്ച അപേക്ഷാഫോറം പ്രായം തെളിയിക്കുന്ന രേഖകൾ, താമസരേഖ, ഫോട്ടോ എന്നിവ സഹിതം സ്വന്തം ഗ്രാമപഞ്ചായത്ത് / നഗരസഭ / കോർപ്പറേഷൻ ഫ്രണ്ട് ഓഫീസിലോ സാമൂഹികനീതി വകുപ്പ് ഓഫീസിലോ നേരിട്ട് സമർപ്പിക്കുക."
+    },
+    steps: {
+      en: [
+        "Obtain the Senior Citizen Card application form from the concerned Grama Panchayat or Municipality front office",
+        "Attach copies of accepted age proof (certifying 60+ years), address proof, and photographs",
+        "Submit the application to the designated front-office counter or welfare section",
+        "Local body / Social Justice officials verify age and residency credentials",
+        "Upon verification, receive the Senior Citizen Card or certification as issued by the local authority"
+      ],
+      ml: [
+        "ഗ്രാമപഞ്ചായത്ത് അല്ലെങ്കിൽ മുനിസിപ്പാലിറ്റി ഫ്രണ്ട് ഓഫീസിൽ നിന്ന് അപേക്ഷാഫോറം വാങ്ങുക",
+        "60 വയസ്സ് പൂർത്തിയായെന്ന് വ്യക്തമാക്കുന്ന പ്രായരേഖ, താമസരേഖ, ഫോട്ടോ എന്നിവ അപേക്ഷയോടൊപ്പം വെക്കുക",
+        "ഫ്രണ്ട് ഓഫീസ് കൗണ്ടറിലോ ക്ഷേമകാര്യ വിഭാഗത്തിലോ അപേക്ഷ സമർപ്പിക്കുക",
+        "ഉദ്യോഗസ്ഥർ രേഖകൾ പരിശോധിച്ച് പ്രായവും താമസവും ഉറപ്പുവരുത്തുന്നു",
+        "പരിശോധന പൂർത്തിയായ ശേഷം തദ്ദേശസ്ഥാപനം നൽകുന്ന തിരിച്ചറിയൽ കാർഡോ സാക്ഷ്യപത്രമോ കൈപ്പറ്റുക"
+      ]
+    },
+    fees: {
+      en: "Free (₹0) or nominal local body application counter fee where prescribed.",
+      ml: "സൗജന്യം (₹0) അല്ലെങ്കിൽ തദ്ദേശസ്ഥാപനം നിശ്ചയിച്ചിട്ടുള്ള നാമമാത്രമായ അപേക്ഷാ ഫീസ്."
+    },
+    validity: {
+      en: "Lifetime validity once issued.",
+      ml: "ആജീവനാന്ത സാധുത."
+    },
+    officialUrl: "https://sjd.kerala.gov.in/programs.php",
+    importantNotes: {
+      en: [
+        "NOT an online e-District service: Do not search for a direct digital card download on e-District. Applications are processed locally/offline.",
+        "National identity credentials such as Aadhaar, Passport, and Voter ID stating date of birth are also accepted across government departments as legal proof of senior citizen age.",
+        "Exact counter formats and issuance routines can vary depending on the respective Grama Panchayat, Municipality, or Corporation."
+      ],
+      ml: [
+        "ഇതൊരു ഇ-ഡിസ്ട്രിക്റ്റ് ഓൺലൈൻ സർവീസല്ല: ഓൺലൈൻ വഴി കാർഡ് ഡൗൺലോഡ് ചെയ്യാൻ സാധിക്കില്ല; തദ്ദേശസ്ഥാപനങ്ങളിൽ നേരിട്ടാണ് അപേക്ഷിക്കേണ്ടത്.",
+        "ജനനത്തീയതി രേഖപ്പെടുത്തിയ ആധാർ, പാസ്‌പോർട്ട്, വോട്ടർ ഐഡി എന്നിവയും നിയമപരമായി മുതിർന്ന പൗരന്മാരുടെ പ്രായം തെളിയിക്കാൻ സ്വീകാര്യമാണ്.",
+        "ഓരോ പഞ്ചായത്തിലും നഗരസഭയിലും അപേക്ഷ സ്വീകരിക്കുന്നതിലും കാർഡ് നൽകുന്നതിലും ചെറിയ പ്രാദേശിക വ്യത്യാസങ്ങൾ ഉണ്ടായേക്കാം."
+      ]
     }
+  },
+
+  // ====================================================
+  // SERVICE #114: eHealth Hospital OP Registration & UHID
+  // ====================================================
+  {
+    id: "e-health-hospital-op-registration",
+    category: "government",
+    icon: "🏥",
+    name: {
+      en: "eHealth Hospital OP Registration",
+      ml: "ഇ-ഹെൽത്ത് ഓൺലൈൻ ഒ.പി രജിസ്ട്രേഷൻ"
+    },
+    summary: {
+      en: "Online outpatient (OP) token booking and creation/lookup of the 16-digit Unique Health Identifier (UHID) across participating Kerala Government hospitals.",
+      ml: "കേരളത്തിലെ തെരഞ്ഞെടുക്കപ്പെട്ട സർക്കാർ ആശുപത്രികളിലേക്ക് മുൻകൂട്ടി ഒ.പി ടോക്കൺ ബുക്ക് ചെയ്യാനും 16 അക്ക ഹെൽത്ത് ഐഡി (UHID) നേടാനുമുള്ള ഓൺലൈൻ സംവിധാനം."
+    },
+    description: {
+      en: "eHealth Kerala is the state government's digital health mission platform. It enables citizens to register for a permanent 16-digit Unique Health Identifier (UHID) and book outpatient (OP) clinic appointments online up to 7 days in advance at participating Government Medical Colleges, District Hospitals, Taluk Hospitals, and Family Health Centres (FHCs), cutting down queue times.",
+      ml: "കേരള ആരോഗ്യവകുപ്പ് നടപ്പിലാക്കിയ ഇ-ഹെൽത്ത് പോർട്ടൽ വഴി പൗരന്മാർക്ക് സ്ഥിരമായ 16 അക്ക യുണീക് ഹെൽത്ത് ഐഡി (UHID) സ്വന്തമാക്കാനും, സർക്കാർ മെഡിക്കൽ കോളേജുകൾ, ജനറൽ/താലൂക്ക് ആശുപത്രികൾ, കുടുംബാരോഗ്യ കേന്ദ്രങ്ങൾ എന്നിവിടങ്ങളിലേക്ക് 7 ദിവസം മുൻപ് വരെ മുൻകൂട്ടി ഒ.പി അപ്പോയിന്റ്മെന്റുകൾ ബുക്ക് ചെയ്യാനും സാധിക്കുന്നു."
+    },
+    eligibility: {
+      en: [
+        "Any citizen seeking outpatient (OP) consultation at participating eHealth Kerala government hospitals",
+        "Must possess an active mobile number for receiving booking confirmation and token SMS"
+      ],
+      ml: [
+        "ഇ-ഹെൽത്ത് സൗകര്യമുള്ള സർക്കാർ ആശുപത്രികളിൽ ഒ.പി ചികിത്സ ആവശ്യമുള്ള ഏതൊരു വ്യക്തിക്കും",
+        "ബുക്കിംഗ് സന്ദേശങ്ങൾ ലഭിക്കുന്നതിനായി സജീവമായ ഒരു മൊബൈൽ നമ്പർ ഉണ്ടായിരിക്കണം"
+      ]
+    },
+    documents: {
+      en: [
+        "Aadhaar details or basic demographic information for initial profile & 16-digit UHID generation",
+        "Existing 16-digit UHID number (if already registered under eHealth)",
+        "Active mobile number for OTP and booking confirmation SMS"
+      ],
+      ml: [
+        "പ്രാഥമിക വിവരങ്ങളും 16 അക്ക UHID നമ്പറും ലഭിക്കുന്നതിനായി ആധാർ വിവരങ്ങൾ",
+        "നേരത്തെ രജിസ്റ്റർ ചെയ്തവരാണെങ്കിൽ 16 അക്ക UHID നമ്പർ",
+        "ഒ.ടി.പിയും ടോക്കൺ വിവരങ്ങളും ലഭിക്കുന്നതിനുള്ള മൊബൈൽ നമ്പർ"
+      ]
+    },
+    howToApply: {
+      en: "Log in to the official eHealth Kerala portal (ehealth.kerala.gov.in), register or enter your 16-digit UHID, select the hospital, department, and doctor/slot, and generate the advance OP token.",
+      ml: "ഔദ്യോഗിക ഇ-ഹെൽത്ത് പോർട്ടലിൽ (ehealth.kerala.gov.in) ലോഗിൻ ചെയ്ത് 16 അക്ക UHID നൽകി, ആശുപത്രിയും ഡിപ്പാർട്ട്മെന്റും തീയതിയും തിരഞ്ഞെടുത്ത് മുൻകൂട്ടി ഒ.പി ടോക്കൺ ബുക്ക് ചെയ്യുക."
+    },
+    steps: {
+      en: [
+        "Visit the eHealth Kerala portal (ehealth.kerala.gov.in) and choose 'Online Appointment Booking'",
+        "Register your profile with mobile number and demographic details to generate your 16-digit UHID, or log in with your existing UHID",
+        "Select the district, hospital, specialty/department, and consultation date (up to 7 days in advance)",
+        "Choose an available time slot and confirm the booking",
+        "Receive the booking confirmation SMS containing the token number and scheduled arrival time",
+        "Present the token SMS or printout directly at the hospital eHealth counter on the consultation day"
+      ],
+      ml: [
+        "ഇ-ഹെൽത്ത് പോർട്ടൽ (ehealth.kerala.gov.in) സന്ദർശിച്ച് 'Online Appointment Booking' തിരഞ്ഞെടുക്കുക",
+        "മൊബൈൽ നമ്പർ നൽകി പ്രൊഫൈൽ ഉണ്ടാക്കി 16 അക്ക UHID നേടുക (നേരത്തെ ഉള്ളവർ UHID നൽകി ലോഗിൻ ചെയ്യുക)",
+        "ജില്ല, ആശുപത്രി, ആവശ്യമുള്ള ഒ.പി വിഭാഗം, തീയതി (7 ദിവസം മുൻപ് വരെ) എന്നിവ തിരഞ്ഞെടുക്കുക",
+        "ലഭ്യമായ സമയക്രമം (Time Slot) ഉറപ്പുവരുത്തി ബുക്കിംഗ് പൂർത്തിയാക്കുക",
+        "ടോക്കൺ നമ്പറും എത്തേണ്ട സമയവും അടങ്ങിയ എസ്.എം.എസ് മൊബൈലിൽ ലഭിക്കും",
+        "ആശുപത്രിയിൽ എത്തുമ്പോൾ ഈ ടോക്കൺ സന്ദേശം ഇ-ഹെൽത്ത് കൗണ്ടറിൽ കാണിച്ച് നേരിട്ട് ഒ.പിയിലേക്ക് പ്രവേശിക്കുക"
+      ]
+    },
+    fees: {
+      en: "Free (₹0)",
+      ml: "സൗജന്യം (₹0)"
+    },
+    validity: {
+      en: "UHID is permanent for a lifetime. The advance OP appointment token is valid specifically for the booked date and session.",
+      ml: "16 അക്ക UHID ആജീവനാന്തം സാധുവാണ്. ഒ.പി ടോക്കൺ ബുക്ക് ചെയ്ത നിശ്ചിത ദിവസത്തേക്ക് മാത്രമേ സാധുതയുള്ളൂ."
+    },
+    officialUrl: "https://ehealth.kerala.gov.in/",
+    importantNotes: {
+      en: [
+        "Not all government hospitals may have eHealth enabled yet; advance online booking applies only to participating eHealth-implemented hospitals.",
+        "Advance appointment booking is available up to 7 days in advance, subject to slot availability and hospital outpatient schedules.",
+        "Arrive at the hospital counter at least 15–20 minutes before your scheduled slot with your token SMS to avoid cancellation."
+      ],
+      ml: [
+        "കേരളത്തിലെ എല്ലാ സർക്കാർ ആശുപത്രികളിലും ഈ സൗകര്യം നിലവിൽ വന്നിട്ടില്ല; ഇ-ഹെൽത്ത് സംവിധാനം നടപ്പിലാക്കിയ ആശുപത്രികളിൽ മാത്രമേ മുൻകൂട്ടി ബുക്കിംഗ് സാധ്യമാകൂ.",
+        "ആശുപത്രിയിലെ ഒ.പി സമയക്രമത്തിനും ഒഴിവുകൾക്കും വിധേയമായി 7 ദിവസം മുൻപ് വരെ മാത്രമേ ടോക്കൺ എടുക്കാനാകൂ.",
+        "എസ്.എം.എസ് ആയി ലഭിച്ച സമയത്തിന് 15-20 മിനിറ്റ് മുൻപ് തന്നെ ആശുപത്രിയിലെ ഇ-ഹെൽത്ത് കൗണ്ടറിലെത്താൻ ശ്രദ്ധിക്കുക."
+      ]
+    }
+  },
+
+  // ==========================================
+  // SERVICE #115: KASP Health Insurance Scheme
+  // ==========================================
+  {
+    id: "kasp-health-insurance-scheme",
+    category: "government",
+    icon: "🛡️",
+    name: {
+      en: "KASP Health Insurance Scheme",
+      ml: "കാരുണ്യ ആരോഗ്യ സുരക്ഷാ പദ്ധതി (KASP)"
+    },
+    summary: {
+      en: "Cashless health coverage of up to ₹5,00,000 per eligible beneficiary family per year for secondary and tertiary hospitalization across empanelled hospitals.",
+      ml: "അർഹരായ കുടുംബങ്ങൾക്ക് സർക്കാർ-സ്വകാര്യ എംപാനൽഡ് ആശുപത്രികളിൽ പ്രതിവർഷം 5 ലക്ഷം രൂപ വരെ സൗജന്യ കിടത്തിച്ചികിത്സ ഉറപ്പാക്കുന്ന ആരോഗ്യ ഇൻഷുറൻസ് പദ്ധതി."
+    },
+    description: {
+      en: "Karunya Arogya Suraksha Padhathi (KASP), implemented by the State Health Agency (SHA) Kerala under the Health & Family Welfare Department, integrates the state's healthcare initiatives with Ayushman Bharat PM-JAY. It provides cashless inpatient hospitalization benefits of up to ₹5,00,000 per family per year across listed secondary and tertiary treatments in empanelled government and private network hospitals. This is an institutional cashless health coverage benefit, not an unrestricted direct cash payment.",
+      ml: "സ്റ്റേറ്റ് ഹെൽത്ത് ഏജൻസി (SHA) നടപ്പിലാക്കുന്ന കാരുണ്യ ആരോഗ്യ സുരക്ഷാ പദ്ധതി (KASP), അർഹരായ ഗുണഭോക്താക്കൾക്ക് പ്രതിവർഷം 5 ലക്ഷം രൂപ വരെ സൗജന്യ ക്യാഷ്‌ലെസ്സ് കിടത്തിച്ചികിത്സ നൽകുന്ന പദ്ധതിയാണ്. അംഗീകൃത സർക്കാർ, സ്വകാര്യ ആശുപത്രികളിലെ നിശ്ചിത ചികിത്സാ പാക്കേജുകൾക്കാണ് ഈ പരിരക്ഷ ലഭിക്കുന്നത്. ഇത് നേരിട്ട് പണമായി നൽകുന്ന സഹായമല്ല, ആശുപത്രികൾ വഴിയുള്ള സൗജന്യ ചികിത്സാ ആനുകൂല്യമാണ്."
+    },
+    eligibility: {
+      en: [
+        "Eligible families registered under the National Food Security Act (NFSA) database (Priority / AAY - Pink and Yellow ration card holders)",
+        "Officially enrolled non-priority vulnerable groups recognized by the Government of Kerala / State Health Agency",
+        "Must be listed as an active beneficiary family in the official KASP/PM-JAY beneficiary portal"
+      ],
+      ml: [
+        "ഭക്ഷ്യഭദ്രതാ നിയമപ്രകാരം മുൻഗണനാ വിഭാഗത്തിൽ ഉൾപ്പെട്ട റേഷൻ കാർഡുള്ളവർ (മഞ്ഞ, പിങ്ക് റേഷൻ കാർഡുകൾ)",
+        "സർക്കാർ പ്രത്യേകമായി പദ്ധതിയിൽ ഉൾപ്പെടുത്തിയിട്ടുള്ള മറ്റ് അർഹരായ കുടുംബങ്ങൾ",
+        "ഔദ്യോഗിക KASP ഡാറ്റാബേസിൽ പേരുള്ള കുടുംബാംഗങ്ങൾക്ക് മാത്രമേ ആനുകൂല്യം ലഭിക്കൂ"
+      ]
+    },
+    documents: {
+      en: [
+        "NFSA Ration Card (Pink or Yellow Card) showing all family member names",
+        "Aadhaar Card of the patient and family members for biometric / e-KYC verification",
+        "Existing KASP / Ayushman Bharat e-Card (if already generated)",
+        "Active mobile number linked with the ration/Aadhaar record"
+      ],
+      ml: [
+        "കുടുംബാംഗങ്ങളുടെ പേരുവിവരങ്ങൾ ഉൾപ്പെട്ട മുൻഗണനാ റേഷൻ കാർഡ് (മഞ്ഞ അല്ലെങ്കിൽ പിങ്ക്)",
+        "രോഗിയുടെയും കുടുംബാംഗങ്ങളുടെയും ആധാർ കാർഡ് (ഇ-കെ.വൈ.സി പരിശോധനയ്ക്കായി)",
+        "നേരത്തെ എടുത്തിട്ടുള്ള KASP / ആയുഷ്മാൻ കാർഡ് (ഉണ്ടെങ്കിൽ)",
+        "ലിങ്ക് ചെയ്തിട്ടുള്ള സജീവമായ മൊബൈൽ നമ്പർ"
+      ]
+    },
+    howToApply: {
+      en: "Check eligibility using your Ration Card / Aadhaar details at the KASP Helpdesk (Arogyamithra kiosk) in any empanelled hospital or an authorized Akshaya Centre to generate the e-Card.",
+      ml: "അംഗീകൃത ആശുപത്രികളിലെ KASP ഹെൽപ് ഡെസ്കിലോ (ആരോഗ്യമിത്ര കൗണ്ടർ) അക്ഷയ കേന്ദ്രങ്ങളിലോ റേഷൻ കാർഡും ആധാറും നൽകി യോഗ്യത പരിശോധിച്ച് ഇ-കാർഡ് കൈപ്പറ്റുക."
+    },
+    steps: {
+      en: [
+        "Visit the official State Health Agency portal (sha.kerala.gov.in) or your nearest Akshaya Centre / hospital KASP kiosk",
+        "Verify your family's inclusion in the KASP database using your Ration Card number",
+        "Complete Aadhaar e-KYC verification for individual family members at the Arogyamithra desk or Akshaya Centre",
+        "Generate and receive the KASP beneficiary e-Card",
+        "Present the e-Card and Ration Card at any empanelled network hospital during admission for cashless pre-authorized treatment"
+      ],
+      ml: [
+        "സ്റ്റേറ്റ് ഹെൽത്ത് ഏജൻസി വെബ്സൈറ്റ് (sha.kerala.gov.in), അക്ഷയ കേന്ദ്രം അല്ലെങ്കിൽ ആശുപത്രിയിലെ KASP കിയോസ്ക് സന്ദർശിക്കുക",
+        "റേഷൻ കാർഡ് നമ്പർ നൽകി കുടുംബത്തിന് പദ്ധതിയിൽ അർഹതയുണ്ടോ എന്ന് പരിശോധിക്കുക",
+        "ആരോഗ്യമിത്ര കൗണ്ടറിലോ അക്ഷയയിലോ ആധാർ നൽകി ഇ-കെ.വൈ.സി പൂർത്തിയാക്കുക",
+        "KASP ആയുഷ്മാൻ ഇ-കാർഡ് പ്രിന്റ് ചെയ്ത് എടുക്കുക",
+        "ചികിത്സ ആവശ്യമുള്ളപ്പോൾ എംപാനൽ ചെയ്ത ആശുപത്രിയിലെ KASP ഡെസ്കിൽ കാർഡ് കാണിച്ച് സൗജന്യ ചികിത്സ നേടുക"
+      ]
+    },
+    fees: {
+      en: "Free (₹0 for eligible treatment up to package limits; e-card generation at Akshaya may incur nominal service charge).",
+      ml: "സൗജന്യം (ചികിത്സാ പരിധി വരെ പണം നൽകേണ്ടതില്ല; അക്ഷയ കേന്ദ്രങ്ങളിൽ കാർഡ് പ്രിന്റ് എടുക്കുന്നതിന് നിശ്ചിത നിരക്ക് ബാധകമായേക്കാം)."
+    },
+    validity: {
+      en: "Annual benefit coverage up to ₹5,00,000 per family, resetting every financial/policy year subject to continuous NFSA eligibility.",
+      ml: "പ്രതിവർഷം കുടുംബത്തിന് 5 ലക്ഷം രൂപ വരെയാണ് പരിരക്ഷ. ഓരോ വർഷവും റേഷൻ കാർഡ് യോഗ്യതയ്ക്കനുസരിച്ച് പരിരക്ഷ പുതുക്കപ്പെടുന്നു."
+    },
+    officialUrl: "https://sha.kerala.gov.in/",
+    importantNotes: {
+      en: [
+        "Treatment coverage is up to ₹5,00,000 per family per year on a family-floater basis. This is not a cash grant or bank deposit; it applies strictly as cashless hospitalization at empanelled healthcare facilities.",
+        "Cashless benefits are subject to defined package rates, medical pre-authorization, and admission in network hospitals.",
+        "General non-priority white card holders are generally not covered under KASP unless qualified through specific state emergency directives."
+      ],
+      ml: [
+        "പ്രതിവർഷം കുടുംബത്തിന് പരമാവധി 5 ലക്ഷം രൂപ വരെയുള്ള ചികിത്സാ ആനുകൂല്യമാണിത്. ഇത് പണമായി ബാങ്കിലേക്ക് നൽകുന്നതല്ല, അംഗീകൃത ആശുപത്രികളിലെ സൗജന്യ ചികിത്സയിലൂടെ മാത്രമേ ലഭിക്കൂ.",
+        "പദ്ധതിക്ക് കീഴിൽ ലിസ്റ്റ് ചെയ്തിട്ടുള്ള നിശ്ചിത രോഗങ്ങൾക്കും സർജറികൾക്കും മുൻകൂർ അനുമതിയോടെയാണ് (Pre-authorization) ക്യാഷ്‌ലെസ്സ് ചികിത്സ ലഭ്യമാക്കുന്നത്.",
+        "വെള്ള റേഷൻ കാർഡുള്ള പൊതുവിഭാഗക്കാർ സാധാരണയായി ഈ പദ്ധതിക്ക് കീഴിൽ വരുന്നതല്ല."
+      ]
+    }
+  },
+
+  // ==========================================
+  // SERVICE #130: Burial / Cremation Permit
+  // ==========================================
+  {
+    id: "burial-cremation-permit",
+    category: "government",
+    icon: "🕊️",
+    name: {
+      en: "Burial / Cremation Permit",
+      ml: "ശവസംസ്കാര അനുമതി (ശ്മശാന അനുമതി)"
+    },
+    summary: {
+      en: "Civic permission and slot allocation for burial or cremation in public crematoriums or burial grounds operated by local self-government institutions.",
+      ml: "തദ്ദേശസ്ഥാപനങ്ങളുടെ നിയന്ത്രണത്തിലുള്ള പൊതുശ്മശാനങ്ങളിൽ സംസ്കാരം നടത്തുന്നതിനുള്ള ഔദ്യോഗിക അനുമതിയും ബുക്കിംഗും."
+    },
+    description: {
+      en: "This statutory local-government service provides official sanction and scheduling for the burial or cremation of deceased persons in public crematoriums (electric/gas facilities) or authorized burial grounds managed by Grama Panchayats, Municipalities, or Municipal Corporations. It serves as a necessary preliminary civic clearance prior to formal Death Certificate registration.",
+      ml: "ഗ്രാമപഞ്ചായത്തുകൾ, നഗരസഭകൾ, കോർപ്പറേഷനുകൾ എന്നിവയുടെ അധീനതയിലുള്ള പൊതുശ്മശാനങ്ങളിൽ (ഇലക്ട്രിക്/ഗ്യാസ് ശ്മശാനങ്ങൾ ഉൾപ്പെടെ) സംസ്കാരം നടത്തുന്നതിന് തദ്ദേശസ്ഥാപനത്തിൽ നിന്ന് വാങ്ങേണ്ട മുൻകൂർ അനുമതിയാണിത്. മരണ സർട്ടിഫിക്കറ്റ് ലഭിക്കുന്നതിന് മുൻപുള്ള പ്രാഥമിക നടപടി കൂടിയാണിത്."
+    },
+    eligibility: {
+      en: [
+        "Immediate relatives, legal representatives, or authorized caretakers of the deceased",
+        "Death occurred within the jurisdiction of the local authority, or the body is legally brought for rites with required permits",
+        "Must possess authentic medical certification proving the cause of death"
+      ],
+      ml: [
+        "മരണപ്പെട്ട വ്യക്തിയുടെ അടുത്ത ബന്ധുക്കൾക്കോ നിയമപരമായ അവകാശികൾക്കോ ചുമതലപ്പെടുത്തിയവർക്കോ അപേക്ഷിക്കാം",
+        "മരണം സംഭവിച്ചത് തദ്ദേശസ്ഥാപന പരിധിയിലായിരിക്കണം, അല്ലെങ്കിൽ പുറത്തുനിന്ന് സംസ്കാരത്തിനായി കൊണ്ടുവരുന്നതിന് അനുമതി ഉണ്ടായിരിക്കണം",
+        "മരണകാരണം വ്യക്തമാക്കുന്ന ഡോക്ടറുടെ സർട്ടിഫിക്കറ്റ് നിർബന്ധമാണ്"
+      ]
+    },
+    documents: {
+      en: [
+        "Medical Certificate of Cause of Death issued by a registered medical practitioner / hospital intimation",
+        "Identity proof of the applicant (Aadhaar / Voter ID)",
+        "Identity proof of the deceased person (if available)",
+        "No Objection Certificate (NOC) from Police (mandatory in case of unnatural or accidental deaths)",
+        "Prescribed local body declaration form"
+      ],
+      ml: [
+        "രജിസ്റ്റർ ചെയ്ത ഡോക്ടറോ ആശുപത്രിയോ നൽകിയ മരണകാരണം വ്യക്തമാക്കുന്ന മെഡിക്കൽ സർട്ടിഫിക്കറ്റ്",
+        "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ (ആധാർ / വോട്ടർ ഐഡി)",
+        "മരണപ്പെട്ട വ്യക്തിയുടെ തിരിച്ചറിയൽ രേഖ (ലഭ്യമാണെങ്കിൽ)",
+        "അസ്വാഭാവിക മരണമാണെങ്കിൽ പോലീസിൽ നിന്നുള്ള എൻ.ഒ.സി (NOC)",
+        "തദ്ദേശസ്ഥാപനത്തിലെ നിശ്ചിത സത്യവാങ്മൂലം"
+      ]
+    },
+    howToApply: {
+      en: "Apply in-person at the health/sanitation section of the concerned Grama Panchayat, Municipality, or Corporation office, or online via K-SMART for urban local bodies where enabled.",
+      ml: "ബന്ധപ്പെട്ട ഗ്രാമപഞ്ചായത്ത് / മുനിസിപ്പാലിറ്റി / കോർപ്പറേഷൻ ഓഫീസിലെ ആരോഗ്യവിഭാഗത്തിൽ നേരിട്ടോ, നഗരസഭാ പരിധിയിലാണെങ്കിൽ K-SMART സംവിധാനം വഴിയോ അപേക്ഷിക്കുക."
+    },
+    steps: {
+      en: [
+        "Obtain the Medical Certificate of Cause of Death from the attending physician or hospital authorities",
+        "Approach the health/sanitation inspector or front-office desk at the jurisdictional local body office (or use urban K-SMART services)",
+        "Submit the medical certificate, applicant ID, and police clearance (if unnatural death)",
+        "Pay the prescribed local crematorium/burial user fee as fixed by the local body council",
+        "Receive the official Burial/Cremation Permit receipt and slot slip",
+        "Hand over the permit slip to the crematorium caretaker to conduct the funeral rites"
+      ],
+      ml: [
+        "ചികിത്സിച്ച ഡോക്ടറിൽ നിന്നോ ആശുപത്രിയിൽ നിന്നോ മരണ സർട്ടിഫിക്കറ്റ് കൈപ്പറ്റുക",
+        "തദ്ദേശസ്ഥാപനത്തിലെ ഹെൽത്ത് ഇൻസ്പെക്ടർ മുൻപാകെയോ ഫ്രണ്ട് ഓഫീസിലോ അപേക്ഷ സമർപ്പിക്കുക (നഗരങ്ങളിൽ K-SMART വഴിയും ലഭ്യമാണ്)",
+        "മെഡിക്കൽ സർട്ടിഫിക്കറ്റ്, തിരിച്ചറിയൽ രേഖ, ആവശ്യമായ മറ്റ് അനുമതികൾ എന്നിവ നൽകുക",
+        "തദ്ദേശസ്ഥാപനം നിശ്ചയിച്ചിട്ടുള്ള സംസ്കാര ഫീസ് അടയ്ക്കുക",
+        "ശ്മശാന അനുമതി രസീത് കൈപ്പറ്റുക",
+        "ശ്മശാനത്തിന്റെ ചുമതലയുള്ള ജീവനക്കാരന് രസീത് കൈമാറി സംസ്കാരം പൂർത്തിയാക്കുക"
+      ]
+    },
+    fees: {
+      en: "Determined independently by each local body council (typically ranges from ₹500 to ₹2,500 depending on gas/electric facility; often concessional or free for BPL families).",
+      ml: "ഓരോ പഞ്ചായത്തും നഗരസഭയും നിശ്ചയിക്കുന്ന നിരക്കുകൾ വ്യത്യാസപ്പെട്ടിരിക്കും (സാധാരണയായി ₹500 മുതൽ ₹2,500 വരെ; ബി.പി.എൽ കുടുംബങ്ങൾക്ക് ഇളവുകൾ ലഭ്യമാണ്)."
+    },
+    validity: {
+      en: "Valid strictly for the immediate scheduled funeral service.",
+      ml: "നിശ്ചയിക്കപ്പെട്ട സംസ്കാര ചടങ്ങിന് മാത്രം സാധുതയുള്ളത്."
+    },
+    officialUrl: "https://ksmart.lsgkerala.gov.in/",
+    importantNotes: {
+      en: [
+        "Requirements, exact user fees, and time slots vary by local body and crematorium infrastructure.",
+        "In cases of unnatural death, post-mortem clearance and Police NOC are mandatory prior to issuance of permit.",
+        "Obtaining this permit does not replace formal Death Registration; the formal Death Certificate must be registered separately within 21 days."
+      ],
+      ml: [
+        "ഫീസും നിബന്ധനകളും ഓരോ തദ്ദേശ സ്വയംഭരണ സ്ഥാപനത്തിനും ശ്മശാനത്തിനും അനുസരിച്ച് വ്യത്യാസപ്പെടാം.",
+        "അസ്വാഭാവിക മരണങ്ങളിൽ പോസ്റ്റ്‌മോർട്ടം റിപ്പോർട്ടും പോലീസിന്റെ എൻ.ഒ.സിയും നിർബന്ധമാണ്.",
+        "ഇത് ശവസംസ്കാരത്തിനുള്ള അനുമതി മാത്രമാണ്; മരണ സർട്ടിഫിക്കറ്റിനായി 21 ദിവസത്തിനകം പ്രത്യേകം അപേക്ഷിക്കേണ്ടതാണ്."
+      ]
+    }
+  },
+
+  // ==========================================
+  // SERVICE #131: Community Hall Booking
+  // ==========================================
+  {
+    id: "community-hall-booking-lsgd",
+    category: "government",
+    icon: "🏛️",
+    name: {
+      en: "Community Hall Booking",
+      ml: "പഞ്ചായത്ത് / മുനിസിപ്പൽ കമ്മ്യൂണിറ്റി ഹാൾ ബുക്കിംഗ്"
+    },
+    summary: {
+      en: "Reservation and rent/deposit payment for public auditoriums, town halls, and community centers owned by Local Self Government institutions.",
+      ml: "തദ്ദേശസ്ഥാപനങ്ങളുടെ ഉടമസ്ഥതയിലുള്ള ടൗൺ ഹാളുകൾ, കല്യാണമണ്ഡപങ്ങൾ, കമ്മ്യൂണിറ്റി ഹാളുകൾ എന്നിവ വാടകയ്ക്ക് ബുക്ക് ചെയ്യുന്ന സേവനം."
+    },
+    description: {
+      en: "This local civic service enables citizens, cultural groups, and registered organizations to check availability, reserve dates, and pay rental tariffs and caution deposits for community halls, town halls, and auditoriums maintained by Grama Panchayats, Municipalities, or Municipal Corporations for marriages, meetings, and public events.",
+      ml: "വിവാഹം, കുടുംബ സംഗമങ്ങൾ, പൊതുയോഗങ്ങൾ എന്നിവ നടത്തുന്നതിനായി ഗ്രാമപഞ്ചായത്തുകളുടെയും നഗരസഭകളുടെയും കീഴിലുള്ള കമ്മ്യൂണിറ്റി ഹാളുകൾ, ടൗൺ ഹാളുകൾ എന്നിവ മുൻകൂട്ടി തീയതി ഉറപ്പാക്കി വാടകയ്ക്ക് ബുക്ക് ചെയ്യുന്നതിനുള്ള സേവനമാണിത്."
+    },
+    eligibility: {
+      en: [
+        "Any citizen of legal age, association, or organization seeking venue for lawful functions",
+        "Must agree to comply with local body waste disposal, green protocol, and sound system regulations"
+      ],
+      ml: [
+        "നിയമപരമായ ആവശ്യങ്ങൾക്ക് ഹാൾ ആവശ്യമുള്ള ഏതൊരു വ്യക്തിക്കും സംഘടനകൾക്കും അപേക്ഷിക്കാം",
+        "മാലിന്യ സംസ്കരണ നിബന്ധനകളും ഗ്രീൻ പ്രോട്ടോക്കോളും ശബ്ദനിയന്ത്രണ ചട്ടങ്ങളും പാലിക്കാൻ ബാധ്യസ്ഥരായിരിക്കണം"
+      ]
+    },
+    documents: {
+      en: [
+        "Aadhaar Card or accepted photo identity proof of the applicant/organizer",
+        "Written application stating nature of event, date, and required session (morning/evening/full day)",
+        "Green Protocol and zero-plastic compliance undertaking",
+        "Police NOC (if organizing large public assemblies or using high-power sound systems)"
+      ],
+      ml: [
+        "അപേക്ഷകന്റെ ആധാർ കാർഡ് അല്ലെങ്കിൽ മറ്റ് ഔദ്യോഗിക തിരിച്ചറിയൽ രേഖ",
+        "പരിപാടിയുടെ സ്വഭാവം, തീയതി, സമയം എന്നിവ വ്യക്തമാക്കുന്ന അപേക്ഷ",
+        "ഗ്രീൻ പ്രോട്ടോക്കോൾ പാലിക്കുമെന്നും പ്ലാസ്റ്റിക് ഒഴിവാക്കുമെന്നുമുള്ള സത്യവാങ്മൂലം",
+        "പൊതുപരിപാടികൾക്കോ ഉച്ചഭാഷിണി ഉപയോഗിക്കുന്നതിനോ പോലീസിൽ നിന്നുള്ള അനുമതി (ആവശ്യമെങ്കിൽ)"
+      ]
+    },
+    howToApply: {
+      en: "Apply in-person at the concerned Grama Panchayat / Municipality front office, or book online through the K-SMART portal for enabled urban local bodies.",
+      ml: "ഗ്രാമപഞ്ചായത്ത് അല്ലെങ്കിൽ മുനിസിപ്പാലിറ്റി ഫ്രണ്ട് ഓഫീസിൽ നേരിട്ടോ, നഗരസഭകളിൽ K-SMART പോർട്ടൽ വഴിയോ തീയതി പരിശോധിച്ചു ബുക്ക് ചെയ്യാം."
+    },
+    steps: {
+      en: [
+        "Check hall availability for your desired date at the local body office or through K-SMART",
+        "Submit the reservation application with applicant ID and function details",
+        "Sign the waste management and Green Protocol undertaking",
+        "Pay the prescribed advance rent and refundable caution deposit",
+        "Receive the official Hall Allotment Order and booking receipt",
+        "Refundable caution deposit is processed after event completion subject to clean premises inspection"
+      ],
+      ml: [
+        "ആവശ്യമുള്ള തീയതിയിൽ ഹാൾ ഒഴിവുണ്ടോ എന്ന് തദ്ദേശസ്ഥാപനത്തിലോ K-SMART പോർട്ടലിലോ പരിശോധിക്കുക",
+        "തിരിച്ചറിയൽ രേഖയും പരിപാടിയുടെ വിവരങ്ങളും ചേർത്ത് അപേക്ഷ സമർപ്പിക്കുക",
+        "മാലിന്യ സംസ്കരണവും ഗ്രീൻ പ്രോട്ടോക്കോളും പാലിക്കുമെന്ന പത്രം ഒപ്പിട്ടു നൽകുക",
+        "വാടകയും തിരികെ ലഭിക്കുന്ന കോഷൻ ഡെപ്പോസിറ്റും അടയ്ക്കുക",
+        "ഹാൾ അലോട്ട്മെന്റ് ഓർഡറും രസീതും കൈപ്പറ്റുക",
+        "പരിപാടിക്ക് ശേഷം ഹാൾ ശുചിയായി തിരികെ ഏൽപ്പിക്കുന്ന മുറയ്ക്ക് കോഷൻ ഡെപ്പോസിറ്റ് തിരികെ ലഭിക്കും"
+      ]
+    },
+    fees: {
+      en: "Variable: Set by individual local body councils according to hall capacity, air conditioning, and slot duration. Refundable caution deposit is mandatory.",
+      ml: "നിരക്കുകൾ തദ്ദേശസ്ഥാപനങ്ങൾ തീരുമാനിക്കുന്നു (ഹാളിന്റെ വലിപ്പം, സൗകര്യങ്ങൾ, സമയം എന്നിവയ്ക്കനുസരിച്ച് വാടകയും കോഷൻ ഡെപ്പോസിറ്റും വ്യത്യാസപ്പെടും)."
+    },
+    validity: {
+      en: "Valid strictly for the reserved date and allotted time slot.",
+      ml: "ബുക്ക് ചെയ്ത തീയതിയിലേക്കും സമയത്തേക്കും മാത്രം സാധുതയുള്ളത്."
+    },
+    officialUrl: "https://ksmart.lsgkerala.gov.in/",
+    importantNotes: {
+      en: [
+        "No single universal fee exists; tariffs, electricity meter charges, and caution deposits are fixed by the respective local body council resolutions.",
+        "Kerala Green Protocol norms apply strictly: single-use plastic, thermocol plates, and non-biodegradable decorations are legally prohibited.",
+        "Advance booking windows (such as 30 to 90 days in advance) vary per local institution."
+      ],
+      ml: [
+        "എല്ലാ ഹാളുകൾക്കും ഒരേ നിരക്കല്ല; തദ്ദേശസ്ഥാപനത്തിന്റെ ഭരണസമിതി തീരുമാനിക്കുന്ന തുകയാണ് വാടകയായി നൽകേണ്ടത്.",
+        "ഗ്രീൻ പ്രോട്ടോക്കോൾ കർശനമായി പാലിക്കണം: പ്ലാസ്റ്റിക്, തെർമോകോൾ വസ്തുക്കൾ ഉപയോഗിക്കുന്നത് നിരോധിച്ചിരിക്കുന്നു.",
+        "എത്ര ദിവസം മുൻപ് ബുക്ക് ചെയ്യാം എന്നത് അതത് തദ്ദേശസ്ഥാപനങ്ങളുടെ നിയമങ്ങൾക്ക് വിധേയമായിരിക്കും."
+      ]
+    }
+  },
+
+  // ================================================================
+  // SERVICE #132: Advertisement Permission (Single Record Multi-Taxonomy)
+  // ================================================================
+  {
+    id: "lsgd-advertisement-permission",
+    category: "government",
+    relatedCategory: "industry-business",
+    icon: "🪧",
+    name: {
+      en: "Advertisement Permission",
+      ml: "തദ്ദേശസ്ഥാപന പരസ്യ അനുമതി (ഹോർഡിംഗ് / ബോർഡ്)"
+    },
+    summary: {
+      en: "Statutory permission and advertisement tax assessment from Local Self Government bodies for erecting hoardings, banners, and commercial display boards.",
+      ml: "പരസ്യ ബോർഡുകൾ, ഹോർഡിംഗുകൾ, ഫ്ലെക്സുകൾ എന്നിവ സ്ഥാപിക്കുന്നതിന് തദ്ദേശ സ്വയംഭരണ സ്ഥാപനങ്ങളിൽ നിന്ന് വാങ്ങേണ്ട നിയമപരമായ അനുമതി."
+    },
+    description: {
+      en: "Under the Kerala Municipality Act and Kerala Panchayat Raj Act, any individual, business, or advertising agency wishing to display outdoor advertisements, promotional hoardings, arches, or commercial signboards within local body limits must obtain prior statutory permission and pay assessed advertisement tax. While used by businesses, this is fundamentally a local-government civic regulatory service.",
+      ml: "തദ്ദേശ സ്വയംഭരണ സ്ഥാപനങ്ങളുടെ പരിധിയിൽ വാണിജ്യ പരസ്യ ബോർഡുകൾ, ഹോർഡിംഗുകൾ, ഡിജിറ്റൽ സ്ക്രീനുകൾ, മറ്റ് പരസ്യങ്ങൾ എന്നിവ സ്ഥാപിക്കുന്നതിന് മുൻകൂട്ടി പഞ്ചായത്ത് / നഗരസഭയിൽ നിന്ന് നേടേണ്ട ഔദ്യോഗിക അനുമതിയാണിത്. ബിസിനസ്സ് ആവശ്യങ്ങൾക്കായി ഉപയോഗിക്കുന്നുണ്ടെങ്കിലും ഇത് തദ്ദേശസ്ഥാപനങ്ങളുടെ നിയന്ത്രണത്തിലുള്ള ഒരു പൊതു അനുമതിയാണ്."
+    },
+    eligibility: {
+      en: [
+        "Business owners, advertising agencies, or individuals seeking to erect outdoor promotional displays",
+        "Must comply with High Court guidelines, safety distances from roads, and public safety norms"
+      ],
+      ml: [
+        "പരസ്യ ബോർഡുകളോ ഹോർഡിംഗുകളോ സ്ഥാപിക്കാൻ ആഗ്രഹിക്കുന്ന വ്യക്തികൾക്കോ സ്ഥാപനങ്ങൾക്കോ ഏജൻസികൾക്കോ അപേക്ഷിക്കാം",
+        "ഹൈക്കോടതി നിർദ്ദേശങ്ങൾ, റോഡ് സുരക്ഷാ മാനദണ്ഡങ്ങൾ എന്നിവ പാലിച്ചിരിക്കണം"
+      ]
+    },
+    documents: {
+      en: [
+        "Detailed structural drawing and dimension plan of the proposed advertisement/hoarding",
+        "Structural Stability Certificate from an accredited civil engineer (for high-rise hoardings)",
+        "Landowner NOC / Consent letter (if erected on private land or building)",
+        "Traffic Police NOC (if proposed near major road junctions or traffic signals)",
+        "Aadhaar / Trade registration proof of the applicant"
+      ],
+      ml: [
+        "പരസ്യ ബോർഡിന്റെ അളവുകളും രൂപരേഖയും വ്യക്തമാക്കുന്ന പ്ലാൻ",
+        "വലിയ ഹോർഡിംഗുകൾ ആണെങ്കിൽ സിവിൽ എൻജിനീയറുടെ സ്ട്രക്ചറൽ സ്റ്റെബിലിറ്റി സർട്ടിഫിക്കറ്റ്",
+        "സ്വകാര്യ സ്ഥലത്തോ കെട്ടിടത്തിലോ ആണെങ്കിൽ സ്ഥല ഉടമയുടെ സമ്മതപത്രം (NOC)",
+        "പ്രധാന റോഡുകളിലോ ജംഗ്ഷനുകളിലോ ആണെങ്കിൽ ട്രാഫിക് പോലീസിന്റെ അനുമതി",
+        "അപേക്ഷകന്റെ ആധാർ അല്ലെങ്കിൽ വ്യാപാര സ്ഥാപനത്തിന്റെ വിവരങ്ങൾ"
+      ]
+    },
+    howToApply: {
+      en: "Apply in the prescribed format to the Secretary of the concerned Grama Panchayat, Municipality, or Corporation, or apply online via K-SMART for urban local bodies.",
+      ml: "പൂരിപ്പിച്ച അപേക്ഷ തദ്ദേശസ്ഥാപന സെക്രട്ടറിക്ക് സമർപ്പിക്കുക, അല്ലെങ്കിൽ നഗരസഭകളിൽ K-SMART പോർട്ടൽ വഴി ഓൺലൈനായി അപേക്ഷ നൽകുക."
+    },
+    steps: {
+      en: [
+        "Prepare site plan, dimensions, and landowner consent for the proposed advertisement structure",
+        "Submit the application form along with stability certificate at the local body engineering/revenue desk (or via K-SMART)",
+        "Local body town planning / revenue officials conduct site verification for road safety compliance",
+        "Upon preliminary clearance, pay the assessed advertisement tax and statutory permit fee",
+        "Receive the official Advertisement Permission Order with assigned permit registration number",
+        "Display the authorized permit number and expiry date visibly on the advertisement board"
+      ],
+      ml: [
+        "പരസ്യം സ്ഥാപിക്കുന്ന സ്ഥലത്തിന്റെ പ്ലാൻ, വലിപ്പം, ഭൂവുടമയുടെ അനുമതിപത്രം എന്നിവ തയ്യാറാക്കുക",
+        "തദ്ദേശസ്ഥാപന റവന്യൂ / എൻജിനീയറിങ് വിഭാഗത്തിലോ K-SMART വഴിയോ അപേക്ഷ സമർപ്പിക്കുക",
+        "റോഡ് സുരക്ഷയും നിയമങ്ങളും പാലിച്ച് ഉദ്യോഗസ്ഥർ സ്ഥലം സന്ദർശിച്ച് പരിശോധന നടത്തുന്നു",
+        "അനുമതി ലഭിച്ച ശേഷം നിശ്ചയിച്ച പരസ്യ നികുതിയും ലൈസൻസ് ഫീസും അടയ്ക്കുക",
+        "അനുമതി പത്രവും രജിസ്ട്രേഷൻ നമ്പറും കൈപ്പറ്റുക",
+        "പരസ്യ ബോർഡിൽ പെർമിറ്റ് നമ്പറും കാലാവധിയും വ്യക്തമായി പ്രദർശിപ്പിക്കുക"
+      ]
+    },
+    fees: {
+      en: "Calculated based on advertisement surface area (per square meter), zone classification, and display type as per local body council tax bylaws.",
+      ml: "ബോർഡിന്റെ വലിപ്പം (ചതുരശ്ര മീറ്റർ), പരസ്യത്തിന്റെ സ്വഭാവം, തദ്ദേശസ്ഥാപനം നിശ്ചയിച്ച നികുതി നിരക്കുകൾ എന്നിവ അടിസ്ഥാനമാക്കിയാണ് ഫീസ് കണക്കാക്കുന്നത്."
+    },
+    validity: {
+      en: "Typically valid for 1 financial year; renewable annually upon payment of regular advertisement tax.",
+      ml: "സാധാരണയായി ഒരു സാമ്പത്തിക വർഷത്തേക്ക് സാധുവാണ്; വർഷം തോറും നികുതി അടച്ച് പുതുക്കാവുന്നതാണ്."
+    },
+    officialUrl: "https://ksmart.lsgkerala.gov.in/",
+    importantNotes: {
+      en: [
+        "Single Unique Service: Category is primarily Government & Local, with discovery cross-referenced under Industry & Business.",
+        "Non-biodegradable PVC flex boards are legally banned in Kerala; only approved recyclable/biodegradable materials are permissible.",
+        "Unauthorized hoardings without an official permit number are liable to immediate confiscation and penal fines under LSGD rules."
+      ],
+      ml: [
+        "ഇതൊരു ഏകീകൃത സർവീസാണ്: പ്രാഥമിക വിഭാഗം Government & Local ആണെങ്കിലും Industry & Business വഴിയും കണ്ടെത്താൻ സാധിക്കും.",
+        "പി.വി.സി ഫ്ലെക്സ് ബോർഡുകൾ ഉപയോഗിക്കുന്നത് പൂർണ്ണമായും നിരോധിച്ചിരിക്കുന്നു; റീസൈക്കിൾ ചെയ്യാവുന്ന പരിസ്ഥിതി സൗഹൃദ വസ്തുക്കൾ മാത്രമേ ഉപയോഗിക്കാവൂ.",
+        "പെർമിറ്റ് നമ്പറില്ലാതെ അനധികൃതമായി സ്ഥാപിക്കുന്ന ബോർഡുകൾ തദ്ദേശസ്ഥാപനങ്ങൾ നീക്കം ചെയ്യുകയും പിഴ ചുമത്തുകയും ചെയ്യും."
+      ]
+    }
+  }
+
   ];
 
   if (window.SevaRegistry && typeof window.SevaRegistry.register === "function") {
