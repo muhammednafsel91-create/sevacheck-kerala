@@ -4,10 +4,69 @@
 
 let currentLang = "en";
 let currentCategory = "all";
+let currentSubcategory = null;
 let currentSearchQuery = "";
 let currentView = "home"; // 'home', 'services', 'how', 'about', 'detail'
 let activeService = null;
 let allServices = [];
+
+// Bilingual Subcategories Definition for "Other Services"
+const subcategoryMetadata = [
+  {
+    slug: "farmer-agri",
+    icon: "🌾",
+    name: {
+      en: "Farmer & Agriculture",
+      ml: "കർഷക സേവനങ്ങൾ & കൃഷി"
+    },
+    count: 5
+  },
+  {
+    slug: "animal-husbandry",
+    icon: "🐄",
+    name: {
+      en: "Animal Husbandry",
+      ml: "മൃഗസംരക്ഷണം & ക്ഷീരവികസനം"
+    },
+    count: 3
+  },
+  {
+    slug: "fisheries",
+    icon: "🐟",
+    name: {
+      en: "Fisheries",
+      ml: "മത്സ്യബന്ധനം & തീരദേശ വികസനം"
+    },
+    count: 3
+  },
+  {
+    slug: "building-construction",
+    icon: "🏗️",
+    name: {
+      en: "Building & Construction",
+      ml: "കെട്ടിട നിർമ്മാണാനുമതി & സുരക്ഷ"
+    },
+    count: 2
+  },
+  {
+    slug: "industry-business",
+    icon: "🏭",
+    name: {
+      en: "Industry & Business",
+      ml: "വ്യവസായം & സംരംഭകത്വം"
+    },
+    count: 3
+  },
+  {
+    slug: "cooperative",
+    icon: "🤝",
+    name: {
+      en: "Cooperative",
+      ml: "സഹകരണ മേഖല"
+    },
+    count: 2
+  }
+];
 
 // UI Translation Dictionary
 const translations = {
@@ -28,8 +87,14 @@ const translations = {
     catEducation: "🎓 Education",
     catTravel: "🚗 Travel & Transport",
     catPolice: "🛡️ Police & Public Safety",
+    catEmployment: "💼 Employment & Welfare",
+    catNorka: "✈️ NORKA / Pravasi",
+    catOther: "📦 Other Services",
     popularServicesHeading: "Popular Services",
     showingCount: "Showing {count} services",
+    subcategoriesCount: "6 Subcategories",
+    backToSubcategories: "← Back to Subcategories",
+    servicesSuffix: "services",
     emptyStateHeading: "No matching service found.",
     emptyStateText: "Try searching for words like 'Income', 'Passport', 'Birth', or 'Licence'.",
     viewChecklistBtn: "View Checklist & Details →",
@@ -78,8 +143,14 @@ const translations = {
     catEducation: "🎓 വിദ്യാഭ്യാസം",
     catTravel: "🚗 യാത്രയും വാഹനങ്ങളും",
     catPolice: "🛡️ പോലീസ് & പബ്ലിക് സേഫ്റ്റി",
+    catEmployment: "💼 തൊഴിലും ക്ഷേമവും",
+    catNorka: "✈️ നോർക്ക / പ്രവാസി സേവനങ്ങൾ",
+    catOther: "📦 മറ്റ് സേവനങ്ങൾ",
     popularServicesHeading: "ജനപ്രിയ സേവനങ്ങൾ",
     showingCount: "{count} സേവനങ്ങൾ ലഭ്യമാണ്",
+    subcategoriesCount: "6 ഉപവിഭാഗങ്ങൾ ലഭ്യമാണ്",
+    backToSubcategories: "← ഉപവിഭാഗങ്ങളിലേക്ക് മടങ്ങുക",
+    servicesSuffix: "സേവനങ്ങൾ",
     emptyStateHeading: "സേവനങ്ങളൊന്നും കണ്ടെത്താനായില്ല.",
     emptyStateText: "'വരുമാനം', 'പാസ്‌പോർട്ട്', 'ജനന സർട്ടിഫിക്കറ്റ്' തുടങ്ങിയ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക.",
     viewChecklistBtn: "വിശദാംശങ്ങളും രേഖകളും കാണുക →",
@@ -122,7 +193,10 @@ function getCategoryName(categoryKey, lang = currentLang) {
       government: "Government & Local",
       education: "Education",
       travel: "Travel & Transport",
-      police: "Police & Public Safety"
+      police: "Police & Public Safety",
+      employment: "Employment & Welfare",
+      norka: "NORKA / Pravasi",
+      other: "Other Services"
     },
     ml: {
       documents: "രേഖകളും സർട്ടിഫിക്കറ്റുകളും",
@@ -130,7 +204,10 @@ function getCategoryName(categoryKey, lang = currentLang) {
       government: "സർക്കാർ & തദ്ദേശ സ്ഥാപനങ്ങൾ",
       education: "വിദ്യാഭ്യാസം",
       travel: "യാത്രയും വാഹനങ്ങളും",
-      police: "പോലീസ് & പബ്ലിക് സേഫ്റ്റി"
+      police: "പോലീസ് & പബ്ലിക് സേഫ്റ്റി",
+      employment: "തൊഴിലും ക്ഷേമവും",
+      norka: "നോർക്ക / പ്രവാസി സേവനങ്ങൾ",
+      other: "മറ്റ് സേവനങ്ങൾ"
     }
   };
 
@@ -163,7 +240,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial Language Render
   updateLanguageUI();
   renderServices();
-  updateServiceCount(allServices.length);
 });
 
 // ==========================================
@@ -178,7 +254,6 @@ function navigateTo(viewName) {
     if (el) el.style.display = "none";
   });
 
-  // Nav link active class
   document.querySelectorAll("nav ul li a").forEach((a) => a.classList.remove("active"));
   const activeNav = document.getElementById(`nav-${viewName}`);
   if (activeNav) activeNav.classList.add("active");
@@ -237,15 +312,21 @@ function setLanguage(lang) {
   if (lang !== "en" && lang !== "ml") return;
   currentLang = lang;
 
-  document.getElementById("btn-lang-en").classList.toggle("active", lang === "en");
-  document.getElementById("btn-lang-ml").classList.toggle("active", lang === "ml");
+  const btnEn = document.getElementById("btn-lang-en");
+  const btnMl = document.getElementById("btn-lang-ml");
+  if (btnEn) btnEn.classList.toggle("active", lang === "en");
+  if (btnMl) btnMl.classList.toggle("active", lang === "ml");
 
   updateLanguageUI();
 
   if (currentView === "detail" && activeService) {
     showServiceDetail(activeService.id);
   } else {
-    renderServices();
+    if (currentCategory === "other" && currentSubcategory === null && !currentSearchQuery) {
+      renderSubcategories();
+    } else {
+      renderServices();
+    }
   }
 }
 
@@ -272,25 +353,56 @@ function updateLanguageUI() {
 
 function filterCategory(category, buttonEl) {
   currentCategory = category;
+  currentSubcategory = null;
 
   document.querySelectorAll(".helper-chip").forEach((btn) => btn.classList.remove("active"));
   if (buttonEl) buttonEl.classList.add("active");
 
-  renderServices();
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+
+  if (currentCategory === "other" && !currentSearchQuery) {
+    renderSubcategories();
+  } else {
+    if (subcatContainer) subcatContainer.style.display = "none";
+    if (grid) grid.style.display = "grid";
+    renderServices();
+  }
 }
 
 function handleSearch() {
   const input = document.getElementById("searchInput");
   currentSearchQuery = input ? input.value.trim().toLowerCase() : "";
-  renderServices();
+
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+
+  if (currentSearchQuery) {
+    if (subcatContainer) subcatContainer.style.display = "none";
+    if (grid) grid.style.display = "grid";
+    renderServices();
+  } else {
+    if (currentCategory === "other" && currentSubcategory === null) {
+      renderSubcategories();
+    } else {
+      renderServices();
+    }
+  }
 }
 
 function getFilteredServices() {
-  return allServices.filter((s) => {
-    // Category match
-    const matchesCategory = currentCategory === "all" || s.category === currentCategory;
+  const targetCategory = (currentCategory === "employment-welfare") ? "employment" : currentCategory;
 
-    // Search match
+  return allServices.filter((s) => {
+    if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
+      return s.category === "other" && s.subcategory === currentSubcategory;
+    }
+
+    const matchesCategory =
+      targetCategory === "all" ||
+      s.category === targetCategory ||
+      (s.relatedCategory && s.relatedCategory === targetCategory);
+
     if (!matchesCategory) return false;
     if (!currentSearchQuery) return true;
 
@@ -300,7 +412,7 @@ function getFilteredServices() {
     const sumEn = s.summary?.en?.toLowerCase() || "";
     const sumMl = s.summary?.ml?.toLowerCase() || "";
     const id = s.id?.toLowerCase() || "";
-    const subCat = s.subCategory?.toLowerCase() || "";
+    const subCat = (s.subcategory || s.subCategory || "")?.toLowerCase();
 
     return (
       nameEn.includes(q) ||
@@ -311,6 +423,62 @@ function getFilteredServices() {
       subCat.includes(q)
     );
   });
+}
+
+// ==========================================
+// OTHER SERVICES: SUBCATEGORY CONTROLLER
+// ==========================================
+
+function renderSubcategories() {
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+  const emptyState = document.getElementById("emptyState");
+  const countEl = document.getElementById("servicesCount");
+  const t = translations[currentLang];
+
+  if (emptyState) emptyState.style.display = "none";
+  if (grid) {
+    grid.innerHTML = "";
+    grid.style.display = "none";
+  }
+
+  if (countEl) {
+    countEl.textContent = t.subcategoriesCount;
+  }
+
+  if (!subcatContainer) return;
+  subcatContainer.style.display = "grid";
+
+  subcatContainer.innerHTML = subcategoryMetadata
+    .map((sub) => {
+      const title = sub.name[currentLang] || sub.name.en;
+      return `
+        <div class="subcategory-card" onclick="selectSubcategory('${sub.slug}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectSubcategory('${sub.slug}')">
+          <div class="subcategory-card-icon">${sub.icon}</div>
+          <div class="subcategory-card-content">
+            <h4 class="subcategory-card-title">${escapeHtml(title)}</h4>
+            <span class="subcategory-card-count">${sub.count} ${t.servicesSuffix}</span>
+          </div>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function selectSubcategory(slug) {
+  currentSubcategory = slug;
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+
+  if (subcatContainer) subcatContainer.style.display = "none";
+  if (grid) grid.style.display = "grid";
+
+  renderServices();
+}
+
+function resetSubcategory() {
+  currentSubcategory = null;
+  renderSubcategories();
 }
 
 // ==========================================
@@ -334,7 +502,22 @@ function renderServices() {
   if (emptyState) emptyState.style.display = "none";
 
   const t = translations[currentLang];
-  grid.innerHTML = filtered
+  let breadcrumbHtml = "";
+
+  if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
+    const activeSubMeta = subcategoryMetadata.find((m) => m.slug === currentSubcategory);
+    const subTitle = activeSubMeta ? (activeSubMeta.name[currentLang] || activeSubMeta.name.en) : "";
+    const subIcon = activeSubMeta ? activeSubMeta.icon : "📦";
+
+    breadcrumbHtml = `
+      <div class="subcat-breadcrumb-bar" style="grid-column: 1 / -1;">
+        <span class="subcat-breadcrumb-title">${subIcon} ${escapeHtml(subTitle)}</span>
+        <button type="button" class="subcat-back-btn" onclick="resetSubcategory()">${t.backToSubcategories}</button>
+      </div>
+    `;
+  }
+
+  const cardsHtml = filtered
     .map((s) => {
       const name = s.name?.[currentLang] || s.name?.en || "Service";
       const summary = s.summary?.[currentLang] || s.summary?.en || "";
@@ -354,6 +537,8 @@ function renderServices() {
     `;
     })
     .join("");
+
+  grid.innerHTML = breadcrumbHtml + cardsHtml;
 }
 
 function updateServiceCount(count) {
@@ -374,7 +559,6 @@ function showServiceDetail(serviceId) {
   activeService = service;
   currentView = "detail";
 
-  // Hide other views, show detail
   ["home", "how", "about"].forEach((v) => {
     const el = document.getElementById(`view-${v}`);
     if (el) el.style.display = "none";
@@ -384,7 +568,6 @@ function showServiceDetail(serviceId) {
 
   const t = translations[currentLang];
 
-  // Header Details
   const titleEl = document.getElementById("detailTitle");
   const subEl = document.getElementById("detailSubtitle");
   const descEl = document.getElementById("detailDesc");
@@ -392,17 +575,17 @@ function showServiceDetail(serviceId) {
 
   const name = service.name?.[currentLang] || service.name?.en || "";
   const subName = currentLang === "en" ? service.name?.ml || "" : service.name?.en || "";
-  const summary = service.summary?.[currentLang] || service.summary?.en || "";
+  const summary = service.summary?.[currentLang] || service.summary?.en || service.description?.[currentLang] || "";
 
   if (titleEl) titleEl.textContent = `${service.icon || "📄"} ${name}`;
   if (subEl) subEl.textContent = subName;
   if (descEl) descEl.textContent = summary;
 
-  // Badges Bar
   if (badgesEl) {
     const categoryName = getCategoryName(service.category, currentLang);
-    const mode = service.mode?.[currentLang] || service.mode?.en || "Official Channel";
-    const verificationBadge = service.verified ? `✓ ${t.verifiedBadge}` : t.unverifiedBadge;
+    const mode = service.mode?.[currentLang] || service.mode?.en || (service.officialUrl ? "Official Online Portal" : "In-Person / Office");
+    const isVerified = service.verified !== false;
+    const verificationBadge = isVerified ? `✓ ${t.verifiedBadge}` : t.unverifiedBadge;
 
     badgesEl.innerHTML = `
       <span class="badge badge-category">${categoryName}</span>
@@ -411,19 +594,28 @@ function showServiceDetail(serviceId) {
     `;
   }
 
-  // Who Needs
   const whoEl = document.getElementById("detailWho");
-  if (whoEl) whoEl.textContent = service.whoNeeds?.[currentLang] || service.whoNeeds?.en || "—";
+  if (whoEl) {
+    const whoContent = service.whoNeeds?.[currentLang] || service.whoNeeds?.en || service.description?.[currentLang] || service.description?.en || service.summary?.[currentLang] || "—";
+    whoEl.textContent = whoContent;
+  }
 
-  // Basic Eligibility
   const eligEl = document.getElementById("detailEligibility");
-  if (eligEl) eligEl.textContent = service.eligibility?.[currentLang] || service.eligibility?.en || "—";
+  if (eligEl) {
+    const rawElig = service.eligibility?.[currentLang] || service.eligibility?.en;
+    if (Array.isArray(rawElig) && rawElig.length > 0) {
+      eligEl.innerHTML = `<ul style="margin: 0; padding-left: 1.2rem;">${rawElig.map(e => `<li>${escapeHtml(e)}</li>`).join("")}</ul>`;
+    } else if (typeof rawElig === "string") {
+      eligEl.textContent = rawElig;
+    } else {
+      eligEl.textContent = "—";
+    }
+  }
 
-  // Interactive Checklist
   const docsContainer = document.getElementById("detailDocs");
   if (docsContainer) {
     const docList = service.documents?.[currentLang] || service.documents?.en || [];
-    if (docList.length === 0) {
+    if (!Array.isArray(docList) || docList.length === 0) {
       docsContainer.innerHTML = `<p style="color: var(--text-muted); font-size: 0.95rem;">${currentLang === "ml" ? "പ്രത്യേക രേഖകളൊന്നും നൽകിയിട്ടില്ല." : "No specific documents required."}</p>`;
     } else {
       docsContainer.innerHTML = docList
@@ -439,11 +631,10 @@ function showServiceDetail(serviceId) {
     }
   }
 
-  // Additional / Supporting Documents
   const addDocsSection = document.getElementById("additionalDocsSection");
   const addDocsList = document.getElementById("detailAdditionalDocs");
   const addDocs = service.additionalDocs?.[currentLang] || service.additionalDocs?.en || [];
-  if (addDocs && addDocs.length > 0) {
+  if (Array.isArray(addDocs) && addDocs.length > 0) {
     if (addDocsSection) addDocsSection.style.display = "block";
     if (addDocsList) {
       addDocsList.innerHTML = addDocs.map((doc) => `<li>${escapeHtml(doc)}</li>`).join("");
@@ -452,26 +643,33 @@ function showServiceDetail(serviceId) {
     if (addDocsSection) addDocsSection.style.display = "none";
   }
 
-  // Where to Apply
   const whereEl = document.getElementById("detailWhere");
-  if (whereEl) whereEl.textContent = service.whereToApply?.[currentLang] || service.whereToApply?.en || "—";
+  if (whereEl) {
+    whereEl.textContent = service.whereToApply?.[currentLang] || service.whereToApply?.en || service.howToApply?.[currentLang] || service.howToApply?.en || "—";
+  }
 
-  // Step-by-Step Instructions
   const stepsList = document.getElementById("detailSteps");
   if (stepsList) {
     const steps = service.steps?.[currentLang] || service.steps?.en || [];
-    if (steps.length === 0) {
+    if (!Array.isArray(steps) || steps.length === 0) {
       stepsList.innerHTML = `<li>${currentLang === "ml" ? "ഘട്ടങ്ങൾ നൽകിയിട്ടില്ല." : "Standard procedure applies."}</li>`;
     } else {
       stepsList.innerHTML = steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
     }
   }
 
-  // Important Notes
   const notesEl = document.getElementById("detailNotes");
-  if (notesEl) notesEl.textContent = service.notes?.[currentLang] || service.notes?.en || "—";
+  if (notesEl) {
+    const rawNotes = service.importantNotes?.[currentLang] || service.importantNotes?.en || service.notes?.[currentLang] || service.notes?.en;
+    if (Array.isArray(rawNotes) && rawNotes.length > 0) {
+      notesEl.innerHTML = `<ul style="margin: 0; padding-left: 1.2rem;">${rawNotes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul>`;
+    } else if (typeof rawNotes === "string") {
+      notesEl.textContent = rawNotes;
+    } else {
+      notesEl.textContent = "—";
+    }
+  }
 
-  // Official Action Button
   const btnWrapper = document.getElementById("officialBtnWrapper");
   if (btnWrapper) {
     if (service.officialUrl && service.officialUrl.startsWith("http")) {
@@ -489,7 +687,6 @@ function showServiceDetail(serviceId) {
     }
   }
 
-  // Last Verified Note
   const lastVerifiedEl = document.getElementById("detailLastVerified");
   if (lastVerifiedEl) {
     const dateStr = service.lastVerified || "September 2026";
