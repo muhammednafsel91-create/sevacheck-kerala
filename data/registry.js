@@ -1,3 +1,9 @@
+/**
+ * SevaCheck Kerala — Central Service Registry
+ * Initializes window.SevaRegistry and handles modular service registration
+ * for all 150 government services across category data modules.
+ */
+
 window.SevaRegistry = {
   services: [],
   register: function (items) {
@@ -9,6 +15,7 @@ window.SevaRegistry = {
     let added = false;
 
     items.forEach(item => {
+      // Prevent duplicate service ID registration
       const exists = this.services.some(s => s.id === item.id);
 
       if (exists) {
@@ -19,7 +26,7 @@ window.SevaRegistry = {
       }
     });
 
-    // Notify the page whenever new services are registered
+    // Notify the application whenever new services are registered
     if (added && typeof window.dispatchEvent === "function") {
       window.dispatchEvent(new CustomEvent("seva-registry-updated", {
         detail: { count: this.services.length }
@@ -28,6 +35,6 @@ window.SevaRegistry = {
   }
 };
 
-// Backward compatibility bridge
+// Backward compatibility bridge for script.js and existing data modules
 window.services = window.SevaRegistry.services;
 window.servicesData = window.SevaRegistry.services;
