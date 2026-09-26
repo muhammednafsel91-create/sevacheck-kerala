@@ -983,7 +983,98 @@
       },
       lastVerified: "September 2026",
       verified: true
+    },
+      // ================================================================
+  // SERVICE #129: Kerala PWD Rest House Booking
+  // ================================================================
+  {
+    id: "kerala-pwd-rest-house-booking",
+    category: "travel",
+    relatedCategory: "government",
+    icon: "🏨",
+    name: {
+      en: "Kerala PWD Rest House Booking",
+      ml: "കേരള PWD റെസ്റ്റ് ഹൗസ് ബുക്കിംഗ്"
+    },
+    summary: {
+      en: "Online room reservation and advance booking facility for Kerala Public Works Department (PWD) rest houses across the state.",
+      ml: "കേരളത്തിലുടനീളമുള്ള പൊതുമരാമത്ത് വകുപ്പ് (PWD) റെസ്റ്റ് ഹൗസുകളിൽ പൊതുജനങ്ങൾക്കായി മുറികൾ മുൻകൂട്ടി ബുക്ക് ചെയ്യുന്നതിനുള്ള ഓൺലൈൻ സംവിധാനം."
+    },
+    description: {
+      en: "The Public Works Department (PWD) Rest House Online Booking portal ('Rest House Kerala') allows citizens, tourists, and officials to check real-time room availability, reserve rooms, and make secure online tariff payments across 150+ PWD rest houses and inspection bungalows throughout Kerala.",
+      ml: "കേരളത്തിലെ 150-ലധികം വരുന്ന പി.ഡബ്ല്യു.ഡി റെസ്റ്റ് ഹൗസുകളിലും ഇൻസ്പെക്ഷൻ ബംഗ്ലാവുകളിലും പൊതുജനങ്ങൾക്കും വിനോദസഞ്ചാരികൾക്കും തത്സമയം മുറികളുടെ ലഭ്യത പരിശോധിക്കാനും ഓൺലൈനായി മുൻകൂട്ടി വാടകയടച്ച് മുറികൾ ബുക്ക് ചെയ്യാനും പൊതുമരാമത്ത് വകുപ്പ് ഒരുക്കിയിട്ടുള്ള ഔദ്യോഗിക സംവിധാനമാണിത്."
+    },
+    eligibility: {
+      en: [
+        "Open to all Indian and international citizens of legal age (18 years and above)",
+        "Must possess valid government-issued photo identification",
+        "Must comply with standard PWD rest house occupancy rules and code of conduct"
+      ],
+      ml: [
+        "പ്രായപൂർത്തിയായ ഏതൊരു ഇന്ത്യൻ പൗരനും വിദേശികൾക്കും അപേക്ഷിക്കാം",
+        "സർക്കാർ അംഗീകൃത ഫോട്ടോ പതിച്ച സാധുവായ തിരിച്ചറിയൽ രേഖ ഉണ്ടായിരിക്കണം",
+        "പി.ഡബ്ല്യു.ഡി റെസ്റ്റ് ഹൗസുകളുടെ പെരുമാറ്റച്ചട്ടങ്ങളും നിബന്ധനകളും പാലിക്കാൻ ബാധ്യസ്ഥരായിരിക്കണം"
+      ]
+    },
+    documents: {
+      en: [
+        "Valid Government-issued Photo Identity Card (Aadhaar / Voter ID / Passport / Driving Licence)",
+        "Booking confirmation slip / SMS received upon payment",
+        "Official duty order / ID card (for government officials claiming official priority/rates)"
+      ],
+      ml: [
+        "സർക്കാർ അംഗീകൃത ഫോട്ടോ പതിച്ച തിരിച്ചറിയൽ രേഖ (ആധാർ / വോട്ടർ ഐഡി / പാസ്‌പോർട്ട് / ഡ്രൈവിംഗ് ലൈസൻസ്)",
+        "ഓൺലൈൻ ബുക്കിംഗ് കൺഫർമേഷൻ രസീത് / എസ്.എം.എസ്",
+        "ഔദ്യോഗിക ഡ്യൂട്ടിയിലുള്ള സർക്കാർ ഉദ്യോഗസ്ഥരാണെങ്കിൽ ഡ്യൂട്ടി ഓർഡർ / വകുപ്പ് ഐഡി കാർഡ്"
+      ]
+    },
+    howToApply: {
+      en: "Visit the official PWD Rest House portal (resthouse.pwd.kerala.gov.in), select the location and dates, choose an available room, enter guest details, and complete payment online.",
+      ml: "ഔദ്യോഗിക പോർട്ടൽ (resthouse.pwd.kerala.gov.in) സന്ദർശിച്ച് ജില്ലയും റെസ്റ്റ് ഹൗസും തീയതിയും തിരഞ്ഞെടുത്ത് ലഭ്യമായ മുറികൾ ഓൺലൈനായി വാടകയടച്ച് ബുക്ക് ചെയ്യുക."
+    },
+    steps: {
+      en: [
+        "Visit the official portal (resthouse.pwd.kerala.gov.in) and register/log in with your mobile number",
+        "Select the district, specific rest house, check-in and check-out dates, and number of guests",
+        "View available room categories (AC / Non-AC / Suites) and select your preferred room",
+        "Enter guest particulars and government identity card details",
+        "Pay the room rent online via the integrated secure payment gateway",
+        "Download the booking receipt and show the confirmation SMS along with original ID at check-in"
+      ],
+      ml: [
+        "ഔദ്യോഗിക പോർട്ടൽ (resthouse.pwd.kerala.gov.in) സന്ദർശിച്ച് മൊബൈൽ നമ്പർ നൽകി ലോഗിൻ ചെയ്യുക",
+        "ജില്ല, ആവശ്യമുള്ള റെസ്റ്റ് ഹൗസ്, എത്തുന്ന തീയതി, പുറപ്പെടുന്ന തീയതി, ആളുകളുടെ എണ്ണം എന്നിവ തിരഞ്ഞെടുക്കുക",
+        "ലഭ്യമായ മുറികൾ (എ.സി / നോൺ-എ.സി) പരിശോധിച്ച് ആവശ്യമുള്ളത് തിരഞ്ഞെടുക്കുക",
+        "താമസിക്കുന്ന ആളുകളുടെ വിവരങ്ങളും തിരിച്ചറിയൽ രേഖാ നമ്പറും നൽകുക",
+        "നിശ്ചിത വാടക തുക ഓൺലൈൻ പേയ്‌മെന്റ് വഴി അടയ്ക്കുക",
+        "ബുക്കിംഗ് രസീത് ഡൗൺലോഡ് ചെയ്ത് സൂക്ഷിക്കുക, ചെക്ക്-ഇൻ സമയത്ത് അസ്സൽ തിരിച്ചറിയൽ രേഖയോടൊപ്പം ഇത് ഹാജരാക്കുക"
+      ]
+    },
+    fees: {
+      en: "Room rent varies according to room type (AC/Non-AC), location, and whether booking is under public or official category; displayed transparently during slot selection.",
+      ml: "മുറിയുടെ തരം (എ.സി / നോൺ-എ.സി), സ്ഥലം, പൊതുജനം/ഉദ്യോഗസ്ഥർ എന്നീ വിഭാഗങ്ങൾക്കനുസരിച്ച് വാടകയിൽ മാറ്റമുണ്ടാകും; ബുക്ക് ചെയ്യുന്ന സമയത്ത് നിരക്കുകൾ വ്യക്തമായി കാണാം."
+    },
+    validity: {
+      en: "Valid strictly for the reserved booking period and allocated check-in/check-out schedule.",
+      ml: "ബുക്ക് ചെയ്ത നിശ്ചിത തീയതിയിലേക്കും ചെക്ക്-ഇൻ/ചെക്ക്-ഔട്ട് സമയങ്ങളിലേക്കും മാത്രം സാധുതയുള്ളത്."
+    },
+    officialUrl: "https://resthouse.pwd.kerala.gov.in/",
+    importantNotes: {
+      en: [
+        "Single Unique Service: Primary category is Travel & Transport, with cross-reference discoverability under Government & Local.",
+        "Advance booking is generally available up to 30 days in advance.",
+        "Standard maximum continuous stay limit is 3 days, subject to extension approvals by the competent authority.",
+        "Original government photo ID must strictly be presented at the rest house reception during check-in."
+      ],
+      ml: [
+        "ഇതൊരു ഏകീകൃത സർവീസാണ്: പ്രാഥമിക വിഭാഗം Travel & Transport ആണെങ്കിലും Government & Local വഴിയും കണ്ടെത്താനാകും.",
+        "സാധാരണയായി 30 ദിവസം മുൻപ് വരെ മുൻകൂട്ടി മുറികൾ ബുക്ക് ചെയ്യാൻ സാധിക്കും.",
+        "തുടർച്ചയായി പരമാവധി 3 ദിവസത്തേക്ക് വരെയാണ് സാധാരണയായി മുറികൾ അനുവദിക്കുന്നത്.",
+        "ചെക്ക്-ഇൻ സമയത്ത് ഒറിജിനൽ തിരിച്ചറിയൽ രേഖ റെസ്റ്റ് ഹൗസ് കൗണ്ടറിൽ നേരിട്ട് ഹാജരാക്കേണ്ടതാണ്."
+      ]
     }
+  }
+
   ];
 
   if (window.SevaRegistry && typeof window.SevaRegistry.register === "function") {
