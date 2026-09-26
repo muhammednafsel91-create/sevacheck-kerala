@@ -576,7 +576,7 @@
         en: "Valid for the applied course level / stage; renewable for subsequent levels upon passing and submitting fresh verification.",
         ml: "അപേക്ഷിച്ച നിശ്ചിത കോഴ്സ് ലെവലിലേക്ക് സാധുതയുള്ളത്; അടുത്ത ലെവലിലേക്ക് വിജയിക്കുന്ന മുറയ്ക്ക് പുതുക്കാവുന്നതാണ്."
       },
-      officialUrl: "https://www.egrantz.kerala.gov.in/",
+      officialUrl: "https://egrantz.kerala.gov.in/",
       importantNotes: {
         en: [
           "Annual family income ceiling is strictly ₹4,50,000.",
