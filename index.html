@@ -6,8 +6,6 @@
   <title>SevaCheck Kerala — Know What You Need Before You Apply</title>
   <meta name="description" content="Independent information and document checklist platform for Kerala Government services.">
   <link rel="stylesheet" href="style.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5078798568817261"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -70,25 +68,32 @@
         </div>
       </section>
 
-      <!-- Category Filter Section -->
-      <section class="smart-helper">
+      <!-- Category Filter Section (Rounded Container Panel with Horizontal Scrolling Chips) -->
+      <section class="category-section">
         <h3 id="categorySectionHeading" data-i18n="categorySectionHeading">Not sure what service you need?</h3>
-        <div class="smart-helper-buttons" id="categoryChips">
-          <button class="helper-chip active" id="cat-all" data-category="all" onclick="filterCategory('all', this)" data-i18n="catAll">All</button>
-          <button class="helper-chip" id="cat-documents" data-category="documents" onclick="filterCategory('documents', this)" data-i18n="catDocuments">📄 Documents &amp; Certificates</button>
-          <button class="helper-chip" id="cat-id" data-category="id" onclick="filterCategory('id', this)" data-i18n="catId">🪪 ID &amp; Personal</button>
-          <button class="helper-chip" id="cat-government" data-category="government" onclick="filterCategory('government', this)" data-i18n="catGovernment">🏛️ Government &amp; Local</button>
-          <button class="helper-chip" id="cat-education" data-category="education" onclick="filterCategory('education', this)" data-i18n="catEducation">🎓 Education</button>
-          <button class="helper-chip" id="cat-travel" data-category="travel" onclick="filterCategory('travel', this)" data-i18n="catTravel">🚗 Travel &amp; Transport</button>
-          <button class="helper-chip" id="cat-police" data-category="police" onclick="filterCategory('police', this)" data-i18n="catPolice">🛡️ Police &amp; Public Safety</button>
+        <div class="helper-chips-container">
+          <div class="helper-chips-scroll" id="categoryChips">
+            <button class="helper-chip active" id="cat-all" data-category="all" onclick="filterCategory('all', this)" data-i18n="catAll">All</button>
+            <button class="helper-chip" id="cat-documents" data-category="documents" onclick="filterCategory('documents', this)" data-i18n="catDocuments">📄 Documents &amp; Certificates</button>
+            <button class="helper-chip" id="cat-id" data-category="id" onclick="filterCategory('id', this)" data-i18n="catId">🪪 ID &amp; Personal</button>
+            <button class="helper-chip" id="cat-government" data-category="government" onclick="filterCategory('government', this)" data-i18n="catGovernment">🏛️ Government &amp; Local</button>
+            <button class="helper-chip" id="cat-education" data-category="education" onclick="filterCategory('education', this)" data-i18n="catEducation">🎓 Education</button>
+            <button class="helper-chip" id="cat-travel" data-category="travel" onclick="filterCategory('travel', this)" data-i18n="catTravel">🚗 Travel &amp; Transport</button>
+            <button class="helper-chip" id="cat-police" data-category="police" onclick="filterCategory('police', this)" data-i18n="catPolice">🛡️ Police &amp; Public Safety</button>
+            <button class="helper-chip" id="cat-employment" data-category="employment" onclick="filterCategory('employment', this)" data-i18n="catEmployment">💼 Employment &amp; Welfare</button>
+            <button class="helper-chip" id="cat-norka" data-category="norka" onclick="filterCategory('norka', this)" data-i18n="catNorka">✈️ NORKA / Pravasi</button>
+            <button class="helper-chip" id="cat-other" data-category="other" onclick="filterCategory('other', this)" data-i18n="catOther">📦 Other Services</button>
+          </div>
         </div>
       </section>
 
-      <!-- Popular Services Grid -->
-      <div class="section-title">
-        <span id="sectionHeading" data-i18n="popularServicesHeading">Popular Services</span>
-        <span class="count" id="servicesCount">Showing 50 services</span>
+      <!-- Services Grid Section Header -->
+      <div class="results-header" style="margin: 1.5rem 0 1rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <span class="count" id="servicesCount">Showing services</span>
       </div>
+
+      <!-- Subcategory Navigation Container (For Other Services) -->
+      <div id="subcategoryContainer" class="subcategory-wrapper" style="display: none;"></div>
 
       <div class="service-grid" id="serviceGrid">
         <!-- Cards injected via JavaScript -->
@@ -220,14 +225,21 @@
     <p id="footerSub" style="margin-top: 0.3rem;">Designed for Kerala citizens. All brand names, department names, and portals belong to their respective authorities.</p>
   </footer>
 
-  <!-- Scripts: Modular service data files must load in order before script.js -->
+  <!-- Scripts: Central Data Architecture -->
   <script src="data/registry.js"></script>
+
+  <!-- Category Data Modules (Services #1 to #150) -->
   <script src="data/cat-documents.js"></script>
   <script src="data/cat-id.js"></script>
   <script src="data/cat-government.js"></script>
   <script src="data/cat-education.js"></script>
   <script src="data/cat-travel.js"></script>
   <script src="data/cat-police.js"></script>
+  <script src="data/cat-employment.js"></script>
+  <script src="data/cat-norka.js"></script>
+  <script src="data/cat-other.js"></script>
+
+  <!-- Main Application Engine -->
   <script src="script.js"></script>
 </body>
 </html>
