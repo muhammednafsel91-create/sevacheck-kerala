@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SevaCheck Kerala — Redirecting...</title>
+  <script>
+    // Capture the current path and redirect to index.html with path preserved via sessionStorage
+    (function () {
+      const path = window.location.pathname;
+      sessionStorage.setItem("seva_redirect_path", path);
+      window.location.replace("/");
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    <p>Please enable JavaScript to view SevaCheck Kerala service details.</p>
+  </noscript>
+</body>
+</html>
