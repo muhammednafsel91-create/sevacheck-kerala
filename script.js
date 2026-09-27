@@ -240,13 +240,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial Language Render
   updateLanguageUI();
   renderServices();
+
+  // Handle Clean URL Routing on Startup (Direct URL or 404.html Redirect via sessionStorage)
+  handleInitialRouting();
+
+  // Handle Browser Back / Forward (popstate)
+  window.addEventListener("popstate", function () {
+    handleUrlRouting(window.location.pathname, false);
+  });
 });
 
 // ==========================================
 // NAVIGATION & VIEWS
 // ==========================================
 
-function navigateTo(viewName) {
+function navigateTo(viewName, updateHistory = true) {
   currentView = viewName;
   const views = ["home", "detail", "how", "about"];
   views.forEach((v) => {
@@ -268,16 +276,67 @@ function navigateTo(viewName) {
     } else if (navHome) {
       navHome.classList.add("active");
     }
+    if (updateHistory) {
+      history.pushState(null, "", "/");
+    }
   } else {
     const target = document.getElementById(`view-${viewName}`);
     if (target) target.style.display = "block";
+    if (updateHistory) {
+      history.pushState(null, "", `/${viewName}`);
+    }
   }
 
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function backToHome() {
-  navigateTo("home");
+  navigateTo("home", true);
+}
+
+// ==========================================
+// CLEAN URL ROUTING & HISTORY MANAGEMENT
+// ==========================================
+
+function handleInitialRouting() {
+  // 1. Check sessionStorage for redirected path from 404.html
+  let targetPath = sessionStorage.getItem("seva_redirect_path");
+  if (targetPath) {
+    sessionStorage.removeItem("seva_redirect_path");
+  } else {
+    // 2. Otherwise use current pathname directly
+    targetPath = window.location.pathname;
+  }
+
+  handleUrlRouting(targetPath, false);
+}
+
+function handleUrlRouting(pathname, pushHistory = false) {
+  // Check if pathname matches /services/{service-id}
+  const match = pathname.match(/^\/services\/([a-zA-Z0-9-_]+)\/?$/);
+  
+  if (match) {
+    const serviceId = match[1];
+    const service = allServices.find((s) => s.id === serviceId);
+    if (service) {
+      showServiceDetail(serviceId, pushHistory);
+      return;
+    } else {
+      // Invalid/non-existent service ID safely returns to home view
+      navigateTo("home", pushHistory);
+      return;
+    }
+  }
+
+  // Check for other static views like /how or /about
+  if (pathname === "/how" || pathname === "/how-it-works") {
+    navigateTo("how", pushHistory);
+  } else if (pathname === "/about") {
+    navigateTo("about", pushHistory);
+  } else {
+    // Default to home view
+    navigateTo("home", pushHistory);
+  }
 }
 
 // ==========================================
@@ -320,7 +379,7 @@ function setLanguage(lang) {
   updateLanguageUI();
 
   if (currentView === "detail" && activeService) {
-    showServiceDetail(activeService.id);
+    showServiceDetail(activeService.id, false);
   } else {
     if (currentCategory === "other" && currentSubcategory === null && !currentSearchQuery) {
       renderSubcategories();
@@ -552,7 +611,7 @@ function updateServiceCount(count) {
 // SERVICE DETAIL VIEW
 // ==========================================
 
-function showServiceDetail(serviceId) {
+function showServiceDetail(serviceId, updateHistory = true) {
   const service = allServices.find((s) => s.id === serviceId);
   if (!service) return;
 
@@ -565,6 +624,11 @@ function showServiceDetail(serviceId) {
   });
   const detailView = document.getElementById("view-detail");
   if (detailView) detailView.style.display = "block";
+
+  // Update browser URL to /services/{service-id}
+  if (updateHistory) {
+    history.pushState(null, "", `/services/${serviceId}`);
+  }
 
   const t = translations[currentLang];
 
