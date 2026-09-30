@@ -2770,7 +2770,2717 @@
         "പെർമിറ്റ് നമ്പറില്ലാതെ അനധികൃതമായി സ്ഥാപിക്കുന്ന ബോർഡുകൾ തദ്ദേശസ്ഥാപനങ്ങൾ നീക്കം ചെയ്യുകയും പിഴ ചുമത്തുകയും ചെയ്യും."
       ]
     }
-  }
+  },  
+    // ================================================================
+    // SERVICE: Building Permit (KPBR / KMBR)
+    // ================================================================
+    {
+      id: "building-permit",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "building-construction",
+      icon: "🏗️",
+      name: {
+        en: "Building Permit (KPBR / KMBR)",
+        ml: "കെട്ടിട നിർമ്മാണ പെർമിറ്റ്"
+      },
+      summary: {
+        en: "Statutory municipal permit authorizing construction, reconstruction, or structural alteration of residential or commercial buildings.",
+        ml: "തദ്ദേശ സ്ഥാപന പരിധിയിൽ നിയമാനുസൃതമായി കെട്ടിടം നിർമ്മിക്കുന്നതിനോ പുനർനിർമ്മിക്കുന്നതിനോ ഉള്ള അനുമതി."
+      },
+      whoNeeds: {
+        en: "Property owners proposing to construct, reconstruct, or physically alter a building within a Grama Panchayat, Municipality, or Corporation.",
+        ml: "പഞ്ചായത്ത്, മുനിസിപ്പാലിറ്റി, കോർപ്പറേഷൻ പരിധികളിൽ പുതിയ വീടോ വാണിജ്യ കെട്ടിടമോ നിർമ്മിക്കാൻ ആഗ്രഹിക്കുന്ന വസ്തു ഉടമകൾ."
+      },
+      eligibility: {
+        en: [
+          "Applicant must hold lawful ownership/possession of the land parcel",
+          "Proposed construction must comply with Kerala Panchayat Building Rules (KPBR) or Kerala Municipality Building Rules (KMBR)"
+        ],
+        ml: [
+          "അപേക്ഷകന് ഭൂമിയുടെ നിയമാനുസൃത ഉടമസ്ഥാവകാശമോ കൈവശാവകാശമോ ഉണ്ടായിരിക്കണം",
+          "നിർദ്ദിഷ്ട നിർമ്മാണം കേരള പഞ്ചായത്ത്/മുനിസിപ്പാലിറ്റി കെട്ടിട നിർമ്മാണ ചട്ടങ്ങൾ (KPBR/KMBR) പാലിക്കുന്നതായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Registered Title Deed (Aadhaaram) of property",
+          "Current financial year Land Tax (Karam) Receipt",
+          "Location Sketch and Possession Certificate from Village Officer",
+          "Building drawings (site plan, service plan, floor plans) prepared and digitally endorsed by an LSGD Empanelled Architect or Licensed Engineer",
+          "Applicant photo identity proof"
+        ],
+        ml: [
+          "വസ്തുവിന്റെ രജിസ്റ്റർ ചെയ്ത ആധാരം",
+          "നടപ്പു സാമ്പത്തിക വർഷത്തെ ഭൂനികുതി രസീത്",
+          "വില്ലേജ് ഓഫീസിൽ നിന്നുള്ള ലൊക്കേഷൻ സ്കെച്ചും കൈവശാവകാശ സർട്ടിഫിക്കറ്റും",
+          "അംഗീകൃത എൻജിനീയറോ ആർക്കിടെക്റ്റോ തയ്യാറാക്കി ഒപ്പിട്ട കെട്ടിട പ്ലാൻ, സൈറ്റ് പ്ലാൻ",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      additionalDocs: {
+        en: [
+          "NOC from Fire & Rescue Services, PCB, or Coastal Zone Management Authority (if plinth area or height exceeds statutory thresholds)"
+        ],
+        ml: [
+          "നിർദ്ദിഷ്ട ഉയരമോ വിസ്തൃതിയോ ഉള്ള കെട്ടിടങ്ങൾക്ക് ഫയർ ഫോഴ്സ്, മലിനീകരണ നിയന്ത്രണ ബോർഡ്, തീരദേശ പരിപാലന അതോറിറ്റി എന്നിവയുടെ NOC"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Portal (ksmart.lsgkerala.gov.in) across Urban Local Bodies and integrated Grama Panchayats.",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ (ksmart.lsgkerala.gov.in) വഴി ഓൺലൈനായി."
+      },
+      mode: {
+        en: "Online (K-SMART)",
+        ml: "ഓൺലൈൻ (കെ-സ്മാർട്ട്)"
+      },
+      steps: {
+        en: [
+          "Log in to the K-SMART portal using citizen credentials.",
+          "Select 'Building Permit' module and link the empanelled licensee (architect/engineer) drafting the plans.",
+          "Upload title deeds, tax receipts, village sketch, and digital CAD building drawings.",
+          "Pay the statutory scrutiny fee and submit application for automated building rule scrutiny.",
+          "Town Planning / Engineering wing conducts site verification and Secretary issues digital Building Permit."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് പോർട്ടലിൽ ലോഗിൻ ചെയ്യുക.",
+          "ബിൽഡിംഗ് പെർമിറ്റ് വിഭാഗം തിരഞ്ഞെടുത്ത് പ്ലാൻ തയ്യാറാക്കിയ ലൈസൻസിയെ ബന്ധിപ്പിക്കുക.",
+          "ആധാരം, നികുതി രസീത്, സ്കെച്ച്, ഡിജിറ്റൽ ഡ്രോയിംഗുകൾ എന്നിവ അപ്‌ലോഡ് ചെയ്യുക.",
+          "സ്ക്രൂട്ടിനി ഫീസ് അടച്ച് അപേക്ഷ സമർപ്പിക്കുക.",
+          "എൻജിനീയറിംഗ് പരിശോധനകൾക്ക് ശേഷം തദ്ദേശ സെക്രട്ടറി ഡിജിറ്റൽ ബിൽഡിംഗ് പെർമിറ്റ് അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/citizen-dashboard",
+      notes: {
+        en: "Low-risk residential constructions (up to 300 sq. m plinth area) qualify for automated self-certification permits under K-SMART rules.",
+        ml: "300 ചതുരശ്ര മീറ്റർ വരെയുള്ള ചെറുകിട പാർപ്പിടങ്ങൾക്ക് കെ-സ്മാർട്ട് വഴി സ്വയം സാക്ഷ്യപ്പെടുത്തിയ ഇൻസ്റ്റന്റ് പെർമിറ്റ് ലഭ്യമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Permission for Road Cutting (Grama Panchayat)
+    // ================================================================
+    {
+      id: "panchayat-road-cutting-permit",
+      category: "government",
+      icon: "🚧",
+      name: {
+        en: "Permission for Road Cutting (Grama Panchayat)",
+        ml: "പഞ്ചായത്ത് റോഡ് കട്ടിംഗ് പെർമിറ്റ്"
+      },
+      summary: {
+        en: "Statutory permission from Grama Panchayat to trench or cut public roads for laying drinking water pipes, electricity cables, or drainage.",
+        ml: "കുടിവെള്ള പൈപ്പുകളോ ഇലക്ട്രിക് കേബിളുകളോ ഇടുന്നതിനായി ഗ്രാമപഞ്ചായത്ത് റോഡ് വെട്ടിപ്പൊളിക്കുന്നതിനുള്ള അനുമതി."
+      },
+      whoNeeds: {
+        en: "Citizens or utility agencies needing to trench across or along public roads maintained by a Grama Panchayat.",
+        ml: "പഞ്ചായത്ത് റോഡ് വഴി കുടിവെള്ള കണക്ഷനോ വൈദ്യുതി കേബിളോ എടുക്കാൻ ആഗ്രഹിക്കുന്ന ഗുണഭോക്താക്കൾ."
+      },
+      eligibility: {
+        en: [
+          "Hold valid utility sanction order (KWA water line or KSEB power cable installation)",
+          "Must agree to deposit road restoration costs determined under government schedule of rates"
+        ],
+        ml: [
+          "വാട്ടർ അതോറിറ്റിയുടെയോ കെ.എസ്.ഇ.ബിയുടെയോ കണക്ഷൻ അനുമതി പത്രം ഉണ്ടായിരിക്കണം",
+          "സർക്കാർ നിരക്കനുസരിച്ചുള്ള റോഡ് പുനർനിർമ്മാണ തുക കെട്ടിവെക്കാൻ സമ്മതിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Sanction letter / feasibility order from KWA or KSEB",
+          "Route sketch showing length, width, and road surface type (tarred, concrete, or earthen)",
+          "Property tax receipt or land ownership proof of the connecting premises",
+          "Photo identity proof of applicant"
+        ],
+        ml: [
+          "വാട്ടർ അതോറിറ്റി അല്ലെങ്കിൽ കെ.എസ്.ഇ.ബി കണക്ഷൻ അനുമതി രേഖ",
+          "റോഡ് വെട്ടിപ്പൊളിക്കേണ്ട നീളവും വീതിയും ഉപരിതലവും വ്യക്തമാക്കുന്ന റൂട്ട് സ്കെച്ച്",
+          "വസ്തു നികുതി രസീത് അല്ലെങ്കിൽ ഉടമസ്ഥാവകാശ രേഖ",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Portal (ksmart.lsgkerala.gov.in) or offline at the Grama Panchayat Front Office Counter.",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ വഴിയോ ഗ്രാമപഞ്ചായത്ത് ഫ്രണ്ട് ഓഫീസ് കൗണ്ടർ വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application via K-SMART or at Panchayat front desk along with alignment sketch.",
+          "Assistant Engineer (LSGD Engineering Wing) conducts site inspection and calculates road restoration charges.",
+          "Applicant remits the calculated restoration fee into the Panchayat treasury/account.",
+          "Panchayat Secretary issues formal road cutting sanction order with mandatory execution timelines."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് വഴിയോ പഞ്ചായത്ത് ഓഫീസിലോ സ്കെച്ച് സഹിതം അപേക്ഷ നൽകുക.",
+          "അസിസ്റ്റന്റ് എൻജിനീയർ സ്ഥലം പരിശോധിച്ച് പുനർനിർമ്മാണ ചാർജ്ജ് തിട്ടപ്പെടുത്തുന്നു.",
+          "നിശ്ചയിച്ച തുക പഞ്ചായത്തിൽ അടയ്ക്കുക.",
+          "സെക്രട്ടറി റോഡ് കട്ടിംഗ് അനുമതി ഉത്തരവ് നൽകുന്നു."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/citizen-dashboard",
+      notes: {
+        en: "Road trenching is strictly prohibited during monsoon periods except for emergency public utility repairs.",
+        ml: "മഴക്കാലത്ത് പൊതു റോഡുകൾ വെട്ടിപ്പൊളിക്കാൻ സാധാരണയായി അനുമതി നൽകാറില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Permission for Road Cutting (Municipalities / Corporations)
+    // ================================================================
+    {
+      id: "municipality-corporation-road-cutting-permit",
+      category: "government",
+      icon: "🚧",
+      name: {
+        en: "Permission for Road Cutting (Municipalities / Corporations)",
+        ml: "മുനിസിപ്പാലിറ്റി / കോർപ്പറേഷൻ റോഡ് കട്ടിംഗ് പെർമിറ്റ്"
+      },
+      summary: {
+        en: "Formal municipal permit authorizing the trenching of urban roads, footpaths, or paved surfaces for utility installations.",
+        ml: "നഗരസഭാ പരിധിയിലെ റോഡുകൾ വെട്ടിപ്പൊളിച്ച് യൂട്ടിലിറ്റി ലൈനുകൾ സ്ഥാപിക്കുന്നതിനുള്ള നഗരസഭാ അനുമതി."
+      },
+      whoNeeds: {
+        en: "Property owners or contracting agencies in urban local bodies trenching municipal roads for pipe or cable lines.",
+        ml: "മുനിസിപ്പാലിറ്റി അല്ലെങ്കിൽ കോർപ്പറേഷൻ പരിധിയിൽ കുടിവെള്ള, വൈദ്യുതി പൈപ്പുകൾ ഇടാൻ റോഡ് വെട്ടേണ്ടി വരുന്നവർ."
+      },
+      eligibility: {
+        en: [
+          "Premises located within an urban local body (Municipality or Corporation)",
+          "Must have verified utility feasibility and agree to deposit municipal road restoration guarantees"
+        ],
+        ml: [
+          "നഗരസഭാ പരിധിയിൽ ഉൾപ്പെടുന്ന സ്ഥലമായിരിക്കണം",
+          "സർക്കാർ യൂട്ടിലിറ്റി അനുമതിയും റോഡ് പുനർനിർമ്മാണ ഫീസും നൽകാൻ ബാധ്യസ്ഥരായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "KWA or KSEB utility connection sanction memo",
+          "Site alignment drawing with dimensions of trench and surface details (bitumen, interlock, concrete)",
+          "Building tax receipt / assessment door number confirmation",
+          "Applicant photo identity proof"
+        ],
+        ml: [
+          "വാട്ടർ അതോറിറ്റി അല്ലെങ്കിൽ കെ.എസ്.ഇ.ബി കണക്ഷൻ അനുമതി പത്രം",
+          "വെട്ടിപ്പൊളിക്കുന്ന സ്ഥലത്തിന്റെ അളവുകളും ഉപരിതലവും വ്യക്തമാക്കുന്ന സ്കെച്ച്",
+          "കെട്ടിട നികുതി രസീത് / ഡോർ നമ്പർ വിവരങ്ങൾ",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Citizen Portal (ksmart.lsgkerala.gov.in).",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ (ksmart.lsgkerala.gov.in) വഴി ഓൺലൈനായി."
+      },
+      mode: {
+        en: "Online (K-SMART)",
+        ml: "ഓൺലൈൻ (കെ-സ്മാർട്ട്)"
+      },
+      steps: {
+        en: [
+          "Log in to K-SMART and submit request under 'Road Cutting Permission'.",
+          "Upload utility sanction letter, alignment sketch, and property tax details.",
+          "Municipal engineering wing inspects urban road stretch and issues restoration fee demand.",
+          "Pay the prescribed charges online to receive the digitally signed road cutting clearance."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് പോർട്ടലിൽ 'Road Cutting Permission' തിരഞ്ഞെടുക്കുക.",
+          "കണക്ഷൻ രേഖകളും സ്കെച്ചും സമർപ്പിക്കുക.",
+          "എൻജിനീയറിംഗ് പരിശോധനയ്ക്ക് ശേഷം വരുന്ന ഫീസ് ഓൺലൈനായി അടയ്ക്കുക.",
+          "ഡിജിറ്റൽ അനുമതി പത്രം ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/citizen-dashboard",
+      notes: {
+        en: "Mandatory traffic safety signage and warning barriers must be deployed during urban road trenching.",
+        ml: "നഗര റോഡുകളിൽ ജോലി ചെയ്യുമ്പോൾ ഗതാഗത സുരക്ഷാ ബോർഡുകളും ബാരിക്കേഡുകളും നിർബന്ധമായും സ്ഥാപിക്കണം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Property Tax / Building Tax E-Payment
+    // ================================================================
+    {
+      id: "building-property-tax-e-payment",
+      category: "government",
+      icon: "💳",
+      name: {
+        en: "Property Tax / Building Tax E-Payment",
+        ml: "കെട്ടിട നികുതി ഇ-പേമെന്റ്"
+      },
+      summary: {
+        en: "Online citizen service to pay half-yearly and annual building/property tax to local self-governments and download official receipts.",
+        ml: "പഞ്ചായത്ത്, മുനിസിപ്പാലിറ്റി, കോർപ്പറേഷൻ എന്നിവയിലേക്കുള്ള കെട്ടിട നികുതി ഓൺലൈനായി അടയ്ക്കാനും രസീത് നേടാനുമുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Owners of assessed residential or commercial buildings located within any local body in Kerala.",
+        ml: "കേരളത്തിലെ തദ്ദേശ സ്ഥാപനങ്ങളിൽ അസസ്സ് ചെയ്ത കെട്ടിടങ്ങളുള്ള എല്ലാ വസ്തു ഉടമകൾക്കും."
+      },
+      eligibility: {
+        en: [
+          "Building must have an assigned municipal or panchayat door number in the tax assessment register"
+        ],
+        ml: [
+          "തദ്ദേശ സ്ഥാപനത്തിലെ നികുതി രജിസ്റ്ററിൽ രജിസ്റ്റർ ചെയ്ത കെട്ടിട നമ്പർ (Door Number) ഉണ്ടായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Local Body Name, Ward Number, and Building Door Number",
+          "Assessment Number or previous property tax receipt details (no document upload required)"
+        ],
+        ml: [
+          "തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര്, വാർഡ് നമ്പർ, ഡോർ നമ്പർ",
+          "അസസ്‌മെന്റ് നമ്പർ അല്ലെങ്കിൽ മുൻ വർഷത്തെ നികുതി രസീത് വിവരങ്ങൾ (രേഖകൾ അപ്‌ലോഡ് ചെയ്യേണ്ടതില്ല)"
+        ]
+      },
+      whereToApply: {
+        en: "K-SMART Quick Pay Portal (ksmart.lsgkerala.gov.in) or Sanchaya Portal (tax.lsgkerala.gov.in/epayment/).",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ അല്ലെങ്കിൽ സഞ്ചയ പോർട്ടൽ വഴി ഓൺലൈനായി അല്ലെങ്കിൽ ഓഫീസ് കൗണ്ടറിൽ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Open K-SMART Quick Pay or Sanchaya e-payment portal.",
+          "Select local body district and type (Panchayat / Municipality / Corporation).",
+          "Enter ward number, door number, and sub-number.",
+          "Verify assessed tax demand, owner name, and pending arrears.",
+          "Complete payment via debit card, credit card, net banking, or UPI, and download verified digital receipt."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് അല്ലെങ്കിൽ സഞ്ചയ പോർട്ടൽ തുറക്കുക.",
+          "ജില്ലയും തദ്ദേശ സ്ഥാപനവും തിരഞ്ഞെടുക്കുക.",
+          "വാർഡ് നമ്പറും ഡോർ നമ്പറും നൽകി സെർച്ച് ചെയ്യുക.",
+          "നികുതി ബാധ്യത പരിശോധിച്ച് UPI / കാർഡ് / നെറ്റ് ബാങ്കിംഗ് വഴി പണം അടയ്ക്കുക.",
+          "ഡിജിറ്റൽ നികുതി രസീത് ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/quick-pay",
+      notes: {
+        en: "Building tax is remitted half-yearly (First Half: April–September; Second Half: October–March). Distinct from state revenue land tax (Karam).",
+        ml: "ഇത് തദ്ദേശ സ്ഥാപനത്തിലേക്കുള്ള കെട്ടിട നികുതിയാണ്; റവന്യൂ വില്ലേജ് ഓഫീസിൽ അടയ്ക്കുന്ന ഭൂനികുതിയിൽ (കരം) നിന്ന് വ്യത്യസ്തമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Extract of Property Tax Assessment Register
+    // ================================================================
+    {
+      id: "assessment-register-extract",
+      category: "government",
+      icon: "📋",
+      name: {
+        en: "Extract of Property Tax Assessment Register",
+        ml: "അസസ്‌‌മെന്റ് രജിസ്റ്റർ പകർപ്പ്"
+      },
+      summary: {
+        en: "Certified extract from the local body tax assessment register confirming building ownership, plinth area, usage, and year of initial assessment.",
+        ml: "കെട്ടിടത്തിന്റെ ഉടമസ്ഥത, വിസ്തീർണ്ണം, പണിത വർഷം (കെട്ടിടത്തിന്റെ വയസ്സ്) എന്നിവ സാക്ഷ്യപ്പെടുത്തി തദ്ദേശ സ്ഥാപനം നൽകുന്ന രേഖ."
+      },
+      whoNeeds: {
+        en: "Building owners or legal successors requiring official proof of building age, plinth area, or municipal valuation for banking, court, or registry purposes.",
+        ml: "കെട്ടിടത്തിന്റെ നിർമ്മാണ വർഷം, വിസ്തീർണ്ണം എന്നിവ ബാങ്ക് ലോൺ, കോടതി, ഇൻഷുറൻസ് ആവശ്യങ്ങൾക്കായി സാക്ഷ്യപ്പെടുത്തേണ്ടവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Applicant must be the registered owner, occupant, or legal successor of the assessed building"
+        ],
+        ml: [
+          "കെട്ടിടത്തിന്റെ രജിസ്റ്റർ ചെയ്ത ഉടമയോ, താമസക്കാരോ, അനന്തരാവകാശികളോ ആയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Building Door Number and Ward Number",
+          "Latest Property Tax Receipt",
+          "Proof of ownership or legal tenancy",
+          "Application stating reason for extraction"
+        ],
+        ml: [
+          "കെട്ടിടത്തിന്റെ ഡോർ നമ്പറും വാർഡ് നമ്പറും",
+          "ഏറ്റവും പുതിയ കെട്ടിട നികുതി രസീത്",
+          "ഉടമസ്ഥാവകാശം തെളിയിക്കുന്ന രേഖ",
+          "ആവശ്യം വ്യക്തമാക്കുന്ന അപേക്ഷ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Portal (ksmart.lsgkerala.gov.in) or in person at the local body office.",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ വഴിയോ തദ്ദേശ സ്വയംഭരണ സ്ഥാപനത്തിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Apply online on K-SMART or submit formal requisition letter to local body Secretary.",
+          "Provide building door number and assessment year details.",
+          "Pay statutory search and copy fee (₹20 to ₹50).",
+          "Revenue wing verifies records against the master assessment register and issues certified extract."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് വഴിയോ തദ്ദേശ സ്ഥാപനത്തിലോ അപേക്ഷ നൽകുക.",
+          "ഡോർ നമ്പർ വിവരങ്ങൾ നൽകുക.",
+          "നിശ്ചിത ഫീസ് അടയ്ക്കുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം സാക്ഷ്യപ്പെടുത്തിയ അസസ്‌മെന്റ് രജിസ്റ്റർ പകർപ്പ് ലഭ്യമാകും."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/citizen-dashboard",
+      notes: {
+        en: "Frequently required by chartered engineers and banks to calculate building depreciation and structural age.",
+        ml: "കെട്ടിടത്തിന്റെ പഴക്കവും തേയ്മാനവും കണക്കാക്കാൻ ബാങ്കുകൾ സാധാരണയായി ആവശ്യപ്പെടുന്ന രേഖയാണിത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Extract of Property Tax Demand Register
+    // ================================================================
+    {
+      id: "demand-register-extract",
+      category: "government",
+      icon: "📑",
+      name: {
+        en: "Extract of Property Tax Demand Register",
+        ml: "ഡിമാൻഡ് രജിസ്റ്റർ പകർപ്പ്"
+      },
+      summary: {
+        en: "Certified statement from local body revenue records showing accrued tax liabilities, historical payments, and outstanding arrears on a building.",
+        ml: "ഒരു കെട്ടിടത്തിന്മേൽ തദ്ദേശ സ്ഥാപനത്തിലേക്ക് അടച്ചതും കുടിശ്ശികയുള്ളതുമായ നികുതി വിവരങ്ങൾ വ്യക്തമാക്കുന്ന ഔദ്യോഗിക പകർപ്പ്."
+      },
+      whoNeeds: {
+        en: "Property buyers conducting legal due diligence or property owners settling municipal revenue disputes.",
+        ml: "വസ്തു വാങ്ങുന്നതിന് മുൻപ് മുൻകാല നികുതി കുടിശ്ശികകൾ ഒന്നുമില്ലെന്ന് ഉറപ്പുവരുത്താൻ ആഗ്രഹിക്കുന്നവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Building owner or prospective buyer with verifiable interest in the immovable property"
+        ],
+        ml: [
+          "കെട്ടിട ഉടമയ്ക്കോ വസ്തു വാങ്ങാൻ താല്പര്യമുള്ള വ്യക്തികൾക്കോ അപേക്ഷിക്കാം"
+        ]
+      },
+      documents: {
+        en: [
+          "Building Door Number and Assessment Number",
+          "Applicant identity proof",
+          "Formal requisition application"
+        ],
+        ml: [
+          "കെട്ടിട നമ്പർ, അസസ്‌മെന്റ് നമ്പർ",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ",
+          "രേഖാമൂലമുള്ള അപേക്ഷ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via K-SMART Portal (ksmart.lsgkerala.gov.in) or local body revenue counter.",
+        ml: "കെ-സ്മാർട്ട് പോർട്ടൽ വഴിയോ തദ്ദേശ സ്ഥാപന റവന്യൂ വിഭാഗത്തിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application online via K-SMART or directly at the municipal revenue desk.",
+          "Enter door number and assessment account particulars.",
+          "Pay statutory certified copy fee.",
+          "Download or collect the official Demand Register ledger extract showing zero arrears or itemized dues."
+        ],
+        ml: [
+          "കെ-സ്മാർട്ട് വഴിയോ നേരിട്ടോ അപേക്ഷ സമർപ്പിക്കുക.",
+          "ഡോർ നമ്പർ വിവരങ്ങൾ നൽകി ഫീസ് അടയ്ക്കുക.",
+          "കുടിശ്ശിക വിവരങ്ങൾ വ്യക്തമാക്കുന്ന ഡിമാൻഡ് രജിസ്റ്റർ പകർപ്പ് കൈപ്പറ്റുക."
+        ]
+      },
+      officialUrl: "https://ksmart.lsgkerala.gov.in/ui/web-portal/citizen-dashboard",
+      notes: {
+        en: "Vital document to confirm that built property is free from local body recovery notices and municipal attachment orders.",
+        ml: "കെട്ടിടത്തിന്മേൽ തദ്ദേശ സ്ഥാപനത്തിന്റെ ജപ്തി നടപടികളോ കുടിശ്ശികകളോ ഇല്ലെന്ന് ഉറപ്പാക്കാൻ ഇത് സഹായിക്കുന്നു."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Application for New Ration Card
+    // ================================================================
+    {
+      id: "new-ration-card",
+      category: "government",
+      icon: "🍚",
+      name: {
+        en: "Application for New Ration Card",
+        ml: "പുതിയ റേഷൻ കാർഡ് അപേക്ഷ"
+      },
+      summary: {
+        en: "Statutory application to enroll an independent family unit into the Public Distribution System (PDS) to obtain subsidized food grains and a legal household card.",
+        ml: "പുതിയൊരു കുടുംബത്തിന് റേഷൻ വിഹിതവും ഔദ്യോഗിക തിരിച്ചറിയൽ രേഖയുമായി റേഷൻ കാർഡ് ലഭ്യമാക്കുന്നതിനുള്ള അപേക്ഷ."
+      },
+      whoNeeds: {
+        en: "Permanent resident households in Kerala residing as a domestic kitchen unit with members not enrolled in any other active ration card in India.",
+        ml: "മറ്റ് റേഷൻ കാർഡുകളിൽ പേരില്ലാത്തതും ഒരു അടുക്കളയായി ജീവിക്കുന്നതുമായ പുതിയ കുടുംബങ്ങൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Applicants must be permanent residents of Kerala",
+          "No member of the household should be enrolled in another active PDS card across India",
+          "Eldest adult female is legally designated as Head of Household (HOH) under NFSA rules"
+        ],
+        ml: [
+          "കേരളത്തിൽ സ്ഥിരതാമസക്കാരായ കുടുംബമായിരിക്കണം",
+          "കുടുംബാംഗങ്ങൾക്ക് ഇന്ത്യയിലെ മറ്റ് റേഷൻ കാർഡുകളിൽ സജീവ അംഗത്വം ഉണ്ടാകരുത്",
+          "ദേശീയ ഭക്ഷ്യഭദ്രതാ നിയമപ്രകാരം കുടുംബത്തിലെ ഏറ്റവും മുതിർന്ന സ്ത്രീയായിരിക്കും കുടുംബനാഥ"
+        ]
+      },
+      documents: {
+        en: [
+          "Identity proof for all family members (Aadhaar Card)",
+          "Proof of residence (Local body residence certificate, registered rent agreement, or electricity bill)",
+          "Surrender / Deletion Certificate from previous ration card or previous state PDS",
+          "Income Certificate from Village Officer (if applying for Priority / AAY category)",
+          "Passport size photograph of the eldest adult female member"
+        ],
+        ml: [
+          "എല്ലാ കുടുംബാംഗങ്ങളുടെയും തിരിച്ചറിയൽ രേഖ (ആധാർ)",
+          "താമസസ്ഥലം തെളിയിക്കുന്ന രേഖ (റസിഡൻസ് സർട്ടിഫിക്കറ്റ്, വാടകക്കരാർ അല്ലെങ്കിൽ കറണ്ട് ബിൽ)",
+          "പഴയ കാർഡിൽ നിന്നുള്ള റിഡക്ഷൻ / സറണ്ടർ സർട്ടിഫിക്കറ്റ്",
+          "വില്ലേജ് ഓഫീസറിൽ നിന്നുള്ള വരുമാന സർട്ടിഫിക്കറ്റ് (മുൻഗണനാ വിഭാഗത്തിന്)",
+          "കുടുംബനാഥയായ മുതിർന്ന സ്ത്രീയുടെ ഫോട്ടോ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via Civil Supplies e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or through Akshaya Centres / Taluk Supply Office (TSO).",
+        ml: "സിവിൽ സപ്ലൈസ് ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ അക്ഷയ കേന്ദ്രം / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal or visit an Akshaya Centre.",
+          "Select 'New Ration Card' application and enter member demographic and Aadhaar details.",
+          "Upload residence proof, surrender certificates, and family photo.",
+          "Rationing Inspector conducts field/database verification against NFSA exclusion criteria.",
+          "Taluk Supply Officer (TSO) approves and assigns Fair Price Shop (ARD); download digital e-Ration card or collect smart card."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിലോ അക്ഷയ കേന്ദ്രത്തിലോ അപേക്ഷ നൽകുക.",
+          "കുടുംബാംഗങ്ങളുടെ വിവരങ്ങളും ആധാർ നമ്പറും രേഖപ്പെടുത്തുക.",
+          "താമസ രേഖകളും പഴയ കാർഡിലെ ഒഴിവാക്കൽ സർട്ടിഫിക്കറ്റും അപ്‌ലോഡ് ചെയ്യുക.",
+          "റേഷനിംഗ് ഇൻസ്പെക്ടറുടെ പരിശോധനയ്ക്ക് ശേഷം താലൂക്ക് സപ്ലൈ ഓഫീസർ (TSO) കാർഡ് അനുവദിക്കുന്നു.",
+          "ഡിജിറ്റൽ ഇ-റേഷൻ കാർഡ് ഓൺലൈനായി ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Card color/category (Antyodaya Anna Yojana Yellow, Priority Pink, Non-Priority Subsidy Blue, Non-Priority White) is strictly determined by statutory state criteria.",
+        ml: "വരുമാനവും ആസ്തിയും മാനദണ്ഡമാക്കി മഞ്ഞ, പിങ്ക്, നീല, വെള്ള എന്നീ വിഭാഗങ്ങളിലാണ് റേഷൻ കാർഡുകൾ അനുവദിക്കുന്നത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Addition of Member in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-add-member",
+      category: "government",
+      icon: "👶",
+      name: {
+        en: "Addition of Member in Ration Card",
+        ml: "റേഷൻ കാർഡിൽ പുതിയ അംഗത്തെ ചേർക്കൽ"
+      },
+      summary: {
+        en: "Service to add a newborn baby, incoming spouse, or dependent to an existing family ration card.",
+        ml: "വിവാഹം വഴിയോ ജനനം വഴിയോ കുടുംബത്തിലേക്ക് പുതിയതായി വന്ന അംഗങ്ങളെ റേഷൻ കാർഡിൽ ചേർക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Cardholders wishing to enroll newly born children or incoming spouses onto their family ration card.",
+        ml: "നവജാത ശിശുക്കളെയോ വിവാഹം കഴിഞ്ഞ് വന്ന പങ്കാളിയെയോ സ്വന്തം റേഷൻ കാർഡിൽ ചേർക്കാൻ ആഗ്രഹിക്കുന്നവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active ration card in Kerala",
+          "Person to be added must have Aadhaar and must not be active on any other ration card"
+        ],
+        ml: [
+          "കേരളത്തിൽ നിലവിലുള്ള സജീവമായ റേഷൻ കാർഡ് ഉണ്ടായിരിക്കണം",
+          "ചേർക്കപ്പെടുന്ന വ്യക്തിക്ക് മറ്റ് റേഷൻ കാർഡുകളിൽ സജീവ അംഗത്വം ഉണ്ടാകരുത്"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "For Child under 5 years: Official Birth Certificate issued by Local Body",
+          "For Adult / Spouse: Reduction / Deletion Certificate from earlier ration card, Marriage Certificate, and Aadhaar Card"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "കുട്ടികൾക്ക് (5 വയസ്സിന് താഴെ): തദ്ദേശ സ്ഥാപനത്തിൽ നിന്നുള്ള ജനന സർട്ടിഫിക്കറ്റ്",
+          "മുതിർന്നവർക്ക് / പങ്കാളിക്ക്: പഴയ കാർഡിൽ നിന്നുള്ള ഒഴിവാക്കൽ സർട്ടിഫിക്കറ്റ് (റിഡക്ഷൻ), വിവാഹ സർട്ടിഫിക്കറ്റ്, ആധാർ കാർഡ്"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or through Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and select 'Addition of Member'.",
+          "Enter Aadhaar and demographic details of the new member.",
+          "Upload birth certificate (for child) or reduction and marriage certificates (for spouse).",
+          "Submit application for TSO electronic scrutiny.",
+          "Download updated e-Ration card showing the added member."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Addition of Member' തിരഞ്ഞെടുക്കുക.",
+          "പുതിയ അംഗത്തിന്റെ ആധാർ, വ്യക്തിഗത വിവരങ്ങൾ നൽകുക.",
+          "ജനന സർട്ടിഫിക്കറ്റോ റിഡക്ഷൻ സർട്ടിഫിക്കറ്റോ അപ്‌ലോഡ് ചെയ്യുക.",
+          "ടി.എസ്.ഒ പരിശോധനയ്ക്ക് ശേഷം പുതിയ അംഗത്തെ ഉൾപ്പെടുത്തിയ കാർഡ് ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Biometric Aadhaar seeding is mandatory for all members aged 5 years and above.",
+        ml: "5 വയസ്സിന് മുകളിലുള്ള എല്ലാ അംഗങ്ങൾക്കും ആധാർ കാർഡ് നിർബന്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Change of Address in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-address-change",
+      category: "government",
+      icon: "🏠",
+      name: {
+        en: "Change of Address in Ration Card",
+        ml: "റേഷൻ കാർഡിലെ മേൽവിലാസം മാറ്റൽ"
+      },
+      summary: {
+        en: "Service to update residential address on a ration card and reallocate the household to the nearest neighborhood ration shop (ARD).",
+        ml: "താമസം മാറുമ്പോൾ റേഷൻ കാർഡിലെ മേൽവിലാസവും റേഷൻ കടയും മാറ്റി ക്രമീകരിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Households relocating within the same taluk who need to map their card to a convenient ration depot.",
+        ml: "താമസസ്ഥലം മാറുമ്പോൾ പുതിയ സ്ഥലത്തെ റേഷൻ കടയിലേക്ക് കാർഡ് മാറ്റാൻ ആഗ്രഹിക്കുന്നവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Hold an active ration card in Kerala with verifiable new address proof"
+        ],
+        ml: [
+          "കേരളത്തിൽ റേഷൻ കാർഡുള്ളവരും പുതിയ താമസസ്ഥലത്തെ വിലാസ രേഖ ഉള്ളവരുമായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "Proof of new residence (Electricity bill, water bill, building tax receipt, or registered rent agreement)",
+          "Photo identity proof of Head of Household"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "പുതിയ താമസസ്ഥലത്തെ മേൽവിലാസ രേഖ (കറണ്ട് ബിൽ, വാട്ടർ ബിൽ, നികുതി രസീത് അല്ലെങ്കിൽ വാടകക്കരാർ)",
+          "കുടുംബനാഥയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and select 'Change of Address'.",
+          "Enter new residential address, local body, ward, and select preferred Fair Price Shop (ARD).",
+          "Upload address proof document.",
+          "Submit application for TSO verification and approval."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Change of Address' തിരഞ്ഞെടുക്കുക.",
+          "പുതിയ വിലാസവും ആവശ്യമുള്ള റേഷൻ കടയും (ARD) രേഖപ്പെടുത്തുക.",
+          "വിലാസ രേഖ അപ്‌ലോഡ് ചെയ്യുക.",
+          "അംഗീകാരം ലഭിച്ച ശേഷം പുതിയ വിലാസം രേഖപ്പെടുത്തിയ കാർഡ് ലഭ്യമാകും."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "If relocating permanently to another taluk, use the Inter-Taluk Transfer service instead.",
+        ml: "മറ്റൊരു താലൂക്കിലേക്കാണ് മാറുന്നതെങ്കിൽ താലൂക്ക് മാറ്റം (Inter-Taluk Transfer) ആണ് തിരഞ്ഞെടുക്കേണ്ടത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Correction of Beneficiary Details in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-name-correction",
+      category: "government",
+      icon: "✏️",
+      name: {
+        en: "Correction of Beneficiary Details in Ration Card",
+        ml: "റേഷൻ കാർഡിലെ വിവരങ്ങൾ തിരുത്തൽ"
+      },
+      summary: {
+        en: "Online service to correct clerical errors, spelling mistakes, initials, dates of birth, or gender in ration card database.",
+        ml: "റേഷൻ കാർഡിൽ വന്ന പേരുദോഷങ്ങൾ, ഇനീഷ്യൽ, ജനനത്തീയതി, ലിംഗം എന്നിവ തിരുത്തുന്നതിനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Cardholders whose members' personal details differ from their official identity records or Aadhaar.",
+        ml: "റേഷൻ കാർഡിലെ പേരിലോ ജനനത്തീയതിയിലോ ആധാറുമായി പൊരുത്തക്കേടുകൾ ഉള്ളവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Cardholder or listed family member with valid supporting legal identity proof"
+        ],
+        ml: [
+          "റേഷൻ കാർഡിൽ പേരുള്ളവരും കൃത്യമായ തിരിച്ചറിയൽ രേഖകൾ കൈവശമുള്ളവരുമായ വ്യക്തികൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "Official document showing correct spelling and demographic details (SSLC Book, Birth Certificate, Voter ID, or Passport)"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "ശരിയായ പേരും വിവരങ്ങളും തെളിയിക്കുന്ന രേഖ (SSLC, ജനന സർട്ടിഫിക്കറ്റ്, വോട്ടർ ഐഡി, പാസ്‌പോർട്ട്)"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and choose 'Correction of Details'.",
+          "Select the specific member and enter corrected name or demographic fields.",
+          "Upload supporting certificate/ID proof.",
+          "Submit request; updated records reflect in PDS database upon TSO approval."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Correction of Details' തിരഞ്ഞെടുക്കുക.",
+          "തിരുത്തേണ്ട അംഗത്തെ തിരഞ്ഞെടുത്ത് ശരിയായ വിവരങ്ങൾ നൽകുക.",
+          "തിരിച്ചറിയൽ രേഖ അപ്‌ലോഡ് ചെയ്യുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം തിരുത്തലുകൾ റേഷൻ കാർഡിൽ പ്രാബല്യത്തിൽ വരും."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Demographic details in PDS must match UIDAI records to ensure hassle-free biometric e-PoS authentication at ration depots.",
+        ml: "റേഷൻ കടകളിൽ ഇ-പോസ് മെഷീൻ വഴി വിരലടയാളം പതിപ്പിച്ച് സാധനങ്ങൾ വാങ്ങാൻ റേഷൻ കാർഡിലെ വിവരങ്ങൾ ആധാറുമായി ഒത്തുപോകണം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Issue of Duplicate Ration Card
+    // ================================================================
+    {
+      id: "ration-card-duplicate",
+      category: "government",
+      icon: "📑",
+      name: {
+        en: "Issue of Duplicate Ration Card",
+        ml: "ഡ്യൂപ്ലിക്കേറ്റ് റേഷൻ കാർഡ് ലഭ്യമാക്കൽ"
+      },
+      summary: {
+        en: "Facility to download an authentic digital e-Ration card or obtain a replacement physical card in case of loss or damage.",
+        ml: "റേഷൻ കാർഡ് നഷ്ടപ്പെടുകയോ കേടുപാടുകൾ സംഭവിക്കുകയോ ചെയ്താൽ ഡ്യൂപ്ലിക്കേറ്റ് കാർഡ് ലഭിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Cardholders whose original ration card is lost, torn, destroyed, or mutilated.",
+        ml: "റേഷൻ കാർഡ് നഷ്ടപ്പെട്ടവർക്കോ പൂർണ്ണമായി നശിച്ചുപോയവർക്കോ."
+      },
+      eligibility: {
+        en: [
+          "Registered Head of Household of an active ration card in Kerala"
+        ],
+        ml: [
+          "കേരളത്തിൽ സജീവമായ റേഷൻ കാർഡുള്ള കുടുംബനാഥയ്ക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Self-declaration affirming loss or physical surrender of mutilated card",
+          "Police GD entry or certificate of loss (if lost or stolen)",
+          "Photo identity proof of Head of Household"
+        ],
+        ml: [
+          "കാർഡ് നഷ്ടപ്പെട്ടെന്ന സ്വയംസാക്ഷ്യപത്രം (കേടായതാണെങ്കിൽ പഴയ കാർഡ്)",
+          "നഷ്ടപ്പെട്ടതാണെങ്കിൽ പോലീസ് നൽകുന്ന റിപ്പോർട്ട്",
+          "കുടുംബനാഥയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Instant PDF e-Card download via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or physical print application via Akshaya / TSO.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴി ഡിജിറ്റൽ കാർഡ് ഡൗൺലോഡ് ചെയ്യാം; ഫിസിക്കൽ കാർഡിനായി അക്ഷയ കേന്ദ്രം വഴിയോ താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ അപേക്ഷിക്കാം."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to e-Citizen portal using registered mobile OTP.",
+          "Select 'Print Ration Card' to immediately download valid digital e-Ration card for free.",
+          "For physical card reissue, select 'Duplicate Card Application', upload affidavit/police report, pay prescribed fee, and collect from TSO."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ ലോഗിൻ ചെയ്യുക.",
+          "'Print Ration Card' വഴി നിയമസാധുതയുള്ള ഡിജിറ്റൽ ഇ-റേഷൻ കാർഡ് സൗജന്യമായി ഡൗൺലോഡ് ചെയ്യാം.",
+          "ഫിസിക്കൽ കാർഡിനായി 'Duplicate Card' വഴി അപേക്ഷ നൽകി ഫീസ് അടയ്ക്കുക."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Downloaded PDF e-Ration cards with QR codes are legally valid across all government departments and banks in Kerala.",
+        ml: "ക്യു.ആർ കോഡുള്ള ഡിജിറ്റൽ ഇ-റേഷൻ കാർഡുകൾ എല്ലാ ഔദ്യോഗിക ആവശ്യങ്ങൾക്കും ഉപയോഗിക്കാവുന്നതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Reduction / Deletion of Member from Ration Card
+    // ================================================================
+    {
+      id: "ration-card-reduction-member",
+      category: "government",
+      icon: "✂️",
+      name: {
+        en: "Reduction / Deletion of Member from Ration Card",
+        ml: "റേഷൻ കാർഡിൽ നിന്ന് പേര് ഒഴിവാക്കൽ"
+      },
+      summary: {
+        en: "Service to remove a member from a ration card due to marriage, separate residence, or death, and issue an official Reduction Certificate.",
+        ml: "വിവാഹം, മരണം, താമസം മാറുന്നത് എന്നിവ കാരണം റേഷൻ കാർഡിൽ നിന്ന് പേര് നീക്കം ചെയ്യാനും റിഡക്ഷൻ സർട്ടിഫിക്കറ്റ് നേടാനുമുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Individuals needing to delete their name from their parents' card to join their spouse's card, or families removing deceased members.",
+        ml: "വിവാഹം കഴിഞ്ഞ് ഭർത്താവിന്റെ കാർഡിൽ പേര് ചേർക്കാൻ സ്വന്തം വീട്ടിലെ കാർഡിൽ നിന്ന് പേര് ഒഴിവാക്കേണ്ടവർക്കും, മരണപ്പെട്ടവരുടെ പേര് മാറ്റേണ്ടവർക്കും."
+      },
+      eligibility: {
+        en: [
+          "Listed member or Head of Household of an active ration card in Kerala"
+        ],
+        ml: [
+          "റേഷൻ കാർഡിലുള്ള അംഗത്തിനോ കുടുംബനാഥയ്ക്കോ അപേക്ഷിക്കാം"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "In case of death: Official Death Certificate issued by Local Body",
+          "In case of marriage / shifting: Marriage Certificate or declaration of shifting",
+          "Identity proof of the member being removed"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "മരണമാണെങ്കിൽ: തദ്ദേശ സ്ഥാപനം നൽകിയ മരണ സർട്ടിഫിക്കറ്റ്",
+          "വിവാഹമാണെങ്കിൽ: വിവാഹ സർട്ടിഫിക്കറ്റ് അല്ലെങ്കിൽ സ്വയംസാക്ഷ്യപത്രം",
+          "ഒഴിവാക്കപ്പെടേണ്ട വ്യക്തിയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to e-Citizen portal and choose 'Deletion of Member'.",
+          "Select the member to be removed and specify reason (death, marriage, separate card).",
+          "Upload death certificate or marriage documents.",
+          "Submit application for TSO approval.",
+          "Download digitally signed Reduction Certificate."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Deletion of Member' തിരഞ്ഞെടുക്കുക.",
+          "ഒഴിവാക്കേണ്ട അംഗത്തെയും കാരണവും തിരഞ്ഞെടുക്കുക.",
+          "മരണ സർട്ടിഫിക്കറ്റോ വിവാഹ സർട്ടിഫിക്കറ്റോ അപ്‌ലോഡ് ചെയ്യുക.",
+          "അംഗീകാരം ലഭിച്ച ശേഷം ഔദ്യോഗിക റിഡക്ഷൻ സർട്ടിഫിക്കറ്റ് ഡൗൺലോഡ് ചെയ്യാം."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "The Reduction Certificate issued from this service is legally mandatory to add that person to another ration card.",
+        ml: "മറ്റൊരു റേഷൻ കാർഡിൽ പേര് ചേർക്കണമെങ്കിൽ ഈ സേവനം വഴി ലഭിക്കുന്ന റിഡക്ഷൻ സർട്ടിഫിക്കറ്റ് നിർബന്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Inter-Taluk Transfer of Ration Card
+    // ================================================================
+    {
+      id: "ration-card-transfer",
+      category: "government",
+      icon: "🚚",
+      name: {
+        en: "Inter-Taluk Transfer of Ration Card",
+        ml: "റേഷൻ കാർഡ് താലൂക്ക് മാറ്റം"
+      },
+      summary: {
+        en: "Service to shift administrative jurisdiction and ration depot mapping of an entire family ration card to a new taluk upon permanent relocation.",
+        ml: "കുടുംബം മുഴുവനായി മറ്റൊരു താലൂക്കിലേക്ക് താമസം മാറുമ്പോൾ റേഷൻ കാർഡ് ആ താലൂക്കിലേക്ക് മാറ്റുന്നതിനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Entire families moving permanently from one taluk supply jurisdiction to another within Kerala.",
+        ml: "കേരളത്തിലെ ഒരു താലൂക്കിൽ നിന്നും മറ്റൊരു താലൂക്കിലേക്ക് സ്ഥിരമായി താമസം മാറുന്ന കുടുംബങ്ങൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active ration card in Kerala with confirmed permanent relocation to another taluk"
+        ],
+        ml: [
+          "കേരളത്തിൽ റേഷൻ കാർഡുള്ളവരും മറ്റൊരു താലൂക്കിലേക്ക് സ്ഥിരതാമസം മാറ്റിയവരുമായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "Proof of residence in the new taluk (Registered rent agreement, electricity bill, or building tax receipt)",
+          "Identity proof of Head of Household"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "പുതിയ താലൂക്കിലെ താമസരേഖ (വാടകക്കരാർ, കറണ്ട് ബിൽ, കെട്ടിട നികുതി രസീത്)",
+          "കുടുംബനാഥയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and select 'Transfer of Ration Card'.",
+          "Select new district, new taluk, and preferred new ration shop (ARD).",
+          "Upload proof of residence in destination taluk.",
+          "Origin TSO clears transfer-out and destination TSO sanctions transfer-in."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Transfer of Ration Card' തിരഞ്ഞെടുക്കുക.",
+          "പുതിയ ജില്ലയും താലൂക്കും ആവശ്യമായ റേഷൻ കടയും നൽകുക.",
+          "പുതിയ വിലാസ രേഖ അപ്‌ലോഡ് ചെയ്യുക.",
+          "താലൂക്ക് സപ്ലൈ ഓഫീസർമാരുടെ അനുമതിക്ക് ശേഷം കാർഡ് പുതിയ താലൂക്കിലേക്ക് മാറും."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Family card category and entitlement ratios remain intact during inter-taluk transfers.",
+        ml: "താലൂക്ക് മാറ്റം വഴി റേഷൻ കാർഡിന്റെ വിഭാഗത്തിനോ ആനുകൂല്യങ്ങൾക്കോ മാറ്റം സംഭവിക്കില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Surrender of Ration Card / Non-Inclusion Certificate
+    // ================================================================
+    {
+      id: "ration-card-surrender",
+      category: "government",
+      icon: "📜",
+      name: {
+        en: "Surrender of Ration Card / Non-Inclusion Certificate",
+        ml: "റേഷൻ കാർഡ് സറണ്ടർ ചെയ്യൽ"
+      },
+      summary: {
+        en: "Official cancellation of an entire family ration card upon permanent out-of-state migration and issuance of a statutory Surrender Certificate.",
+        ml: "കേരളത്തിന് പുറത്തേക്ക് സ്ഥിരമായി പോകുന്നതിനാലോ മറ്റോ റേഷൻ കാർഡ് പൂർണ്ണമായി റദ്ദാക്കാനും സറണ്ടർ സർട്ടിഫിക്കറ്റ് നേടാനുമുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Families moving permanently outside Kerala or abroad who require a formal Surrender Certificate to apply for a PDS card in another state.",
+        ml: "മറ്റ് സംസ്ഥാനങ്ങളിലേക്ക് സ്ഥിരതാമസം മാറുന്നവർക്കും അവിടെ പുതിയ റേഷൻ കാർഡ് എടുക്കാൻ സറണ്ടർ രേഖ ആവശ്യമുള്ളവർക്കും."
+      },
+      eligibility: {
+        en: [
+          "Registered cardholder holding an active Kerala ration card wishing to cancel entire card membership"
+        ],
+        ml: [
+          "കേരളത്തിൽ നിലവിലുള്ള റേഷൻ കാർഡ് പൂർണ്ണമായി റദ്ദാക്കാൻ ആഗ്രഹിക്കുന്ന കാർഡുടമകൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Original physical Ration Card booklet or card",
+          "Proof of relocation outside Kerala / self-declaration statement",
+          "Identity proof of cardholders"
+        ],
+        ml: [
+          "ഒറിജിനൽ റേഷൻ കാർഡ്",
+          "കേരളത്തിന് പുറത്തേക്ക് മാറുന്നതിനുള്ള രേഖകൾ / സ്വയംസാക്ഷ്യപത്രം",
+          "കാർഡുടമകളുടെ തിരിച്ചറിയൽ രേഖകൾ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or directly at the Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ (ecitizen.civilsupplieskerala.gov.in) വഴിയോ താലൂക്ക് സപ്ലൈ ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to e-Citizen portal and select 'Surrender of Ration Card'.",
+          "State reason for surrender (inter-state migration / NRI settlement).",
+          "Upload self-declaration and surrender details.",
+          "TSO cancels card record and generates digitally signed Surrender Certificate."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Surrender of Ration Card' തിരഞ്ഞെടുക്കുക.",
+          "സറണ്ടർ ചെയ്യാനുള്ള കാരണം വ്യക്തമാക്കുക.",
+          "സത്യവാങ്മൂലം സമർപ്പിക്കുക.",
+          "ടി.എസ്.ഒ കാർഡ് റദ്ദാക്കി ഔദ്യോഗിക സറണ്ടർ സർട്ടിഫിക്കറ്റ് നൽകുന്നു."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Mandatory statutory document required by Civil Supplies departments of other Indian states before issuing a new ration card.",
+        ml: "മറ്റ് സംസ്ഥാനങ്ങളിൽ പുതിയ റേഷൻ കാർഡ് ലഭിക്കുന്നതിന് കേരളത്തിൽ നിന്നുള്ള സറണ്ടർ സർട്ടിഫിക്കറ്റ് നിർബന്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Change of Head of Family (Ration Card Ownership)
+    // ================================================================
+    {
+      id: "ration-card-change-head",
+      category: "government",
+      icon: "👑",
+      name: {
+        en: "Change of Head of Family (Ration Card Ownership)",
+        ml: "റേഷൻ കാർഡിലെ കുടുംബനാഥയെ മാറ്റൽ"
+      },
+      summary: {
+        en: "Service to transfer the legal Head of Household designation on a ration card to another eligible adult member upon demise or family consensus.",
+        ml: "കുടുംബനാഥ മരണപ്പെടുകയോ ചുമതല മറ്റൊരാൾക്ക് നൽകുകയോ ചെയ്യുമ്പോൾ റേഷൻ കാർഡിലെ ഉടമസ്ഥാവകാശം മാറ്റുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Families where the existing female head has passed away, reached extreme old age, or where restructuring is required.",
+        ml: "നിലവിലെ കുടുംബനാഥ മരണപ്പെട്ടതിനാലോ മറ്റ് കാരണങ്ങളാലോ കാർഡിലെ മുഖ്യ ചുമതല മറ്റൊരാൾക്ക് നൽകേണ്ട കുടുംബങ്ങൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active ration card in Kerala",
+          "Proposed Head must be the eldest adult female member (18+ years) under NFSA rules, or eldest male member if no adult female resides in the family"
+        ],
+        ml: [
+          "കേരളത്തിൽ സജീവമായ റേഷൻ കാർഡ് ഉണ്ടായിരിക്കണം",
+          "ഭക്ഷ്യഭദ്രതാ നിയമപ്രകാരം കുടുംബത്തിലെ മുതിർന്ന സ്ത്രീയായിരിക്കണം പുതിയ കുടുംബനാഥ (സ്ത്രീകളില്ലെങ്കിൽ മുതിർന്ന പുരുഷൻ)"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "Death Certificate of former Head of Family (if deceased)",
+          "Consent declaration signed by adult members of the household",
+          "Identity proof of the proposed new Head of Household"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "മുൻ കുടുംബനാഥ മരണപ്പെട്ടതാണെങ്കിൽ മരണ സർട്ടിഫിക്കറ്റ്",
+          "കുടുംബാംഗങ്ങളുടെ സമ്മതപത്രം",
+          "പുതിയ കുടുംബനാഥയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to e-Citizen portal and choose 'Change of Head of Family'.",
+          "Select the proposed new Head from among existing adult family members.",
+          "Upload death certificate (if applicable) and family consent form.",
+          "TSO validates criteria and approves the updated Head of Household on the card."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Change of Head of Family' തിരഞ്ഞെടുക്കുക.",
+          "പുതിയ കുടുംബനാഥയെ നിലവിലെ അംഗങ്ങളിൽ നിന്ന് തിരഞ്ഞെടുക്കുക.",
+          "സമ്മതപത്രവും മരണ സർട്ടിഫിക്കറ്റും (ബാധകമെങ്കിൽ) അപ്‌ലോഡ് ചെയ്യുക.",
+          "ടി.എസ്.ഒ പരിശോധനയ്ക്ക് ശേഷം പുതിയ കുടുംബനാഥയുടെ പേര് പ്രാബല്യത്തിൽ വരും."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "The bank account linked for welfare subsidies should also be updated following a change of Head of Family.",
+        ml: "കുടുംബനാഥയെ മാറ്റിക്കഴിഞ്ഞാൽ സബ്‌സിഡികൾ മുടങ്ങാതിരിക്കാൻ ബാങ്ക് അക്കൗണ്ട് വിവരങ്ങളും കൂടെ മാറ്റേണ്ടതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Seeding of Bank Account in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-bank-account-update",
+      category: "government",
+      icon: "🏦",
+      name: {
+        en: "Seeding of Bank Account in Ration Card",
+        ml: "റേഷൻ കാർഡിൽ ബാങ്ക് അക്കൗണ്ട് ചേർക്കൽ"
+      },
+      summary: {
+        en: "Online facility to link or update the active bank account of the Head of Household for receiving Direct Benefit Transfer (DBT) food and cash subsidies.",
+        ml: "സർക്കാർ നൽകുന്ന സബ്‌സിഡികളും ആനുകൂല്യങ്ങളും നേരിട്ട് അക്കൗണ്ടിലേക്ക് ലഭിക്കാൻ റേഷൻ കാർഡുമായി ബാങ്ക് അക്കൗണ്ട് ബന്ധിപ്പിക്കുന്ന സേവനം."
+      },
+      whoNeeds: {
+        en: "Ration cardholders (specifically Priority Pink and AAY Yellow cards) entitled to cash transfers, festival kits allowances, or DBT subsidies.",
+        ml: "റേഷൻ സബ്‌സിഡികളും മറ്റ് സർക്കാർ ആനുകൂല്യങ്ങളും ബാങ്ക് വഴി ലഭിക്കേണ്ട മുൻഗണനാ കാർഡുടമകൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Must hold an active ration card in Kerala",
+          "Bank account must be in the name of the designated Head of Household"
+        ],
+        ml: [
+          "കേരളത്തിൽ സജീവമായ റേഷൻ കാർഡ് ഉണ്ടായിരിക്കണം",
+          "ബാങ്ക് അക്കൗണ്ട് കുടുംബനാഥയുടെ പേരിൽ ആയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Ration Card Number",
+          "Copy of Bank Passbook showing active Account Number and IFSC in the name of Head of Household",
+          "Identity proof of Head of Household"
+        ],
+        ml: [
+          "റേഷൻ കാർഡ് നമ്പർ",
+          "കുടുംബനാഥയുടെ പേരിലുള്ള ബാങ്ക് പാസ്സ്ബുക്ക് പകർപ്പ് (അക്കൗണ്ട് നമ്പർ, IFSC വ്യക്തമായത്)",
+          "തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and navigate to 'Bank Account Details Updation'.",
+          "Enter bank name, branch, core account number, and IFSC code.",
+          "Upload front page of the bank passbook.",
+          "Submit for electronic validation and DBT seeding."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Bank Account Details' വിഭാഗം തിരഞ്ഞെടുക്കുക.",
+          "ബാങ്കിന്റെ പേര്, അക്കൗണ്ട് നമ്പർ, IFSC കോഡ് എന്നിവ നൽകുക.",
+          "ബാങ്ക് പാസ്സ്ബുക്കിന്റെ പകർപ്പ് അപ്‌ലോഡ് ചെയ്യുക.",
+          "വിവരങ്ങൾ സേവ് ചെയ്ത് സമർപ്പിക്കുക."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Ensure the bank account has active NPCI Aadhaar-mapping to avoid failure of electronic DBT credits.",
+        ml: "ബാങ്ക് അക്കൗണ്ട് ആധാറുമായി ബന്ധിപ്പിച്ചിട്ടുണ്ടെന്ന് (NPCI Seeding) ഉറപ്പുവരുത്തുക."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Updation of LPG Connection Details in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-lpg-update",
+      category: "government",
+      icon: "🔥",
+      name: {
+        en: "Updation of LPG Connection Details in Ration Card",
+        ml: "റേഷൻ കാർഡിൽ ഗ്യാസ് വിവരങ്ങൾ രേഖപ്പെടുത്തൽ"
+      },
+      summary: {
+        en: "Statutory declaration and updating of domestic cooking gas (LPG) cylinder connections to calculate PDS kerosene entitlements.",
+        ml: "റേഷൻ വഴിയുള്ള മണ്ണെണ്ണ വിഹിതം നിശ്ചയിക്കുന്നതിനായി വീട്ടിലുള്ള ഗ്യാസ് കണക്ഷൻ വിവരങ്ങൾ റേഷൻ കാർഡിൽ രേഖപ്പെടുത്തുന്ന സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Cardholders who have newly acquired, transferred, or surrendered domestic LPG gas connections (IOCL, BPCL, HPCL).",
+        ml: "പുതിയ ഗ്യാസ് കണക്ഷൻ എടുത്തവരോ, ഉള്ള കണക്ഷൻ ഒഴിവാക്കിയവരോ ആയ റേഷൻ കാർഡുടമകൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active ration card in Kerala with change in domestic cooking gas connection status"
+        ],
+        ml: [
+          "കേരളത്തിൽ റേഷൻ കാർഡുള്ളവരും ഗ്യാസ് കണക്ഷൻ വിവരങ്ങളിൽ മാറ്റം വന്നവരുമായ കുടുംബങ്ങൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Ration Card Number",
+          "Domestic LPG Gas Subscription Voucher (SV) or Consumer Passbook",
+          "Identity proof of connection holder"
+        ],
+        ml: [
+          "റേഷൻ കാർഡ് നമ്പർ",
+          "ഗ്യാസ് ഏജൻസി നൽകിയ സബ്‌സ്‌ക്രിപ്ഷൻ വൗച്ചർ (SV) അല്ലെങ്കിൽ ഗ്യാസ് പാസ്സ്ബുക്ക്",
+          "കണക്ഷൻ ഉടമയുടെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and choose 'LPG Details Updation'.",
+          "Select Oil Marketing Company (IOCL, BPCL, HPCL), enter Gas Consumer Number and agency name.",
+          "Upload copy of subscription voucher or gas passbook.",
+          "Submit for civil supplies record updating."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'LPG Details' തിരഞ്ഞെടുക്കുക.",
+          "ഗ്യാസ് കമ്പനിയുടെ പേരും കൺസ്യൂമർ നമ്പറും ഏജൻസിയുടെ വിവരങ്ങളും നൽകുക.",
+          "ഗ്യാസ് പാസ്സ്ബുക്കിന്റെ പകർപ്പ് അപ്‌ലോഡ് ചെയ്യുക.",
+          "വിവരങ്ങൾ സ്ഥിരീകരിച്ച് സമർപ്പിക്കുക."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Mandatory statutory disclosure; households possessing two or more domestic gas cylinders are not entitled to subsidized non-electric PDS kerosene.",
+        ml: "രണ്ടോ അതിലധികമോ സിലിണ്ടറുകൾ ഉള്ള കുടുംബങ്ങൾക്ക് റേഷൻ വഴിയുള്ള മണ്ണെണ്ണ വിഹിതം അനുവദിക്കാറില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Updation of Occupation and Income in Ration Card
+    // ================================================================
+    {
+      id: "ration-card-profession-income-update",
+      category: "government",
+      icon: "💼",
+      name: {
+        en: "Updation of Occupation and Income in Ration Card",
+        ml: "റേഷൻ കാർഡിലെ തൊഴിൽ/വരുമാനം മാറ്റൽ"
+      },
+      summary: {
+        en: "Service to update occupation, government employment status, and annual family income categories in the public distribution database.",
+        ml: "കുടുംബാംഗങ്ങളുടെ ജോലിയിലോ വാർഷിക വരുമാനത്തിലോ വരുന്ന മാറ്റങ്ങൾ റേഷൻ കാർഡിൽ അപ്‌ഡേറ്റ് ചെയ്യുന്നതിനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Cardholders whose family members have secured government/semi-government employment, retired, or experienced significant shifts in income.",
+        ml: "കുടുംബാംഗങ്ങൾക്ക് സർക്കാർ ജോലി ലഭിക്കുകയോ, വിരമിക്കുകയോ, വരുമാനത്തിൽ മാറ്റം വരികയോ ചെയ്ത കുടുംബങ്ങൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active ration card in Kerala with verifiable employment or income changes"
+        ],
+        ml: [
+          "കേരളത്തിൽ റേഷൻ കാർഡുള്ളവരും തൊഴിൽ/വരുമാന മാറ്റങ്ങൾ തെളിയിക്കാൻ രേഖയുള്ളവരുമായ കുടുംബങ്ങൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing Ration Card",
+          "Salary Certificate / Form 16 / Pension Payment Order / Certificate of non-employment",
+          "Identity proof of member"
+        ],
+        ml: [
+          "നിലവിലെ റേഷൻ കാർഡ്",
+          "ശമ്പള സർട്ടിഫിക്കറ്റ് / പെൻഷൻ രേഖ / വരുമാന സർട്ടിഫിക്കറ്റ്",
+          "അംഗത്തിന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-Citizen Portal (ecitizen.civilsupplieskerala.gov.in) or Akshaya / Taluk Supply Office.",
+        ml: "ഇ-സിറ്റിസൺ പോർട്ടൽ വഴിയോ അക്ഷയ / താലൂക്ക് സപ്ലൈ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to the e-Citizen portal and choose 'Profession & Income Updation'.",
+          "Select the respective member and update profession code and declared income.",
+          "Upload salary slip, pension book, or revenue income proof.",
+          "Submit for TSO evaluation and category validation."
+        ],
+        ml: [
+          "ഇ-സിറ്റിസൺ പോർട്ടലിൽ 'Profession & Income' തിരഞ്ഞെടുക്കുക.",
+          "അംഗത്തെ തിരഞ്ഞെടുത്ത് പുതിയ ജോലിയും വരുമാനവും രേഖപ്പെടുത്തുക.",
+          "ശമ്പള സർട്ടിഫിക്കറ്റോ പെൻഷൻ രേഖയോ അപ്‌ലോഡ് ചെയ്യുക.",
+          "ടി.എസ്.ഒ പരിശോധനയ്ക്കായി സമർപ്പിക്കുക."
+        ]
+      },
+      officialUrl: "https://ecitizen.civilsupplieskerala.gov.in/",
+      notes: {
+        en: "Failure to declare government employment or income exceeding statutory limits may result in penal recovery of subsidized food grain costs.",
+        ml: "സർക്കാർ ജോലി ലഭിച്ച വിവരം യഥാസമയം റേഷൻ കാർഡിൽ രേഖപ്പെടുത്താതിരുന്നാൽ പിഴ നടപടികൾ നേരിടേണ്ടി വന്നേക്കാം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Registration of Title Deeds and Instruments (PEARL)
+    // ================================================================
+    {
+      id: "document-registration",
+      category: "government",
+      icon: "📜",
+      name: {
+        en: "Registration of Title Deeds and Instruments (PEARL)",
+        ml: "ആധാരം രജിസ്ട്രേഷൻ"
+      },
+      summary: {
+        en: "Official pre-registration, e-stamp duty remittance, and appointment token booking system for registering property title deeds at Sub-Registrar Offices.",
+        ml: "വസ്തുക്കളുടെ വിൽപ്പന, ഭാഗം, ദാനം, ബാധ്യത എന്നിവ സംബന്ധിച്ച ആധാരങ്ങൾ സബ് രജിസ്ട്രാർ ഓഫീസുകളിൽ രജിസ്റ്റർ ചെയ്യുന്നതിനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Buyers, sellers, and property owners executing immovable property sale deeds, gift deeds, partition deeds, settlement deeds, or leases.",
+        ml: "വസ്തു ക്രയവിക്രയം ചെയ്യുന്നവർ, കുടുംബസ്വത്ത് ഭാഗം വെയ്ക്കുന്നവർ, ദാനപ്പത്രങ്ങൾ രജിസ്റ്റർ ചെയ്യുന്നവർ."
+      },
+      eligibility: {
+        en: [
+          "Executants and claimants holding clear, marketable title and required land mutation records in Kerala"
+        ],
+        ml: [
+          "കേരളത്തിൽ വസ്തുവകകളുടെ ക്രയവിക്രയങ്ങളിൽ ഏർപ്പെടുന്ന നിയമപരമായ ഉടമകൾക്കും കക്ഷികൾക്കും"
+        ]
+      },
+      documents: {
+        en: [
+          "Original Draft Deed prepared in compliance with statutory formatting rules",
+          "Prior Title Deeds (Munnadhaaram)",
+          "Current financial year Land Tax (Karam) Receipt and Thandaper details",
+          "Encumbrance Certificate (EC) from Sub-Registrar Office",
+          "Identity proof of executants, claimants, and two identifying witnesses",
+          "PAN Card or Form 60/61 (for property transactions exceeding statutory thresholds)"
+        ],
+        ml: [
+          "തയ്യാറാക്കിയ ആധാരത്തിന്റെ കരട് (ഡ്രാഫ്റ്റ്)",
+          "മുന്നാധാരങ്ങളുടെ പകർപ്പുകൾ",
+          "നടപ്പു വർഷത്തെ ഭൂനികുതി രസീതും താണ്ഡപ്പേര് വിവരങ്ങളും",
+          "ബാധ്യതാ സർട്ടിഫിക്കറ്റ് (EC)",
+          "കക്ഷികളുടെയും രണ്ട് സാക്ഷികളുടെയും തിരിച്ചറിയൽ രേഖകൾ",
+          "പാൻ കാർഡ് അല്ലെങ്കിൽ ഫോം 60/61"
+        ]
+      },
+      whereToApply: {
+        en: "PEARL Registration Portal (keralaregistration.gov.in) followed by personal appearance before the jurisdictional Sub-Registrar.",
+        ml: "രജിസ്ട്രേഷൻ വകുപ്പിന്റെ പേൾ പോർട്ടൽ (pearl.keralaregistration.gov.in) വഴി ഓൺലൈനായി ടോക്കൺ എടുത്ത് സബ് രജിസ്ട്രാർ ഓഫീസിൽ ഹാജരാകുക."
+      },
+      mode: {
+        en: "Online Pre-Registration & Physical Verification",
+        ml: "ഓൺലൈൻ പ്രീ-രജിസ്ട്രേഷൻ & നേരിട്ടുള്ള ഹാജരാകൽ"
+      },
+      steps: {
+        en: [
+          "Register and draft document particulars on the PEARL portal.",
+          "Verify Government Fair Value (Nyaayavila) and calculate applicable Stamp Duty and Registration Fee.",
+          "Pay stamp duty via e-Stamp / e-Treasury and select appointment slot at the SRO.",
+          "All parties and identifying witnesses appear before the Sub-Registrar with original documents.",
+          "Sub-Registrar captures biometric thumbprints and photographs, registers the deed, and delivers registered document."
+        ],
+        ml: [
+          "പേൾ (PEARL) പോർട്ടലിൽ പ്രീ-രജിസ്ട്രേഷൻ വിവരങ്ങൾ നൽകുക.",
+          "സർക്കാർ ന്യായവില പരിശോധിച്ച് സ്റ്റാമ്പ് ഡ്യൂട്ടിയും രജിസ്ട്രേഷൻ ഫീസും ഓൺലൈനായി അടയ്ക്കുക.",
+          "സബ് രജിസ്ട്രാർ ഓഫീസിലെ തീയതിയും സമയവും തിരഞ്ഞെടുക്കുക.",
+          "കക്ഷികളും സാക്ഷികളും അസ്സൽ രേഖകളുമായി സബ് രജിസ്ട്രാർ മുൻപാകെ നേരിട്ടെത്തി വിരലടയാളവും ഫോട്ടോയും നൽകുക.",
+          "രജിസ്ട്രേഷൻ പൂർത്തിയായ ആധാരം കൈപ്പറ്റുക."
+        ]
+      },
+      officialUrl: "https://pearl.keralaregistration.gov.in/",
+      notes: {
+        en: "Physical appearance of both executants and claimants along with two witnesses possessing valid photo IDs is legally mandatory under the Registration Act.",
+        ml: "രജിസ്ട്രേഷൻ നിയമപ്രകാരം കക്ഷികളും സാക്ഷികളും തിരിച്ചറിയൽ രേഖകളുമായി സബ് രജിസ്ട്രാർ ഓഫീസിൽ നേരിട്ടെത്തി ഒപ്പിടേണ്ടത് നിർബന്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Scrutiny and Approval of Electrical Installation Schemes
+    // ================================================================
+    {
+      id: "electrical-scheme-approval",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "building-construction",
+      icon: "⚡",
+      name: {
+        en: "Scrutiny and Approval of Electrical Installation Schemes",
+        ml: "ഇലക്ട്രിക്കൽ സ്കീം അംഗീകാരം"
+      },
+      summary: {
+        en: "Statutory engineering safety approval issued by the Electrical Inspectorate for installing high-voltage equipment, transformers, generators, and high-rise electrical networks.",
+        ml: "ട്രാൻസ്ഫോർമറുകൾ, ജനറേറ്ററുകൾ, ഉയർന്ന വോൾട്ടേജ് ഉപകരണങ്ങൾ, ബഹുനില കെട്ടിടങ്ങൾ എന്നിവയിലെ ഇലക്ട്രിക്കൽ സംവിധാനങ്ങൾക്ക് നൽകുന്ന സുരക്ഷാ അനുമതി."
+      },
+      whoNeeds: {
+        en: "Builders of high-rise buildings, commercial establishments, hospitals, and industrial consumers installing substations or DG sets (>10 kVA).",
+        ml: "ഉയർന്ന കെട്ടിടങ്ങൾ നിർമ്മിക്കുന്നവർ, ഫാക്ടറികൾ, ആശുപത്രികൾ, വലിയ വാണിജ്യ സമുച്ചയങ്ങൾ എന്നിവയിലെ സബ്സ്റ്റേഷൻ സ്ഥാപിക്കുന്നവർ."
+      },
+      eligibility: {
+        en: [
+          "Electrical scheme must be designed in compliance with Central Electricity Authority (Safety) Regulations",
+          "Drawings must be prepared by a licensed electrical engineer or certified electrical contractor"
+        ],
+        ml: [
+          "സെൻട്രൽ ഇലക്ട്രിസിറ്റി അതോറിറ്റി സുരക്ഷാ ചട്ടങ്ങൾ പാലിച്ചുള്ള രൂപരേഖയായിരിക്കണം",
+          "അംഗീകൃത ഇലക്ട്രിക്കൽ കോൺട്രാക്ടറോ സൂപ്പർവൈസറോ തയ്യാറാക്കിയ പ്ലാൻ ആയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Single Line Diagram (SLD) and physical equipment layout signed by an authorized Electrical Contractor/Supervisor",
+          "Technical specifications and datasheets of transformers, generators, and switchgears",
+          "Site layout plan and local body building permit copy",
+          "Treasury chalan receipt for statutory scrutiny fee"
+        ],
+        ml: [
+          "ലൈസൻസ്ഡ് കോൺട്രാക്ടർ സാക്ഷ്യപ്പെടുത്തിയ സിംഗിൾ ലൈൻ ഡയഗ്രം (SLD), ലേഔട്ട് പ്ലാൻ",
+          "ട്രാൻസ്ഫോർമർ, ജനറേറ്റർ, പാനൽ ബോർഡ് എന്നിവയുടെ സാങ്കേതിക വിവരങ്ങൾ",
+          "കെട്ടിട പെർമിറ്റ് പകർപ്പ്, സൈറ്റ് പ്ലാൻ",
+          "നിശ്ചിത ഫീസ് അടച്ച ട്രഷറി ചലാൻ രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "Department of Electrical Inspectorate Portal (ceikerala.gov.in) or jurisdictional Electrical Inspector Office.",
+        ml: "ഇലക്ട്രിക്കൽ ഇൻസ്‌പെക്ടറേറ്റ് പോർട്ടൽ (ceikerala.gov.in) അല്ലെങ്കിൽ ജില്ലാ ഇലക്ട്രിക്കൽ ഇൻസ്പെക്ടർ ഓഫീസ്."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application and schematic drawings online or to the Electrical Inspector.",
+          "Technical scrutiny conducted by engineering officers regarding safety clearances and fault levels.",
+          "Defects (if any) are communicated for rectification.",
+          "Electrical Inspector issues formal written Scheme Approval Order with sanctioned conditions."
+        ],
+        ml: [
+          "ഇലക്ട്രിക്കൽ ഇൻസ്പെക്ടർക്ക് പ്ലാനുകളും ഡ്രോയിംഗുകളും സമർപ്പിക്കുക.",
+          "സാങ്കേതിക വിദഗ്ദ്ധർ സുരക്ഷാ മാനദണ്ഡങ്ങൾ പരിശോധിച്ച് പരിശോധന പൂർത്തിയാക്കുന്നു.",
+          "ന്യൂനതകൾ ഉണ്ടെങ്കിൽ പരിഹരിക്കാൻ ആവശ്യപ്പെടുന്നു.",
+          "ചട്ടങ്ങൾ പാലിച്ചതാണെങ്കിൽ ഔദ്യോഗിക സ്കീം അപ്രൂവൽ ഓർഡർ അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "Mandatory prerequisite before purchasing and erecting transformers, HT lines, or industrial captive power generators.",
+        ml: "ട്രാൻസ്ഫോർമറുകളും ജനറേറ്ററുകളും സ്ഥാപിക്കുന്നതിന് മുൻപ് ഈ അനുമതി വാങ്ങിയിരിക്കണം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Issue of Safety Certificate / Energisation Sanction
+    // ================================================================
+    {
+      id: "electrical-energisation-sanction",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "building-construction",
+      icon: "🔌",
+      name: {
+        en: "Issue of Safety Certificate / Energisation Sanction",
+        ml: "ഇലക്ട്രിക്കൽ എനർജൈസേഷൻ അനുമതി"
+      },
+      summary: {
+        en: "Final regulatory safety certificate issued under Regulation 43 of CEA Safety Regulations authorizing KSEB to charge and energize medium/high-voltage electrical installations.",
+        ml: "വൈദ്യുതി ലൈനുകളിൽ നിന്നും ട്രാൻസ്ഫോർമറുകളിൽ നിന്നും വൈദ്യുതി കണക്ഷൻ ചാർജ്ജ് ചെയ്യുന്നതിന് നൽകുന്ന അന്തിമ സുരക്ഷാ സർട്ടിഫിക്കറ്റ്."
+      },
+      whoNeeds: {
+        en: "Industrial, commercial, or high-rise building consumers ready for final electrical power commissioning.",
+        ml: "ഇലക്ട്രിക്കൽ ജോലികൾ പൂർത്തിയാക്കി കറണ്ട് കണക്ഷൻ ഓൺ ചെയ്യാൻ കാത്തിരിക്കുന്ന സ്ഥാപനങ്ങൾക്കും കെട്ടിടങ്ങൾക്കും."
+      },
+      eligibility: {
+        en: [
+          "Must possess prior Electrical Scheme Approval Order",
+          "Installation must be completed strictly by a licensed electrical contractor"
+        ],
+        ml: [
+          "മുൻപ് ലഭിച്ച ഇലക്ട്രിക്കൽ സ്കീം അപ്രൂവൽ ഓർഡർ ഉണ്ടായിരിക്കണം",
+          "അംഗീകൃത കോൺട്രാക്ടർ മുഖേന വയറിംഗ് ജോലികൾ പൂർത്തിയാക്കിയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Copy of Scheme Approval Order",
+          "Completion Certificate and Test Report from the Licensed Electrical Contractor",
+          "Earth resistance test results and insulation resistance test values",
+          "Equipment manufacturer factory test certificates",
+          "Treasury chalan receipt for inspection fee"
+        ],
+        ml: [
+          "സ്കീം അപ്രൂവൽ ഓർഡർ പകർപ്പ്",
+          "ലൈസൻസ്ഡ് കോൺട്രാക്ടറുടെ കംപ്ലീഷൻ സർട്ടിഫിക്കറ്റും ടെസ്റ്റ് റിപ്പോർട്ടും",
+          "എർത്ത് ടെസ്റ്റ്, ഇൻസുലേഷൻ ടെസ്റ്റ് ഫലങ്ങൾ",
+          "ഉപകരണങ്ങളുടെ ടെസ്റ്റ് സർട്ടിഫിക്കറ്റുകൾ",
+          "ട്രഷറി ചലാൻ രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "Department of Electrical Inspectorate Portal (ceikerala.gov.in) / Office of the Deputy Electrical Inspector.",
+        ml: "ഇലക്ട്രിക്കൽ ഇൻസ്‌പെക്ടറേറ്റ് പോർട്ടൽ (ceikerala.gov.in) അല്ലെങ്കിൽ ഡെപ്യൂട്ടി ഇലക്ട്രിക്കൽ ഇൻസ്പെക്ടറുടെ ഓഫീസ്."
+      },
+      mode: {
+        en: "Online Application & Physical Field Inspection",
+        ml: "ഓൺലൈൻ അപേക്ഷ & നേരിട്ടുള്ള പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Submit work completion report and test certificates to the Electrical Inspectorate.",
+          "Deputy Electrical Inspector conducts physical site inspection, tests earth pits, and checks protective relays.",
+          "Upon satisfactory compliance, Safety Certificate / Energisation Sanction is issued.",
+          "KSEB energizes power supply upon receipt of this official order."
+        ],
+        ml: [
+          "ജോലി പൂർത്തിയായ ടെസ്റ്റ് റിപ്പോർട്ട് ഇൻസ്പെക്ടറേറ്റിൽ സമർപ്പിക്കുക.",
+          "ഇലക്ട്രിക്കൽ ഇൻസ്പെക്ടർ നേരിട്ടെത്തി സുരക്ഷാ പരിശോധനകളും എർത്ത് ടെസ്റ്റുകളും നടത്തുന്നു.",
+          "സുരക്ഷ ഉറപ്പാക്കി എനർജൈസേഷൻ അനുമതി പത്രം നൽകുന്നു.",
+          "ഇതിന്റെ അടിസ്ഥാനത്തിൽ കെ.എസ്.ഇ.ബി വൈദ്യുതി കണക്ഷൻ ചാർജ്ജ് ചെയ്യുന്നു."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "KSEB is legally prohibited from charging high-voltage or commercial transformer installations without this statutory safety certificate.",
+        ml: "ഈ സർട്ടിഫിക്കറ്റ് ഇല്ലാതെ വലിയ കണക്ഷനുകൾ ചാർജ്ജ് ചെയ്യാൻ കെ.എസ്.ഇ.ബിക്ക് നിയമപരമായി അനുവാദമില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Grant of Electrical Contractor Licence (Class A, B, C)
+    // ================================================================
+    {
+      id: "electrical-contractor-licence",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "industry-business",
+      icon: "📜",
+      name: {
+        en: "Grant of Electrical Contractor Licence (Class A, B, C)",
+        ml: "ഇലക്ട്രിക്കൽ കോൺട്രാക്ടർ ലൈസൻസ്"
+      },
+      summary: {
+        en: "Official licensing issued by the Kerala State Electricity Licensing Board authorizing contractors to execute commercial, domestic, and industrial electrical wiring contracts.",
+        ml: "കേരളത്തിൽ ഇലക്ട്രിക്കൽ വയറിംഗ്, ഇൻസ്റ്റാളേഷൻ കരാർ ജോലികൾ ഏറ്റെടുത്ത് നടത്തുന്നതിനായി ലൈസൻസിംഗ് ബോർഡ് നൽകുന്ന ലൈസൻസ്."
+      },
+      whoNeeds: {
+        en: "Electrical engineers, electrical contracting firms, and proprietary electrical agencies.",
+        ml: "ഇലക്ട്രിക്കൽ കോൺട്രാക്ട് സ്ഥാപനം തുടങ്ങാൻ ആഗ്രഹിക്കുന്ന വ്യക്തികൾക്കും സ്ഥാപനങ്ങൾക്കും."
+      },
+      eligibility: {
+        en: [
+          "Must employ qualified and licensed Electrical Supervisors and Wiremen",
+          "Must possess mandatory calibrated testing instruments and satisfy financial solvency requirements for Class A, B, or C"
+        ],
+        ml: [
+          "അംഗീകൃത സൂപ്പർവൈസർമാരും വയർമാൻമാരും ജീവനക്കാരായി ഉണ്ടായിരിക്കണം",
+          "നിശ്ചിത ടെസ്റ്റിംഗ് ഉപകരണങ്ങളും സാമ്പത്തിക സോൾവൻസിയും ഉണ്ടായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Appointment and consent letters of employed licensed Supervisors and Wiremen",
+          "Calibration certificates of mandatory testing instruments (Megger, Earth Tester, Tong Tester)",
+          "Solvency Certificate from Revenue Tahsildar or Nationalized Bank Guarantee",
+          "Proof of registered office and workshop premises",
+          "Identity proof and photographs of applicant/partners"
+        ],
+        ml: [
+          "ജീവനക്കാരായ സൂപ്പർവൈസർമാരുടെയും വയർമാൻമാരുടെയും സമ്മതപത്രവും പെർമിറ്റും",
+          "ടെസ്റ്റിംഗ് ഉപകരണങ്ങളുടെ കാലിബ്രേഷൻ സർട്ടിഫിക്കറ്റ്",
+          "തഹസിൽദാറുടെ സോൾവൻസി സർട്ടിഫിക്കറ്റ് അല്ലെങ്കിൽ ബാങ്ക് ഗ്യാരണ്ടി",
+          "ഓഫീസ് വാടകക്കരാർ അല്ലെങ്കിൽ ഉടമസ്ഥാവകാശ രേഖ",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖയും ഫോട്ടോയും"
+        ]
+      },
+      whereToApply: {
+        en: "Kerala State Electricity Licensing Board (KSELB), Department of Electrical Inspectorate (ceikerala.gov.in).",
+        ml: "കേരള സ്റ്റേറ്റ് ഇലക്ട്രിസിറ്റി ലൈസൻസിംഗ് ബോർഡ് (KSELB) / ഇലക്ട്രിക്കൽ ഇൻസ്‌പെക്ടറേറ്റ്."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application form with staff consent and instrument calibration vouchers.",
+          "Licensing Board Committee scrutinizes technical staff qualifications and financial backing.",
+          "Produce testing instruments for physical inspection at the Board office.",
+          "Licensing Board issues Electrical Contractor Licence under Class A (All voltages), Class B (MV/HT), or Class C (Low voltage)."
+        ],
+        ml: [
+          "നിശ്ചിത ഫോറത്തിൽ രേഖകൾ സഹിതം ലൈസൻസിംഗ് ബോർഡിന് അപേക്ഷ നൽകുക.",
+          "ജീവനക്കാരുടെ യോഗ്യതകളും രേഖകളും പരിശോധിക്കുന്നു.",
+          "ഉപകരണങ്ങൾ നേരിട്ട് പരിശോധനയ്ക്കായി ഹാജരാക്കുക.",
+          "പരിശോധനകൾക്ക് ശേഷം ക്ലാസ് A, B, അല്ലെങ്കിൽ C കോൺട്രാക്ടർ ലൈസൻസ് അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "Licences require periodic renewal with updated staff appointment declarations and valid instrument calibration certificates.",
+        ml: "ഉപകരണങ്ങളുടെ കാലിബ്രേഷൻ കൃത്യമായി നിലനിർത്തി നിശ്ചിത കാലയളവിൽ ലൈസൻസ് പുതുക്കേണ്ടതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Grant of Electrical Supervisor Permit
+    // ================================================================
+    {
+      id: "electrical-supervisor-permit",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "industry-business",
+      icon: "🎖️",
+      name: {
+        en: "Grant of Electrical Supervisor Permit",
+        ml: "ഇലക്ട്രിക്കൽ സൂപ്പർവൈസർ പെർമിറ്റ്"
+      },
+      summary: {
+        en: "Professional competency certificate issued by KSELB authorizing qualified personnel to supervise electrical works and sign statutory installation test reports.",
+        ml: "ഇലക്ട്രിക്കൽ ജോലികൾക്ക് മേൽനോട്ടം വഹിക്കുന്നതിനും ടെസ്റ്റ് റിപ്പോർട്ടുകളിൽ ഒപ്പിടുന്നതിനും ലൈസൻസിംഗ് ബോർഡ് നൽകുന്ന പെർമിറ്റ്."
+      },
+      whoNeeds: {
+        en: "Degree or Diploma holders in Electrical Engineering or experienced wiremen seeking statutory supervisory authorization.",
+        ml: "ഇലക്ട്രിക്കൽ എൻജിനീയറിംഗ് ബിരുദധാരികൾ, ഡിപ്ലോമക്കാർ, പ്രവൃത്തിപരിചയമുള്ള വയർമാൻമാർ."
+      },
+      eligibility: {
+        en: [
+          "Degree or Diploma in Electrical Engineering from recognized universities/institutions, OR certified Wiremen with required field experience passing the Supervisor Examination"
+        ],
+        ml: [
+          "അംഗീകൃത ഇലക്ട്രിക്കൽ എൻജിനീയറിംഗ് ബിരുദമോ ഡിപ്ലോമയോ ഉണ്ടായിരിക്കണം, അല്ലെങ്കിൽ സൂപ്പർവൈസർ പരീക്ഷ പാസ്സായ വയർമാൻമാർ ആയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Degree or Diploma Certificate in Electrical Engineering with mark sheets",
+          "Practical electrical field experience certificate",
+          "SSLC Certificate / Age proof",
+          "Medical Fitness Certificate (including vision acuity)",
+          "Passport size photographs",
+          "Treasury chalan receipt"
+        ],
+        ml: [
+          "ഇലക്ട്രിക്കൽ എൻജിനീയറിംഗ് ഡിഗ്രി / ഡിപ്ലോമ സർട്ടിഫിക്കറ്റ്",
+          "പ്രവൃത്തിപരിചയ രേഖകൾ",
+          "SSLC സർട്ടിഫിക്കറ്റ്",
+          "മെഡിക്കൽ ഫിറ്റ്നസ് സർട്ടിഫിക്കറ്റ്",
+          "പാസ്‌പോർട്ട് സൈസ് ഫോട്ടോകൾ",
+          "ട്രഷറി ചലാൻ രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "Kerala State Electricity Licensing Board (ceikerala.gov.in).",
+        ml: "കേരള സ്റ്റേറ്റ് ഇലക്ട്രിസിറ്റി ലൈസൻസിംഗ് ബോർഡ് (KSELB)."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application for direct grant (for engineering degree/diploma holders) or examination admission.",
+          "Attend verification interview or Board practical examination.",
+          "Licensing Board awards Electrical Supervisor Permit (Grade A for HT/EHT or Grade B for Medium/Low Voltage)."
+        ],
+        ml: [
+          "യോഗ്യത തെളിയിക്കുന്ന രേഖകൾ സഹിതം ബോർഡിന് അപേക്ഷ സമർപ്പിക്കുക.",
+          "അഭിമുഖത്തിലോ ബോർഡ് പരീക്ഷയിലോ പങ്കെടുക്കുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം സൂപ്പർവൈസർ പെർമിറ്റ് (ഗ്രേഡ് A അല്ലെങ്കിൽ B) അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "Engineering degree/diploma holders can avail of examination exemption under Board regulations subject to verification.",
+        ml: "എൻജിനീയറിംഗ് ബിരുദമുള്ളവർക്ക് പരീക്ഷയില്ലാതെ തന്നെ ബോർഡ് പരിശോധനയിലൂടെ പെർമിറ്റ് ലഭിക്കുന്നതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Grant of Electrical Wireman Permit
+    // ================================================================
+    {
+      id: "electrical-wireman-permit",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "industry-business",
+      icon: "🛠️",
+      name: {
+        en: "Grant of Electrical Wireman Permit",
+        ml: "ഇലക്ട്രിക്കൽ വയർമാൻ പെർമിറ്റ്"
+      },
+      summary: {
+        en: "Statutory trade competency permit authorizing electricians to legally execute domestic, commercial, and industrial electrical wiring in Kerala.",
+        ml: "കെട്ടിടങ്ങളിൽ നിയമാനുസൃതമായി ഇലക്ട്രിക്കൽ വയറിംഗ് ജോലികൾ ചെയ്യുന്നതിന് ഇലക്ട്രീഷ്യൻമാർക്ക് നൽകുന്ന ഔദ്യോഗിക ലൈസൻസ്."
+      },
+      whoNeeds: {
+        en: "ITI Electricians, electrical apprentices, and practicing wiremen seeking authorized state certification.",
+        ml: "ITI ഇലക്ട്രീഷ്യൻമാർ, വയറിംഗ് തൊഴിലാളികൾ, അപ്രന്റീസ് പരിശീലനം പൂർത്തിയാക്കിയവർ."
+      },
+      eligibility: {
+        en: [
+          "Candidates who have completed ITI/NCVT in Electrician/Wireman trade, OR candidates with prescribed electrical wiring practical experience passing the State Wireman Examination"
+        ],
+        ml: [
+          "ITI ഇലക്ട്രീഷ്യൻ അല്ലെങ്കിൽ വയർമാൻ ട്രേഡ് പാസ്സായവർ, അല്ലെങ്കിൽ സംസ്ഥാന വയർമാൻ പരീക്ഷ പാസ്സായ പ്രവൃത്തിപരിചയമുള്ള തൊഴിലാളികൾ"
+        ]
+      },
+      documents: {
+        en: [
+          "ITI / NCVT Trade Certificate or proof of approved apprenticeship",
+          "SSLC Certificate / proof of date of birth",
+          "Medical Certificate (including vision and colour blindness check)",
+          "Identity proof and passport size photographs",
+          "Treasury chalan receipt"
+        ],
+        ml: [
+          "ITI / NCVT സർട്ടിഫിക്കറ്റ് അല്ലെങ്കിൽ അപ്രന്റീസ്ഷിപ്പ് രേഖ",
+          "SSLC ബുക്ക് (പ്രായം തെളിയിക്കാൻ)",
+          "മെഡിക്കൽ ഫിറ്റ്നസ് സർട്ടിഫിക്കറ്റ് (കാഴ്ച പരിശോധന അടക്കം)",
+          "തിരിച്ചറിയൽ രേഖ, ഫോട്ടോകൾ",
+          "ട്രഷറി ചലാൻ രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "Kerala State Electricity Licensing Board, Department of Electrical Inspectorate (ceikerala.gov.in).",
+        ml: "കേരള സ്റ്റേറ്റ് ഇലക്ട്രിസിറ്റി ലൈസൻസിംഗ് ബോർഡ് (ceikerala.gov.in)."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application for certificate exemption (ITI holders) or wireman examination registration.",
+          "Appear for practical and oral wiring examination if applicable.",
+          "Upon successful scrutiny/results, Licensing Board issues Electrical Wireman Permit."
+        ],
+        ml: [
+          "അപേക്ഷാ ഫോറവും രേഖകളും സമർപ്പിക്കുക.",
+          "പരീക്ഷ ആവശ്യമുള്ളവർ പ്രാക്ടിക്കൽ പരീക്ഷയിൽ പങ്കെടുക്കുക.",
+          "വിജയിക്കുന്നവർക്ക് ഔദ്യോഗിക വയർമാൻ പെർമിറ്റ് അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "Permits require renewal every 5 years; executing wiring works without this permit is a violation of CEA regulations.",
+        ml: "5 വർഷം കൂടുമ്പോൾ പെർമിറ്റ് പുതുക്കേണ്ടതാണ്; ലൈസൻസില്ലാതെ വയറിംഗ് ജോലികൾ ചെയ്യുന്നത് ചട്ടവിരുദ്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Valuation of Electrical Installations
+    // ================================================================
+    {
+      id: "electrical-installation-valuation",
+      category: "government",
+      icon: "📊",
+      name: {
+        en: "Valuation of Electrical Installations",
+        ml: "ഇലക്ട്രിക്കൽ ഇൻസ്റ്റാളേഷൻ വാല്യുവേഷൻ"
+      },
+      summary: {
+        en: "Official engineering appraisal certifying the depreciated replacement and market value of electrical plant installations, machinery, and equipment.",
+        ml: "ഫാക്ടറികൾ, വാണിജ്യ സമുച്ചയങ്ങൾ എന്നിവിടങ്ങളിലെ ഇലക്ട്രിക്കൽ ഉപകരണങ്ങളുടെയും പ്ലാന്റുകളുടെയും ഔദ്യോഗിക മൂല്യനിർണ്ണയ രേഖ."
+      },
+      whoNeeds: {
+        en: "Industrialists, commercial establishments, banks, and legal entities needing official valuation of electrical assets for court matters, insurance, or asset sales.",
+        ml: "ഇലക്ട്രിക്കൽ ഉപകരണങ്ങളുടെ വിപണി മൂല്യം ബാങ്ക് വായ്പകൾ, കോടതി ആവശ്യങ്ങൾ, ഇൻഷുറൻസ് എന്നിവയ്ക്കായി തിട്ടപ്പെടുത്തേണ്ടവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Owners or authorized managers of premises having registered electrical installations in Kerala"
+        ],
+        ml: [
+          "കേരളത്തിൽ രജിസ്റ്റർ ചെയ്ത ഇലക്ട്രിക്കൽ ഉപകരണങ്ങളോ സബ്സ്റ്റേഷനുകളോ ഉള്ള സ്ഥാപന ഉടമകൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Original purchase invoices and asset registers of transformers, generators, and cabling",
+          "Approved Single Line Diagram (SLD)",
+          "Year of commissioning and depreciation schedule",
+          "Premises ownership or title proof"
+        ],
+        ml: [
+          "ഉപകരണങ്ങളുടെ വാങ്ങിയ ബില്ലുകളും ആസ്തി രജിസ്റ്ററും",
+          "അംഗീകൃത സിംഗിൾ ലൈൻ ഡയഗ്രം (SLD)",
+          "പ്രവർത്തനമാരംഭിച്ച വർഷവും തേയ്മാന കണക്കുകളും",
+          "വസ്തുവിന്റെ ഉടമസ്ഥാവകാശ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Department of Electrical Inspectorate (ceikerala.gov.in) / Office of the Electrical Inspector.",
+        ml: "ഇലക്ട്രിക്കൽ ഇൻസ്‌പെക്ടറേറ്റ് പോർട്ടൽ അല്ലെങ്കിൽ ജില്ലാ ഇലക്ട്രിക്കൽ ഇൻസ്പെക്ടറുടെ ഓഫീസ്."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit formal valuation requisition letter detailing machinery particulars and purpose.",
+          "Electrical Inspectorate engineers conduct physical inspection and technical condition audit.",
+          "Valuation fee is remitted via treasury chalan.",
+          "Department issues official Valuation Certificate specifying depreciated technical capital value."
+        ],
+        ml: [
+          "ഉപകരണങ്ങളുടെ വിവരങ്ങൾ കാണിച്ച് ഇൻസ്പെക്ടറേറ്റിൽ അപേക്ഷ നൽകുക.",
+          "എൻജിനീയർമാർ നേരിട്ടെത്തി യന്ത്രങ്ങളുടെ പ്രവർത്തനക്ഷമതയും തേയ്മാനവും പരിശോധിക്കുന്നു.",
+          "ട്രഷറിയിൽ ഫീസ് അടയ്ക്കുക.",
+          "സാക്ഷ്യപ്പെടുത്തിയ ഇലക്ട്രിക്കൽ വാല്യുവേഷൻ സർട്ടിഫിക്കറ്റ് കൈപ്പറ്റുക."
+        ]
+      },
+      officialUrl: "https://ceikerala.gov.in",
+      notes: {
+        en: "Accepted as authoritative government engineering valuation by courts, liquidators, and financial institutions.",
+        ml: "കോടതികൾ, ബാങ്കുകൾ, ഇൻഷുറൻസ് കമ്പനികൾ എന്നിവർ ആധികാരികമായി അംഗീകരിക്കുന്ന സാങ്കേതിക രേഖയാണിത്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Application for New LT / HT Electricity Connection
+    // ================================================================
+    {
+      id: "kseb-new-electricity-connection",
+      category: "government",
+      icon: "⚡",
+      name: {
+        en: "Application for New LT / HT Electricity Connection",
+        ml: "കെ.എസ്.ഇ.ബി പുതിയ വൈദ്യുതി കണക്ഷൻ"
+      },
+      summary: {
+        en: "Citizen service to obtain a new low-tension (LT) or high-tension (HT) electricity connection and energy meter for domestic, commercial, or agricultural needs.",
+        ml: "വീടുകൾക്കോ സ്ഥാപനങ്ങൾക്കോ കൃഷിക്കോ കെ.എസ്.ഇ.ബിയിൽ നിന്ന് പുതിയ വൈദ്യുതി കണക്ഷൻ ലഭിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Property owners, tenants, or legal occupants requiring new electric power supply to a premises.",
+        ml: "പുതിയ വീട് നിർമ്മിച്ചവർ, വാണിജ്യ സ്ഥാപനങ്ങൾ തുടങ്ങുന്നവർ, കൃഷി ആവശ്യങ്ങൾക്ക് വൈദ്യുതി വേണ്ടവർ."
+      },
+      eligibility: {
+        en: [
+          "Lawful occupants or owners of premises situated within KSEBL operational supply zones in Kerala"
+        ],
+        ml: [
+          "കേരളത്തിൽ കെ.എസ്.ഇ.ബി വിതരണ പരിധിയിലുള്ള സ്ഥലത്തിന്റെ ഉടമകൾക്കോ നിയമാനുസൃത താമസക്കാർക്കോ"
+        ]
+      },
+      documents: {
+        en: [
+          "Proof of ownership or occupancy (Building Tax Receipt, Registered Title Deed, or Rent Agreement with Owner NOC)",
+          "Identity proof of applicant",
+          "Wiring Completion Certificate and Test Report from a Licensed Electrical Contractor",
+          "For agricultural connections: Recommendation certificate from Agricultural Officer / Krishi Bhavan"
+        ],
+        ml: [
+          "ഉടമസ്ഥാവകാശം തെളിയിക്കുന്ന രേഖ (കെട്ടിട നികുതി രസീത്, ആധാരം അല്ലെങ്കിൽ വാടകക്കരാർ)",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ",
+          "ലൈസൻസ്ഡ് ഇലക്ട്രീഷ്യൻ നൽകിയ വയറിംഗ് കംപ്ലീഷൻ ടെസ്റ്റ് റിപ്പോർട്ട്",
+          "കാർഷിക കണക്ഷനുകൾക്ക്: കൃഷി ഓഫീസറുടെ സാക്ഷ്യപത്രം"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or offline at the local Electrical Section Office.",
+        ml: "കെ.എസ്.ഇ.ബി വെബ് സെൽഫ് സർവീസസ് പോർട്ടൽ (wss.kseb.in) വഴിയോ അസിസ്റ്റന്റ് എൻജിനീയറുടെ കാര്യാലയത്തിലോ (ഇലക്ട്രിക്കൽ സെക്ഷൻ ഓഫീസ്)."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to KSEB Web Self Services portal and select 'New Connection'.",
+          "Enter premises details, required connected load (Watts), and tariff category.",
+          "Upload identity proof, ownership document, and wiring test report.",
+          "Pay application and processing fee online.",
+          "Sub-Engineer conducts site feasibility inspection; pay required security deposit (CD) and service connection charges.",
+          "KSEB line staff install energy meter and release power supply."
+        ],
+        ml: [
+          "കെ.എസ്.ഇ.ബി വെബ് സെൽഫ് സർവീസസ് പോർട്ടലിൽ 'New Connection' തിരഞ്ഞെടുക്കുക.",
+          "ആവശ്യമായ ലോഡും താരിഫും രേഖപ്പെടുത്തുക.",
+          "ഉടമസ്ഥാവകാശ രേഖയും വയറിംഗ് റിപ്പോർട്ടും അപ്‌ലോഡ് ചെയ്യുക.",
+          "ഫീസ് അടച്ച ശേഷം എൻജിനീയർ ഫീൽഡ് പരിശോധന നടത്തുന്നു.",
+          "സെക്യൂരിറ്റി ഡെപ്പോസിറ്റ് അടയ്ക്കുന്നതോടെ ലൈൻ വലിച്ച് മീറ്റർ സ്ഥാപിച്ച് വൈദ്യുതി ലഭ്യമാക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/newconnection",
+      notes: {
+        en: "For domestic connections up to 5 kW without line extensions, service is released rapidly under KSERC guaranteed standards of performance.",
+        ml: "പോസ്റ്റ് നീട്ടലുകൾ ആവശ്യമില്ലാത്ത 5 kW വരെയുള്ള ഗാർഹിക കണക്ഷനുകൾ വളരെ വേഗത്തിൽ ലഭ്യമാക്കാറുണ്ട്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Connected Load Enhancement / Reduction
+    // ================================================================
+    {
+      id: "kseb-load-change",
+      category: "government",
+      icon: "⚡",
+      name: {
+        en: "Connected Load Enhancement / Reduction",
+        ml: "കെ.എസ്.ഇ.ബി കണക്റ്റഡ് ലോഡ് മാറ്റം"
+      },
+      summary: {
+        en: "Official procedure to increase or decrease the authorized connected electrical load (Watts/kW) of an existing KSEB electricity connection.",
+        ml: "പുതിയ ഉപകരണങ്ങൾ വെയ്ക്കുമ്പോഴോ മറ്റോ നിലവിലെ വൈദ്യുതി കണക്ഷന്റെ അംഗീകൃത ലോഡ് കൂട്ടുന്നതിനോ കുറയ്ക്കുന്നതിനോ ഉള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Consumers adding high-wattage air conditioners, EV chargers, or heavy motors, or seeking to reduce connected wattage to lower fixed charges.",
+        ml: "എയർ കണ്ടീഷണർ, ഇ.വി ചാർജർ എന്നിവ പുതിയതായി വെച്ചവർക്കോ ലോഡ് കുറയ്ക്കാൻ ആഗ്രഹിക്കുന്നവർക്കോ."
+      },
+      eligibility: {
+        en: [
+          "Registered KSEB electricity consumers having an active service connection without outstanding dues"
+        ],
+        ml: [
+          "കുടിശ്ശികകളില്ലാത്ത സജീവമായ കെ.എസ്.ഇ.ബി കണക്ഷനുള്ള ഉപഭോക്താക്കൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "13-digit Consumer Number and latest electricity bill receipt",
+          "Revised wiring test report from a licensed electrician (if adding substantial load)",
+          "Identity proof of consumer"
+        ],
+        ml: [
+          "13 അക്ക കൺസ്യൂമർ നമ്പർ, ഏറ്റവും പുതിയ കറണ്ട് ബിൽ രസീത്",
+          "ലൈസൻസ്ഡ് വയർമാന്റെ ടെസ്റ്റ് റിപ്പോർട്ട് (കാര്യമായ ലോഡ് വർദ്ധനവിന്)",
+          "ഉപഭോക്താവിന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or local Electrical Section Office.",
+        ml: "കെ.എസ്.ഇ.ബി വെബ് സെൽഫ് സർവീസസ് പോർട്ടൽ (wss.kseb.in) വഴിയോ സെക്ഷൻ ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to KSEB portal and select 'Load Enhancement / Reduction'.",
+          "Enter proposed new connected load in Watts.",
+          "Upload electrician's test report if adding heavy equipment.",
+          "Pay additional Cash Security Deposit (CD) based on added kW.",
+          "Sub-Engineer verifies installation and updates sanctioned load in the billing system."
+        ],
+        ml: [
+          "കെ.എസ്.ഇ.ബി പോർട്ടലിൽ 'Load Change' തിരഞ്ഞെടുക്കുക.",
+          "ആവശ്യമായ പുതിയ ലോഡ് എത്രയെന്ന് രേഖപ്പെടുത്തുക.",
+          "ടെസ്റ്റ് റിപ്പോർട്ട് അപ്‌ലോഡ് ചെയ്യുക.",
+          "അധിക ലോഡിന് ആനുപാതികമായ സെക്യൂരിറ്റി ഡെപ്പോസിറ്റ് അടയ്ക്കുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം ബില്ലിംഗ് സിസ്റ്റത്തിൽ ലോഡ് അപ്‌ഡേറ്റ് ചെയ്യപ്പെടും."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Enhancing load regularizes AC and EV loads, preventing steep unauthorized additional load (UAL) penalties during Anti-Power Theft Squad (APTS) inspections.",
+        ml: "അധിക ലോഡ് മുൻകൂട്ടി അനുമതി വാങ്ങി ക്രമപ്പെടുത്തുന്നത് കെ.എസ്.ഇ.ബിയുടെ വലിയ പിഴകളിൽ നിന്ന് രക്ഷനേടാൻ സഹായിക്കും."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Shifting of Electric Energy Meter
+    // ================================================================
+    {
+      id: "kseb-meter-shifting",
+      category: "government",
+      icon: "📦",
+      name: {
+        en: "Shifting of Electric Energy Meter",
+        ml: "കെ.എസ്.ഇ.ബി മീറ്റർ മാറ്റിസ്ഥാപിക്കൽ"
+      },
+      summary: {
+        en: "Authorized relocation of the electric energy meter board to a safer or renovated position within the same compound by KSEB line staff.",
+        ml: "വീട് പുതുക്കിപ്പണിയുമ്പോഴോ മറ്റോ കറണ്ട് മീറ്റർ ബോർഡ് കോമ്പൗണ്ടിനുള്ളിലെ മറ്റൊരു സുരക്ഷിത സ്ഥാനത്തേക്ക് മാറ്റിസ്ഥാപിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Consumers remodeling buildings, demolishing meter-bearing walls, or rectifying hazardous meter locations.",
+        ml: "കെട്ടിടം പുനർനിർമ്മിക്കുകയോ മീറ്റർ നിൽക്കുന്ന ഭിത്തി പൊളിക്കുകയോ ചെയ്യേണ്ടിവരുന്ന ഉപഭോക്താക്കൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Registered consumer having active connection; shifting must be within the same registered property boundary"
+        ],
+        ml: [
+          "സജീവ കണക്ഷനുള്ള ഉപഭോക്താക്കൾക്ക്; മാറ്റിസ്ഥാപിക്കുന്നത് അതേ കോമ്പൗണ്ടിനുള്ളിൽ തന്നെ ആയിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "13-digit Consumer Number and latest bill payment receipt",
+          "Requisition letter explaining reason and rough sketch of proposed new position",
+          "Wiring readiness certificate from licensed wireman",
+          "Proof of property ownership/occupancy"
+        ],
+        ml: [
+          "കൺസ്യൂമർ നമ്പർ, കറണ്ട് ബിൽ രസീത്",
+          "കാരണം വ്യക്തമാക്കുന്ന അപേക്ഷയും പുതിയ സ്ഥലത്തിന്റെ സ്കെച്ചും",
+          "വയറിംഗ് റെഡിനെസ്സ് സർട്ടിഫിക്കറ്റ്",
+          "ഉടമസ്ഥാവകാശ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Portal (wss.kseb.in) or formal application to Assistant Engineer, Electrical Section.",
+        ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ വഴിയോ ഇലക്ട്രിക്കൽ സെക്ഷൻ ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit meter shifting application on portal or at Section Office.",
+          "Assistant Engineer inspects feasibility and prepares labor and materials estimate.",
+          "Consumer remits estimated shifting charges.",
+          "KSEB line staff break seals, shift meter to new approved board, and reseal the meter."
+        ],
+        ml: [
+          "മീറ്റർ മാറ്റുന്നതിനുള്ള അപേക്ഷ സെക്ഷൻ ഓഫീസിൽ നൽകുക.",
+          "എൻജിനീയർ സ്ഥലം പരിശോധിച്ച് എസ്റ്റിമേറ്റ് തയ്യാറാക്കുന്നു.",
+          "എസ്റ്റിമേറ്റ് തുക അടയ്ക്കുക.",
+          "കെ.എസ്.ഇ.ബി ജീവനക്കാർ നേരിട്ടെത്തി മീറ്റർ പുതിയ സ്ഥാനത്തേക്ക് മാറ്റി സീൽ ചെയ്യുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Never attempt to shift or break energy meter seals independently; doing so constitutes a criminal offense under the Electricity Act.",
+        ml: "ഉപഭോക്താക്കൾ സ്വന്തമായി മീറ്റർ മാറ്റുകയോ സീൽ പൊട്ടിക്കുകയോ ചെയ്യരുത്; അത് നിയമവിരുദ്ധമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Transfer of Ownership of Electric Connection
+    // ================================================================
+    {
+      id: "kseb-ownership-change",
+      category: "government",
+      icon: "🔄",
+      name: {
+        en: "Transfer of Ownership of Electric Connection",
+        ml: "കെ.എസ്.ഇ.ബി ഉടമസ്ഥാവകാശം മാറ്റൽ"
+      },
+      summary: {
+        en: "Legal transfer of electricity service connection, meter registration, and security deposit to a new property buyer or legal heir.",
+        ml: "വൈദ്യുതി കണക്ഷനും മീറ്ററും പുതിയ വസ്തു ഉടമയുടെയോ അനന്തരാവകാശിയുടെയോ പേരിലേക്ക് മാറ്റിസ്ഥാപിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "New property purchasers, tenants, or legal successors upon demise of the prior registered consumer.",
+        ml: "സ്ഥലം വാങ്ങിയ പുതിയ ഉടമകൾ, അല്ലെങ്കിൽ മുൻ ഉപഭോക്താവ് മരണപ്പെട്ടതിനെ തുടർന്ന് അവകാശികൾ."
+      },
+      eligibility: {
+        en: [
+          "Lawful owner or occupant of premises with zero pending electricity bill arrears"
+        ],
+        ml: [
+          "സ്ഥലത്തിന്റെ ഉടമസ്ഥാവകാശമുള്ളവരും മുൻകാല കുടിശ്ശികകൾ ഒന്നുമില്ലാത്തവരുമായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Latest electricity bill payment receipt (with zero arrears)",
+          "Proof of property ownership (Registered Sale/Settlement Deed or Building Tax Receipt in applicant's name)",
+          "Consent letter / NOC from prior registered consumer (OR Death Certificate and Legal Heir Certificate if prior owner is deceased)",
+          "Identity proof of new applicant"
+        ],
+        ml: [
+          "കുടിശ്ശികയില്ലാത്ത ഏറ്റവും പുതിയ കറണ്ട് ബിൽ രസീത്",
+          "വസ്തുവിന്റെ ഉടമസ്ഥാവകാശ രേഖ (ആധാരം അല്ലെങ്കിൽ സ്വന്തം പേരിലുള്ള കെട്ടിട നികുതി രസീത്)",
+          "മുൻ ഉടമയുടെ സമ്മതപത്രം (മരണപ്പെട്ടതാണെങ്കിൽ മരണ സർട്ടിഫിക്കറ്റും അനന്തരാവകാശ രേഖയും)",
+          "പുതിയ അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or local Electrical Section Office.",
+        ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ വഴിയോ ഇലക്ട്രിക്കൽ സെക്ഷൻ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Log in to KSEB portal and select 'Ownership Change'.",
+          "Enter consumer number and upload title deed and NOC / death certificate.",
+          "Pay nominal transfer fee and execute agreement.",
+          "Assistant Engineer validates records and updates consumer name in the billing database."
+        ],
+        ml: [
+          "കെ.എസ്.ഇ.ബി പോർട്ടലിൽ 'Ownership Change' തിരഞ്ഞെടുക്കുക.",
+          "ആധാരവും മുൻ ഉടമയുടെ സമ്മതപത്രവും (അല്ലെങ്കിൽ മരണ സർട്ടിഫിക്കറ്റ്) നൽകുക.",
+          "ട്രാൻസ്ഫർ ഫീസ് അടയ്ക്കുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം കണക്ഷൻ പുതിയ ഉടമയുടെ പേരിലേക്ക് മാറുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "The existing Cash Security Deposit (CD) is formally assigned to the incoming consumer upon mutual consent or legal succession.",
+        ml: "മുൻ ഉപഭോക്താവ് അടച്ച സെക്യൂരിറ്റി ഡെപ്പോസിറ്റ് പുതിയ ഉപഭോക്താവിന്റെ പേരിലേക്ക് മാറ്റിനൽകുന്നതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Conversion of Electric Connection (Single Phase to Three Phase)
+    // ================================================================
+    {
+      id: "kseb-phase-change",
+      category: "government",
+      icon: "⚡",
+      name: {
+        en: "Conversion of Electric Connection (Single Phase to Three Phase)",
+        ml: "കെ.എസ്.ഇ.ബി സിംഗിൾ-ഫേസ് / ത്രീ-ഫേസ് മാറ്റം"
+      },
+      summary: {
+        en: "Upgrading a single-phase electricity service connection to a three-phase connection to support higher connected loads exceeding 5000 Watts.",
+        ml: "കൂടുതൽ ഉപകരണങ്ങൾ പ്രവർത്തിപ്പിക്കുന്നതിനായി സിംഗിൾ ഫേസ് കണക്ഷൻ ത്രീ ഫേസ് കണക്ഷനാക്കി മാറ്റുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Domestic or commercial consumers adding multiple air conditioners, heavy pumping motors, or three-phase equipment.",
+        ml: "കണക്റ്റഡ് ലോഡ് 5 കിലോവാട്ടിന് മുകളിലാവുകയോ ത്രീഫേസ് മെഷീനുകൾ ഉപയോഗിക്കുകയോ ചെയ്യുന്ന ഉപഭോക്താക്കൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Active KSEB single-phase consumer whose total connected load exceeds 5 kW or requires 3-phase balancing"
+        ],
+        ml: [
+          "കണക്റ്റഡ് ലോഡ് 5000 വാട്സിന് മുകളിലുള്ള നിലവിലെ കെ.എസ്.ഇ.ബി സിംഗിൾ ഫേസ് ഉപഭോക്താക്കൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Latest electricity bill receipt and applicant identity proof",
+          "Test report from a Licensed Electrical Contractor certifying installation of 3-phase distribution board, isolator, and proper earth pits",
+          "Revised load calculation sheet"
+        ],
+        ml: [
+          "ഏറ്റവും പുതിയ കറണ്ട് ബിൽ രസീത്, തിരിച്ചറിയൽ രേഖ",
+          "ത്രീഫേസ് ഡിസ്ട്രിബ്യൂഷൻ ബോർഡും എർത്ത് കുഴികളും സജ്ജമാക്കിയെന്ന ലൈസൻസ്ഡ് വയർമാന്റെ ടെസ്റ്റ് റിപ്പോർട്ട്",
+          "ലോഡ് കണക്കുകൂട്ടൽ വിവരങ്ങൾ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or local Electrical Section Office.",
+        ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ വഴിയോ ഇലക്ട്രിക്കൽ സെക്ഷൻ ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application for phase conversion online or at Section Office.",
+          "Complete three-phase internal wiring up to meter point through a licensed contractor.",
+          "Sub-Engineer inspects 3-phase board and earth resistance.",
+          "Pay required 3-phase meter charges and additional security deposit.",
+          "KSEB line staff replace single-phase meter with 3-phase bi-directional/static meter."
+        ],
+        ml: [
+          "ഫേസ് മാറ്റത്തിനായി പോർട്ടലിൽ അപേക്ഷിക്കുക.",
+          "ലൈസൻസ്ഡ് വയർമാൻ മുഖേന ത്രീഫേസ് വയറിംഗ് പൂർത്തിയാക്കുക.",
+          "എൻജിനീയർ നേരിട്ടെത്തി പരിശോധിക്കുന്നു.",
+          "ഫീസും സെക്യൂരിറ്റി ഡെപ്പോസിറ്റും അടയ്ക്കുക.",
+          "കെ.എസ്.ഇ.ബി ജീവനക്കാർ ത്രീഫേസ് മീറ്റർ സ്ഥാപിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Under KSERC supply regulations, three-phase conversion is mandatory if total connected load exceeds 5000 Watts (5 kW).",
+        ml: "ലോഡ് 5 kW ന് മുകളിലായാൽ ത്രീഫേസ് കണക്ഷൻ എടുക്കണമെന്ന് ചട്ടമുണ്ട്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Shifting of Electric Post or Lines
+    // ================================================================
+    {
+      id: "kseb-post-shifting",
+      category: "government",
+      icon: "🏗️",
+      name: {
+        en: "Shifting of Electric Post or Lines",
+        ml: "കെ.എസ്.ഇ.ബി പോസ്റ്റ് മാറ്റിസ്ഥാപിക്കൽ"
+      },
+      summary: {
+        en: "Formal procedure to request the relocation of an obstructive or hazardous electricity post or overhead power line at the applicant's expense under deposit work rules.",
+        ml: "വസ്തുവിലേക്കുള്ള വഴിയോ ഗേറ്റോ തടസ്സപ്പെടുത്തുന്ന ഇലക്ട്രിക് പോസ്റ്റുകളും ലൈനുകളും സ്വന്തം ചെലവിൽ മാറ്റിസ്ഥാപിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Property owners facing obstruction to vehicular gates, compound walls, or building work due to existing KSEB posts or lines.",
+        ml: "ഗേറ്റിന് മുന്നിലോ വഴി തടസ്സപ്പെടുത്തിയോ നിൽക്കുന്ന ഇലക്ട്രിക് പോസ്റ്റുകൾ മാറ്റാൻ ആഗ്രഹിക്കുന്നവർക്ക്."
+      },
+      eligibility: {
+        en: [
+          "Titleholder of property affected by the post/line; shifting must be technically feasible without causing right-of-way issues with neighbors"
+        ],
+        ml: [
+          "വസ്തു ഉടമകൾക്ക്; പോസ്റ്റ് മാറ്റുന്നത് സാങ്കേതികമായി സാധ്യമായതും അയൽവാസികൾക്ക് തടസ്സമില്ലാത്തതുമായിരിക്കണം"
+        ]
+      },
+      documents: {
+        en: [
+          "Property title deed or ownership proof",
+          "Site sketch showing existing post location, property boundary, and proposed alternate location",
+          "Written consent (NOC) from neighboring landowners if the new alignment borders other private boundaries",
+          "Applicant identity proof"
+        ],
+        ml: [
+          "വസ്തുവിന്റെ ആധാരം / ഉടമസ്ഥാവകാശ രേഖ",
+          "പോസ്റ്റിന്റെ നിലവിലെ സ്ഥാനവും മാറ്റേണ്ട സ്ഥാനവും കാണിക്കുന്ന സ്കെച്ച്",
+          "അയൽവാസികളുടെ അതിർത്തിയിലൂടെയാണെങ്കിൽ അവരുടെ സമ്മതപത്രം",
+          "തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or formal application to the Assistant Executive Engineer (KSEB Electrical Sub-Division).",
+        ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ വഴിയോ അസിസ്റ്റന്റ് എക്സിക്യൂട്ടീവ് എൻജിനീയർക്ക് (സബ് ഡിവിഷൻ ഓഫീസ്) നേരിട്ടോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit post shifting application with site sketch and neighbor NOCs.",
+          "Assistant Executive Engineer conducts field inspection to determine technical feasibility.",
+          "KSEB issues Deposit Work estimate covering labor, transport, and material costs.",
+          "Applicant remits the full estimated amount.",
+          "KSEB line staff erect new post, transfer conductors, and dismantle the old post."
+        ],
+        ml: [
+          "സ്കെച്ച് സഹിതം സബ് ഡിവിഷൻ ഓഫീസിൽ അപേക്ഷ നൽകുക.",
+          "എൻജിനീയർ നേരിട്ടെത്തി സാങ്കേതിക സാധ്യതകൾ പരിശോധിക്കുന്നു.",
+          "ഡെപ്പോസിറ്റ് വർക്ക് എസ്റ്റിമേറ്റ് നൽകുന്നു.",
+          "മുഴുവൻ തുകയും അടയ്ക്കുന്നതോടെ കെ.എസ്.ഇ.ബി ജീവനക്കാർ പഴയ പോസ്റ്റ് മാറ്റി പുതിയ സ്ഥാനത്ത് സ്ഥാപിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Entire shifting cost must be fully borne by the applicant under deposit work rules. Disputes regarding public pathways are referred to the District Magistrate (ADM).",
+        ml: "പോസ്റ്റ് മാറ്റുന്നതിനുള്ള മുഴുവൻ ചെലവും അപേക്ഷകൻ തന്നെ വഹിക്കേണ്ടതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Reclassification of Electricity Tariff
+    // ================================================================
+    {
+      id: "kseb-tariff-change",
+      category: "government",
+      icon: "📋",
+      name: {
+        en: "Reclassification of Electricity Tariff",
+        ml: "കെ.എസ്.ഇ.ബി താരിഫ് വിഭാഗം മാറ്റൽ"
+      },
+      summary: {
+        en: "Official reclassification of an electricity meter's billing tariff to reflect changes in premises use between domestic, commercial, industrial, or agricultural categories.",
+        ml: "കെട്ടിടത്തിന്റെ ഉപയോഗം മാറുമ്പോൾ (ഉദാ: വീട് വാണിജ്യ ആവശ്യങ്ങൾക്ക് ഉപയോഗിക്കുമ്പോൾ) കറണ്ട് ബില്ലിലെ താരിഫ് മാറ്റുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Consumers converting domestic premises into commercial shops, offices, or converting commercial premises back to domestic residences.",
+        ml: "വീടുകളിൽ കടകളോ ഓഫീസുകളോ തുടങ്ങുന്നവർ, അല്ലെങ്കിൽ കൊമേഴ്സ്യൽ ബിൽഡിംഗ് വീടുകളാക്കി മാറ്റുന്നവർ."
+      },
+      eligibility: {
+        en: [
+          "Registered consumer holding active service connection with clear evidence of modified premises occupancy"
+        ],
+        ml: [
+          "കെട്ടിടത്തിന്റെ ഉപയോഗത്തിൽ വ്യത്യാസം വന്നിട്ടുള്ള സജീവ കെ.എസ്.ഇ.ബി ഉപഭോക്താക്കൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Latest electricity bill and payment receipt",
+          "Proof of revised activity (e.g., Local body Trade Licence for commercial; Certificate from Krishi Bhavan for agricultural; completion proof for domestic)",
+          "Applicant identity proof"
+        ],
+        ml: [
+          "ഏറ്റവും പുതിയ കറണ്ട് ബിൽ രസീത്",
+          "പുതിയ ആവശ്യത്തിനുള്ള തെളിവ് (ഉദാ: വ്യാപാര ലൈസൻസ്, കൃഷി ഓഫീസറുടെ സാക്ഷ്യപത്രം)",
+          "തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online via KSEB Web Self Services Portal (wss.kseb.in) or local Electrical Section Office.",
+        ml: "കെ.എസ്.ഇ.ബി പോർട്ടൽ വഴിയോ ഇലക്ട്രിക്കൽ സെക്ഷൻ ഓഫീസ് വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application for tariff reclassification on the KSEB portal.",
+          "Upload documents proving the changed nature of property use.",
+          "Sub-Engineer conducts premises verification audit.",
+          "Pay differential Cash Security Deposit (if transitioning to a commercial tariff).",
+          "Tariff code is updated in the billing software for subsequent meter cycles."
+        ],
+        ml: [
+          "പോർട്ടലിൽ താരിഫ് മാറ്റത്തിനായി അപേക്ഷിക്കുക.",
+          "പുതിയ പ്രവർത്തനങ്ങൾ തെളിയിക്കുന്ന രേഖകൾ നൽകുക.",
+          "എൻജിനീയർ നേരിട്ടെത്തി പരിശോധിക്കുന്നു.",
+          "സെക്യൂരിറ്റി ഡെപ്പോസിറ്റിലെ വ്യത്യാസം അടയ്ക്കുക.",
+          "അടുത്ത ബിൽ മുതൽ പുതിയ താരിഫ് പ്രാബല്യത്തിൽ വരും."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Using domestic power (LT-1A) for commercial purposes without formal tariff change incurs severe penalty tariffs and legal prosecution under Section 126 of the Electricity Act.",
+        ml: "വീട്ടുപയോഗത്തിനുള്ള വൈദ്യുതി വാണിജ്യ ആവശ്യങ്ങൾക്ക് ഉപയോഗിക്കുന്നത് നിയമവിരുദ്ധവും വലിയ പിഴകൾക്ക് കാരണമാകുന്നതുമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Revision of Contract Demand (HT / EHT)
+    // ================================================================
+    {
+      id: "kseb-contract-demand-change",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "industry-business",
+      icon: "🏭",
+      name: {
+        en: "Revision of Contract Demand (HT / EHT)",
+        ml: "കെ.എസ്.ഇ.ബി കോൺട്രാക്ട് ഡിമാൻഡ് മാറ്റം"
+      },
+      summary: {
+        en: "Specialized engineering procedure for industrial and high-tension commercial enterprises to increase or reduce their contracted maximum power demand (kVA).",
+        ml: "വൻകിട വ്യവസായങ്ങൾക്കും ഹൈടെൻഷൻ (HT) ഉപഭോക്താക്കൾക്കും തങ്ങളുടെ പവർ ഡിമാൻഡ് (kVA) കൂട്ടുന്നതിനോ കുറയ്ക്കുന്നതിനോ ഉള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "High Tension (HT), Extra High Tension (EHT), or large industrial enterprises managing fixed power demand charges.",
+        ml: "ഫാക്ടറികൾ, മാളുകൾ, ആശുപത്രികൾ തുടങ്ങിയ വൻകിട വൈദ്യുതി ഉപഭോക്താക്കൾക്ക്."
+      },
+      eligibility: {
+        en: [
+          "HT / EHT consumer possessing an active formal power supply agreement with KSEBL without billing defaults"
+        ],
+        ml: [
+          "കെ.എസ്.ഇ.ബിയുമായി സജീവ കരാറുള്ള ഹൈടെൻഷൻ ഉപഭോക്താക്കൾക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Existing HT Power Agreement details",
+          "Recorded maximum demand history for the preceding 12 billing months",
+          "Plant machinery electrical load schedule and engineering justification",
+          "Arrears clearance certificate"
+        ],
+        ml: [
+          "നിലവിലെ HT പവർ എഗ്രിമെന്റ്",
+          "കഴിഞ്ഞ 12 മാസത്തെ മാക്സിമം ഡിമാൻഡ് വിവരങ്ങൾ",
+          "യന്ത്രങ്ങളുടെ ലോഡ് വിവരങ്ങളും സാങ്കേതിക രേഖകളും",
+          "കുടിശ്ശികയില്ലാത്ത രസീത്"
+        ]
+      },
+      whereToApply: {
+        en: "KSEB HT Web Portal (wss.kseb.in) / Office of the Special Officer - Revenue (Vydyuthi Bhavanam, Thiruvananthapuram).",
+        ml: "കെ.എസ്.ഇ.ബി HT പോർട്ടൽ അല്ലെങ്കിൽ തിരുവനന്തപുരം സ്പെഷ്യൽ ഓഫീസർ (റെവന്യൂ) കാര്യാലയം."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit application for contract demand revision online or to the Special Officer - Revenue.",
+          "Transmission and distribution wings assess grid feeder capacity and sub-station loading.",
+          "Remit agreement fee and supplementary security deposit (if enhancing demand).",
+          "Execute supplementary agreement; revised billing demand comes into effect."
+        ],
+        ml: [
+          "റവന്യൂ സ്പെഷ്യൽ ഓഫീസർക്ക് അപേക്ഷ നൽകുക.",
+          "ഗ്രിഡ് കപ്പാസിറ്റി എൻജിനീയറിംഗ് പരിശോധന നടത്തുന്നു.",
+          "സപ്ലിമെന്ററി എഗ്രിമെന്റ് ഒപ്പുവെച്ച് ഫീസ് അടയ്ക്കുക.",
+          "പുതുക്കിയ കോൺട്രാക്ട് ഡിമാൻഡ് പ്രാബല്യത്തിൽ വരുന്നു."
+        ]
+      },
+      officialUrl: "https://wss.kseb.in/selfservices/",
+      notes: {
+        en: "Optimizing contract demand prevents drawing excess power beyond sanctioned limits which incurs heavy penalty surcharges.",
+        ml: "ഡിമാൻഡ് കൃത്യമായി നിലനിർത്തുന്നത് വഴി അനാവശ്യ ഫിക്സഡ് ചാർജ്ജുകളും പെനാൽറ്റികളും ഒഴിവാക്കാം."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Application for New Piped Water Connection
+    // ================================================================
+    {
+      id: "kwa-new-water-connection",
+      category: "government",
+      icon: "💧",
+      name: {
+        en: "Application for New Piped Water Connection",
+        ml: "വാട്ടർ അതോറിറ്റി പുതിയ കുടിവെള്ള കണക്ഷൻ"
+      },
+      summary: {
+        en: "Citizen service to obtain a domestic, non-domestic, or industrial piped drinking water supply connection from Kerala Water Authority.",
+        ml: "വീടുകളിലോ സ്ഥാപനങ്ങളിലോ വാട്ടർ അതോറിറ്റിയുടെ പൈപ്പ് വഴി കുടിവെള്ള കണക്ഷൻ ലഭിക്കുന്നതിനുള്ള സേവനം."
+      },
+      whoNeeds: {
+        en: "Property owners or residents located near an active KWA water distribution main line.",
+        ml: "വാട്ടർ അതോറിറ്റിയുടെ പൈപ്പ് ലൈൻ പോകുന്ന പ്രദേശങ്ങളിലെ വസ്തു ഉടമകൾക്കും താമസക്കാർക്കും."
+      },
+      eligibility: {
+        en: [
+          "Premises situated within practical hydraulic distance of an active KWA distribution pipeline"
+        ],
+        ml: [
+          "വാട്ടർ അതോറിറ്റിയുടെ കുടിവെള്ള പൈപ്പ് ലൈൻ കടന്നുപോകുന്ന സ്ഥലങ്ങളിലുള്ളവർക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Property ownership proof (Building Tax Receipt, Property Tax Receipt, or Registered Title Deed)",
+          "Applicant identity proof",
+          "Road cutting permit or restoration receipt from Local Body / PWD (if pipeline must cross public road)",
+          "Rough sketch of connection route from distribution main"
+        ],
+        ml: [
+          "ഉടമസ്ഥാവകാശ രേഖ (കെട്ടിട നികുതി രസീത് അല്ലെങ്കിൽ ആധാരം)",
+          "അപേക്ഷകന്റെ തിരിച്ചറിയൽ രേഖ",
+          "റോഡ് വെട്ടിപ്പൊളിക്കേണ്ടതുണ്ടെങ്കിൽ റോഡ് കട്ടിംഗ് പെർമിറ്റ് / ഫീസ് രസീത്",
+          "പൈപ്പ് ലൈൻ എടുക്കേണ്ട വഴിയുടെ സ്കെച്ച്"
+        ]
+      },
+      whereToApply: {
+        en: "Online via e-KWA Consumer Portal (epay.kwa.kerala.gov.in) or KWA Section Office.",
+        ml: "ഇ-പേ വാട്ടർ അതോറിറ്റി പോർട്ടൽ (epay.kwa.kerala.gov.in) വഴിയോ വാട്ടർ അതോറിറ്റി സെക്ഷൻ ഓഫീസിലോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Register on e-KWA portal and submit application under 'New Connection'.",
+          "Upload property tax receipt, identity proof, and site sketch.",
+          "Assistant Engineer inspects water pressure and prepares connection estimate.",
+          "Pay connection fee, water meter charges, and security deposit online.",
+          "Licensed KWA plumber completes tapping and line installation; water supply is commissioned."
+        ],
+        ml: [
+          "ഇ-പേ (e-KWA) പോർട്ടലിൽ അപേക്ഷ നൽകുക.",
+          "നികുതി രസീതും സ്കെച്ചും അപ്‌ലോഡ് ചെയ്യുക.",
+          "എൻജിനീയർ പരിശോധന നടത്തി എസ്റ്റിമേറ്റ് നൽകുന്നു.",
+          "കണക്ഷൻ ഫീസും മീറ്റർ ചാർജ്ജും ഓൺലൈനായി അടയ്ക്കുക.",
+          "അംഗീകൃത പ്ലംബർ മുഖേന പൈപ്പ് ലൈൻ കണക്റ്റ് ചെയ്ത് വെള്ളം ലഭ്യമാക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://epay.kwa.kerala.gov.in/",
+      notes: {
+        en: "Water meter must be purchased with BIS/ISI certification and tested at KWA meter testing laboratory prior to fixing.",
+        ml: "ഐ.എസ്.ഐ മുദ്രയുള്ള വാട്ടർ മീറ്റർ മാത്രമേ ഉപയോഗിക്കാൻ പാടുള്ളൂ."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Testing of Drinking Water Quality
+    // ================================================================
+    {
+      id: "kwa-water-quality-testing",
+      category: "government",
+      icon: "🧪",
+      name: {
+        en: "Testing of Drinking Water Quality",
+        ml: "വാട്ടർ അതോറിറ്റി കുടിവെള്ള ഗുണനിലവാര പരിശോധന"
+      },
+      summary: {
+        en: "Public testing service at KWA Quality Control Laboratories to test drinking water from wells and taps for bacteriological and chemical safety parameters.",
+        ml: "കിണറുകളിലെയും മറ്റ് സ്രോതസ്സുകളിലെയും വെള്ളത്തിൽ ബാക്ടീരിയയോ രാസമാലിന്യങ്ങളോ ഉണ്ടോ എന്ന് വാട്ടർ അതോറിറ്റി ലാബുകളിൽ നടത്തുന്ന പരിശോധന."
+      },
+      whoNeeds: {
+        en: "Citizens, schools, restaurants, food packaging businesses, and well owners requiring authentic water purity test certificates.",
+        ml: "വീടുകളിലെ കിണർവെള്ളം പരിശോധിക്കാൻ ആഗ്രഹിക്കുന്നവർ, സ്കൂളുകൾ, ഭക്ഷ്യശാലകൾ, ഹോസ്റ്റലുകൾ."
+      },
+      eligibility: {
+        en: [
+          "Open to any citizen, institution, or commercial firm in Kerala seeking water purity verification"
+        ],
+        ml: [
+          "കുടിവെള്ളത്തിന്റെ ഗുണനിലവാരം പരിശോധിക്കാൻ ആഗ്രഹിക്കുന്ന കേരളത്തിലെ ഏതൊരു പൗരനും സ്ഥാപനത്തിനും"
+        ]
+      },
+      documents: {
+        en: [
+          "Water sample collected strictly as per sampling protocol (2L in clean container for chemical test; 250ml sterilized container for bacteriological test)",
+          "Requisition form specifying water source (Well, Borewell, RO plant, Tap)",
+          "Applicant identity proof"
+        ],
+        ml: [
+          "നിർദ്ദിഷ്ട രീതിയിൽ ശേഖരിച്ച വെള്ളത്തിന്റെ സാമ്പിൾ (കെമിക്കൽ ടെസ്റ്റിന് 2 ലിറ്ററും ബാക്ടീരിയോളജിക്കൽ ടെസ്റ്റിന് 250 മില്ലി അണുവിമുക്ത കുപ്പിയും)",
+          "സ്രോതസ്സ് വ്യക്തമാക്കുന്ന ഫോം",
+          "തിരിച്ചറിയൽ രേഖ"
+        ]
+      },
+      whereToApply: {
+        en: "Online booking via KWA QCL Portal (qcl.kwa.kerala.gov.in) with physical sample submission at District/Sub-District KWA Quality Control Labs.",
+        ml: "ക്വാളിറ്റി കൺട്രോൾ പോർട്ടൽ (qcl.kwa.kerala.gov.in) വഴി അല്ലെങ്കിൽ അടുത്തുള്ള വാട്ടർ അതോറിറ്റി ക്വാളിറ്റി കൺട്രോൾ ലാബുകളിൽ നേരിട്ട് സാമ്പിൾ എത്തിക്കുക."
+      },
+      mode: {
+        en: "Online Booking & Sample Drop-off",
+        ml: "ഓൺലൈൻ ബുക്കിംഗ് & ലാബ് പരിശോധന"
+      },
+      steps: {
+        en: [
+          "Book test online or walk into nearest KWA District Quality Control Lab.",
+          "Collect sterilized container from lab for bacteriological sampling.",
+          "Deliver water sample within 24 hours of collection.",
+          "Pay subsidized government testing fee.",
+          "Download or collect digitally certified analytical water quality test report."
+        ],
+        ml: [
+          "പോർട്ടലിൽ രജിസ്റ്റർ ചെയ്യുകയോ നേരിട്ട് ലാബിലെത്തുകയോ ചെയ്യുക.",
+          "സാമ്പിൾ കുപ്പികൾ ശേഖരിച്ച് 24 മണിക്കൂറിനകം ലാബിൽ എത്തിക്കുക.",
+          "നിശ്ചിത ഫീസ് അടയ്ക്കുക.",
+          "പരിശോധനയ്ക്ക് ശേഷം ആധികാരിക ലാബ് സർട്ടിഫിക്കറ്റ് ലഭിക്കും."
+        ]
+      },
+      officialUrl: "https://qcl.kwa.kerala.gov.in/",
+      notes: {
+        en: "KWA water test certificates are officially recognized for FSSAI food licensing, school health fitness, and local body health clearances.",
+        ml: "ഈ സർട്ടിഫിക്കറ്റ് ഭക്ഷ്യസുരക്ഷാ ലൈസൻസുകൾക്കും (FSSAI) സ്കൂൾ ഫിറ്റ്നസിനും ഔദ്യോഗികമായി സ്വീകാര്യമാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Registration and Renewal of Contractors (Class A, B, C, D)
+    // ================================================================
+    {
+      id: "kwa-contractor-registration",
+      category: "government",
+      relatedCategory: "other",
+      subcategory: "industry-business",
+      icon: "🏗️",
+      name: {
+        en: "Registration and Renewal of Contractors (Class A, B, C, D)",
+        ml: "വാട്ടർ അതോറിറ്റി കരാറുകാരുടെ രജിസ്ട്രേഷൻ"
+      },
+      summary: {
+        en: "Official licensing and empanelment of engineering contractors into Class A, B, C, or D categories to bid for public water supply pipeline and infrastructure tenders.",
+        ml: "വാട്ടർ അതോറിറ്റിയുടെ പൈപ്പ് ലൈൻ നിർമ്മാണ കരാറുകളിൽ പങ്കെടുക്കുന്നതിനായി കരാറുകാർക്ക് നൽകുന്ന ഔദ്യോഗിക രജിസ്ട്രേഷൻ."
+      },
+      whoNeeds: {
+        en: "Civil and mechanical engineering contractors, pipe-laying agencies, and infrastructure contracting firms.",
+        ml: "വാട്ടർ അതോറിറ്റി കരാർ ജോലികൾ ഏറ്റെടുക്കാൻ ആഗ്രഹിക്കുന്ന വ്യക്തികൾക്കും കമ്പനികൾക്കും."
+      },
+      eligibility: {
+        en: [
+          "Qualified engineers or contractors with proven track record in pipe-laying/civil works and matching financial solvency"
+        ],
+        ml: [
+          "നിശ്ചിത സാമ്പത്തിക സോൾവൻസിയും പ്രവൃത്തിപരിചയവുമുള്ള സിവിൽ/മെക്കാനിക്കൽ കരാറുകാർക്ക്"
+        ]
+      },
+      documents: {
+        en: [
+          "Solvency Certificate from Revenue Tahsildar or Nationalized Bank Guarantee",
+          "Past work completion and experience certificates",
+          "GST, PAN, and EPF/ESI registration certificates",
+          "List of pipe-laying tools, heavy machinery, and qualified technical staff",
+          "Identity proof and photographs"
+        ],
+        ml: [
+          "തഹസിൽദാറുടെ സോൾവൻസി സർട്ടിഫിക്കറ്റ് അല്ലെങ്കിൽ ബാങ്ക് ഗ്യാരണ്ടി",
+          "മുൻകാല പ്രവൃത്തിപരിചയ രേഖകൾ",
+          "GST, പാൻ കാർഡ്, EPF/ESI രജിസ്ട്രേഷൻ രേഖകൾ",
+          "ഉപകരണങ്ങളുടെയും ജീവനക്കാരുടെയും വിവരങ്ങൾ",
+          "തിരിച്ചറിയൽ രേഖയും ഫോട്ടോയും"
+        ]
+      },
+      whereToApply: {
+        en: "Kerala Water Authority Portal (kwa.kerala.gov.in) and Kerala e-Tenders Portal (etenders.kerala.gov.in).",
+        ml: "വാട്ടർ അതോറിറ്റി പോർട്ടൽ വഴിയോ ഇ-ടെണ്ടർ പോർട്ടൽ (etenders.kerala.gov.in) വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Submit contractor registration application form with solvency and experience credentials.",
+          "Superintending Engineer / Chief Engineer scrutinizes documentation and technical capability.",
+          "Remit prescribed registration fee and security deposit.",
+          "KWA issues official Contractor Registration Card under designated Class (A, B, C, or D)."
+        ],
+        ml: [
+          "രേഖകൾ സഹിതം അപേക്ഷ സമർപ്പിക്കുക.",
+          "ചീഫ് എൻജിനീയർ കാര്യാലയത്തിൽ രേഖകളുടെ സൂക്ഷ്മപരിശോധന നടക്കുന്നു.",
+          "രജിസ്ട്രേഷൻ ഫീസും ഡെപ്പോസിറ്റും അടയ്ക്കുക.",
+          "നിശ്ചിത ക്ലാസ്സിലുള്ള കോൺട്രാക്ടർ രജിസ്ട്രേഷൻ കാർഡ് അനുവദിക്കുന്നു."
+        ]
+      },
+      officialUrl: "https://kwa.kerala.gov.in/contractors-registration/",
+      notes: {
+        en: "Registration is valid for 3 financial years and requires timely renewal with active tax clearances.",
+        ml: "3 സാമ്പത്തിക വർഷത്തേക്കാണ് സാധുത; തുടർന്ന് കൃത്യസമയത്ത് പുതുക്കേണ്ടതാണ്."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    },
+
+    // ================================================================
+    // SERVICE: Submission of Public Grievance (CMO Grievance Cell)
+    // ================================================================
+    {
+      id: "cmo-public-grievance",
+      category: "government",
+      icon: "🏛️",
+      name: {
+        en: "Submission of Public Grievance (CMO Grievance Cell)",
+        ml: "മുഖ്യമന്ത്രിയുടെ പൊതുജന പരാതി പരിഹാര സംവിധാനം"
+      },
+      summary: {
+        en: "Centralized public portal to submit grievances directly to the Chief Minister's Office for time-bound intervention across state government departments.",
+        ml: "വിവിധ സർക്കാർ വകുപ്പുകളിൽ നിന്നുള്ള സേവനങ്ങൾ സംബന്ധിച്ച പരാതികൾ മുഖ്യമന്ത്രിയുടെ ഓഫീസിലേക്ക് നേരിട്ട് നൽകി പരിഹാരം കാണാനുള്ള സംവിധാനം."
+      },
+      whoNeeds: {
+        en: "Any citizen of Kerala or Non-Resident Keralite (Pravasi) experiencing administrative delays, harassment, or unresolved grievances with government departments.",
+        ml: "സർക്കാർ ഓഫീസുകളിൽ നിന്ന് നീതി ലഭിക്കാത്തവരോ സേവനങ്ങൾ അനാവശ്യമായി വൈകുന്നവരോ ആയ ഏതൊരു പൗരനും."
+      },
+      eligibility: {
+        en: [
+          "Open to all citizens and residents of Kerala with an active mobile number for tracking"
+        ],
+        ml: [
+          "കേരളത്തിലെ ഏതൊരു പൗരനും പ്രവാസികൾക്കും ഈ സംവിധാനം ഉപയോഗിക്കാം"
+        ]
+      },
+      documents: {
+        en: [
+          "Detailed petition stating the administrative grievance, department concerned, and prior petition references",
+          "Supporting correspondence, government orders, or application receipts",
+          "Identity details and mobile number"
+        ],
+        ml: [
+          "പരാതിയുടെ പൂർണ്ണവിവരങ്ങൾ അടങ്ങിയ അപേക്ഷ",
+          "നേരത്തെ ഓഫീസുകളിൽ നൽകിയ അപേക്ഷകളുടെ പകർപ്പുകൾ (ഉണ്ടെങ്കിൽ)",
+          "തിരിച്ചറിയൽ വിവരങ്ങളും മൊബൈൽ നമ്പറും"
+        ]
+      },
+      whereToApply: {
+        en: "Chief Minister's Grievance Redressal Portal (cmo.kerala.gov.in) or Akshaya Centres.",
+        ml: "മുഖ്യമന്ത്രിയുടെ പരാതി പരിഹാര പോർട്ടൽ (cmo.kerala.gov.in) വഴിയോ അക്ഷയ കേന്ദ്രം വഴിയോ."
+      },
+      mode: {
+        en: "Online & Offline",
+        ml: "ഓൺലൈൻ & ഓഫ്ലൈൻ"
+      },
+      steps: {
+        en: [
+          "Visit cmo.kerala.gov.in and select 'File Grievance'.",
+          "Authenticate with mobile OTP and enter petitioner details.",
+          "Select the concerned district, department, and office.",
+          "Describe complaint and upload supporting PDF documents.",
+          "Submit to receive a unique Docket Number for tracking progress and departmental replies."
+        ],
+        ml: [
+          "cmo.kerala.gov.in സന്ദർശിച്ച് മൊബൈൽ നമ്പർ നൽകി ഒ.ടി.പി വഴി ലോഗിൻ ചെയ്യുക.",
+          "പരാതി ഏത് വകുപ്പുമായി ബന്ധപ്പെട്ടതാണെന്ന് തിരഞ്ഞെടുക്കുക.",
+          "വിവരങ്ങൾ രേഖപ്പെടുത്തി അനുബന്ധ രേഖകൾ അപ്‌ലോഡ് ചെയ്യുക.",
+          "അപേക്ഷ സമർപ്പിച്ച് ഡോക്കറ്റ് നമ്പർ കൈപ്പറ്റുക; ഇതിലൂടെ പുരോഗതി തത്സമയം അറിയാം."
+        ]
+      },
+      officialUrl: "https://cmo.kerala.gov.in/",
+      notes: {
+        en: "Sub-judice court matters and RTI queries are not entertained through the grievance portal.",
+        ml: "കോടതിയുടെ പരിഗണനയിലുള്ള കേസുകളും വിവരാവകാശ അപേക്ഷകളും ഇതിലൂടെ സമർപ്പിക്കാൻ കഴിയില്ല."
+      },
+      lastVerified: "September 2026",
+      verified: true
+    }
 
   ];
 
