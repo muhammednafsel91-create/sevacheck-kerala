@@ -444,13 +444,17 @@ main {
   display: inline-block;
 }
 
-.service-card h2 {
+.service-card h2,
+.service-card .card-title {
   font-size: 1.15rem;
   color: var(--text-main);
   margin-bottom: 0.25rem;
   font-weight: 700;
   line-height: 1.35;
   overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .card-subtitle {
@@ -460,9 +464,13 @@ main {
   font-weight: 600;
   line-height: 1.35;
   overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  max-width: 100%;
 }
 
-.service-card p {
+.service-card p,
+.service-card .card-desc {
   font-size: 0.88rem;
   color: var(--text-muted);
   line-height: 1.55;
@@ -470,6 +478,15 @@ main {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  max-width: 100%;
+}
+
+.service-card .card-category-badge {
+  max-width: 100%;
+  white-space: normal;
   overflow-wrap: break-word;
 }
 
@@ -1060,6 +1077,10 @@ footer {
   color: var(--text-main);
   margin: 0 0 0.35rem 0;
   line-height: 1.3;
+  overflow-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+  max-width: 100%;
 }
 
 .subcategory-card-count {
@@ -1073,11 +1094,12 @@ footer {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   background: var(--bg-page);
   border: 1px solid var(--border-color);
   border-radius: 8px;
-  gap: 1rem;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .subcat-breadcrumb-title {
@@ -1107,5 +1129,139 @@ footer {
 @media (max-width: 640px) {
   .subcategory-wrapper {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================
+   GOLD FEATURED UNIVERSITY CARD MODIFIER
+   ========================================== */
+
+/* Metallic Gold Palette Tokens */
+:root {
+  --gold-primary: #c5a059;
+  --gold-deep: #8a6523;
+  --gold-light: #f5e7b8;
+  --gold-border: rgba(197, 160, 89, 0.45);
+  --gold-glow-ambient: rgba(154, 116, 50, 0.14);
+  --gold-glow-proximity: rgba(197, 160, 89, 0.22);
+  --gold-title-grad: linear-gradient(135deg, #7a5813 0%, #a37a28 35%, #5e410a 100%);
+  --gold-subtitle: #8a6523;
+  --gold-badge-bg: rgba(197, 160, 89, 0.12);
+  --gold-badge-border: rgba(197, 160, 89, 0.35);
+}
+
+:root[data-theme="dark"],
+html[data-theme="dark"] {
+  --gold-primary: #d4af37;
+  --gold-deep: #7d5b1e;
+  --gold-light: #fef08a;
+  --gold-border: rgba(212, 175, 55, 0.4);
+  --gold-glow-ambient: rgba(212, 175, 55, 0.12);
+  --gold-glow-proximity: rgba(212, 175, 55, 0.2);
+  --gold-title-grad: linear-gradient(135deg, #ecc880 0%, #faf0cd 35%, #c5a059 70%, #e7c97e 100%);
+  --gold-subtitle: #ecc880;
+  --gold-badge-bg: rgba(212, 175, 55, 0.12);
+  --gold-badge-border: rgba(212, 175, 55, 0.35);
+}
+
+/* Base Modifier Container */
+.service-card.service-card--gold {
+  border-color: var(--gold-border);
+  box-shadow: 0 0 10px var(--gold-glow-proximity), 0 4px 16px var(--gold-glow-ambient);
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ensure inner card content renders on top of pseudo-element layers */
+.service-card.service-card--gold > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated Travelling Highlight Layer (Restricted strictly inside clipping boundary) */
+.service-card.service-card--gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 280deg,
+    var(--gold-border) 320deg,
+    var(--gold-light) 345deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  animation: goldTravellingShimmer 12s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Transform-based Shimmer Keyframe */
+@keyframes goldTravellingShimmer {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Override Base Hover Behaviour (Prevents border from turning blue) */
+.service-card.service-card--gold:hover {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 14px var(--gold-glow-proximity), 0 8px 24px var(--gold-glow-ambient);
+  transform: translateY(-2px);
+}
+
+/* Typography Enhancements for Gold Card */
+.service-card.service-card--gold h2,
+.service-card.service-card--gold .card-title {
+  color: var(--gold-primary);
+  background: var(--gold-title-grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.service-card.service-card--gold .card-subtitle {
+  color: var(--gold-subtitle);
+}
+
+.service-card.service-card--gold .card-category-badge {
+  background: var(--gold-badge-bg);
+  color: var(--gold-subtitle);
+  border: 1px solid var(--gold-badge-border);
+}
+
+.service-card.service-card--gold .card-link {
+  color: var(--gold-primary);
+}
+
+/* Accessibility: Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .service-card.service-card--gold::after {
+    animation: none;
+    transform: none;
+    background: var(--gold-border);
+    opacity: 0.8;
+  }
+}
+
+/* Mobile Optimisation (<= 640px) */
+@media (max-width: 640px) {
+  .service-card.service-card--gold {
+    box-shadow: 0 0 6px var(--gold-glow-proximity), 0 2px 10px var(--gold-glow-ambient);
+  }
+
+  .service-card.service-card--gold:hover {
+    box-shadow: 0 0 8px var(--gold-glow-proximity), 0 4px 14px var(--gold-glow-ambient);
   }
 }
