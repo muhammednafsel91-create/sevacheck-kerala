@@ -83,7 +83,7 @@
             <button class="helper-chip" id="cat-government" data-category="government" onclick="filterCategory('government', this)" data-i18n="catGovernment">🏛️ Government &amp; Local</button>
             <button class="helper-chip" id="cat-education" data-category="education" onclick="filterCategory('education', this)" data-i18n="catEducation">🎓 Education</button>
             <button class="helper-chip" id="cat-travel" data-category="travel" onclick="filterCategory('travel', this)" data-i18n="catTravel">🚗 Travel &amp; Transport</button>
-            <button class="helper-chip" id="cat-police" data-category="police" onclick="filterCategory('police', this)" data-i18n="catPolice">🛡️ Police &amp; Public Safety</button>
+            <button class="helper-chip" id="cat-police" data-category="police" onclick="filterCategory('police', this)" data-i18n="catPolice">🛡 Police &amp; Public Safety</button>
             <button class="helper-chip" id="cat-employment" data-category="employment" onclick="filterCategory('employment', this)" data-i18n="catEmployment">💼 Employment &amp; Welfare</button>
             <button class="helper-chip" id="cat-norka" data-category="norka" onclick="filterCategory('norka', this)" data-i18n="catNorka">✈️ NORKA / Pravasi</button>
             <button class="helper-chip" id="cat-other" data-category="other" onclick="filterCategory('other', this)" data-i18n="catOther">📦 Other Services</button>
@@ -96,7 +96,7 @@
         <span class="count" id="servicesCount">Showing services</span>
       </div>
 
-      <!-- Subcategory Navigation Container (For Other Services) -->
+      <!-- Subcategory Navigation Container (For Other Services & Education) -->
       <div id="subcategoryContainer" class="subcategory-wrapper" style="display: none;"></div>
 
       <div class="service-grid" id="serviceGrid">
@@ -232,11 +232,19 @@
   <!-- Scripts: Central Data Architecture -->
   <script src="data/registry.js"></script>
 
-  <!-- Category Data Modules (Services #1 to #150) -->
+  <!-- Category Data Modules -->
   <script src="data/cat-documents.js"></script>
   <script src="data/cat-id.js"></script>
   <script src="data/cat-government.js"></script>
-  <script src="data/cat-education.js"></script>
+  <script src="data/education/cat-education.js"></script>
+  <script src="data/education/cat-education-universities.js"></script>
+  <script src="data/education/cat-education-central-universities.js"></script>
+  <script src="data/education/cat-education-other-universities.js"></script>
+  <script src="data/education/institutions/institutions-iits.js"></script>
+  <script src="data/education/institutions/institutions-iisc-iisers.js"></script>
+  <script src="data/education/institutions/institutions-nits.js"></script>
+  <script src="data/education/institutions/institutions-iims.js"></script>
+  <script src="data/education/institutions/institutions-specialized.js"></script>
   <script src="data/cat-travel.js"></script>
   <script src="data/cat-police.js"></script>
   <script src="data/cat-employment.js"></script>
