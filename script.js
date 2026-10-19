@@ -5,6 +5,7 @@
 let currentLang = "en";
 let currentCategory = "all";
 let currentSubcategory = null;
+let currentChildSubcategory = null;
 let currentSearchQuery = "";
 let currentView = "home"; // 'home', 'services', 'how', 'about', 'detail'
 let activeService = null;
@@ -86,14 +87,15 @@ const translations = {
     catGovernment: "🏛️ Government & Local",
     catEducation: "🎓 Education",
     catTravel: "🚗 Travel & Transport",
-    catPolice: "🛡️ Police & Public Safety",
+    catPolice: "🛡 Police & Public Safety",
     catEmployment: "💼 Employment & Welfare",
     catNorka: "✈️ NORKA / Pravasi",
     catOther: "📦 Other Services",
     popularServicesHeading: "Popular Services",
     showingCount: "Showing {count} services",
-    subcategoriesCount: "6 Subcategories",
+    subcategoriesCount: "Subcategories",
     backToSubcategories: "← Back to Subcategories",
+    backToUniversities: "← Back to Universities",
     servicesSuffix: "services",
     emptyStateHeading: "No matching service found.",
     emptyStateText: "Try searching for words like 'Income', 'Passport', 'Birth', or 'Licence'.",
@@ -107,6 +109,7 @@ const translations = {
     headingWhere: "📍 Where to Apply",
     headingSteps: "📋 Basic Step-by-Step Instructions",
     headingNotes: "ℹ️ Important Notes",
+    headingInstitutionServices: "🏛️ Institution Services & Portals",
     openOfficialPortal: "Open Official Portal ↗",
     officialPortalUnavailable: "Official Online Portal Link Not Directly Available",
     verifiedBadge: "Verified for Kerala",
@@ -127,7 +130,7 @@ const translations = {
     howCtaBtn: "Get Started"
   },
   ml: {
-    topDisclaimer: "ℹ️ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര വിവര സഹായി മാത്രമാണ്. വിവരങ്ങൾ എപ്പോഴും ഔദ്യോഗിക പോർട്ടലുകൾ വഴി സ്ഥിരീകരിക്കുക.",
+    topDisclaimer: "ℹ സേവാചെക്ക് കേരള ഒരു സ്വതന്ത്ര വിവര സഹായി മാത്രമാണ്. വിവരങ്ങൾ എപ്പോഴും ഔദ്യോഗിക പോർട്ടലുകൾ വഴി സ്ഥിരീകരിക്കുക.",
     navHome: "ഹോം",
     navServices: "സേവനങ്ങൾ",
     navHow: "പ്രവർത്തനം",
@@ -148,8 +151,9 @@ const translations = {
     catOther: "📦 മറ്റ് സേവനങ്ങൾ",
     popularServicesHeading: "ജനപ്രിയ സേവനങ്ങൾ",
     showingCount: "{count} സേവനങ്ങൾ ലഭ്യമാണ്",
-    subcategoriesCount: "6 ഉപവിഭാഗങ്ങൾ ലഭ്യമാണ്",
+    subcategoriesCount: "ഉപവിഭാഗങ്ങൾ ലഭ്യമാണ്",
     backToSubcategories: "← ഉപവിഭാഗങ്ങളിലേക്ക് മടങ്ങുക",
+    backToUniversities: "← തിരികെ മടങ്ങുക",
     servicesSuffix: "സേവനങ്ങൾ",
     emptyStateHeading: "സേവനങ്ങളൊന്നും കണ്ടെത്താനായില്ല.",
     emptyStateText: "'വരുമാനം', 'പാസ്‌പോർട്ട്', 'ജനന സർട്ടിഫിക്കറ്റ്' തുടങ്ങിയ വാക്കുകൾ ഉപയോഗിച്ച് തിരയുക.",
@@ -163,6 +167,7 @@ const translations = {
     headingWhere: "📍 എവിടെയാണ് അപേക്ഷിക്കേണ്ടത്?",
     headingSteps: "📋 അപേക്ഷിക്കേണ്ട ഘട്ടങ്ങൾ",
     headingNotes: "ℹ️ പ്രധാന നിർദ്ദേശങ്ങൾ",
+    headingInstitutionServices: "🏛️ സ്ഥാപന സേവനങ്ങളും പോർട്ടലുകളും",
     openOfficialPortal: "ഔദ്യോഗിക പോർട്ടൽ സന്ദർശിക്കുക ↗",
     officialPortalUnavailable: "ഔദ്യോഗിക ഓൺലൈൻ പോർട്ടൽ ലിങ്ക് ലഭ്യമല്ല",
     verifiedBadge: "കേരള സർക്കാർ മാനദണ്ഡപ്രകാരം പരിശോധിച്ചത്",
@@ -299,12 +304,10 @@ function backToHome() {
 // ==========================================
 
 function handleInitialRouting() {
-  // 1. Check sessionStorage for redirected path from 404.html
   let targetPath = sessionStorage.getItem("seva_redirect_path");
   if (targetPath) {
     sessionStorage.removeItem("seva_redirect_path");
   } else {
-    // 2. Otherwise use current pathname directly
     targetPath = window.location.pathname;
   }
 
@@ -312,7 +315,6 @@ function handleInitialRouting() {
 }
 
 function handleUrlRouting(pathname, pushHistory = false) {
-  // Check if pathname matches /services/{service-id}
   const match = pathname.match(/^\/services\/([a-zA-Z0-9-_]+)\/?$/);
   
   if (match) {
@@ -322,19 +324,16 @@ function handleUrlRouting(pathname, pushHistory = false) {
       showServiceDetail(serviceId, pushHistory);
       return;
     } else {
-      // Invalid/non-existent service ID safely returns to home view
       navigateTo("home", pushHistory);
       return;
     }
   }
 
-  // Check for other static views like /how or /about
   if (pathname === "/how" || pathname === "/how-it-works") {
     navigateTo("how", pushHistory);
   } else if (pathname === "/about") {
     navigateTo("about", pushHistory);
   } else {
-    // Default to home view
     navigateTo("home", pushHistory);
   }
 }
@@ -383,6 +382,10 @@ function setLanguage(lang) {
   } else {
     if (currentCategory === "other" && currentSubcategory === null && !currentSearchQuery) {
       renderSubcategories();
+    } else if (currentCategory === "education" && currentSubcategory === null && !currentSearchQuery) {
+      renderEducationSubcategories();
+    } else if (currentCategory === "education" && (currentSubcategory === "universities" || currentSubcategory === "institutions") && currentChildSubcategory === null && !currentSearchQuery) {
+      renderEducationChildSubcategories(currentSubcategory);
     } else {
       renderServices();
     }
@@ -413,6 +416,7 @@ function updateLanguageUI() {
 function filterCategory(category, buttonEl) {
   currentCategory = category;
   currentSubcategory = null;
+  currentChildSubcategory = null;
 
   document.querySelectorAll(".helper-chip").forEach((btn) => btn.classList.remove("active"));
   if (buttonEl) buttonEl.classList.add("active");
@@ -422,6 +426,8 @@ function filterCategory(category, buttonEl) {
 
   if (currentCategory === "other" && !currentSearchQuery) {
     renderSubcategories();
+  } else if (currentCategory === "education" && !currentSearchQuery) {
+    renderEducationSubcategories();
   } else {
     if (subcatContainer) subcatContainer.style.display = "none";
     if (grid) grid.style.display = "grid";
@@ -443,6 +449,10 @@ function handleSearch() {
   } else {
     if (currentCategory === "other" && currentSubcategory === null) {
       renderSubcategories();
+    } else if (currentCategory === "education" && currentSubcategory === null) {
+      renderEducationSubcategories();
+    } else if (currentCategory === "education" && (currentSubcategory === "universities" || currentSubcategory === "institutions") && currentChildSubcategory === null) {
+      renderEducationChildSubcategories(currentSubcategory);
     } else {
       renderServices();
     }
@@ -455,6 +465,32 @@ function getFilteredServices() {
   return allServices.filter((s) => {
     if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
       return s.category === "other" && s.subcategory === currentSubcategory;
+    }
+
+    if (currentCategory === "education" && !currentSearchQuery) {
+      const isEdu = s.category === "education" || s.relatedCategory === "education" || s.secondaryCategory === "education";
+      if (!isEdu) return false;
+
+      if (currentChildSubcategory !== null) {
+        if (currentSubcategory === "universities") {
+          return s.subcategory === currentChildSubcategory;
+        }
+        if (currentSubcategory === "institutions") {
+          return s.subcategory === "institutions" && s.institutionCategory === currentChildSubcategory;
+        }
+        return s.subcategory === currentChildSubcategory;
+      }
+      if (currentSubcategory !== null) {
+        if (currentSubcategory === "universities") {
+          return s.subcategory === "universities" || (s.subcategory && s.subcategory.startsWith("univ-"));
+        }
+        if (currentSubcategory === "institutions") {
+          return s.subcategory === "institutions";
+        }
+        return s.subcategory === currentSubcategory;
+      }
+      // At Education root level: hide individual service cards beneath subcategory cards
+      return false;
     }
 
     const matchesCategory =
@@ -502,7 +538,7 @@ function renderSubcategories() {
   }
 
   if (countEl) {
-    countEl.textContent = t.subcategoriesCount;
+    countEl.textContent = `6 ${t.subcategoriesCount}`;
   }
 
   if (!subcatContainer) return;
@@ -541,6 +577,185 @@ function resetSubcategory() {
 }
 
 // ==========================================
+// EDUCATION SERVICES: SUBCATEGORY CONTROLLER
+// ==========================================
+
+function getEducationSubcategories() {
+  if (window.CATEGORIES_CONFIG && window.CATEGORIES_CONFIG.education && window.CATEGORIES_CONFIG.education.subcategories) {
+    let subcats = [...window.CATEGORIES_CONFIG.education.subcategories];
+    let instSub = subcats.find(s => s.id === "institutions");
+    if (instSub && (!instSub.children || instSub.children.length === 0)) {
+      instSub.children = [
+        { id: "IITs", icon: "🏛️", name: "IITs", nameEn: "IITs" },
+        { id: "IISc & IISERs", icon: "🏛️", name: "IISc & IISERs", nameEn: "IISc & IISERs" },
+        { id: "NITs", icon: "🏛️", name: "NITs", nameEn: "NITs" },
+        { id: "IIMs", icon: "🏛️", name: "IIMs", nameEn: "IIMs" },
+        { id: "Specialized Institutions", icon: "🏛️", name: "Specialized Institutions", nameEn: "Specialized Institutions" }
+      ];
+    }
+    return subcats;
+  }
+  return [];
+}
+
+function renderEducationSubcategories() {
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+  const emptyState = document.getElementById("emptyState");
+  const countEl = document.getElementById("servicesCount");
+  const t = translations[currentLang];
+
+  if (emptyState) emptyState.style.display = "none";
+  if (grid) {
+    grid.innerHTML = "";
+    grid.style.display = "none";
+  }
+
+  const subcats = getEducationSubcategories();
+  if (countEl) {
+    countEl.textContent = `${subcats.length} ${t.subcategoriesCount}`;
+  }
+
+  if (subcatContainer) {
+    subcatContainer.style.display = "grid";
+    subcatContainer.innerHTML = subcats
+      .map((sub) => {
+        const title = (currentLang === "ml" ? sub.name : sub.nameEn) || sub.name;
+        const count = allServices.filter(s => {
+          const isEdu = s.category === "education" || s.relatedCategory === "education" || s.secondaryCategory === "education";
+          if (!isEdu) return false;
+          if (sub.id === "universities") {
+            return s.subcategory === "universities" || (s.subcategory && s.subcategory.startsWith("univ-"));
+          }
+          if (sub.id === "institutions") {
+            return s.subcategory === "institutions";
+          }
+          return s.subcategory === sub.id;
+        }).length;
+
+        return `
+          <div class="subcategory-card" onclick="selectEducationSubcategory('${sub.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectEducationSubcategory('${sub.id}')">
+            <div class="subcategory-card-icon">${sub.icon}</div>
+            <div class="subcategory-card-content">
+              <h4 class="subcategory-card-title">${escapeHtml(title)}</h4>
+              <span class="subcategory-card-count">${count} ${t.servicesSuffix}</span>
+            </div>
+          </div>
+        `;
+      })
+      .join("");
+  }
+}
+
+function selectEducationSubcategory(subcatId) {
+  currentSubcategory = subcatId;
+  currentChildSubcategory = null;
+
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+
+  if (subcatId === "universities" || subcatId === "institutions") {
+    renderEducationChildSubcategories(subcatId);
+  } else {
+    if (subcatContainer) subcatContainer.style.display = "none";
+    if (grid) grid.style.display = "grid";
+    renderServices();
+  }
+}
+
+function renderEducationChildSubcategories(subcatId) {
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+  const emptyState = document.getElementById("emptyState");
+  const countEl = document.getElementById("servicesCount");
+  const t = translations[currentLang];
+
+  if (emptyState) emptyState.style.display = "none";
+  if (grid) {
+    grid.innerHTML = "";
+    grid.style.display = "none";
+  }
+
+  const subcats = getEducationSubcategories();
+  const parent = subcats.find(s => s.id === subcatId);
+  const children = parent?.children || [];
+
+  if (countEl) {
+    countEl.textContent = `${children.length} ${t.subcategoriesCount}`;
+  }
+
+  if (subcatContainer) {
+    subcatContainer.style.display = "grid";
+    
+    let defaultDesc = currentLang === "ml"
+      ? "കേരളത്തിലെയും ഇന്ത്യയിലെയും ഉന്നത വിദ്യാഭ്യാസ സ്ഥാപനങ്ങളും സേവനങ്ങളും ഇവിടെ കണ്ടെത്താം."
+      : "Find education institutions, admissions, and student services.";
+      
+    let parentTitle = currentLang === "ml" ? parent.name : parent.nameEn;
+
+    let breadcrumb = `
+      <div class="subcat-breadcrumb-bar" style="grid-column: 1 / -1; display: flex; flex-direction: column; align-items: stretch; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;">
+          <span class="subcat-breadcrumb-title">${parent.icon} ${escapeHtml(parentTitle)}</span>
+          <button type="button" class="subcat-back-btn" onclick="resetEducationSubcategory()">${t.backToSubcategories}</button>
+        </div>
+        <p class="subcat-breadcrumb-desc" style="margin: 0; font-size: 0.88rem; color: var(--text-muted); line-height: 1.5; overflow-wrap: break-word;">${defaultDesc}</p>
+      </div>
+    `;
+
+    let cards = children.map(child => {
+      const title = (currentLang === "ml" ? child.name : child.nameEn) || child.name;
+      const count = allServices.filter(s => {
+        const isEdu = s.category === "education" || s.relatedCategory === "education" || s.secondaryCategory === "education";
+        if (!isEdu) return false;
+        if (subcatId === "universities") {
+          return s.subcategory === child.id;
+        }
+        if (subcatId === "institutions") {
+          return s.subcategory === "institutions" && s.institutionCategory === child.id;
+        }
+        return false;
+      }).length;
+
+      return `
+        <div class="subcategory-card" onclick="selectEducationChild('${subcatId}', '${child.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectEducationChild('${subcatId}', '${child.id}')">
+          <div class="subcategory-card-icon">${child.icon}</div>
+          <div class="subcategory-card-content">
+            <h4 class="subcategory-card-title">${escapeHtml(title)}</h4>
+            <span class="subcategory-card-count">${count} ${t.servicesSuffix}</span>
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    subcatContainer.innerHTML = breadcrumb + cards;
+  }
+}
+
+function selectEducationChild(subcatId, childId) {
+  currentChildSubcategory = childId;
+  const subcatContainer = document.getElementById("subcategoryContainer");
+  const grid = document.getElementById("serviceGrid");
+
+  if (subcatContainer) subcatContainer.style.display = "none";
+  if (grid) grid.style.display = "grid";
+
+  renderServices();
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+function resetEducationSubcategory() {
+  currentSubcategory = null;
+  currentChildSubcategory = null;
+  renderEducationSubcategories();
+}
+
+function resetEducationChild(subcatId) {
+  currentChildSubcategory = null;
+  renderEducationChildSubcategories(subcatId);
+}
+
+// ==========================================
 // RENDER SERVICE CARDS
 // ==========================================
 
@@ -574,6 +789,32 @@ function renderServices() {
         <button type="button" class="subcat-back-btn" onclick="resetSubcategory()">${t.backToSubcategories}</button>
       </div>
     `;
+  } else if (currentCategory === "education" && !currentSearchQuery) {
+    const subcats = getEducationSubcategories();
+    if (currentChildSubcategory !== null) {
+      const parent = subcats.find(s => s.id === currentSubcategory);
+      const child = parent?.children?.find(c => c.id === currentChildSubcategory);
+      const title = child ? ((currentLang === "ml" ? child.name : child.nameEn) || child.name) : "";
+      const icon = child ? child.icon : "🎓";
+
+      breadcrumbHtml = `
+        <div class="subcat-breadcrumb-bar" style="grid-column: 1 / -1;">
+          <span class="subcat-breadcrumb-title">${icon} ${escapeHtml(title)}</span>
+          <button type="button" class="subcat-back-btn" onclick="resetEducationChild('${currentSubcategory}')">${t.backToUniversities}</button>
+        </div>
+      `;
+    } else if (currentSubcategory !== null) {
+      const activeSub = subcats.find(s => s.id === currentSubcategory);
+      const title = activeSub ? ((currentLang === "ml" ? activeSub.name : activeSub.nameEn) || activeSub.name) : "";
+      const icon = activeSub ? activeSub.icon : "🎓";
+
+      breadcrumbHtml = `
+        <div class="subcat-breadcrumb-bar" style="grid-column: 1 / -1;">
+          <span class="subcat-breadcrumb-title">${icon} ${escapeHtml(title)}</span>
+          <button type="button" class="subcat-back-btn" onclick="resetEducationSubcategory()">${t.backToSubcategories}</button>
+        </div>
+      `;
+    }
   }
 
   const cardsHtml = filtered
@@ -582,9 +823,10 @@ function renderServices() {
       const summary = s.summary?.[currentLang] || s.summary?.en || "";
       const categoryName = getCategoryName(s.category, currentLang);
       const icon = s.icon || "📄";
+      const goldClass = s.cardVariant === "special" ? " service-card--gold" : "";
 
       return `
-      <div class="service-card" onclick="showServiceDetail('${s.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')showServiceDetail('${s.id}')">
+      <div class="service-card${goldClass}" onclick="showServiceDetail('${s.id}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')showServiceDetail('${s.id}')">
         <div class="card-icon">${icon}</div>
         <div class="card-category-badge">${categoryName}</div>
         <h3 class="card-title">${escapeHtml(name)}</h3>
@@ -608,7 +850,7 @@ function updateServiceCount(count) {
 }
 
 // ==========================================
-// SERVICE DETAIL VIEW
+// SERVICE DETAIL VIEW (SHARED INSTITUTION & SERVICE RENDERER)
 // ==========================================
 
 function showServiceDetail(serviceId, updateHistory = true) {
@@ -625,12 +867,12 @@ function showServiceDetail(serviceId, updateHistory = true) {
   const detailView = document.getElementById("view-detail");
   if (detailView) detailView.style.display = "block";
 
-  // Update browser URL to /services/{service-id}
   if (updateHistory) {
     history.pushState(null, "", `/services/${serviceId}`);
   }
 
   const t = translations[currentLang];
+  const isInstitution = service.subcategory === "institutions" || Boolean(service.institutionCategory);
 
   const titleEl = document.getElementById("detailTitle");
   const subEl = document.getElementById("detailSubtitle");
@@ -642,7 +884,13 @@ function showServiceDetail(serviceId, updateHistory = true) {
   const summary = service.summary?.[currentLang] || service.summary?.en || service.description?.[currentLang] || "";
 
   if (titleEl) titleEl.textContent = `${service.icon || "📄"} ${name}`;
-  if (subEl) subEl.textContent = subName;
+  if (subEl) {
+    let subtext = subName;
+    if (isInstitution && service.acronym) {
+      subtext = subtext ? `[${service.acronym}] ${subtext}` : `[${service.acronym}]`;
+    }
+    subEl.textContent = subtext;
+  }
   if (descEl) descEl.textContent = summary;
 
   if (badgesEl) {
@@ -651,36 +899,83 @@ function showServiceDetail(serviceId, updateHistory = true) {
     const isVerified = service.verified !== false;
     const verificationBadge = isVerified ? `✓ ${t.verifiedBadge}` : t.unverifiedBadge;
 
+    let institutionMetaBadges = "";
+    if (isInstitution) {
+      if (service.institutionCategory) {
+        institutionMetaBadges += `<span class="badge badge-category">${escapeHtml(service.institutionCategory)}</span>`;
+      }
+      if (service.institutionType) {
+        institutionMetaBadges += `<span class="badge badge-mode">${escapeHtml(service.institutionType)}</span>`;
+      }
+      if (service.location) {
+        institutionMetaBadges += `<span class="badge badge-mode">📍 ${escapeHtml(service.location)}</span>`;
+      }
+    }
+
     badgesEl.innerHTML = `
-      <span class="badge badge-category">${categoryName}</span>
+      <span class="badge badge-category">${escapeHtml(categoryName)}</span>
+      ${institutionMetaBadges}
       <span class="badge badge-mode">${escapeHtml(mode)}</span>
-      <span class="badge badge-status">${verificationBadge}</span>
+      <span class="badge badge-status">${escapeHtml(verificationBadge)}</span>
     `;
   }
 
+  // Who May Need It
   const whoEl = document.getElementById("detailWho");
+  const whoSection = whoEl?.closest(".detail-section") || whoEl?.parentElement;
   if (whoEl) {
-    const whoContent = service.whoNeeds?.[currentLang] || service.whoNeeds?.en || service.description?.[currentLang] || service.description?.en || service.summary?.[currentLang] || "—";
-    whoEl.textContent = whoContent;
-  }
-
-  const eligEl = document.getElementById("detailEligibility");
-  if (eligEl) {
-    const rawElig = service.eligibility?.[currentLang] || service.eligibility?.en;
-    if (Array.isArray(rawElig) && rawElig.length > 0) {
-      eligEl.innerHTML = `<ul style="margin: 0; padding-left: 1.2rem;">${rawElig.map(e => `<li>${escapeHtml(e)}</li>`).join("")}</ul>`;
-    } else if (typeof rawElig === "string") {
-      eligEl.textContent = rawElig;
+    const whoContent = service.whoNeeds?.[currentLang] || service.whoNeeds?.en || service.description?.[currentLang] || service.description?.en || (!isInstitution ? service.summary?.[currentLang] : "") || "";
+    if (whoContent) {
+      whoEl.textContent = whoContent;
+      if (whoSection) whoSection.style.display = "block";
+    } else if (isInstitution) {
+      if (whoSection) whoSection.style.display = "none";
     } else {
-      eligEl.textContent = "—";
+      whoEl.textContent = "—";
+      if (whoSection) whoSection.style.display = "block";
     }
   }
 
+  // Basic Eligibility
+  const eligEl = document.getElementById("detailEligibility");
+  const eligSection = eligEl?.closest(".detail-section") || eligEl?.parentElement;
+  if (eligEl) {
+    const rawElig = service.eligibility?.[currentLang] || service.eligibility?.en || service.eligibility;
+    if (Array.isArray(rawElig) && rawElig.length > 0) {
+      eligEl.innerHTML = `<ul style="margin: 0; padding-left: 1.2rem;">${rawElig.map(e => `<li>${escapeHtml(e)}</li>`).join("")}</ul>`;
+      if (eligSection) eligSection.style.display = "block";
+    } else if (typeof rawElig === "string" && rawElig.trim() !== "") {
+      eligEl.textContent = rawElig;
+      if (eligSection) eligSection.style.display = "block";
+    } else if (rawElig && typeof rawElig === "object") {
+      const eligText = rawElig[currentLang] || rawElig.en || "";
+      if (eligText) {
+        eligEl.textContent = eligText;
+        if (eligSection) eligSection.style.display = "block";
+      } else if (isInstitution) {
+        if (eligSection) eligSection.style.display = "none";
+      } else {
+        eligEl.textContent = "—";
+        if (eligSection) eligSection.style.display = "block";
+      }
+    } else if (isInstitution) {
+      if (eligSection) eligSection.style.display = "none";
+    } else {
+      eligEl.textContent = "—";
+      if (eligSection) eligSection.style.display = "block";
+    }
+  }
+
+  // Documents Section (Hide for Institutions when empty)
   const docsContainer = document.getElementById("detailDocs");
+  const docsSection = docsContainer?.closest(".detail-section") || docsContainer?.parentElement;
   if (docsContainer) {
     const docList = service.documents?.[currentLang] || service.documents?.en || [];
-    if (!Array.isArray(docList) || docList.length === 0) {
+    if (isInstitution && (!Array.isArray(docList) || docList.length === 0)) {
+      if (docsSection) docsSection.style.display = "none";
+    } else if (!Array.isArray(docList) || docList.length === 0) {
       docsContainer.innerHTML = `<p style="color: var(--text-muted); font-size: 0.95rem;">${currentLang === "ml" ? "പ്രത്യേക രേഖകളൊന്നും നൽകിയിട്ടില്ല." : "No specific documents required."}</p>`;
+      if (docsSection) docsSection.style.display = "block";
     } else {
       docsContainer.innerHTML = docList
         .map(
@@ -692,9 +987,11 @@ function showServiceDetail(serviceId, updateHistory = true) {
       `
         )
         .join("");
+      if (docsSection) docsSection.style.display = "block";
     }
   }
 
+  // Additional Supporting Documents
   const addDocsSection = document.getElementById("additionalDocsSection");
   const addDocsList = document.getElementById("detailAdditionalDocs");
   const addDocs = service.additionalDocs?.[currentLang] || service.additionalDocs?.en || [];
@@ -707,45 +1004,134 @@ function showServiceDetail(serviceId, updateHistory = true) {
     if (addDocsSection) addDocsSection.style.display = "none";
   }
 
+  // Where to Apply (Hide for Institutions when empty)
   const whereEl = document.getElementById("detailWhere");
+  const whereSection = whereEl?.closest(".detail-section") || whereEl?.parentElement;
   if (whereEl) {
-    whereEl.textContent = service.whereToApply?.[currentLang] || service.whereToApply?.en || service.howToApply?.[currentLang] || service.howToApply?.en || "—";
-  }
-
-  const stepsList = document.getElementById("detailSteps");
-  if (stepsList) {
-    const steps = service.steps?.[currentLang] || service.steps?.en || [];
-    if (!Array.isArray(steps) || steps.length === 0) {
-      stepsList.innerHTML = `<li>${currentLang === "ml" ? "ഘട്ടങ്ങൾ നൽകിയിട്ടില്ല." : "Standard procedure applies."}</li>`;
+    const whereContent = service.whereToApply?.[currentLang] || service.whereToApply?.en || service.howToApply?.[currentLang] || service.howToApply?.en || "";
+    if (isInstitution && !whereContent) {
+      if (whereSection) whereSection.style.display = "none";
     } else {
-      stepsList.innerHTML = steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
+      whereEl.textContent = whereContent || "—";
+      if (whereSection) whereSection.style.display = "block";
     }
   }
 
+  // Basic Step-by-Step Instructions (Hide for Institutions when empty)
+  const stepsList = document.getElementById("detailSteps");
+  const stepsSection = stepsList?.closest(".detail-section") || stepsList?.parentElement;
+  if (stepsList) {
+    const steps = service.steps?.[currentLang] || service.steps?.en || [];
+    if (isInstitution && (!Array.isArray(steps) || steps.length === 0)) {
+      if (stepsSection) stepsSection.style.display = "none";
+    } else if (!Array.isArray(steps) || steps.length === 0) {
+      stepsList.innerHTML = `<li>${currentLang === "ml" ? "ഘട്ടങ്ങൾ നൽകിയിട്ടില്ല." : "Standard procedure applies."}</li>`;
+      if (stepsSection) stepsSection.style.display = "block";
+    } else {
+      stepsList.innerHTML = steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("");
+      if (stepsSection) stepsSection.style.display = "block";
+    }
+  }
+
+  // ==========================================
+  // INSTITUTION-SPECIFIC SERVICES RENDERING
+  // ==========================================
+  let instServicesContainer = document.getElementById("detailInstitutionServices");
+  if (!instServicesContainer) {
+    const notesSec = document.getElementById("detailNotes")?.closest(".detail-section") || document.getElementById("detailNotes")?.parentElement;
+    const parentContainer = notesSec ? notesSec.parentNode : document.querySelector(".detail-main-col") || document.querySelector(".detail-container") || document.getElementById("view-detail");
+    if (parentContainer) {
+      const sec = document.createElement("div");
+      sec.className = "detail-section";
+      sec.id = "institutionServicesSection";
+      sec.innerHTML = `
+        <h3 id="institutionServicesHeading">${escapeHtml(t.headingInstitutionServices || "🏛️ Institution Services & Portals")}</h3>
+        <div id="detailInstitutionServices" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;"></div>
+      `;
+      if (notesSec && notesSec.parentNode === parentContainer) {
+        parentContainer.insertBefore(sec, notesSec);
+      } else {
+        parentContainer.appendChild(sec);
+      }
+      instServicesContainer = document.getElementById("detailInstitutionServices");
+    }
+  }
+
+  const instServicesSec = document.getElementById("institutionServicesSection") || instServicesContainer?.closest(".detail-section");
+  if (isInstitution && Array.isArray(service.institutionServices) && service.institutionServices.length > 0) {
+    if (instServicesSec) instServicesSec.style.display = "block";
+    if (instServicesContainer) {
+      const headingEl = document.getElementById("institutionServicesHeading");
+      if (headingEl) {
+        headingEl.textContent = t.headingInstitutionServices || (currentLang === "ml" ? "🏛️ സ്ഥാപന സേവനങ്ങളും പോർട്ടലുകളും" : "🏛️ Institution Services & Portals");
+      }
+      instServicesContainer.innerHTML = service.institutionServices
+        .map(svc => {
+          const sName = svc.name?.[currentLang] || svc.name?.en || "Service";
+          const sDesc = svc.description?.[currentLang] || svc.description?.en || "";
+          const sIcon = svc.icon || "🔗";
+          const sType = svc.type ? String(svc.type).replace(/-/g, " ").toUpperCase() : "";
+          const sUrl = typeof svc.url === "string" ? svc.url.trim() : "";
+
+          let actionBtn = "";
+          if (sUrl.startsWith("https://") || sUrl.startsWith("http://")) {
+            const btnLabel = currentLang === "ml" ? "പോർട്ടൽ സന്ദർശിക്കുക ↗" : "Open Portal ↗";
+            actionBtn = `<a href="${escapeHtml(sUrl)}" target="_blank" rel="noopener noreferrer" class="btn-official" style="font-size: 0.85rem; padding: 0.45rem 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; width: auto;">${btnLabel}</a>`;
+          }
+
+          return `
+            <div style="background: var(--bg-main, #f8fafc); border: 1px solid var(--border-color, #e2e8f0); border-radius: 8px; padding: 0.9rem 1rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
+              <div style="display: flex; align-items: flex-start; gap: 0.75rem; flex: 1; min-width: 200px;">
+                <span style="font-size: 1.4rem; line-height: 1;">${escapeHtml(sIcon)}</span>
+                <div>
+                  ${sType ? `<span class="badge badge-mode" style="display: inline-block; font-size: 0.7rem; margin-bottom: 0.25rem;">${escapeHtml(sType)}</span>` : ""}
+                  <h4 style="margin: 0 0 0.25rem 0; font-size: 1rem; font-weight: 600; color: var(--text-main);">${escapeHtml(sName)}</h4>
+                  ${sDesc ? `<p style="margin: 0; font-size: 0.88rem; color: var(--text-muted); line-height: 1.4;">${escapeHtml(sDesc)}</p>` : ""}
+                </div>
+              </div>
+              ${actionBtn ? `<div style="align-self: center;">${actionBtn}</div>` : ""}
+            </div>
+          `;
+        })
+        .join("");
+    }
+  } else {
+    if (instServicesSec) instServicesSec.style.display = "none";
+  }
+
+  // Important Notes
   const notesEl = document.getElementById("detailNotes");
+  const notesSection = notesEl?.closest(".detail-section") || notesEl?.parentElement;
   if (notesEl) {
     const rawNotes = service.importantNotes?.[currentLang] || service.importantNotes?.en || service.notes?.[currentLang] || service.notes?.en;
     if (Array.isArray(rawNotes) && rawNotes.length > 0) {
       notesEl.innerHTML = `<ul style="margin: 0; padding-left: 1.2rem;">${rawNotes.map(n => `<li>${escapeHtml(n)}</li>`).join("")}</ul>`;
-    } else if (typeof rawNotes === "string") {
+      if (notesSection) notesSection.style.display = "block";
+    } else if (typeof rawNotes === "string" && rawNotes.trim() !== "") {
       notesEl.textContent = rawNotes;
+      if (notesSection) notesSection.style.display = "block";
+    } else if (isInstitution) {
+      if (notesSection) notesSection.style.display = "none";
     } else {
       notesEl.textContent = "—";
+      if (notesSection) notesSection.style.display = "block";
     }
   }
 
+  // Official Website / Portal Button
   const btnWrapper = document.getElementById("officialBtnWrapper");
   if (btnWrapper) {
-    if (service.officialUrl && service.officialUrl.startsWith("http")) {
+    const officialUrl = typeof service.officialUrl === "string" ? service.officialUrl.trim() : "";
+    if (officialUrl.startsWith("https://") || officialUrl.startsWith("http://")) {
       btnWrapper.innerHTML = `
-        <a href="${service.officialUrl}" target="_blank" rel="noopener noreferrer" class="btn-official">
-          ${t.openOfficialPortal}
+        <a href="${escapeHtml(officialUrl)}" target="_blank" rel="noopener noreferrer" class="btn-official">
+          ${escapeHtml(t.openOfficialPortal)}
         </a>
       `;
     } else {
       btnWrapper.innerHTML = `
         <button type="button" class="btn-official btn-disabled" disabled>
-          ${t.officialPortalUnavailable}
+          ${escapeHtml(t.officialPortalUnavailable)}
         </button>
       `;
     }
@@ -753,7 +1139,7 @@ function showServiceDetail(serviceId, updateHistory = true) {
 
   const lastVerifiedEl = document.getElementById("detailLastVerified");
   if (lastVerifiedEl) {
-    const dateStr = service.lastVerified || "September 2026";
+    const dateStr = service.lastVerified || "October 2026";
     lastVerifiedEl.textContent = `${t.lastVerifiedPrefix} ${dateStr}`;
   }
 
