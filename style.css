@@ -247,29 +247,101 @@ main {
   box-sizing: border-box;
 }
 
-/* Hero Section */
+/* Hero Section — SevaCheck Redesign */
 .hero {
+  position: relative;
+  min-height: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 2.25rem 1rem 1.5rem;
+  padding: 3.5rem 1.25rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  isolation: isolate;
+  margin-bottom: 1.75rem;
 }
 
-.hero h1 {
-  font-size: 2.15rem;
-  color: var(--text-main);
-  margin-bottom: 0.65rem;
+.hero-redesign {
+  background: #123b78;
+}
+
+.hero-image-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 25, 55, 0.88),
+    rgba(8, 25, 55, 0.58)
+  );
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 780px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  color: #ffffff;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
   line-height: 1.3;
-  overflow-wrap: break-word;
+  margin-bottom: 0.8rem;
 }
 
-.hero p {
-  color: var(--text-muted);
+.hero-text p {
+  color: rgba(255, 255, 255, 0.92);
   font-size: 1.05rem;
-  max-width: 680px;
-  margin: 0 auto 1.75rem;
-  line-height: 1.6;
-  overflow-wrap: break-word;
+  max-width: 650px;
+  margin: 0 auto 1.6rem;
+  line-height: 1.7;
+}
+
+.hero .search-wrapper {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.hero .search-input {
+  min-height: 58px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 360px;
+    padding: 2.5rem 1rem;
+    border-radius: 14px;
+  }
+
+  .hero-image-overlay {
+    background: rgba(8, 25, 55, 0.68);
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-text p {
+    font-size: 0.92rem;
+  }
 }
 
 /* Search Box */
