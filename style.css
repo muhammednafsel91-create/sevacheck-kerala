@@ -138,7 +138,14 @@ header {
   cursor: pointer;
   user-select: none;
 }
+.brand-logo {
+  width: 52px;
+  height: 44px;
+}
 
+.brand-name {
+  font-size: 1.2rem;
+}
 .brand span.badge {
   background: var(--primary-light);
   color: var(--primary);
@@ -1152,7 +1159,7 @@ footer {
   .service-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
-  }
+ @media (max-width: 480px) { 
 
   .service-card {
     padding: 1.15rem;
