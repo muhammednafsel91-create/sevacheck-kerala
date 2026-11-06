@@ -43,28 +43,31 @@
 </a>
       <div class="nav-right">
 
-        <nav aria-label="Main navigation">
-          <ul>
-            <li>
-              <a href="javascript:void(0)" id="nav-home" class="active"
-                 onclick="navigateTo('home')" data-i18n="navHome">Home</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)" id="nav-services"
-                 onclick="navigateTo('services')" data-i18n="navServices">Services</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)" id="nav-how"
-                 onclick="navigateTo('how')" data-i18n="navHow">How It Works</a>
-            </li>
-            <li>
-              <a href="javascript:void(0)" id="nav-about"
-                 onclick="navigateTo('about')" data-i18n="navAbout">About</a>
-            </li>
-          </ul>
-        </nav>
+        <details class="header-menu">
+          <summary class="menu-toggle" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </summary>
 
-        <!-- Language and Theme Controls -->
+          <nav class="menu-dropdown" aria-label="Main menu">
+            <ul>
+              <li>
+                <a href="javascript:void(0)" id="nav-how"
+                   onclick="navigateTo('how')">
+                  How It Works
+                </a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" id="nav-about"
+                   onclick="navigateTo('about')">
+                  About SevaCheck
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </details>
+
         <div class="header-controls">
 
           <div class="lang-switch-container" id="langSwitch">
