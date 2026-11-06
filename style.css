@@ -1155,11 +1155,13 @@ footer {
     margin: 1.75rem auto 1.25rem;
   }
 
-  .service-grid {
+    .service-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
- @media (max-width: 480px) { 
+  }
+}
 
+@media (max-width: 480px) {
   .service-card {
     padding: 1.15rem;
   }
