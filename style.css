@@ -98,13 +98,30 @@ header {
 }
 
 .brand {
-  /* SevaCheck Logo */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  flex-shrink: 0;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* SevaCheck Logo */
 .brand-logo {
   display: block;
   width: 64px;
   height: 54px;
   object-fit: contain;
   flex-shrink: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 3px;
 }
 
 /* SevaCheck Brand Name */
@@ -124,27 +141,6 @@ header {
   font-size: 0.92em;
   font-weight: 700;
   letter-spacing: 0;
-}
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: -0.01em;
-  flex-shrink: 0;
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
-}
-.brand-logo {
-  width: 52px;
-  height: 44px;
-}
-
-.brand-name {
-  font-size: 1.2rem;
 }
 .brand span.badge {
   background: var(--primary-light);
