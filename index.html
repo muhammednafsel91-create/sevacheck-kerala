@@ -18,30 +18,32 @@
 <body>
 
 
+    
   <!-- Header -->
   <header class="site-header">
     <div class="nav-container">
 
-      <a
-        role="button"
-        tabindex="0"
-        class="brand"
-        onclick="navigateTo('home')"
-        onkeydown="if(event.key==='Enter'||event.key===' ')navigateTo('home')"
-        aria-label="SevaCheck Kerala Home"
-      >
-        <img
-  src="assets/logo/sevacheck-logo.png"
-  alt="SevaCheck Kerala Logo"
-  class="brand-logo"
->
+      <div class="header-top-row">
 
-<span class="brand-name">
-  <span>SevaCheck</span>
-  <small>Kerala</small>
-</span>
-</a>
-      <div class="nav-right">
+        <a
+          role="button"
+          tabindex="0"
+          class="brand"
+          onclick="navigateTo('home')"
+          onkeydown="if(event.key==='Enter'||event.key===' ')navigateTo('home')"
+          aria-label="SevaCheck Kerala Home"
+        >
+          <img
+            src="assets/logo/sevacheck-logo.png"
+            alt="SevaCheck Kerala Logo"
+            class="brand-logo"
+          >
+
+          <span class="brand-name">
+            <span>SevaCheck</span>
+            <small>Kerala</small>
+          </span>
+        </a>
 
         <details class="header-menu">
           <summary class="menu-toggle" aria-label="Open menu">
@@ -52,6 +54,12 @@
 
           <nav class="menu-dropdown" aria-label="Main menu">
             <ul>
+              <li>
+                <a href="javascript:void(0)" id="nav-home"
+                   onclick="navigateTo('home')">
+                  Home
+                </a>
+              </li>
               <li>
                 <a href="javascript:void(0)" id="nav-how"
                    onclick="navigateTo('how')">
@@ -68,35 +76,37 @@
           </nav>
         </details>
 
-        <div class="header-controls">
+      </div>
 
-          <div class="lang-switch-container" id="langSwitch">
-            <button type="button" class="lang-btn active"
-                    id="btn-lang-en" onclick="setLanguage('en')">
-              English
-            </button>
+      <div class="header-controls">
 
-            <span class="lang-divider">|</span>
-
-            <button type="button" class="lang-btn"
-                    id="btn-lang-ml" onclick="setLanguage('ml')">
-              മലയാളം
-            </button>
-          </div>
-
-          <button
-            type="button"
-            class="theme-toggle-btn"
-            id="themeToggleBtn"
-            onclick="toggleTheme()"
-            aria-label="Toggle dark mode"
-            title="Toggle dark/light mode"
-          >
-            <span id="themeToggleIcon">🌙</span>
+        <div class="lang-switch-container" id="langSwitch">
+          <button type="button" class="lang-btn active"
+                  id="btn-lang-en" onclick="setLanguage('en')">
+            English
           </button>
 
+          <span class="lang-divider">|</span>
+
+          <button type="button" class="lang-btn"
+                  id="btn-lang-ml" onclick="setLanguage('ml')">
+            മലയാളം
+          </button>
         </div>
+
+        <button
+          type="button"
+          class="theme-toggle-btn"
+          id="themeToggleBtn"
+          onclick="toggleTheme()"
+          aria-label="Toggle dark mode"
+          title="Toggle dark/light mode"
+        >
+          <span id="themeToggleIcon">🌙</span>
+        </button>
+
       </div>
+
     </div>
   </header>
 
