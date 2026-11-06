@@ -280,16 +280,20 @@ main {
 /* Hero Section — SevaCheck Redesign */
 .hero {
   position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-bottom: 1.75rem;
   min-height: 390px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 3.5rem 1.25rem;
-  border-radius: var(--radius-lg);
+  border-radius: 0;
+  box-sizing: border-box;
   overflow: hidden;
   isolation: isolate;
-  margin-bottom: 1.75rem;
 }
 
 .hero-redesign {
