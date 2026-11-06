@@ -359,11 +359,11 @@ main {
 }
 
 @media (max-width: 600px) {
+  @media (max-width: 600px) {
   .hero {
     min-height: 360px;
     padding: 2.5rem 1rem;
     border-radius: 0;
-  }
   }
 
   .hero-image-overlay {
@@ -378,7 +378,6 @@ main {
     font-size: 0.92rem;
   }
 }
-
 /* Search Box */
 .search-wrapper {
   max-width: 640px;
