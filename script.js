@@ -291,7 +291,8 @@ function navigateTo(viewName, updateHistory = true) {
       history.pushState(null, "", `/${viewName}`);
     }
   }
-
+const headerMenu = document.querySelector(".header-menu");
+if (headerMenu) headerMenu.removeAttribute("open");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
