@@ -303,7 +303,7 @@ function renderSponsorAd(placementKey, containerId) {
 // ==========================================
 
 
-function updateCategorySponsorAd() {
+
 function updateCategorySponsorAd() {
   const section = document.getElementById("sponsorCategorySection");
   const homeSection = document.getElementById("sponsorSection");
