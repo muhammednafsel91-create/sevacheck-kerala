@@ -761,6 +761,7 @@ function renderSubcategories() {
 }
 
 function selectSubcategory(slug) {
+    updateCategorySponsorAd();
   currentSubcategory = slug;
   const subcatContainer = document.getElementById("subcategoryContainer");
   const grid = document.getElementById("serviceGrid");
