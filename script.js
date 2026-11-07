@@ -303,6 +303,7 @@ function renderSponsorAd(placementKey, containerId) {
 // ==========================================
 
 function updateCategorySponsorAd() {
+function updateCategorySponsorAd() {
   const section = document.getElementById("sponsorCategorySection");
 
   if (!section) return;
@@ -316,7 +317,9 @@ function updateCategorySponsorAd() {
     police: "categories.police",
     employment: "categories.employment",
     norka: "categories.norka",
-    other: "categories.other.primary"
+    other: currentSubcategory
+      ? `categories.other.subcategories.${currentSubcategory}`
+      : "categories.other.primary"
   };
 
   const placementKey = categoryMap[currentCategory];
