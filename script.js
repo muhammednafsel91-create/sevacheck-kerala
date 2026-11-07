@@ -403,6 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initial Language Render
+    renderServices();
   renderSponsorAd("homepage", "sponsorHomeAd");
 
   // Handle Clean URL Routing on Startup (Direct URL or 404.html Redirect via sessionStorage)
