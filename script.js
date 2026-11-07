@@ -460,10 +460,12 @@ function filterCategory(category, buttonEl) {
 
     if (alreadyVisible) return;
 
-    const targetRect =
-  categoryRect.top >= headerHeight
-    ? categoryRect
-    : sponsorRect;
+    const categoryFullyVisible =
+  categoryRect.top >= headerHeight &&
+  categoryRect.bottom <= window.innerHeight;
+
+const targetRect =
+  categoryFullyVisible ? sponsorRect : categoryRect;
 
 const targetPosition =
   window.scrollY +
