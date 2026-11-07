@@ -566,7 +566,7 @@ function filterCategory(category, buttonEl) {
   currentCategory = category;
   currentSubcategory = null;
   currentChildSubcategory = null;
-
+  updateCategorySponsorAd();
   document.querySelectorAll(".helper-chip").forEach((btn) => btn.classList.remove("active"));
   if (buttonEl) buttonEl.classList.add("active");
 
