@@ -414,7 +414,6 @@ function updateLanguageUI() {
 // FILTERING & SEARCH
 // ==========================================
 
-function filterCategory(category, buttonEl) {
 
 function filterCategory(category, buttonEl) {
   currentCategory = category;
