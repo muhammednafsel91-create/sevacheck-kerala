@@ -432,6 +432,26 @@ function navigateTo(viewName, updateHistory = true) {
   if (activeNav) activeNav.classList.add("active");
 
   if (viewName === "home" || viewName === "services") {
+        currentCategory = "all";
+    currentSubcategory = null;
+    currentChildSubcategory = null;
+    currentSearchQuery = "";
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) searchInput.value = "";
+
+    const subcatContainer = document.getElementById("subcategoryContainer");
+    const serviceGrid = document.getElementById("serviceGrid");
+
+    if (subcatContainer) subcatContainer.style.display = "none";
+    if (serviceGrid) serviceGrid.style.display = "grid";
+
+    document.querySelectorAll(".helper-chip").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.category === "all");
+    });
+
+    updateCategorySponsorAd();
+    renderServices();
     document.getElementById("view-home").style.display = "block";
     const navServices = document.getElementById("nav-services");
     const navHome = document.getElementById("nav-home");
