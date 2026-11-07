@@ -283,7 +283,7 @@ main {
   width: 100vw;
   max-width: none;
   margin-left: calc(50% - 50vw);
-margin-bottom: 4px;
+margin-bottom: 0px;
   min-height: 390px;
   display: flex;
   align-items: center;
