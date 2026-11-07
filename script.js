@@ -218,6 +218,86 @@ function getCategoryName(categoryKey, lang = currentLang) {
 
   return categoryNames[lang]?.[categoryKey] || categoryKey;
 }
+// ==========================================
+// SPONSOR ADS — COMMON RENDERING FUNCTION
+// ==========================================
+
+function renderSponsorAd(placementKey, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const placement = placementKey
+    .split(".")
+    .reduce((value, key) => value?.[key], window.SPONSOR_ADS?.placements);
+
+  const imagePath = typeof placement?.image === "string"
+    ? placement.image
+    : "";
+
+  const validImage = /^assets\/sponsor\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp|gif)$/i.test(imagePath);
+
+  const sponsorLink = typeof placement?.link === "string" &&
+    /^https?:\/\//i.test(placement.link)
+      ? placement.link
+      : "";
+
+  // SHOW SPONSOR IMAGE
+  if (validImage) {
+    const imageHtml = `
+      <img
+        src="${escapeHtml(imagePath)}"
+        alt="Sponsor advertisement"
+        loading="lazy"
+      >
+    `;
+
+    container.innerHTML = sponsorLink
+      ? `<a class="sponsor-banner" href="${escapeHtml(sponsorLink)}" target="_blank" rel="noopener noreferrer">${imageHtml}</a>`
+      : `<div class="sponsor-banner">${imageHtml}</div>`;
+
+    return;
+  }
+
+  // SHOW PROMOTION FALLBACK
+  const email = window.SPONSOR_ADS?.contactEmail || "support@sevacheck.org";
+  const subject = window.SPONSOR_ADS?.contactSubject || "SevaCheck Kerala Promotion Enquiry";
+  const contactUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}`;
+
+  const isMalayalam = currentLang === "ml";
+
+  container.innerHTML = `
+    <div class="sponsor-fallback-banner">
+
+      <div class="sponsor-fallback-content">
+
+        <span class="sponsor-label">SPONSOR ADS</span>
+
+        <h3>
+          ${isMalayalam
+            ? "നിങ്ങളുടെ ബിസിനസ് പ്രമോട്ട് ചെയ്യാം"
+            : "Promote Your Business"}
+        </h3>
+
+        <p>
+          ${isMalayalam
+            ? "SevaCheck Kerala വഴി കേരളത്തിലുടനീളമുള്ള കൂടുതൽ ആളുകളിലേക്ക് എത്താം."
+            : "Reach more people across Kerala with SevaCheck Kerala."}
+        </p>
+
+      </div>
+
+      <a
+        href="${contactUrl}"
+        class="sponsor-contact-link"
+      >
+        ${isMalayalam
+          ? "SPONSOR AD സൃഷ്ടിക്കുക →"
+          : "CREATE YOUR SPONSOR AD →"}
+      </a>
+
+    </div>
+  `;
+}
 // Search Focus Mode for Mobile & Tablet
 
 // Search Focus Mode for Mobile & Tablet
