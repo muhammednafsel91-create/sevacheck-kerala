@@ -18,7 +18,12 @@ window.SPONSOR_ADS = {
       police: null,
       employment: null,
       norka: null,
-      other: null
+
+      other: {
+        primary: null,
+        inFeedEvery: 4,
+        inFeed: []
+      }
     },
 
     search: null,
