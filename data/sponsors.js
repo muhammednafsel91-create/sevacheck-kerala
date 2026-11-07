@@ -19,11 +19,21 @@ window.SPONSOR_ADS = {
       employment: null,
       norka: null,
 
-      other: {
+            other: {
         primary: null,
+
+        subcategories: {
+          "farmer-agri": null,
+          "animal-husbandry": null,
+          "fisheries": null,
+          "building-construction": null,
+          "industry-business": null,
+          "cooperative": null
+        },
+
         inFeedEvery: 4,
         inFeed: []
-      }
+            }
     },
 
     search: null,
