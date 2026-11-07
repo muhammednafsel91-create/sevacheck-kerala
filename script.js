@@ -493,7 +493,8 @@ function setLanguage(lang) {
   if (btnMl) btnMl.classList.toggle("active", lang === "ml");
 
   updateLanguageUI();
-renderSponsorAd("homepage", "sponsorHomeAd");
+  renderSponsorAd("homepage", "sponsorHomeAd");
+  
   if (currentView === "detail" && activeService) {
     showServiceDetail(activeService.id, false);
   } else {
