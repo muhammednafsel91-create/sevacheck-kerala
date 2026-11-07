@@ -770,7 +770,7 @@ function renderSubcategories() {
       const adIndex = Math.floor((index + 1) / inFeedEvery) - 1;
 
       const adHtml = isAdPosition
-        ? `<div id="sponsorOtherSubcategoryInFeed${adIndex}" style="grid-column: 1 / -1;"></div>`
+        ? `<div class="subcategory-sponsor-slot" id="sponsorOtherSubcategoryInFeed${adIndex}"></div>`
         : "";
 
       return cardHtml + adHtml;
