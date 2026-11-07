@@ -315,7 +315,8 @@ function updateCategorySponsorAd() {
     travel: "categories.travel",
     police: "categories.police",
     employment: "categories.employment",
-    norka: "categories.norka"
+    norka: "categories.norka",
+    other: "categories.other.primary"
   };
 
   const placementKey = categoryMap[currentCategory];
