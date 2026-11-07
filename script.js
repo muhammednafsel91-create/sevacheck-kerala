@@ -219,25 +219,43 @@ function getCategoryName(categoryKey, lang = currentLang) {
   return categoryNames[lang]?.[categoryKey] || categoryKey;
 }
 // Search Focus Mode for Mobile & Tablet
+
+// Search Focus Mode for Mobile & Tablet
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
 
   if (!searchInput) return;
 
+  const viewport = window.visualViewport;
+  let initialHeight = viewport ? viewport.height : window.innerHeight;
+
   function updateSearchFocusMode() {
     const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     const isSearchFocused = document.activeElement === searchInput;
+    const currentHeight = viewport ? viewport.height : window.innerHeight;
+    const keyboardIsOpen = initialHeight - currentHeight > 120;
 
     document.body.classList.toggle(
       "search-focus-mode",
-      isTouchDevice && isSearchFocused
+      isTouchDevice && isSearchFocused && keyboardIsOpen
     );
   }
 
   searchInput.addEventListener("focus", updateSearchFocusMode);
   searchInput.addEventListener("blur", updateSearchFocusMode);
-  window.addEventListener("resize", updateSearchFocusMode);
+
+  if (viewport) {
+    viewport.addEventListener("resize", updateSearchFocusMode);
+  }
+
+  window.addEventListener("resize", function () {
+    if (document.activeElement !== searchInput) {
+      initialHeight = viewport ? viewport.height : window.innerHeight;
+    }
+    updateSearchFocusMode();
+  });
 });
+
 // Initialise Application
 document.addEventListener("DOMContentLoaded", function () {
   if (window.SevaRegistry && typeof window.SevaRegistry.getAll === "function") {
