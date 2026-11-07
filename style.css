@@ -533,7 +533,98 @@ margin-bottom: 0px;
 .sponsor-contact-link:hover {
   background: var(--primary-dark);
 }
+/* Sponsor Fallback — Animated Red Banner */
 
+.sponsor-fallback-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.4rem 1.6rem;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(115deg, #7f1010, #dc2626, #991b1b);
+  color: #ffffff;
+  box-shadow: 0 5px 22px rgba(185, 28, 28, 0.25);
+  isolation: isolate;
+}
+
+.sponsor-fallback-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.16) 48%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: sponsorShine 5s ease-in-out infinite;
+}
+
+.sponsor-fallback-content {
+  min-width: 0;
+}
+
+.sponsor-fallback-banner .sponsor-label {
+  color: #ffe4e4;
+}
+
+.sponsor-fallback-banner h3 {
+  margin: 0.2rem 0 0.45rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.sponsor-fallback-banner p {
+  margin: 0;
+  color: #ffecec;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.sponsor-fallback-banner .sponsor-contact-link {
+  background: #ffffff;
+  color: #991b1b;
+  white-space: nowrap;
+}
+
+.sponsor-fallback-banner .sponsor-contact-link:hover {
+  background: #ffe4e4;
+}
+
+@keyframes sponsorShine {
+  0%, 55% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .sponsor-fallback-banner {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.2rem;
+    gap: 1rem;
+  }
+
+  .sponsor-fallback-banner .sponsor-contact-link {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sponsor-fallback-banner::before {
+    animation: none;
+  }
+}
 /* Sponsor Banner */
 .sponsor-banner {
   display: block;
