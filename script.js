@@ -305,6 +305,15 @@ function renderSponsorAd(placementKey, containerId) {
 
 function updateCategorySponsorAd() {
   const section = document.getElementById("sponsorCategorySection");
+  const homeSection = document.getElementById("sponsorSection");
+
+  if (currentCategory === "all") {
+    if (homeSection) homeSection.style.display = "block";
+    if (section) section.style.display = "none";
+    return;
+  }
+
+  if (homeSection) homeSection.style.display = "none";
 
   if (!section) return;
 
