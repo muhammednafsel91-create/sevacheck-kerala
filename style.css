@@ -1378,7 +1378,12 @@ footer {
   gap: 1.25rem;
   margin-bottom: 2rem;
 }
-
+.subcategory-sponsor-slot {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  margin: 0.25rem 0;
+}
 .subcategory-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
