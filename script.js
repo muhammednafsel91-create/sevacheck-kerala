@@ -745,9 +745,16 @@ function renderSubcategories() {
   subcatContainer.style.display = "grid";
 
   subcatContainer.innerHTML = subcategoryMetadata
-    .map((sub) => {
+    const inFeedEvery = Math.max(
+    1,
+    Number(window.SPONSOR_ADS?.placements?.categories?.other?.inFeedEvery) || 4
+  );
+
+  subcatContainer.innerHTML = subcategoryMetadata
+    .map((sub, index) => {
       const title = sub.name[currentLang] || sub.name.en;
-      return `
+
+      const cardHtml = `
         <div class="subcategory-card" onclick="selectSubcategory('${sub.slug}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectSubcategory('${sub.slug}')">
           <div class="subcategory-card-icon">${sub.icon}</div>
           <div class="subcategory-card-content">
@@ -756,8 +763,29 @@ function renderSubcategories() {
           </div>
         </div>
       `;
+
+      const isAdPosition =
+        (index + 1) % inFeedEvery === 0 &&
+        index < subcategoryMetadata.length - 1;
+
+      const adIndex = Math.floor((index + 1) / inFeedEvery) - 1;
+
+      const adHtml = isAdPosition
+        ? `<div id="sponsorOtherSubcategoryInFeed${adIndex}" style="grid-column: 1 / -1;"></div>`
+        : "";
+
+      return cardHtml + adHtml;
     })
     .join("");
+
+  const adCount = Math.floor((subcategoryMetadata.length - 1) / inFeedEvery);
+
+  for (let i = 0; i < adCount; i++) {
+    renderSponsorAd(
+      `categories.other.inFeed.${i}`,
+      `sponsorOtherSubcategoryInFeed${i}`
+    );
+  }
 }
 
 function selectSubcategory(slug) {
