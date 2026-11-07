@@ -377,6 +377,30 @@ margin-bottom: 0px;
     font-size: 0.92rem;
   }
 }
+/* Category Filters Inside Hero */
+.hero .category-section {
+  margin: 1.15rem auto 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  width: 100%;
+  text-align: left;
+}
+
+.hero .category-section h3 {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  margin: 0 0 0.55rem;
+}
+
+.hero .helper-chips-container {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 12px;
+  background: rgba(8, 25, 55, 0.18);
+  padding: 0.45rem;
+  width: 100%;
+}
 /* Search Box */
 .search-wrapper {
   max-width: 640px;
