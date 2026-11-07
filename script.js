@@ -745,7 +745,6 @@ function renderSubcategories() {
   subcatContainer.style.display = "grid";
 
   subcatContainer.innerHTML = subcategoryMetadata
-    const inFeedEvery = Math.max(
     1,
     Number(window.SPONSOR_ADS?.placements?.categories?.other?.inFeedEvery) || 4
   );
