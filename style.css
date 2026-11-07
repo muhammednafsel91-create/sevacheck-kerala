@@ -1694,3 +1694,36 @@ html[data-theme="dark"] {
     gap: 0.2rem;
   }
 }
+
+/* Compact Search View — Mobile & Touch Tablets */
+body.search-focus-mode .hero {
+  min-height: 0 !important;
+  padding: 12px 12px !important;
+  align-items: flex-start;
+}
+
+body.search-focus-mode .hero .hero-text,
+body.search-focus-mode .hero .category-section,
+body.search-focus-mode #sponsorSection {
+  display: none !important;
+}
+
+body.search-focus-mode .hero-content {
+  max-width: 100%;
+}
+
+body.search-focus-mode .hero .search-wrapper {
+  margin: 0 auto;
+}
+
+body.search-focus-mode .hero .search-input {
+  min-height: 50px;
+}
+
+body.search-focus-mode .services-summary {
+  margin-top: 0.5rem;
+}
+
+body.search-focus-mode .service-grid {
+  gap: 0.75rem;
+}
