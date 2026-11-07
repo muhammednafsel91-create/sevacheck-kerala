@@ -637,7 +637,8 @@ function handleSearch() {
 
   const subcatContainer = document.getElementById("subcategoryContainer");
   const grid = document.getElementById("serviceGrid");
-
+638:   const subcatContainer = document.getElementById("subcategoryContainer");
+639:   const grid = document.getElementById("serviceGrid");
   if (currentSearchQuery) {
     if (subcatContainer) subcatContainer.style.display = "none";
     if (grid) grid.style.display = "grid";
