@@ -353,7 +353,7 @@ margin-bottom: 0px;
 
 .hero .search-input {
   min-height: 62px;
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  border: 3px solid rgba(255, 255, 255, 0.95);
   border-radius: 14px;
   background: transparent;
   backdrop-filter: none;
