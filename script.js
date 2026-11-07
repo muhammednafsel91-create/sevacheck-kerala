@@ -774,6 +774,7 @@ function selectSubcategory(slug) {
 
 function resetSubcategory() {
   currentSubcategory = null;
+    updateCategorySponsorAd();
   renderSubcategories();
 }
 
