@@ -218,7 +218,26 @@ function getCategoryName(categoryKey, lang = currentLang) {
 
   return categoryNames[lang]?.[categoryKey] || categoryKey;
 }
+// Search Focus Mode for Mobile & Tablet
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
 
+  if (!searchInput) return;
+
+  function updateSearchFocusMode() {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    const isSearchFocused = document.activeElement === searchInput;
+
+    document.body.classList.toggle(
+      "search-focus-mode",
+      isTouchDevice && isSearchFocused
+    );
+  }
+
+  searchInput.addEventListener("focus", updateSearchFocusMode);
+  searchInput.addEventListener("blur", updateSearchFocusMode);
+  window.addEventListener("resize", updateSearchFocusMode);
+});
 // Initialise Application
 document.addEventListener("DOMContentLoaded", function () {
   if (window.SevaRegistry && typeof window.SevaRegistry.getAll === "function") {
