@@ -415,6 +415,8 @@ function updateLanguageUI() {
 // ==========================================
 
 function filterCategory(category, buttonEl) {
+
+function filterCategory(category, buttonEl) {
   currentCategory = category;
   currentSubcategory = null;
   currentChildSubcategory = null;
@@ -434,7 +436,44 @@ function filterCategory(category, buttonEl) {
     if (grid) grid.style.display = "grid";
     renderServices();
   }
+
+  requestAnimationFrame(() => {
+    const categorySection = document.querySelector(".hero .category-section");
+    const sponsorSection = document.getElementById("sponsorSection");
+    const servicesSummary = document.querySelector(".services-summary");
+    const header = document.querySelector(".site-header") || document.querySelector("header");
+
+    if (!categorySection || !sponsorSection || !servicesSummary) return;
+
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+
+    const categoryRect = categorySection.getBoundingClientRect();
+    const sponsorRect = sponsorSection.getBoundingClientRect();
+    const summaryRect = servicesSummary.getBoundingClientRect();
+
+    const alreadyVisible =
+      categoryRect.top >= headerHeight &&
+      categoryRect.bottom <= window.innerHeight &&
+      sponsorRect.top >= headerHeight &&
+      sponsorRect.bottom <= window.innerHeight &&
+      summaryRect.top >= headerHeight &&
+      summaryRect.bottom <= window.innerHeight;
+
+    if (alreadyVisible) return;
+
+    const targetPosition =
+      window.scrollY +
+      categoryRect.top -
+      headerHeight -
+      8;
+
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: "smooth"
+    });
+  });
 }
+
 
 function handleSearch() {
   const input = document.getElementById("searchInput");
