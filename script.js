@@ -460,11 +460,16 @@ function filterCategory(category, buttonEl) {
 
     if (alreadyVisible) return;
 
-    const targetPosition =
-      window.scrollY +
-      categoryRect.top -
-      headerHeight -
-      8;
+    const targetRect =
+  categoryRect.top >= headerHeight
+    ? categoryRect
+    : sponsorRect;
+
+const targetPosition =
+  window.scrollY +
+  targetRect.top -
+  headerHeight -
+  8;
 
     window.scrollTo({
       top: Math.max(0, targetPosition),
