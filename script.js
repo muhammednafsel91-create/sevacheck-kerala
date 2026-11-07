@@ -304,12 +304,21 @@ function renderSponsorAd(placementKey, containerId) {
 
 
 function updateCategorySponsorAd() {
+function updateCategorySponsorAd() {
   const section = document.getElementById("sponsorCategorySection");
   const homeSection = document.getElementById("sponsorSection");
+
+  if (currentSearchQuery) {
+    if (section) section.style.display = "none";
+    if (homeSection) homeSection.style.display = "block";
+    renderSponsorAd("search", "sponsorHomeAd");
+    return;
+  }
 
   if (currentCategory === "all") {
     if (homeSection) homeSection.style.display = "block";
     if (section) section.style.display = "none";
+    renderSponsorAd("homepage", "sponsorHomeAd");
     return;
   }
 
@@ -333,7 +342,7 @@ function updateCategorySponsorAd() {
 
   const placementKey = categoryMap[currentCategory];
 
-  if (!placementKey || currentSearchQuery) {
+  if (!placementKey) {
     section.style.display = "none";
     return;
   }
