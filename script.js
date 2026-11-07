@@ -298,6 +298,36 @@ function renderSponsorAd(placementKey, containerId) {
     </div>
   `;
 }
+// ==========================================
+// CATEGORY SPONSOR AD
+// ==========================================
+
+function updateCategorySponsorAd() {
+  const section = document.getElementById("sponsorCategorySection");
+
+  if (!section) return;
+
+  const categoryMap = {
+    documents: "categories.documents",
+    id: "categories.id",
+    government: "categories.government",
+    education: "categories.education",
+    travel: "categories.travel",
+    police: "categories.police",
+    employment: "categories.employment",
+    norka: "categories.norka"
+  };
+
+  const placementKey = categoryMap[currentCategory];
+
+  if (!placementKey || currentSearchQuery) {
+    section.style.display = "none";
+    return;
+  }
+
+  section.style.display = "block";
+  renderSponsorAd(placementKey, "sponsorCategoryAd");
+}
 // Search Focus Mode for Mobile & Tablet
 
 // Search Focus Mode for Mobile & Tablet
