@@ -769,8 +769,20 @@ function normalizeRomanSearch(text) {
     .replace(/oo/g, "u");
 }
 
-function searchTokenScore(queryToken, targetText) {
-  const targetTokens = targetText.split(/\s+/).filter(Boolean);
+function flattenSearchValue(value) {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value.map(flattenSearchValue).join(" ");
+  }
+  if (value && typeof value === "object") {
+    return Object.values(value).map(flattenSearchValue).join(" ");
+  }
+  return "";
+}
+
+function scoreSearchToken(queryToken, targetTokens) {
+  if (queryToken.length < 2) return 0;
+
   let bestScore = 0;
 
   for (const token of targetTokens) {
@@ -779,23 +791,45 @@ function searchTokenScore(queryToken, targetText) {
       continue;
     }
 
-    // Partial match: query must be part of the target word
-    if (token.includes(queryToken)) {
-      bestScore = Math.max(bestScore, 85);
+    if (token.startsWith(queryToken) && queryToken.length >= 2) {
+      bestScore = Math.max(bestScore, 88);
       continue;
     }
 
-    // Allow small spelling mistakes
-    const distance = searchEditDistance(queryToken, token);
-    const maxDistance = queryToken.length >= 7 ? 2 : 1;
+    if (queryToken.length >= 4) {
+      const distance = searchEditDistance(queryToken, token);
+      const maxDistance = queryToken.length >= 7 ? 2 : 1;
 
-    if (distance <= maxDistance) {
-      const score = 80 - distance * 15;
-      bestScore = Math.max(bestScore, score);
+      if (distance > 0 && distance <= maxDistance) {
+        bestScore = Math.max(
+          bestScore,
+          distance === 1 ? 72 : 60
+        );
+      }
     }
   }
 
   return bestScore;
+}
+
+function scoreSearchField(queryTokens, fieldText) {
+  const targetTokens = normalizeSearchText(fieldText)
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (!targetTokens.length) return 0;
+
+  let total = 0;
+
+  for (const queryToken of queryTokens) {
+    const score = scoreSearchToken(queryToken, targetTokens);
+
+    if (score === 0) return 0;
+
+    total += score;
+  }
+
+  return total / queryTokens.length;
 }
 
 function getFilteredServices() {
@@ -805,8 +839,15 @@ function getFilteredServices() {
       : currentCategory;
 
   const scopedServices = allServices.filter((s) => {
-    if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
-      return s.category === "other" && s.subcategory === currentSubcategory;
+    if (
+      currentCategory === "other" &&
+      currentSubcategory !== null &&
+      !currentSearchQuery
+    ) {
+      return (
+        s.category === "other" &&
+        s.subcategory === currentSubcategory
+      );
     }
 
     if (currentCategory === "education" && !currentSearchQuery) {
@@ -821,33 +862,41 @@ function getFilteredServices() {
         if (currentSubcategory === "universities") {
           return s.subcategory === currentChildSubcategory;
         }
+
         if (currentSubcategory === "institutions") {
-          return s.subcategory === "institutions" &&
-            s.institutionCategory === currentChildSubcategory;
+          return (
+            s.subcategory === "institutions" &&
+            s.institutionCategory === currentChildSubcategory
+          );
         }
+
         return s.subcategory === currentChildSubcategory;
       }
 
       if (currentSubcategory !== null) {
         if (currentSubcategory === "universities") {
-          return s.subcategory === "universities" ||
-            (s.subcategory && s.subcategory.startsWith("univ-"));
+          return (
+            s.subcategory === "universities" ||
+            (s.subcategory && s.subcategory.startsWith("univ-"))
+          );
         }
+
         if (currentSubcategory === "institutions") {
           return s.subcategory === "institutions";
         }
+
         return s.subcategory === currentSubcategory;
       }
 
       return false;
     }
 
-    const matchesCategory =
+    return (
       targetCategory === "all" ||
       s.category === targetCategory ||
-      s.relatedCategory === targetCategory;
-
-    return matchesCategory;
+      s.relatedCategory === targetCategory ||
+      s.secondaryCategory === targetCategory
+    );
   });
 
   if (!currentSearchQuery) return scopedServices;
@@ -861,73 +910,60 @@ function getFilteredServices() {
   );
 
   function getMatchScore(service) {
-    const nameFields = [
-      normalizeSearchText(service.name?.en),
-      normalizeSearchText(service.name?.ml),
-      normalizeRomanSearch(transliterateMalayalam(service.name?.ml))
-    ];
+    const nameText = flattenSearchValue(service.name);
 
-    const summaryFields = [
-      normalizeSearchText(service.summary?.en),
-      normalizeSearchText(service.summary?.ml),
-      normalizeRomanSearch(transliterateMalayalam(service.summary?.ml))
-    ];
+    const summaryText = [
+      service.summary,
+      service.description
+    ].map(flattenSearchValue).join(" ");
 
-    const otherFields = [
-      normalizeSearchText(service.id),
-      normalizeSearchText(service.subcategory || service.subCategory || "")
-    ];
+    const detailsText = [
+      service.id,
+      service.subcategory,
+      service.subCategory,
+      service.institutionCategory,
+      service.whoNeeds,
+      service.eligibility,
+      service.documents,
+      service.additionalDocs,
+      service.whereToApply,
+      service.howToApply,
+      service.mode,
+      service.steps,
+      service.fees,
+      service.validity,
+      service.notes,
+      service.importantNotes,
+      service.institutionServices,
+      service.en,
+      service.ml
+    ].map(flattenSearchValue).join(" ");
 
-    let bestTotal = 0;
+    let bestScore = 0;
 
     for (const query of queryVariants) {
-      const tokens = query.split(/\s+/).filter(Boolean);
-      if (!tokens.length) continue;
+      const queryTokens = query.split(/\s+/).filter(Boolean);
 
-      let total = 0;
-      let allMatched = true;
+      if (!queryTokens.length) continue;
+      if (queryTokens.some(token => token.length < 2)) continue;
 
-      for (const token of tokens) {
-        if (token.length < 2) {
-          allMatched = false;
-          break;
-        }
+      const nameScore = scoreSearchField(queryTokens, nameText);
 
-        const nameScore = Math.max(
-          0,
-          ...nameFields.map(field => searchTokenScore(token, field))
-        );
+      const summaryScore =
+        scoreSearchField(queryTokens, summaryText) * 0.78;
 
-        const summaryScore = Math.max(
-          0,
-          ...summaryFields.map(field => searchTokenScore(token, field))
-        );
+      const detailsScore =
+        scoreSearchField(queryTokens, detailsText) * 0.68;
 
-        const otherScore = Math.max(
-          0,
-          ...otherFields.map(field => searchTokenScore(token, field))
-        );
-
-        const tokenScore = Math.max(
-          nameScore,
-          summaryScore * 0.55,
-          otherScore * 0.35
-        );
-
-        if (tokenScore === 0) {
-          allMatched = false;
-          break;
-        }
-
-        total += tokenScore;
-      }
-
-      if (allMatched) {
-        bestTotal = Math.max(bestTotal, total / tokens.length);
-      }
+      bestScore = Math.max(
+        bestScore,
+        nameScore,
+        summaryScore,
+        detailsScore
+      );
     }
 
-    return bestTotal;
+    return bestScore;
   }
 
   return scopedServices
@@ -935,10 +971,11 @@ function getFilteredServices() {
       service,
       score: getMatchScore(service)
     }))
-    .filter(item => item.score >= 30)
+    .filter(item => item.score >= 50)
     .sort((a, b) => b.score - a.score)
     .map(item => item.service);
 }
+
 
 // ==========================================
 // OTHER SERVICES: SUBCATEGORY CONTROLLER
