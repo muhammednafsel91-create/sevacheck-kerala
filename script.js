@@ -783,23 +783,45 @@ function getFilteredServices() {
     if (!matchesCategory) return false;
     if (!currentSearchQuery) return true;
 
-    const q = currentSearchQuery;
-    const nameEn = s.name?.en?.toLowerCase() || "";
-    const nameMl = s.name?.ml?.toLowerCase() || "";
-    const sumEn = s.summary?.en?.toLowerCase() || "";
-    const sumMl = s.summary?.ml?.toLowerCase() || "";
-    const id = s.id?.toLowerCase() || "";
-    const subCat = (s.subcategory || s.subCategory || "")?.toLowerCase();
+    
+    const q = normalizeSearchText(currentSearchQuery);
+    const qManglish = normalizeSearchText(transliterateMalayalam(currentSearchQuery))
+      .replace(/aa/g, "a")
+      .replace(/ee/g, "i")
+      .replace(/oo/g, "u");
+
+    const nameEn = normalizeSearchText(s.name?.en);
+    const nameMl = normalizeSearchText(s.name?.ml);
+    const nameMlRoman = normalizeSearchText(transliterateMalayalam(s.name?.ml))
+      .replace(/aa/g, "a")
+      .replace(/ee/g, "i")
+      .replace(/oo/g, "u");
+
+    const sumEn = normalizeSearchText(s.summary?.en);
+    const sumMl = normalizeSearchText(s.summary?.ml);
+    const sumMlRoman = normalizeSearchText(transliterateMalayalam(s.summary?.ml))
+      .replace(/aa/g, "a")
+      .replace(/ee/g, "i")
+      .replace(/oo/g, "u");
+
+    const id = normalizeSearchText(s.id);
+    const subCat = normalizeSearchText(s.subcategory || s.subCategory || "");
 
     return (
       nameEn.includes(q) ||
       nameMl.includes(q) ||
       sumEn.includes(q) ||
       sumMl.includes(q) ||
+      nameMlRoman.includes(q) ||
+      sumMlRoman.includes(q) ||
+      nameEn.includes(qManglish) ||
+      sumEn.includes(qManglish) ||
+      nameMlRoman.includes(qManglish) ||
+      sumMlRoman.includes(qManglish) ||
       id.includes(q) ||
       subCat.includes(q)
     );
-  });
+
 }
 
 // ==========================================
