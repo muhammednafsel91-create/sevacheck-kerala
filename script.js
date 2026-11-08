@@ -796,64 +796,6 @@ function searchTokenScore(queryToken, targetText) {
   return bestScore;
 }
 
-function getFilteredServices() {
-  const targetCategory = (currentCategory === "employment-welfare") ? "employment" : currentCategory;
-
-  return allServices.filter((s) => {
-    if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
-      return s.category === "other" && s.subcategory === currentSubcategory;
-    }
-
-    if (currentCategory === "education" && !currentSearchQuery) {
-      const isEdu = s.category === "education" || s.relatedCategory === "education" || s.secondaryCategory === "education";
-      if (!isEdu) return false;
-
-      if (currentChildSubcategory !== null) {
-        if (currentSubcategory === "universities") {
-          return s.subcategory === currentChildSubcategory;
-        }
-        if (currentSubcategory === "institutions") {
-          return s.subcategory === "institutions" && s.institutionCategory === currentChildSubcategory;
-        }
-        return s.subcategory === currentChildSubcategory;
-      }
-      if (currentSubcategory !== null) {
-        if (currentSubcategory === "universities") {
-          return s.subcategory === "universities" || (s.subcategory && s.subcategory.startsWith("univ-"));
-        }
-        if (currentSubcategory === "institutions") {
-          return s.subcategory === "institutions";
-        }
-        return s.subcategory === currentSubcategory;
-      }
-      // At Education root level: hide individual service cards beneath subcategory cards
-      return false;
-    }
-
-    const matchesCategory =
-      targetCategory === "all" ||
-      s.category === targetCategory ||
-      (s.relatedCategory && s.relatedCategory === targetCategory);
-
-    if (!matchesCategory) return false;
-    if (!currentSearchQuery) return true;
-
-    
-    const q = normalizeSearchText(currentSearchQuery);
-    const qManglish = normalizeSearchText(transliterateMalayalam(currentSearchQuery))
-      .replace(/aa/g, "a")
-      .replace(/ee/g, "i")
-      .replace(/oo/g, "u");
-
-    const nameEn = normalizeSearchText(s.name?.en);
-    const nameMl = normalizeSearchText(s.name?.ml);
-    const nameMlRoman = normalizeSearchText(transliterateMalayalam(s.name?.ml))
-      .replace(/aa/g, "a")
-      .replace(/ee/g, "i")
-      .replace(/oo/g, "u");
-
-    const sumEn = normalizeSearchText(s.summary?.en);
-    const sumMl = normalizeSearchText(s.summary?.ml);
 
 function getFilteredServices() {
   const targetCategory =
