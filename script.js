@@ -854,29 +854,147 @@ function getFilteredServices() {
 
     const sumEn = normalizeSearchText(s.summary?.en);
     const sumMl = normalizeSearchText(s.summary?.ml);
-    const sumMlRoman = normalizeSearchText(transliterateMalayalam(s.summary?.ml))
-      .replace(/aa/g, "a")
-      .replace(/ee/g, "i")
-      .replace(/oo/g, "u");
 
-    const id = normalizeSearchText(s.id);
-    const subCat = normalizeSearchText(s.subcategory || s.subCategory || "");
+function getFilteredServices() {
+  const targetCategory =
+    currentCategory === "employment-welfare"
+      ? "employment"
+      : currentCategory;
 
-    return (
-      nameEn.includes(q) ||
-      nameMl.includes(q) ||
-      sumEn.includes(q) ||
-      sumMl.includes(q) ||
-      nameMlRoman.includes(q) ||
-      sumMlRoman.includes(q) ||
-      nameEn.includes(qManglish) ||
-      sumEn.includes(qManglish) ||
-      nameMlRoman.includes(qManglish) ||
-      sumMlRoman.includes(qManglish) ||
-      id.includes(q) ||
-      subCat.includes(q)
-    );
-  }); 
+  const scopedServices = allServices.filter((s) => {
+    if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
+      return s.category === "other" && s.subcategory === currentSubcategory;
+    }
+
+    if (currentCategory === "education" && !currentSearchQuery) {
+      const isEdu =
+        s.category === "education" ||
+        s.relatedCategory === "education" ||
+        s.secondaryCategory === "education";
+
+      if (!isEdu) return false;
+
+      if (currentChildSubcategory !== null) {
+        if (currentSubcategory === "universities") {
+          return s.subcategory === currentChildSubcategory;
+        }
+        if (currentSubcategory === "institutions") {
+          return s.subcategory === "institutions" &&
+            s.institutionCategory === currentChildSubcategory;
+        }
+        return s.subcategory === currentChildSubcategory;
+      }
+
+      if (currentSubcategory !== null) {
+        if (currentSubcategory === "universities") {
+          return s.subcategory === "universities" ||
+            (s.subcategory && s.subcategory.startsWith("univ-"));
+        }
+        if (currentSubcategory === "institutions") {
+          return s.subcategory === "institutions";
+        }
+        return s.subcategory === currentSubcategory;
+      }
+
+      return false;
+    }
+
+    const matchesCategory =
+      targetCategory === "all" ||
+      s.category === targetCategory ||
+      s.relatedCategory === targetCategory;
+
+    return matchesCategory;
+  });
+
+  if (!currentSearchQuery) return scopedServices;
+
+  const queryVariants = [
+    normalizeSearchText(currentSearchQuery),
+    normalizeRomanSearch(transliterateMalayalam(currentSearchQuery)),
+    normalizeRomanSearch(currentSearchQuery)
+  ].filter((value, index, array) =>
+    value && array.indexOf(value) === index
+  );
+
+  function getMatchScore(service) {
+    const nameFields = [
+      normalizeSearchText(service.name?.en),
+      normalizeSearchText(service.name?.ml),
+      normalizeRomanSearch(transliterateMalayalam(service.name?.ml))
+    ];
+
+    const summaryFields = [
+      normalizeSearchText(service.summary?.en),
+      normalizeSearchText(service.summary?.ml),
+      normalizeRomanSearch(transliterateMalayalam(service.summary?.ml))
+    ];
+
+    const otherFields = [
+      normalizeSearchText(service.id),
+      normalizeSearchText(service.subcategory || service.subCategory || "")
+    ];
+
+    let bestTotal = 0;
+
+    for (const query of queryVariants) {
+      const tokens = query.split(/\s+/).filter(Boolean);
+      if (!tokens.length) continue;
+
+      let total = 0;
+      let allMatched = true;
+
+      for (const token of tokens) {
+        if (token.length < 2) {
+          allMatched = false;
+          break;
+        }
+
+        const nameScore = Math.max(
+          0,
+          ...nameFields.map(field => searchTokenScore(token, field))
+        );
+
+        const summaryScore = Math.max(
+          0,
+          ...summaryFields.map(field => searchTokenScore(token, field))
+        );
+
+        const otherScore = Math.max(
+          0,
+          ...otherFields.map(field => searchTokenScore(token, field))
+        );
+
+        const tokenScore = Math.max(
+          nameScore,
+          summaryScore * 0.55,
+          otherScore * 0.35
+        );
+
+        if (tokenScore === 0) {
+          allMatched = false;
+          break;
+        }
+
+        total += tokenScore;
+      }
+
+      if (allMatched) {
+        bestTotal = Math.max(bestTotal, total / tokens.length);
+      }
+    }
+
+    return bestTotal;
+  }
+
+  return scopedServices
+    .map(service => ({
+      service,
+      score: getMatchScore(service)
+    }))
+    .filter(item => item.score >= 30)
+    .sort((a, b) => b.score - a.score)
+    .map(item => item.service);
 }
 
 // ==========================================
