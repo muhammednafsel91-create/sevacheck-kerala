@@ -821,7 +821,7 @@ function getFilteredServices() {
       id.includes(q) ||
       subCat.includes(q)
     );
-
+  }); 
 }
 
 // ==========================================
