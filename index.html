@@ -158,6 +158,7 @@
               placeholder="Search a Government service... (e.g., Income, Driving Licence)"
               data-i18n-placeholder="searchPlaceholder"
               onkeyup="handleSearch()"
+              onkeydown="if(event.key === 'Enter'){event.preventDefault();handleSearch();this.blur();}"
               autocomplete="off"
             >
           </div>
