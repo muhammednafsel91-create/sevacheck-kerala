@@ -625,51 +625,26 @@ function filterCategory(category, buttonEl) {
     renderServices();
   }
 
-  requestAnimationFrame(() => {
-  const header = document.querySelector(".site-header");
+    requestAnimationFrame(() => {
+    const header = document.querySelector(".site-header");
+    const categorySection = document.querySelector(".category-section");
 
-  const cards = document.querySelectorAll(
-    "#serviceGrid .service-card, #subcategoryContainer .subcategory-card"
-  );
+    if (!categorySection) return;
 
-  const firstCard = Array.from(cards).find((card) => {
-    return card.getClientRects().length > 0;
+    const headerHeight = header
+      ? header.getBoundingClientRect().height
+      : 0;
+
+    const targetPosition =
+      window.scrollY +
+      categorySection.getBoundingClientRect().top -
+      headerHeight - 8;
+
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: "smooth"
+    });
   });
-
-  const emptyState = document.getElementById("emptyState");
-
-  const target = firstCard ||
-    (emptyState && emptyState.getClientRects().length > 0
-      ? emptyState
-      : null);
-
-  if (!target) return;
-
-  const headerHeight = header
-    ? header.getBoundingClientRect().height
-    : 0;
-
-  const cardRect = target.getBoundingClientRect();
-
-  const visibleTop = headerHeight + 8;
-  const visibleBottom = window.innerHeight - 8;
-
-  const cardFullyVisible =
-    cardRect.top >= visibleTop &&
-    cardRect.bottom <= visibleBottom;
-
-  if (cardFullyVisible) return;
-
-  const targetPosition =
-    window.scrollY +
-    cardRect.top -
-    visibleTop;
-
-  window.scrollTo({
-    top: Math.max(0, targetPosition),
-    behavior: "smooth"
-  });
-});
 }
 
 
