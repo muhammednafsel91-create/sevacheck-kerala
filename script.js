@@ -218,6 +218,174 @@ function getCategoryName(categoryKey, lang = currentLang) {
 
   return categoryNames[lang]?.[categoryKey] || categoryKey;
 }
+// ==========================================
+// SPONSOR ADS — COMMON RENDERING FUNCTION
+// ==========================================
+
+function renderSponsorAd(placementKey, containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const placement = placementKey
+    .split(".")
+    .reduce((value, key) => value?.[key], window.SPONSOR_ADS?.placements);
+
+  const imagePath = typeof placement?.image === "string"
+    ? placement.image
+    : "";
+
+  const validImage = /^assets\/sponsor\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp|gif)$/i.test(imagePath);
+
+  const sponsorLink = typeof placement?.link === "string" &&
+    /^https?:\/\//i.test(placement.link)
+      ? placement.link
+      : "";
+
+  // SHOW SPONSOR IMAGE
+  if (validImage) {
+    const imageHtml = `
+      <img
+        src="${escapeHtml(imagePath)}"
+        alt="Sponsor advertisement"
+        loading="lazy"
+      >
+    `;
+
+    container.innerHTML = sponsorLink
+      ? `<a class="sponsor-banner" href="${escapeHtml(sponsorLink)}" target="_blank" rel="noopener noreferrer">${imageHtml}</a>`
+      : `<div class="sponsor-banner">${imageHtml}</div>`;
+
+    return;
+  }
+
+  // SHOW PROMOTION FALLBACK
+  const email = window.SPONSOR_ADS?.contactEmail || "support@sevacheck.org";
+  const subject = window.SPONSOR_ADS?.contactSubject || "SevaCheck Kerala Promotion Enquiry";
+  const contactUrl = `mailto:${encodeURIComponent(email)}?subject=${encodeURIComponent(subject)}`;
+
+  const isMalayalam = currentLang === "ml";
+
+  container.innerHTML = `
+    <div class="sponsor-fallback-banner">
+
+      <div class="sponsor-fallback-content">
+
+        <span class="sponsor-label">SPONSOR ADS</span>
+
+        <h3>
+          ${isMalayalam
+            ? "നിങ്ങളുടെ ബിസിനസ് പ്രമോട്ട് ചെയ്യാം"
+            : "Promote Your Business"}
+        </h3>
+
+        <p>
+          ${isMalayalam
+            ? "SevaCheck Kerala വഴി കേരളത്തിലുടനീളമുള്ള കൂടുതൽ ആളുകളിലേക്ക് എത്താം."
+            : "Reach more people across Kerala with SevaCheck Kerala."}
+        </p>
+
+      </div>
+
+      <a
+        href="${contactUrl}"
+        class="sponsor-contact-link"
+      >
+        ${isMalayalam
+          ? "SPONSOR AD സൃഷ്ടിക്കുക →"
+          : "CREATE YOUR SPONSOR AD →"}
+      </a>
+
+    </div>
+  `;
+}
+// ==========================================
+// CATEGORY SPONSOR AD
+// ==========================================
+
+
+
+function updateCategorySponsorAd() {
+  const section = document.getElementById("sponsorCategorySection");
+  const homeSection = document.getElementById("sponsorSection");
+
+  if (currentSearchQuery) {
+    if (section) section.style.display = "none";
+    if (homeSection) homeSection.style.display = "none";
+    return;
+  }
+
+  if (currentCategory === "all") {
+    if (homeSection) homeSection.style.display = "block";
+    if (section) section.style.display = "none";
+    renderSponsorAd("homepage", "sponsorHomeAd");
+    return;
+  }
+
+  if (homeSection) homeSection.style.display = "none";
+
+  if (!section) return;
+
+  const categoryMap = {
+    documents: "categories.documents",
+    id: "categories.id",
+    government: "categories.government",
+    education: "categories.education",
+    travel: "categories.travel",
+    police: "categories.police",
+    employment: "categories.employment",
+    norka: "categories.norka",
+    other: currentSubcategory
+      ? `categories.other.subcategories.${currentSubcategory}`
+      : "categories.other.primary"
+  };
+
+  const placementKey = categoryMap[currentCategory];
+
+  if (!placementKey) {
+    section.style.display = "none";
+    return;
+  }
+
+  section.style.display = "block";
+  renderSponsorAd(placementKey, "sponsorCategoryAd");
+}
+// Search Focus Mode for Mobile & Tablet
+
+// Search Focus Mode for Mobile & Tablet
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("searchInput");
+
+  if (!searchInput) return;
+
+  const viewport = window.visualViewport;
+  let initialHeight = viewport ? viewport.height : window.innerHeight;
+
+  function updateSearchFocusMode() {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    const isSearchFocused = document.activeElement === searchInput;
+    const currentHeight = viewport ? viewport.height : window.innerHeight;
+    const keyboardIsOpen = initialHeight - currentHeight > 120;
+
+    document.body.classList.toggle(
+      "search-focus-mode",
+      isTouchDevice && isSearchFocused && keyboardIsOpen
+    );
+  }
+
+  searchInput.addEventListener("focus", updateSearchFocusMode);
+  searchInput.addEventListener("blur", updateSearchFocusMode);
+
+  if (viewport) {
+    viewport.addEventListener("resize", updateSearchFocusMode);
+  }
+
+  window.addEventListener("resize", function () {
+    if (document.activeElement !== searchInput) {
+      initialHeight = viewport ? viewport.height : window.innerHeight;
+    }
+    updateSearchFocusMode();
+  });
+});
 
 // Initialise Application
 document.addEventListener("DOMContentLoaded", function () {
@@ -243,8 +411,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initial Language Render
-  updateLanguageUI();
-  renderServices();
+    renderServices();
+  renderSponsorAd("homepage", "sponsorHomeAd");
 
   // Handle Clean URL Routing on Startup (Direct URL or 404.html Redirect via sessionStorage)
   handleInitialRouting();
@@ -272,6 +440,26 @@ function navigateTo(viewName, updateHistory = true) {
   if (activeNav) activeNav.classList.add("active");
 
   if (viewName === "home" || viewName === "services") {
+        currentCategory = "all";
+    currentSubcategory = null;
+    currentChildSubcategory = null;
+    currentSearchQuery = "";
+
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) searchInput.value = "";
+
+    const subcatContainer = document.getElementById("subcategoryContainer");
+    const serviceGrid = document.getElementById("serviceGrid");
+
+    if (subcatContainer) subcatContainer.style.display = "none";
+    if (serviceGrid) serviceGrid.style.display = "grid";
+
+    document.querySelectorAll(".helper-chip").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.category === "all");
+    });
+
+    updateCategorySponsorAd();
+    renderServices();
     document.getElementById("view-home").style.display = "block";
     const navServices = document.getElementById("nav-services");
     const navHome = document.getElementById("nav-home");
@@ -291,7 +479,8 @@ function navigateTo(viewName, updateHistory = true) {
       history.pushState(null, "", `/${viewName}`);
     }
   }
-
+const headerMenu = document.querySelector(".header-menu");
+if (headerMenu) headerMenu.removeAttribute("open");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -376,7 +565,8 @@ function setLanguage(lang) {
   if (btnMl) btnMl.classList.toggle("active", lang === "ml");
 
   updateLanguageUI();
-
+  renderSponsorAd("homepage", "sponsorHomeAd");
+  
   if (currentView === "detail" && activeService) {
     showServiceDetail(activeService.id, false);
   } else {
@@ -413,11 +603,12 @@ function updateLanguageUI() {
 // FILTERING & SEARCH
 // ==========================================
 
+
 function filterCategory(category, buttonEl) {
   currentCategory = category;
   currentSubcategory = null;
   currentChildSubcategory = null;
-
+  updateCategorySponsorAd();
   document.querySelectorAll(".helper-chip").forEach((btn) => btn.classList.remove("active"));
   if (buttonEl) buttonEl.classList.add("active");
 
@@ -433,7 +624,29 @@ function filterCategory(category, buttonEl) {
     if (grid) grid.style.display = "grid";
     renderServices();
   }
+
+    requestAnimationFrame(() => {
+    const header = document.querySelector(".site-header");
+    const categorySection = document.querySelector(".category-section");
+
+    if (!categorySection) return;
+
+    const headerHeight = header
+      ? header.getBoundingClientRect().height
+      : 0;
+
+    const targetPosition =
+      window.scrollY +
+      categorySection.getBoundingClientRect().top -
+      headerHeight - 8;
+
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: "smooth"
+    });
+  });
 }
+
 
 function handleSearch() {
   const input = document.getElementById("searchInput");
@@ -441,7 +654,7 @@ function handleSearch() {
 
   const subcatContainer = document.getElementById("subcategoryContainer");
   const grid = document.getElementById("serviceGrid");
-
+  updateCategorySponsorAd();
   if (currentSearchQuery) {
     if (subcatContainer) subcatContainer.style.display = "none";
     if (grid) grid.style.display = "grid";
@@ -458,67 +671,311 @@ function handleSearch() {
     }
   }
 }
+// Manglish Search Helper
+function normalizeSearchText(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+
+function transliterateMalayalam(text) {
+  const vowels = {
+    "അ": "a", "ആ": "aa", "ഇ": "i", "ഈ": "ee",
+    "ഉ": "u", "ഊ": "oo", "ഋ": "ri", "എ": "e",
+    "ഏ": "e", "ഐ": "ai", "ഒ": "o", "ഓ": "oo",
+    "ഔ": "au"
+  };
+
+  const consonants = {
+    "ക": "k", "ഖ": "kh", "ഗ": "g", "ഘ": "gh", "ങ": "ng",
+    "ച": "ch", "ഛ": "chh", "ജ": "j", "ഝ": "jh", "ഞ": "nj",
+    "ട": "t", "ഠ": "th", "ഡ": "d", "ഢ": "dh", "ണ": "n",
+    "ത": "th", "ഥ": "th", "ദ": "d", "ധ": "dh", "ന": "n",
+    "പ": "p", "ഫ": "ph", "ബ": "b", "ഭ": "bh", "മ": "m",
+    "യ": "y", "ര": "r", "ല": "l", "വ": "v", "ശ": "sh",
+    "ഷ": "sh", "സ": "s", "ഹ": "h", "ള": "l", "ഴ": "zh", "റ": "r"
+  };
+
+  const signs = {
+    "ാ": "aa", "ി": "i", "ീ": "ee", "ു": "u", "ൂ": "oo",
+    "ൃ": "ri", "െ": "e", "േ": "e", "ൈ": "ai",
+    "ൊ": "o", "ോ": "oo", "ൌ": "au"
+  };
+
+  const chillus = {
+    "ൺ": "n", "ൻ": "n", "ർ": "r",
+    "ൽ": "l", "ൾ": "l", "ൿ": "k"
+  };
+
+  const chars = Array.from(String(text || ""));
+  let result = "";
+
+  for (let i = 0; i < chars.length; i++) {
+    const char = chars[i];
+
+    if (consonants[char]) {
+      result += consonants[char];
+
+      if (chars[i + 1] === "്") {
+        i++;
+      } else if (signs[chars[i + 1]]) {
+        result += signs[chars[++i]];
+      } else {
+        result += "a";
+      }
+    } else if (vowels[char]) {
+      result += vowels[char];
+    } else if (chillus[char]) {
+      result += chillus[char];
+    } else if (char === "ം") {
+      result += "m";
+    } else if (char === "ഃ") {
+      result += "h";
+    } else {
+      result += char;
+    }
+  }
+
+  return result;
+}
+
+function searchEditDistance(a, b) {
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= a.length; i++) {
+    let previous = row[0];
+    row[0] = i;
+
+    for (let j = 1; j <= b.length; j++) {
+      const current = row[j];
+      row[j] = Math.min(
+        row[j] + 1,
+        row[j - 1] + 1,
+        previous + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+      previous = current;
+    }
+  }
+
+  return row[b.length];
+}
+
+function normalizeRomanSearch(text) {
+  return normalizeSearchText(text)
+    .replace(/aa/g, "a")
+    .replace(/ee/g, "i")
+    .replace(/oo/g, "u");
+}
+
+function flattenSearchValue(value) {
+  if (typeof value === "string") return value;
+  if (Array.isArray(value)) {
+    return value.map(flattenSearchValue).join(" ");
+  }
+  if (value && typeof value === "object") {
+    return Object.values(value).map(flattenSearchValue).join(" ");
+  }
+  return "";
+}
+
+function scoreSearchToken(queryToken, targetTokens) {
+  if (queryToken.length < 2) return 0;
+
+  let bestScore = 0;
+
+  for (const token of targetTokens) {
+    if (token === queryToken) {
+      bestScore = Math.max(bestScore, 100);
+      continue;
+    }
+
+    if (token.startsWith(queryToken) && queryToken.length >= 2) {
+      bestScore = Math.max(bestScore, 88);
+      continue;
+    }
+
+    if (queryToken.length >= 4) {
+      const distance = searchEditDistance(queryToken, token);
+      const maxDistance = queryToken.length >= 7 ? 2 : 1;
+
+      if (distance > 0 && distance <= maxDistance) {
+        bestScore = Math.max(
+          bestScore,
+          distance === 1 ? 72 : 60
+        );
+      }
+    }
+  }
+
+  return bestScore;
+}
+
+function scoreSearchField(queryTokens, fieldText) {
+  const targetTokens = normalizeSearchText(fieldText)
+    .split(/\s+/)
+    .filter(Boolean);
+
+  if (!targetTokens.length) return 0;
+
+  let total = 0;
+
+  for (const queryToken of queryTokens) {
+    const score = scoreSearchToken(queryToken, targetTokens);
+
+    if (score === 0) return 0;
+
+    total += score;
+  }
+
+  return total / queryTokens.length;
+}
 
 function getFilteredServices() {
-  const targetCategory = (currentCategory === "employment-welfare") ? "employment" : currentCategory;
+  const targetCategory =
+    currentCategory === "employment-welfare"
+      ? "employment"
+      : currentCategory;
 
-  return allServices.filter((s) => {
-    if (currentCategory === "other" && currentSubcategory !== null && !currentSearchQuery) {
-      return s.category === "other" && s.subcategory === currentSubcategory;
+  const scopedServices = allServices.filter((s) => {
+    if (
+      currentCategory === "other" &&
+      currentSubcategory !== null &&
+      !currentSearchQuery
+    ) {
+      return (
+        s.category === "other" &&
+        s.subcategory === currentSubcategory
+      );
     }
 
     if (currentCategory === "education" && !currentSearchQuery) {
-      const isEdu = s.category === "education" || s.relatedCategory === "education" || s.secondaryCategory === "education";
+      const isEdu =
+        s.category === "education" ||
+        s.relatedCategory === "education" ||
+        s.secondaryCategory === "education";
+
       if (!isEdu) return false;
 
       if (currentChildSubcategory !== null) {
         if (currentSubcategory === "universities") {
           return s.subcategory === currentChildSubcategory;
         }
+
         if (currentSubcategory === "institutions") {
-          return s.subcategory === "institutions" && s.institutionCategory === currentChildSubcategory;
+          return (
+            s.subcategory === "institutions" &&
+            s.institutionCategory === currentChildSubcategory
+          );
         }
+
         return s.subcategory === currentChildSubcategory;
       }
+
       if (currentSubcategory !== null) {
         if (currentSubcategory === "universities") {
-          return s.subcategory === "universities" || (s.subcategory && s.subcategory.startsWith("univ-"));
+          return (
+            s.subcategory === "universities" ||
+            (s.subcategory && s.subcategory.startsWith("univ-"))
+          );
         }
+
         if (currentSubcategory === "institutions") {
           return s.subcategory === "institutions";
         }
+
         return s.subcategory === currentSubcategory;
       }
-      // At Education root level: hide individual service cards beneath subcategory cards
+
       return false;
     }
 
-    const matchesCategory =
+    return (
       targetCategory === "all" ||
       s.category === targetCategory ||
-      (s.relatedCategory && s.relatedCategory === targetCategory);
-
-    if (!matchesCategory) return false;
-    if (!currentSearchQuery) return true;
-
-    const q = currentSearchQuery;
-    const nameEn = s.name?.en?.toLowerCase() || "";
-    const nameMl = s.name?.ml?.toLowerCase() || "";
-    const sumEn = s.summary?.en?.toLowerCase() || "";
-    const sumMl = s.summary?.ml?.toLowerCase() || "";
-    const id = s.id?.toLowerCase() || "";
-    const subCat = (s.subcategory || s.subCategory || "")?.toLowerCase();
-
-    return (
-      nameEn.includes(q) ||
-      nameMl.includes(q) ||
-      sumEn.includes(q) ||
-      sumMl.includes(q) ||
-      id.includes(q) ||
-      subCat.includes(q)
+      s.relatedCategory === targetCategory ||
+      s.secondaryCategory === targetCategory
     );
   });
+
+  if (!currentSearchQuery) return scopedServices;
+
+  const queryVariants = [
+    normalizeSearchText(currentSearchQuery),
+    normalizeRomanSearch(transliterateMalayalam(currentSearchQuery)),
+    normalizeRomanSearch(currentSearchQuery)
+  ].filter((value, index, array) =>
+    value && array.indexOf(value) === index
+  );
+
+  function getMatchScore(service) {
+    const nameText = flattenSearchValue(service.name);
+
+    const summaryText = [
+      service.summary,
+      service.description
+    ].map(flattenSearchValue).join(" ");
+
+    const detailsText = [
+      service.id,
+      service.subcategory,
+      service.subCategory,
+      service.institutionCategory,
+      service.whoNeeds,
+      service.eligibility,
+      service.documents,
+      service.additionalDocs,
+      service.whereToApply,
+      service.howToApply,
+      service.mode,
+      service.steps,
+      service.fees,
+      service.validity,
+      service.notes,
+      service.importantNotes,
+      service.institutionServices,
+      service.en,
+      service.ml
+    ].map(flattenSearchValue).join(" ");
+
+    let bestScore = 0;
+
+    for (const query of queryVariants) {
+      const queryTokens = query.split(/\s+/).filter(Boolean);
+
+      if (!queryTokens.length) continue;
+      if (queryTokens.some(token => token.length < 2)) continue;
+
+      const nameScore = scoreSearchField(queryTokens, nameText);
+
+      const summaryScore =
+        scoreSearchField(queryTokens, summaryText) * 0.78;
+
+      const detailsScore =
+        scoreSearchField(queryTokens, detailsText) * 0.68;
+
+      bestScore = Math.max(
+        bestScore,
+        nameScore,
+        summaryScore,
+        detailsScore
+      );
+    }
+
+    return bestScore;
+  }
+
+  return scopedServices
+    .map(service => ({
+      service,
+      score: getMatchScore(service)
+    }))
+    .filter(item => item.score >= 50)
+    .sort((a, b) => b.score - a.score)
+    .map(item => item.service);
 }
+
 
 // ==========================================
 // OTHER SERVICES: SUBCATEGORY CONTROLLER
@@ -544,10 +1001,16 @@ function renderSubcategories() {
   if (!subcatContainer) return;
   subcatContainer.style.display = "grid";
 
+    const inFeedEvery = Math.max(
+    1,
+    Number(window.SPONSOR_ADS?.placements?.categories?.other?.inFeedEvery) || 4
+  );
+
   subcatContainer.innerHTML = subcategoryMetadata
-    .map((sub) => {
+    .map((sub, index) => {
       const title = sub.name[currentLang] || sub.name.en;
-      return `
+
+      const cardHtml = `
         <div class="subcategory-card" onclick="selectSubcategory('${sub.slug}')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectSubcategory('${sub.slug}')">
           <div class="subcategory-card-icon">${sub.icon}</div>
           <div class="subcategory-card-content">
@@ -556,12 +1019,34 @@ function renderSubcategories() {
           </div>
         </div>
       `;
+
+      const isAdPosition =
+        (index + 1) % inFeedEvery === 0 &&
+        index < subcategoryMetadata.length - 1;
+
+      const adIndex = Math.floor((index + 1) / inFeedEvery) - 1;
+
+      const adHtml = isAdPosition
+        ? `<div class="subcategory-sponsor-slot" id="sponsorOtherSubcategoryInFeed${adIndex}"></div>`
+        : "";
+
+      return cardHtml + adHtml;
     })
     .join("");
+
+  const adCount = Math.floor((subcategoryMetadata.length - 1) / inFeedEvery);
+
+  for (let i = 0; i < adCount; i++) {
+    renderSponsorAd(
+      `categories.other.inFeed.${i}`,
+      `sponsorOtherSubcategoryInFeed${i}`
+    );
+  }
 }
 
 function selectSubcategory(slug) {
   currentSubcategory = slug;
+  updateCategorySponsorAd();
   const subcatContainer = document.getElementById("subcategoryContainer");
   const grid = document.getElementById("serviceGrid");
 
@@ -573,6 +1058,7 @@ function selectSubcategory(slug) {
 
 function resetSubcategory() {
   currentSubcategory = null;
+    updateCategorySponsorAd();
   renderSubcategories();
 }
 
