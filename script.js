@@ -779,11 +779,13 @@ function searchTokenScore(queryToken, targetText) {
       continue;
     }
 
-    if (token.includes(queryToken) || queryToken.includes(token)) {
+    // Partial match: query must be part of the target word
+    if (token.includes(queryToken)) {
       bestScore = Math.max(bestScore, 85);
       continue;
     }
 
+    // Allow small spelling mistakes
     const distance = searchEditDistance(queryToken, token);
     const maxDistance = queryToken.length >= 7 ? 2 : 1;
 
@@ -795,7 +797,6 @@ function searchTokenScore(queryToken, targetText) {
 
   return bestScore;
 }
-
 
 function getFilteredServices() {
   const targetCategory =
