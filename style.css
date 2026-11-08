@@ -1798,11 +1798,14 @@ body.search-focus-mode .hero {
   align-items: flex-start;
 }
 
+
 body.search-focus-mode .hero .hero-text,
 body.search-focus-mode .hero .category-section,
-body.search-focus-mode #sponsorSection {
+body.search-focus-mode #sponsorSection,
+body.search-focus-mode #sponsorCategorySection {
   display: none !important;
 }
+
 
 body.search-focus-mode .hero-content {
   max-width: 100%;
