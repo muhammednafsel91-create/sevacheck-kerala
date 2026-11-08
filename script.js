@@ -310,8 +310,7 @@ function updateCategorySponsorAd() {
 
   if (currentSearchQuery) {
     if (section) section.style.display = "none";
-    if (homeSection) homeSection.style.display = "block";
-    renderSponsorAd("search", "sponsorHomeAd");
+    if (homeSection) homeSection.style.display = "none";
     return;
   }
 
