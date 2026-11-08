@@ -741,6 +741,61 @@ function transliterateMalayalam(text) {
   return result;
 }
 
+function searchEditDistance(a, b) {
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= a.length; i++) {
+    let previous = row[0];
+    row[0] = i;
+
+    for (let j = 1; j <= b.length; j++) {
+      const current = row[j];
+      row[j] = Math.min(
+        row[j] + 1,
+        row[j - 1] + 1,
+        previous + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+      previous = current;
+    }
+  }
+
+  return row[b.length];
+}
+
+function normalizeRomanSearch(text) {
+  return normalizeSearchText(text)
+    .replace(/aa/g, "a")
+    .replace(/ee/g, "i")
+    .replace(/oo/g, "u");
+}
+
+function searchTokenScore(queryToken, targetText) {
+  const targetTokens = targetText.split(/\s+/).filter(Boolean);
+  let bestScore = 0;
+
+  for (const token of targetTokens) {
+    if (token === queryToken) {
+      bestScore = Math.max(bestScore, 100);
+      continue;
+    }
+
+    if (token.includes(queryToken) || queryToken.includes(token)) {
+      bestScore = Math.max(bestScore, 85);
+      continue;
+    }
+
+    const distance = searchEditDistance(queryToken, token);
+    const maxDistance = queryToken.length >= 7 ? 2 : 1;
+
+    if (distance <= maxDistance) {
+      const score = 80 - distance * 15;
+      bestScore = Math.max(bestScore, score);
+    }
+  }
+
+  return bestScore;
+}
+
 function getFilteredServices() {
   const targetCategory = (currentCategory === "employment-welfare") ? "employment" : currentCategory;
 
