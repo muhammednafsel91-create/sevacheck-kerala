@@ -671,7 +671,34 @@ function handleSearch() {
     }
   }
 }
+// Manglish Search Helper
+function normalizeSearchText(text) {
+  return String(text || "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
 
+function transliterateMalayalam(text) {
+  const map = {
+    "അ":"a","ആ":"aa","ഇ":"i","ഈ":"ee","ഉ":"u","ഊ":"oo",
+    "ഋ":"ri","എ":"e","ഏ":"e","ഐ":"ai","ഒ":"o","ഓ":"o","ഔ":"au",
+    "ക":"k","ഖ":"kh","ഗ":"g","ഘ":"gh","ങ":"ng",
+    "ച":"ch","ഛ":"chh","ജ":"j","ഝ":"jh","ഞ":"nj",
+    "ട":"t","ഠ":"th","ഡ":"d","ഢ":"dh","ണ":"n",
+    "ത":"th","ഥ":"th","ദ":"d","ധ":"dh","ന":"n",
+    "പ":"p","ഫ":"ph","ബ":"b","ഭ":"bh","മ":"m",
+    "യ":"y","ര":"r","ല":"l","വ":"v","ശ":"sh",
+    "ഷ":"sh","സ":"s","ഹ":"h","ള":"l","ഴ":"zh","റ":"r",
+    "ാ":"a","ി":"i","ീ":"ee","ു":"u","ൂ":"oo",
+    "ൃ":"ri","െ":"e","േ":"e","ൈ":"ai","ൊ":"o",
+    "ോ":"o","ൗ":"au","്":"","ം":"m","ഃ":"h",
+    "ൺ":"n","ൻ":"n","ർ":"r","ൽ":"l","ൾ":"l","ൿ":"k",
+    "്യ":"ya","്ര":"ra"
+  };
+
+  return Array.from(text || "").map(char => map[char] ?? char).join("");
+}
 function getFilteredServices() {
   const targetCategory = (currentCategory === "employment-welfare") ? "employment" : currentCategory;
 
