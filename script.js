@@ -236,10 +236,13 @@ function renderSponsorAd(placementKey, containerId) {
 
   const validImage = /^assets\/sponsor\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp|gif)$/i.test(imagePath);
 
-  const sponsorLink = typeof placement?.link === "string" &&
-    /^https?:\/\//i.test(placement.link)
+    const sponsorLink = typeof placement?.link === "string" &&
+    (/^https?:\/\//i.test(placement.link) ||
+      /^mailto:[^\s?]+(?:\?subject=[^\s]*)?$/i.test(placement.link))
       ? placement.link
       : "";
+
+  const isEmailLink = /^mailto:/i.test(sponsorLink);
 
   // SHOW SPONSOR IMAGE
   if (validImage) {
