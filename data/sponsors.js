@@ -7,7 +7,10 @@ window.SPONSOR_ADS = {
   contactSubject: "SevaCheck Kerala Promotion Enquiry",
 
   placements: {
-    homepage: null,
+        homepage: {
+      image: "assets/sponsor/homepage-main.jpg",
+      link: "mailto:support@sevacheck.org?subject=SevaCheck%20Kerala%20Promotion%20Enquiry"
+    },
 
     categories: {
       documents: null,
