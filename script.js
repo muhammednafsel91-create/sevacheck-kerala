@@ -254,8 +254,8 @@ function renderSponsorAd(placementKey, containerId) {
       >
     `;
 
-    container.innerHTML = sponsorLink
-      ? `<a class="sponsor-banner" href="${escapeHtml(sponsorLink)}" target="_blank" rel="noopener noreferrer">${imageHtml}</a>`
+        container.innerHTML = sponsorLink
+      ? `<a class="sponsor-banner" href="${escapeHtml(sponsorLink)}"${isEmailLink ? "" : ' target="_blank" rel="noopener noreferrer"'}>${imageHtml}</a>`
       : `<div class="sponsor-banner">${imageHtml}</div>`;
 
     return;
