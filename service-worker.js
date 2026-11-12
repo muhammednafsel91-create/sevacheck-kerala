@@ -10,7 +10,7 @@ const APP_FILES = [
   "/assets/pwa-app-icons/192.png",
   "/assets/pwa-app-icons/512.png",
   "/assets/pwa-app-icons/icon-maskable-512.png",
-  "/apple-touch-icon.png"
+  "/assets/pwa-app-icons/apple-touch-icon.png"
 ];
 
 // Install: cache the essential app files
